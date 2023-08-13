@@ -7,8 +7,23 @@
 
 .form {
   margin-top: 20px;
-  
+  display: flex;
   width: 350px;
+  flex-direction: column;
+}
+
+.form__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form__input {
+  width: 100px;
+}
+
+.submit {
+  margin-top: 20px;
 }
 
 .lable {
