@@ -4,9 +4,7 @@ import danger from './untils/danger';
 import prof from './untils/prof';
 import dangerEvent from './untils/dangerousEvent';
 import Select from 'react-select';
-import * as Excel from "exceljs/dist/exceljs.min.js";
-import * as ExcelProper from "exceljs";
-import { saveAs } from 'file-saver';
+import * as Excel from 'exceljs/dist/exceljs.min.js';
 import { useEffect, useState } from 'react';
 function App() {
   const [isDangerGroup, setDangerGroup] = useState({});
@@ -15,41 +13,59 @@ function App() {
   const [isDangerEventArr, setDangerEventArr] = useState([]);
   const [isArr, setArr] = useState([]);
   const [disabled, setDisabled] = useState(true);
-  const [value, setValue] = useState({
-    danger: isDangerGroup.label,
-    dangerGroup: isDanger.label,
-    dangerEvent: isDangerEvent.label,
-  });
-  const [formValue, setFormValue] = useState([]);
-  const [ipr, setIpr] = useState(0);
-  const [probability, setProbability] = useState(0);
-  const [count, setCount] = useState(0);
-  const [risk, setRisk] = useState('');
-  //var Excel = require('exceljs');
+  const [value, setValue] = useState({});
+  const [formValue, setFormValue] = useState([]); // массив для записи в таблицу
+  const [ipr, setIpr] = useState(0); // ИПР
+  const [probability, setProbability] = useState(0); // Тяжесть
+  const [risk, setRisk] = useState(''); // уровень риска
+  const [acceptability, setAcceptability] = useState(''); // приемлемость
+  const [riskAttitude, setRiskAttitude] = useState(''); // отношение к риску
+  const [heaviness, setHeaviness] = useState(0); // вероятность
+
   useEffect(() => {
-    setCount(probability * ipr);
-    if (count === 0) {
+    setIpr(probability * heaviness);
+    if (ipr === 0) {
       setRisk('Ошибка');
-    } else if (count <= 2) {
+      setAcceptability('Ошибка');
+      setRiskAttitude('Ошибка');
+    } else if (ipr <= 2) {
       setRisk('Незначительный');
-    } else if (count <= 6) {
+      setAcceptability('Приемлемый');
+      setRiskAttitude('Меры не требуются');
+    } else if (ipr <= 6) {
       setRisk('Низкий');
-    } else if (count <= 12) {
+      setAcceptability('Приемлемый');
+      setRiskAttitude('Необходимо уделить внимание');
+    } else if (ipr <= 12) {
+      setAcceptability('Допустимый');
       setRisk('Средний');
-    } else if (count <= 16) {
+      setRiskAttitude(
+        'Требуются меры по снижению уровня риска в установленные сроки'
+      );
+    } else if (ipr <= 16) {
+      setAcceptability('Неприемлемый');
       setRisk('Высокий');
-    } else if (count > 19) {
+      setRiskAttitude('Требуются неотложные меры, усовершенствования');
+    } else if (ipr > 19) {
+      setAcceptability('Неприемлемый');
       setRisk('Критический');
+      setRiskAttitude('Немедленное прекращение деятельности');
     }
-  }, [count, ipr, probability]);
+  }, [ipr, heaviness, probability]);
 
   useEffect(() => {
     setValue({
       danger: isDangerGroup.label,
       dangerGroup: isDanger.label,
       dangerEvent: isDangerEvent.label,
+      probability: probability,
+      heaviness: heaviness,
+      ipr: ipr,
+      riskAttitude: riskAttitude,
+      risk: risk,
+      acceptability: acceptability,
     });
-  }, [isDanger, isDangerEvent, isDangerGroup]);
+  }, [acceptability, heaviness, ipr, isDanger, isDangerEvent, isDangerGroup, probability, risk, riskAttitude]);
 
   useEffect(() => {
     if (isDangerGroup) {
@@ -78,20 +94,28 @@ function App() {
   };
   var FileSaver = require('file-saver');
   const table = () => {
-      const workbook = new Excel.Workbook();
-      const sheet = workbook.addWorksheet('sds');
-      sheet.columns = [
-        { header: 'Группа опасности', key: 'dangerGroup', width: 32 },
-        { header: 'Опасности', key: 'danger', width: 32 },
-        { header: 'Опасное событие.', key: 'dangerEvent', width: 32 }
-      ];
-      sheet.addRow(formValue)
-      return workbook.xlsx.writeBuffer()
-      .then(buffer => FileSaver.saveAs(new Blob([buffer]), `${Date.now()}_feedback.xlsx`))
-      .catch(err => console.log('Error writing excel export', err))
-
+    const workbook = new Excel.Workbook();
+    const sheet = workbook.addWorksheet('sds');
+    sheet.columns = [
+      { header: 'Группа опасности', key: 'danger', width: 32 },
+      { header: 'Опасности', key: 'dangerGroup', width: 32 },
+      { header: 'Опасное событие.', key: 'dangerEvent', width: 32 },
+      { header: 'Тяжесть', key: 'probability', width: 32 },
+      { header: 'Вероятность', key: 'heaviness', width: 32 },
+      { header: 'ИПР', key: 'ipr', width: 32 },
+      { header: 'Уровень риска', key: 'risk', width: 32 },
+      { header: 'Приемлемость', key: 'acceptability', width: 32 },
+      { header: 'Отношение к риску', key: 'riskAttitude', width: 20 },
+    ];
+    formValue.forEach((item) => sheet.addRow(item));
+    return workbook.xlsx
+      .writeBuffer()
+      .then((buffer) =>
+        FileSaver.saveAs(new Blob([buffer]), `${Date.now()}_feedback.xlsx`)
+      )
+      .catch((err) => console.log('Error writing excel export', err));
   };
-console.log(formValue)
+  console.log(formValue);
   return (
     <div className='App'>
       <main className='main'>
@@ -127,20 +151,21 @@ console.log(formValue)
           </label>
           <div className='form__container'>
             <input
-              type='number'
               className='form__input'
-              placeholder='Вероятность'
+              placeholder='Тяжесть'
               onChange={(evt) => setProbability(evt.target.value)}
+              required
             ></input>
             <input
-              type='number'
               className='form__input'
-              placeholder='ИПР'
-              onChange={(evt) => setIpr(evt.target.value)}
+              placeholder='Вероятность'
+              onChange={(evt) => setHeaviness(evt.target.value)}
+              required
             ></input>
-            <span>
-              Уровень риска: {count}:{risk}
-            </span>
+            <span>ИПР: {ipr}</span>
+            <span>Уровень риска: {risk}</span>
+            <span>Приемлемость: {acceptability}</span>
+            <span>Отношение к риску: {riskAttitude}</span>
           </div>
           <input type='submit' className='submit'></input>
         </form>
