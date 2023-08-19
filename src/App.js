@@ -135,7 +135,8 @@ function App() {
       { header: 'Приемлемость', key: 'acceptability', width: 20 },
       { header: 'Отношение к риску', key: 'riskAttitude', width: 20 },
     ];
-
+    let i = 0;
+    console.log(i);
     formValue.forEach((item) => {
       item['number'] = Object.keys(formValue);
       sheet.addRow(item);
