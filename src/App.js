@@ -6,6 +6,7 @@ import dangerEvent from './untils/dangerousEvent';
 import Select from 'react-select';
 import * as Excel from 'exceljs/dist/exceljs.min.js';
 import { useEffect, useState } from 'react';
+
 function App() {
   const [isDangerGroup, setDangerGroup] = useState({});
   const [isDanger, setisDanger] = useState({});
@@ -134,21 +135,14 @@ function App() {
       { header: 'Приемлемость', key: 'acceptability', width: 20 },
       { header: 'Отношение к риску', key: 'riskAttitude', width: 20 },
     ];
-
+    let i = 0;
+    console.log(i);
     formValue.forEach((item) => {
-        item['number']=Object.keys(formValue)
+      item['number'] = i += 1;
       sheet.addRow(item);
-      console.log(item)
-    });
-   // console.log(formValue.index[0])
-   
-
-    const dobCol = sheet.getColumn(1);
-    dobCol.eachCell({ includeEmpty: false }, function (cell, rowNumber) {
-
+      console.log(item);
     });
 
-    
     return workbook.xlsx
       .writeBuffer()
       .then((buffer) =>
@@ -223,12 +217,14 @@ function App() {
           <div className='form__container'>
             <input
               className='form__input'
+              pattern='/^([0-9])+$/'
               placeholder='Тяжесть'
               onChange={(evt) => setProbability(evt.target.value)}
               required
             ></input>
             <input
               className='form__input'
+              pattern='/^([0-9])+$/'
               placeholder='Вероятность'
               onChange={(evt) => setHeaviness(evt.target.value)}
               required
@@ -241,6 +237,7 @@ function App() {
           <label className='lable'>
             Объект
             <input
+              type='text'
               autoComplete='on'
               onChange={(evt) => setObj(evt.target.value)}
             ></input>
