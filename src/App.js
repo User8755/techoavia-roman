@@ -21,7 +21,9 @@ function App() {
   const [acceptability, setAcceptability] = useState(''); // приемлемость
   const [riskAttitude, setRiskAttitude] = useState(''); // отношение к риску
   const [heaviness, setHeaviness] = useState(0); // вероятность
-
+  const [obj, setObj] = useState(''); //объект
+  const [source, setSource] = useState(''); // источник
+  console.log(formValue);
   useEffect(() => {
     setIpr(probability * heaviness);
     if (ipr === 0) {
@@ -56,7 +58,9 @@ function App() {
   useEffect(() => {
     setValue({
       danger: isDangerGroup.label,
+      dangerID: isDangerGroup.dangerID,
       dangerGroup: isDanger.label,
+      dangerGroupId: isDanger.groupId,
       dangerEvent: isDangerEvent.label,
       probability: probability,
       heaviness: heaviness,
@@ -64,8 +68,22 @@ function App() {
       riskAttitude: riskAttitude,
       risk: risk,
       acceptability: acceptability,
+      obj: obj,
+      source: source,
     });
-  }, [acceptability, heaviness, ipr, isDanger, isDangerEvent, isDangerGroup, probability, risk, riskAttitude]);
+  }, [
+    acceptability,
+    heaviness,
+    ipr,
+    isDanger,
+    isDangerEvent,
+    isDangerGroup,
+    obj,
+    probability,
+    risk,
+    riskAttitude,
+    source,
+  ]);
 
   useEffect(() => {
     if (isDangerGroup) {
@@ -91,23 +109,46 @@ function App() {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setFormValue([...formValue, value]);
+
+    clear();
   };
+
   var FileSaver = require('file-saver');
   const table = () => {
     const workbook = new Excel.Workbook();
-    const sheet = workbook.addWorksheet('sds');
+    const sheet = workbook.addWorksheet('sheet');
+
     sheet.columns = [
-      { header: 'Группа опасности', key: 'danger', width: 32 },
-      { header: 'Опасности', key: 'dangerGroup', width: 32 },
-      { header: 'Опасное событие.', key: 'dangerEvent', width: 32 },
-      { header: 'Тяжесть', key: 'probability', width: 32 },
-      { header: 'Вероятность', key: 'heaviness', width: 32 },
-      { header: 'ИПР', key: 'ipr', width: 32 },
-      { header: 'Уровень риска', key: 'risk', width: 32 },
-      { header: 'Приемлемость', key: 'acceptability', width: 32 },
+      { header: '№ п/п', key: 'number', width: 9 },
+      { header: 'ОБЪЕКТ', key: 'obj', width: 20 },
+      { header: 'Источник', key: 'source', width: 20 },
+      { header: 'ID группы опасностей', key: 'dangerID', width: 20 },
+      { header: 'Группа опасности', key: 'danger', width: 25 },
+      { header: 'Опасность, ID 767', key: 'dangerGroupId', width: 17 },
+      { header: 'Опасности', key: 'dangerGroup', width: 25 },
+      { header: 'Опасное событие', key: 'dangerEvent', width: 25 },
+      { header: 'Тяжесть', key: 'probability', width: 8 },
+      { header: 'Вероятность', key: 'heaviness', width: 12 },
+      { header: 'ИПР', key: 'ipr', width: 5 },
+      { header: 'Уровень риска', key: 'risk', width: 20 },
+      { header: 'Приемлемость', key: 'acceptability', width: 20 },
       { header: 'Отношение к риску', key: 'riskAttitude', width: 20 },
     ];
-    formValue.forEach((item) => sheet.addRow(item));
+
+    formValue.forEach((item) => {
+        item['number']=Object.keys(formValue)
+      sheet.addRow(item);
+      console.log(item)
+    });
+   // console.log(formValue.index[0])
+   
+
+    const dobCol = sheet.getColumn(1);
+    dobCol.eachCell({ includeEmpty: false }, function (cell, rowNumber) {
+
+    });
+
+    
     return workbook.xlsx
       .writeBuffer()
       .then((buffer) =>
@@ -115,7 +156,33 @@ function App() {
       )
       .catch((err) => console.log('Error writing excel export', err));
   };
-  console.log(formValue);
+  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOptionDanger, setSelectedOptionDanger] = useState(null);
+  const [selectedOptionDangerEvt, setSelectedOptionDangerEvt] = useState(null);
+
+  const clearDangerGroup = (item) => {
+    setSelectedOption(item);
+    setDangerGroup(item);
+  };
+  const clearDanger = (item) => {
+    setSelectedOptionDanger(item);
+    setisDanger(item);
+  };
+  const clearDangerEvent = (item) => {
+    setSelectedOptionDangerEvt(item);
+    setDangerEvent(item);
+  };
+
+  const clear = () => {
+    setSelectedOption('');
+    setSelectedOptionDanger('');
+    setSelectedOptionDangerEvt('');
+    document.querySelector('.form').reset();
+    setRisk('Ошибка');
+    setAcceptability('Ошибка');
+    setRiskAttitude('Ошибка');
+  };
+
   return (
     <div className='App'>
       <main className='main'>
@@ -128,25 +195,29 @@ function App() {
             Группа опасности:
             <Select
               options={dangerGroup}
-              onChange={(evt) => setDangerGroup(evt)}
+              onChange={(name) => clearDangerGroup(name)}
               required
+              placeholder={'Группа опасности'}
+              value={selectedOption}
             />
           </label>
           <label className='lable'>
             Опасности:
             <Select
               options={isArr}
-              onChange={(evt) => setisDanger(evt)}
+              onChange={(evt) => clearDanger(evt)}
               isDisabled={disabled}
               required
+              value={selectedOptionDanger}
             />
           </label>
           <label className='lable'>
             Опасное событие
             <Select
               options={isDangerEventArr}
-              onChange={(evt) => setDangerEvent(evt)}
+              onChange={(evt) => clearDangerEvent(evt)}
               required
+              value={selectedOptionDangerEvt}
             />
           </label>
           <div className='form__container'>
@@ -167,9 +238,26 @@ function App() {
             <span>Приемлемость: {acceptability}</span>
             <span>Отношение к риску: {riskAttitude}</span>
           </div>
+          <label className='lable'>
+            Объект
+            <input
+              autoComplete='on'
+              onChange={(evt) => setObj(evt.target.value)}
+            ></input>
+          </label>
+          <label className='lable'>
+            Источник
+            <input
+              autoComplete='on'
+              onChange={(evt) => setSource(evt.target.value)}
+            ></input>
+          </label>
           <input type='submit' className='submit'></input>
+          <input type='reset' className='submit' onClick={clear}></input>
         </form>
-        <button onClick={table}>dfdf</button>
+        <button onClick={table} className='button__table'>
+          Таблица
+        </button>
       </main>
     </div>
   );
