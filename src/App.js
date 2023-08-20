@@ -217,14 +217,12 @@ function App() {
           <div className='form__container'>
             <input
               className='form__input'
-              pattern='/^([0-9])+$/'
               placeholder='Тяжесть'
               onChange={(evt) => setProbability(evt.target.value)}
               required
             ></input>
             <input
               className='form__input'
-              pattern='/^([0-9])+$/'
               placeholder='Вероятность'
               onChange={(evt) => setHeaviness(evt.target.value)}
               required
