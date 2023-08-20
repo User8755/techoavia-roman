@@ -6,6 +6,7 @@ import dangerEvent from './untils/dangerousEvent';
 import Select from 'react-select';
 import * as Excel from 'exceljs/dist/exceljs.min.js';
 import { useEffect, useState } from 'react';
+import Footer from './Footer';
 
 function App() {
   const [isDangerGroup, setDangerGroup] = useState({});
@@ -285,6 +286,7 @@ function App() {
           Выгрузить в таблицу
         </button>
       </main>
+      <Footer />
     </div>
   );
 }
