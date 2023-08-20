@@ -206,11 +206,7 @@
   background-size: cover;
 }
 
-<<<<<<< HEAD
 @media screen and (max-width: 750px) {
-=======
-@media screen and (max-width: 767px) {
->>>>>>> f9068570ed6d25f093fcf488d38c0105a1b8ac0b
   .lable {
     width: 100%;
   }
@@ -243,36 +239,7 @@
   }
   .btn.button__table {
     align-self: center;
-<<<<<<< HEAD
   }
-}
- /*еще в main изменения*/
-.footer {
-  margin: 0 20px 20px;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex: 0 0 auto;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
 
-@media screen and (max-width: 400px) {
-  .buttons_wrapper {
-    max-width: fit-content;
-    column-gap: 5px;
-  }
-  .btn.send,
-  .btn.reset {
-    width: 170px;
-  }
-  .btn.button__table {
-    align-self: center;
-=======
->>>>>>> f9068570ed6d25f093fcf488d38c0105a1b8ac0b
-  }
-}
