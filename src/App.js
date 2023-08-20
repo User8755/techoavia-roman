@@ -176,7 +176,6 @@ function App() {
     setAcceptability('Ошибка');
     setRiskAttitude('Ошибка');
   };
-  
 
   return (
     <div className='App'>
@@ -184,11 +183,19 @@ function App() {
         <form className='form' onSubmit={handleSubmit} required>
           <label className='lable'>
             Профессии:
-            <Select options={prof} onChange={(evt) => console.log(evt)} />
+            <Select
+              className='react-select-container'
+              classNamePrefix='react-select'
+              options={prof}
+              onChange={(evt) => console.log(evt)}
+              placeholder={'Профессии'}
+            />
           </label>
           <label className='lable'>
             Группа опасности:
             <Select
+              className='react-select-container'
+              classNamePrefix='react-select'
               options={dangerGroup}
               onChange={(name) => clearDangerGroup(name)}
               required
@@ -199,44 +206,60 @@ function App() {
           <label className='lable'>
             Опасности:
             <Select
+              className='react-select-container'
+              classNamePrefix='react-select'
               options={isArr}
               onChange={(evt) => clearDanger(evt)}
               isDisabled={disabled}
               required
+              placeholder={'Опасности'}
               value={selectedOptionDanger}
             />
           </label>
           <label className='lable'>
             Опасное событие
             <Select
+              className='react-select-container'
+              classNamePrefix='react-select'
               options={isDangerEventArr}
               onChange={(evt) => clearDangerEvent(evt)}
               required
+              placeholder={'Опасное событие'}
               value={selectedOptionDangerEvt}
             />
           </label>
           <div className='form__container'>
-            <input
-              className='form__input'
-              placeholder='Тяжесть'
-              onChange={(evt) => setProbability(evt.target.value)}
-              required
-            ></input>
-            <input
-              className='form__input'
-              placeholder='Вероятность'
-              onChange={(evt) => setHeaviness(evt.target.value)}
-              required
-            ></input>
-            <span>ИПР: {ipr}</span>
-            <span>Уровень риска: {risk}</span>
-            <span>Приемлемость: {acceptability}</span>
-            <span>Отношение к риску: {riskAttitude}</span>
+            <label className='lable box'>
+              Тяжесть
+              <input
+                className='form__input input'
+                onChange={(evt) => setProbability(evt.target.value)}
+                required
+              ></input>
+            </label>
+            <label className='lable box'>
+              Вероятность
+              <input
+                className='form__input input'
+                onChange={(evt) => setHeaviness(evt.target.value)}
+                required
+              ></input>
+            </label>
+            <div className='wrapper'>
+              <span className='wrapper_text'>ИПР: {ipr}</span>
+              <span className='wrapper_text'>Уровень риска: {risk}</span>
+              <span className='wrapper_text'>
+                Приемлемость: {acceptability}
+              </span>
+              <span className='wrapper_text'>
+                Отношение к риску: {riskAttitude}
+              </span>
+            </div>
           </div>
           <label className='lable'>
             Объект
             <input
-              type='text'
+              className='form__input standart'
               autoComplete='on'
               onChange={(evt) => setObj(evt.target.value)}
             ></input>
@@ -244,15 +267,18 @@ function App() {
           <label className='lable'>
             Источник
             <input
+              className='form__input standart'
               autoComplete='on'
               onChange={(evt) => setSource(evt.target.value)}
             ></input>
           </label>
-          <input type='submit' className='submit'></input>
-          <input type='reset' className='submit' onClick={clear}></input>
+          <div className='buttons_wrapper'>
+            <input type='submit' className='btn send'></input>
+            <input type='reset' className='btn reset' onClick={clear}></input>
+          </div>
         </form>
-        <button onClick={table} className='button__table'>
-          Таблица
+        <button onClick={table} className='btn button__table'>
+          Выгрузить в таблицу
         </button>
       </main>
     </div>
