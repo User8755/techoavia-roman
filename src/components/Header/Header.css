@@ -1,0 +1,7 @@
+.header {
+  padding-top: 10px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+}

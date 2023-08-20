@@ -206,7 +206,11 @@
   background-size: cover;
 }
 
+<<<<<<< HEAD
 @media screen and (max-width: 750px) {
+=======
+@media screen and (max-width: 767px) {
+>>>>>>> f9068570ed6d25f093fcf488d38c0105a1b8ac0b
   .lable {
     width: 100%;
   }
@@ -239,6 +243,7 @@
   }
   .btn.button__table {
     align-self: center;
+<<<<<<< HEAD
   }
 }
  /*еще в main изменения*/
@@ -267,5 +272,7 @@
   }
   .btn.button__table {
     align-self: center;
+=======
+>>>>>>> f9068570ed6d25f093fcf488d38c0105a1b8ac0b
   }
 }
