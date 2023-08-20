@@ -1,10 +1,10 @@
 .main {
-  margin: 0 20px;
+  margin: 30px 20px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  /*height: 100vh;*/
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: rgba(66, 83, 97, 1);
 }
@@ -207,7 +207,7 @@
 }
 
 
-@media screen and (max-width: 751px) {
+@media screen and (max-width: 767px) {
   .lable {
    width: 100%;
   }

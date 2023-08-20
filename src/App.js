@@ -138,14 +138,10 @@ function App() {
     let i = 0;
     console.log(i);
     formValue.forEach((item) => {
-      item['number'] = Object.keys(formValue);
+      item['number'] = i += 1;
       sheet.addRow(item);
       console.log(item);
     });
-    // console.log(formValue.index[0])
-
-    const dobCol = sheet.getColumn(1);
-    dobCol.eachCell({ includeEmpty: false }, function (cell, rowNumber) {});
 
     return workbook.xlsx
       .writeBuffer()
