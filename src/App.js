@@ -176,6 +176,7 @@ function App() {
     setAcceptability('Ошибка');
     setRiskAttitude('Ошибка');
   };
+  
 
   return (
     <div className='App'>
