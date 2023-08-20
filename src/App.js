@@ -5,6 +5,7 @@ import Update from './components/Update/Update';
 import Header from './components/Header/Header';
 import ModalUpdata from './components/ModalUpdata/ModalUpdata';
 import { useState } from 'react';
+import Footer from './components/Footer/Footer';
 
 function App() {
   const [isModal, setModal] = useState(false);
@@ -19,6 +20,7 @@ function App() {
           element={<Update setModal={setModal}></Update>}
         ></Route>
       </Routes>
+      <Footer />
     </div>
   );
 }
