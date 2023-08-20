@@ -185,54 +185,54 @@ function App() {
     <div className='App'>
       <main className='main'>
         <form className='form' onSubmit={handleSubmit} required>
-          <label className='lable'>
-            Профессии:
-            <Select
-              className='react-select-container'
-              classNamePrefix='react-select'
-              options={prof}
-              onChange={(evt) => console.log(evt)}
-              placeholder={'Профессии'}
-            />
-          </label>
-          <label className='lable'>
-            Группа опасности:
-            <Select
-              className='react-select-container'
-              classNamePrefix='react-select'
-              options={dangerGroup}
-              onChange={(name) => clearDangerGroup(name)}
-              required
-              placeholder={'Группа опасности'}
-              value={selectedOption}
-            />
-          </label>
-          <label className='lable'>
-            Опасности:
-            <Select
-              className='react-select-container'
-              classNamePrefix='react-select'
-              options={isArr}
-              onChange={(evt) => clearDanger(evt)}
-              isDisabled={disabled}
-              required
-              placeholder={'Опасности'}
-              value={selectedOptionDanger}
-            />
-          </label>
-          <label className='lable'>
-            Опасное событие
-            <Select
-              className='react-select-container'
-              classNamePrefix='react-select'
-              options={isDangerEventArr}
-              onChange={(evt) => clearDangerEvent(evt)}
-              required
-              placeholder={'Опасное событие'}
-              value={selectedOptionDangerEvt}
-            />
-          </label>
-          <div className='form__container'>
+          <div className='lable-wrapper'>
+            <label className='lable'>
+              Профессии:
+              <Select
+                className='react-select-container'
+                classNamePrefix='react-select'
+                options={prof}
+                onChange={(evt) => console.log(evt)}
+                placeholder={'Профессии'}
+              />
+            </label>
+            <label className='lable'>
+              Группа опасности:
+              <Select
+                className='react-select-container'
+                classNamePrefix='react-select'
+                options={dangerGroup}
+                onChange={(name) => clearDangerGroup(name)}
+                required
+                placeholder={'Группа опасности'}
+                value={selectedOption}
+              />
+            </label>
+            <label className='lable'>
+              Опасности:
+              <Select
+                className='react-select-container'
+                classNamePrefix='react-select'
+                options={isArr}
+                onChange={(evt) => clearDanger(evt)}
+                isDisabled={disabled}
+                required
+                placeholder={'Опасности'}
+                value={selectedOptionDanger}
+              />
+            </label>
+            <label className='lable'>
+              Опасное событие
+              <Select
+                className='react-select-container'
+                classNamePrefix='react-select'
+                options={isDangerEventArr}
+                onChange={(evt) => clearDangerEvent(evt)}
+                required
+                placeholder={'Опасное событие'}
+                value={selectedOptionDangerEvt}
+              />
+            </label>
             <label className='lable box'>
               Тяжесть
               <input
@@ -249,6 +249,8 @@ function App() {
                 required
               ></input>
             </label>
+          </div>
+          <div className='form__container'>
             <div className='wrapper'>
               <span className='wrapper_text'>ИПР: {ipr}</span>
               <span className='wrapper_text'>Уровень риска: {risk}</span>
@@ -260,22 +262,24 @@ function App() {
               </span>
             </div>
           </div>
-          <label className='lable'>
-            Объект
-            <input
-              className='form__input standart'
-              autoComplete='on'
-              onChange={(evt) => setObj(evt.target.value)}
-            ></input>
-          </label>
-          <label className='lable'>
-            Источник
-            <input
-              className='form__input standart'
-              autoComplete='on'
-              onChange={(evt) => setSource(evt.target.value)}
-            ></input>
-          </label>
+          <div className='lable-wrapper'>
+            <label className='lable'>
+              Объект
+              <input
+                className='form__input standart'
+                autoComplete='on'
+                onChange={(evt) => setObj(evt.target.value)}
+              ></input>
+            </label>
+            <label className='lable'>
+              Источник
+              <input
+                className='form__input standart'
+                autoComplete='on'
+                onChange={(evt) => setSource(evt.target.value)}
+              ></input>
+            </label>
+          </div>
           <div className='buttons_wrapper'>
             <input type='submit' className='btn send'></input>
             <input type='reset' className='btn reset' onClick={clear}></input>
