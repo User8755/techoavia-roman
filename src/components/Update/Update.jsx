@@ -1,13 +1,18 @@
 import './Update.css';
 
-function Update({setModal}) {
+function Update({ setModal, setModalCild }) {
+  const hendleDengerGroup = (evt) => {
+    setModal(true);
+    setModalCild(evt.target.textContent);
+  };
+
   return (
     <div className='update'>
       <div className='update__cont'>
         <h2>Выберете что нужно добавить</h2>
-        <button onClick={()=>setModal(true)}>Группа опасности</button>
-        <button>Опасность</button>
-        <button>Опасное событие</button>
+        <button onClick={hendleDengerGroup}>Группа опасности</button>
+        <button onClick={hendleDengerGroup}>Опасность</button>
+        <button onClick={hendleDengerGroup}>Опасное событие</button>
       </div>
     </div>
   );

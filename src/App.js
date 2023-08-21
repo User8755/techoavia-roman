@@ -8,15 +8,25 @@ import { useState } from 'react';
 import Footer from './components/Footer/Footer';
 
 function App() {
+  const [isModal, setModal] = useState(false);
+  const [modalCild, setModalCild] = useState('');
 
-  const [isModal, setModal] = useState(false)
   return (
     <div className='App'>
-      <ModalUpdata active={isModal} setModal={setModal}></ModalUpdata>
+      <ModalUpdata
+        active={isModal}
+        setModal={setModal}
+        modalCild={modalCild}
+      ></ModalUpdata>
       <Header></Header>
       <Routes>
         <Route path='/techoavia-roman' element={<Form></Form>}></Route>
-        <Route path='/update' element={<Update setModal={setModal}></Update>}></Route>
+        <Route
+          path='/update'
+          element={
+            <Update setModalCild={setModalCild} setModal={setModal}></Update>
+          }
+        ></Route>
       </Routes>
       <Footer />
     </div>
