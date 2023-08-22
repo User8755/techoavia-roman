@@ -3,13 +3,13 @@
   height: 100vh;
   /*синий в цвет текста
   background-color: rgba(66, 83, 97, 0.4);*/
-
   background-color: rgba(0, 0, 0, 0.3);
+  color: rgba(66, 83, 97, 1);
   position: fixed;
   z-index: 1;
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 .modal__overlay-disabled {
@@ -17,9 +17,35 @@
 }
 
 .modal__window {
-  width: 300px;
-  height: 100px;
+  padding: 10px 10px;
+  width: fit-content;
+  height: fit-content;
   background-color: #fff;
-  border: 1px solid rgba(66, 83, 97, 1) ;
+  border: 1px solid rgba(66, 83, 97, 1);
   border-radius: 4px;
+}
+
+.form.danger {
+  gap: 10px;
+  align-items: center;
+  position: relative;
+}
+.lable.danger {
+  min-width: 400px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 0;
+}
+.btn_close {
+  position: absolute;
+  top: -38px;
+  right: -50px;
+  width: 30px;
+  height: 28px;
+  border-radius: 4px;
+  border: none;
+  background-color: rgba(66, 83, 97, 1);
+  color: #fff;
+  font-weight: 700;
 }

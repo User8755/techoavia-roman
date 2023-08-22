@@ -3,45 +3,55 @@ import Select from 'react-select';
 
 function ModalUpdata({ active, setModal, modalCild }) {
   const dengerGroup = (
-    <form>
-      <label>
+    <form className='form danger'>
+      <button className='btn_close' onClick={() => setModal(false)}>
+        X
+      </button>
+      <label className='lable danger'>
         Группа опасности
-        <input></input>
+        <input className='form__input input'></input>
       </label>
-      <label>
+      <label className='lable danger'>
         id группы опасности
-        <input></input>
+        <input className='form__input input'></input>
       </label>
+      <button className='btn send'>Отправить</button>
     </form>
   );
 
   const danger = (
-    <form>
-       <label>
-        Зависемость от группы опасностей
-        <Select></Select>
+    <form className='form danger'>
+      <button className='btn_close' onClick={() => setModal(false)}>
+        X
+      </button>
+      <label className='lable'>
+        Зависимость от группы опасностей
+        <Select
+          className='react-select-container'
+          classNamePrefix='react-select'
+        ></Select>
       </label>
-      <label>
+      <label className='lable box'>
         Опасности
-        <input></input>
+        <input className='form__input input'></input>
       </label>
-      <label>
+      <label className='lable box'>
         id опасности
-        <input></input>
+        <input className='form__input input'></input>
       </label>
+      <button className='btn send'>Отправить</button>
     </form>
   );
   console.log(modalCild);
   const handleChild = () => {
-    if(modalCild==='Группа опасности') {
-      console.log(1)
-      return dengerGroup
+    if (modalCild === 'Группа опасности') {
+      console.log(1);
+      return dengerGroup;
+    } else if (modalCild === 'Опасность') {
+      console.log(2);
+      return danger;
     }
-    else if(modalCild==='Опасность') {
-      console.log(2)
-      return danger
-    }
-  }
+  };
 
   return (
     <div

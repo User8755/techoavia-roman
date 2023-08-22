@@ -10,9 +10,15 @@ function Update({ setModal, setModalCild }) {
     <div className='update'>
       <div className='update__cont'>
         <h2>Выберете что нужно добавить</h2>
-        <button onClick={hendleDengerGroup}>Группа опасности</button>
-        <button onClick={hendleDengerGroup}>Опасность</button>
-        <button onClick={hendleDengerGroup}>Опасное событие</button>
+        <button className='btn btn_danger' onClick={hendleDengerGroup}>
+          Группа опасности
+        </button>
+        <button className='btn btn_danger' onClick={hendleDengerGroup}>
+          Опасность
+        </button>
+        <button className='btn btn_danger' onClick={hendleDengerGroup}>
+          Опасное событие
+        </button>
       </div>
     </div>
   );
