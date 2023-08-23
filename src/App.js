@@ -9,14 +9,14 @@ import Footer from './components/Footer/Footer';
 
 function App() {
   const [isModal, setModal] = useState(false);
-  const [modalCild, setModalCild] = useState('');
+  const [modalChild, setModalChild] = useState('');
 
   return (
     <div className='App'>
       <ModalUpdata
         active={isModal}
         setModal={setModal}
-        modalCild={modalCild}
+        modalChild={modalChild}
       ></ModalUpdata>
       <Header></Header>
       <Routes>
@@ -24,7 +24,7 @@ function App() {
         <Route
           path='/update'
           element={
-            <Update setModalCild={setModalCild} setModal={setModal}></Update>
+            <Update setModalChild={setModalChild} setModal={setModal}></Update>
           }
         ></Route>
       </Routes>

@@ -55,11 +55,10 @@ class Api {
       body: JSON.stringify({
         dependence: item.dependence,
         label: item.label,
-        groupId: item.groupId
+        groupId: item.groupId,
       }),
     }).then(this._checkRes);
   }
-
 }
 
 const api = new Api({
