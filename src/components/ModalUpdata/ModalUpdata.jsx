@@ -148,6 +148,39 @@ function ModalUpdata({ active, setModal, modalChild }) {
     </form>
   );
 
+  /* пример модального окна*/
+  const newModal = (
+    <form className='form danger' onSubmit={handleSubmit}>
+      <label className='lable'>
+        Группа опасности
+        <input
+          className='input form__input new-modal'
+          onChange={handleChange}
+          name='label'
+        ></input>
+      </label>
+      <div className='input-wrapper'>
+        <label className='lable new'>
+          ID
+          <input
+            className='form__input id-new'
+            onChange={handleChange}
+            name='groupId'
+          ></input>
+        </label>
+        <label className='lable new'>
+          Группа
+          <input
+            className='form__input group-new'
+            onChange={handleChange}
+            name='groupId'
+          ></input>
+        </label>
+        <button className='button button-delete'></button>
+      </div>
+    </form>
+  );
+
   const handleChild = () => {
     if (modalChild === 'Группа опасности') {
       return dengerGroup;
@@ -155,6 +188,8 @@ function ModalUpdata({ active, setModal, modalChild }) {
       return dangers;
     } else if (modalChild === 'Опасное событие') {
       return dangerEvt;
+    } else {
+      return newModal;
     }
   };
 

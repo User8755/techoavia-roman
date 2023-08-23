@@ -16,3 +16,14 @@
 .btn_danger {
   background-color: rgba(66, 83, 97, 1);
 }
+.button-maximize {
+  background-color: rgba(66, 83, 97, 1);
+  width: 38px;
+  background-image: url(../../../img/polygon-icon.svg);
+  background-repeat: no-repeat;
+    background-position: center;
+}
+.button-wrapper {
+  display: flex;
+  gap:5px
+}

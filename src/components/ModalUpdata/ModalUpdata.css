@@ -51,8 +51,36 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-
 .form__input.id {
   width: 150px;
+}
+.input-wrapper {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+}
+.input.new-modal {
+  width: 350px;
+}
+.form__input.id-new {
+  width: 50px;
+}
+.form__input.group-new {
+  width: 250px;
+}
+.lable.new {
+  width: fit-content;
+}
+.button-delete {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  border: none;
+  background-color: rgba(254, 63, 87, 1);
+  background-image: url(../../../img/trash-bin-icon.svg);
+  /* крестик
+  background-image: url(../../../img/white_icon-close.svg);*/
+  background-repeat: no-repeat;
+  background-position: center;
 }
