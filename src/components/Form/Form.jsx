@@ -218,7 +218,7 @@ function Form() {
               />
             </label>
             <label className='lable'>
-              Опасное событие
+              Опасное событие:
               <Select
                 className='react-select-container'
                 classNamePrefix='react-select'
@@ -285,7 +285,7 @@ function Form() {
           Выгрузить в таблицу
         </button>
       </main>
-      </>
+    </>
   );
 }
 

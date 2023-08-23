@@ -1,9 +1,9 @@
 .modal__overlay {
   width: 100vw;
   height: 100vh;
-  /*синий в цвет текста
-  background-color: rgba(66, 83, 97, 0.4);*/
-  background-color: rgba(0, 0, 0, 0.3);
+  /*синий в цвет текста*/
+  background-color: rgba(51, 64, 75, 0.774);
+  /*background-color: rgba(0, 0, 0, 0.3);*/
   color: rgba(66, 83, 97, 1);
   position: fixed;
   z-index: 1;
@@ -21,7 +21,7 @@
   width: fit-content;
   height: fit-content;
   background-color: #fff;
-  border: 1px solid rgba(66, 83, 97, 1);
+  /*border: 1px solid rgba(66, 83, 97, 1);*/
   border-radius: 4px;
   position: relative;
 }
@@ -32,7 +32,8 @@
   position: relative;
 }
 .lable.danger {
-  min-width: 400px;
+  min-width: fit-content;
+  /*min-width: 400px;*/
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
@@ -40,13 +41,18 @@
 }
 .btn_close {
   position: absolute;
-  top: -38px;
-  right: -50px;
-  width: 30px;
-  height: 28px;
-  border-radius: 4px;
+  top: -23px;
+  right: -30px;
+  width: 22px;
+  height: 22px;
   border: none;
-  background-color: rgba(66, 83, 97, 1);
-  color: #fff;
-  font-weight: 700;
+  background-color: transparent;
+  background-image: url('../../../img/white_icon-close.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.form__input.id {
+  width: 150px;
 }

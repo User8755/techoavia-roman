@@ -47,18 +47,25 @@ function ModalUpdata({ active, setModal, modalChild }) {
 
   const dengerGroup = (
     <form className='form danger' onSubmit={handleSubmit}>
-      <label className='lable danger'>
+      <label className='lable'>
         Группа опасности
-        <input
+        <Select
+          options={dangerGroup}
+          className='react-select-container'
+          classNamePrefix='react-select'
+          name='label'
+          onChange={handleChange}
+        ></Select>
+        {/*<input
           className='form__input input'
           name='label'
           onChange={handleChange}
-        ></input>
+  ></input>*/}
       </label>
-      <label className='lable danger'>
+      <label className='lable box'>
         id группы опасности
         <input
-          className='form__input input'
+          className='form__input id'
           name='dangerID'
           onChange={handleChange}
         ></input>
@@ -78,13 +85,19 @@ function ModalUpdata({ active, setModal, modalChild }) {
           onChange={(v) => setDependence(v.label)}
         ></Select>
       </label>
-      <label className='lable box'>
+      <label className='lable'>
         Опасности
-        <input
+        <Select
+          className='react-select-container'
+          classNamePrefix='react-select'
+          onChange={handleChange}
+          name='label'
+        ></Select>
+        {/* <input
           className='form__input input'
           onChange={handleChange}
           name='label'
-        ></input>
+  ></input>*/}
       </label>
       <label className='lable box'>
         id опасности
@@ -109,18 +122,24 @@ function ModalUpdata({ active, setModal, modalChild }) {
           onChange={(v) => setDependence(v.label)}
         ></Select>
       </label>
-      <label className='lable box'>
+      <label className='lable'>
         Опасное событие
-        <input
+        <Select
+          className='react-select-container'
+          classNamePrefix='react-select'
+          onChange={handleChange}
+          name='label'
+        ></Select>
+        {/*  <input
           className='form__input input'
           onChange={handleChange}
           name='label'
-        ></input>
+  ></input>*/}
       </label>
       <label className='lable box'>
         id опасного события
         <input
-          className='form__input input'
+          className='form__input id'
           onChange={handleChange}
           name='groupId'
         ></input>
@@ -134,8 +153,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
       return dengerGroup;
     } else if (modalChild === 'Опасность') {
       return dangers;
-    }
-    else if (modalChild === 'Опасное событие') {
+    } else if (modalChild === 'Опасное событие') {
       return dangerEvt;
     }
   };
@@ -146,9 +164,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
       onClick={() => setModal(false)}
     >
       <div className='modal__window' onClick={(evt) => evt.stopPropagation()}>
-        <button className='btn_close' onClick={() => setModal(false)}>
-          X
-        </button>
+        <button className='btn_close' onClick={() => setModal(false)}></button>
         {handleChild()}
       </div>
     </div>
