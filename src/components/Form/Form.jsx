@@ -1,4 +1,3 @@
-
 import dangerGroup from '../../untils/dangerGroup';
 import danger from '../../untils/danger';
 import prof from '../../untils/prof';
@@ -6,6 +5,7 @@ import dangerEvent from '../../untils/dangerousEvent';
 import Select from 'react-select';
 import * as Excel from 'exceljs/dist/exceljs.min.js';
 import { useEffect, useState } from 'react';
+import typeSiz from '../../untils/typeSIZ';
 
 function Form() {
   const [isDangerGroup, setDangerGroup] = useState({});
@@ -24,6 +24,7 @@ function Form() {
   const [heaviness, setHeaviness] = useState(0); // вероятность
   const [obj, setObj] = useState(''); //объект
   const [source, setSource] = useState(''); // источник
+  const [isTypeSIZ, setTypeSIZ]= useState([])
   console.log(formValue);
   useEffect(() => {
     setIpr(probability * heaviness);
@@ -105,8 +106,21 @@ function Form() {
       );
       setDangerEventArr(res);
       setDisabled(false);
+      
     }
   }, [isDanger]);
+
+  useEffect(() => {
+    if (isDangerEvent) {
+      const res = typeSiz.filter(
+        (item) => isDangerEvent.label === item.dependence
+      );
+      setTypeSIZ(res);
+      setDisabled(false);
+      console.log(typeSiz)
+    }
+  }, [isDangerEvent]);
+  
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setFormValue([...formValue, value]);
@@ -153,6 +167,8 @@ function Form() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [selectedOptionDanger, setSelectedOptionDanger] = useState(null);
   const [selectedOptionDangerEvt, setSelectedOptionDangerEvt] = useState(null);
+  const [selectedTipeSIZ, setSelectedTipeSIZ] = useState(null);
+
 
   const clearDangerGroup = (item) => {
     setSelectedOption(item);
@@ -227,6 +243,18 @@ function Form() {
                 required
                 placeholder={'Опасное событие'}
                 value={selectedOptionDangerEvt}
+              />
+            </label>
+            <label className='lable'>
+              Тип СИЗ:
+              <Select
+                className='react-select-container'
+                classNamePrefix='react-select'
+                options={isTypeSIZ}
+                onChange={(evt) => setSelectedTipeSIZ(evt)}
+                required
+                placeholder={'Опасное событие'}
+                value={selectedTipeSIZ}
               />
             </label>
             <label className='lable box'>

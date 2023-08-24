@@ -46,21 +46,22 @@ function ModalUpdata({ active, setModal, modalChild }) {
   };
 
   const dengerGroup = (
-    <form className='form danger' onSubmit={handleSubmit}>
+    <form className='danger' onSubmit={handleSubmit}>
       <label className='lable'>
         Группа опасности
+        {/* тут должнеы быть обычные инпуты
         <Select
           options={dangerGroup}
           className='react-select-container'
           classNamePrefix='react-select'
           name='label'
           onChange={handleChange}
-        ></Select>
-        {/*<input
+        ></Select> */}
+        <input
           className='form__input input'
           name='label'
           onChange={handleChange}
-  ></input>*/}
+        ></input>
       </label>
       <label className='lable box'>
         id группы опасности
@@ -75,7 +76,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
   );
 
   const dangers = (
-    <form className='form danger' onSubmit={handleSubmit}>
+    <form className='danger' onSubmit={handleSubmit}>
       <label className='lable'>
         Зависимость от группы опасностей
         <Select
@@ -87,17 +88,18 @@ function ModalUpdata({ active, setModal, modalChild }) {
       </label>
       <label className='lable'>
         Опасности
+        {/* тут тоже про инпут
         <Select
           className='react-select-container'
           classNamePrefix='react-select'
           onChange={handleChange}
           name='label'
-        ></Select>
-        {/* <input
+        ></Select> */}
+        <input
           className='form__input input'
           onChange={handleChange}
           name='label'
-  ></input>*/}
+        ></input>
       </label>
       <label className='lable box'>
         id опасности
@@ -112,7 +114,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
   );
 
   const dangerEvt = (
-    <form className='form danger' onSubmit={handleSubmit}>
+    <form className='danger' onSubmit={handleSubmit}>
       <label className='lable'>
         Зависимость от опасностей
         <Select
@@ -149,36 +151,21 @@ function ModalUpdata({ active, setModal, modalChild }) {
   );
 
   /* пример модального окна*/
+  /* вынести в отдельный компонент */
   const newModal = (
-    <form className='form danger' onSubmit={handleSubmit}>
-      <label className='lable'>
-        Группа опасности
-        <input
-          className='input form__input new-modal'
-          onChange={handleChange}
-          name='label'
-        ></input>
-      </label>
-      <div className='input-wrapper'>
-        <label className='lable new'>
-          ID
-          <input
-            className='form__input id-new'
-            onChange={handleChange}
-            name='groupId'
-          ></input>
-        </label>
-        <label className='lable new'>
-          Группа
-          <input
-            className='form__input group-new'
-            onChange={handleChange}
-            name='groupId'
-          ></input>
-        </label>
-        <button className='button button-delete'></button>
-      </div>
-    </form>
+    <div className='danger'>
+      <h2 className='lable'>Группа опасности</h2>
+      {
+      dangerGroup.map((item) => (
+        <div className='input-wrapper'>
+          <h2 className='lable new'>ID</h2>
+          <span className='form__input id-new'>{item.dangerID}</span>
+          <h2 className='lable new'>Группа</h2>
+          <span className='form__input group-new'>{item.label}</span>
+          <button className='button button-delete'></button>
+        </div>
+      ))}
+    </div>
   );
 
   const handleChild = () => {
