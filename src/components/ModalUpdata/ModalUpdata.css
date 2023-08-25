@@ -24,12 +24,16 @@
   /*border: 1px solid rgba(66, 83, 97, 1);*/
   border-radius: 4px;
   position: relative;
-}
+  max-height: 80vh;
+ }
 
 .danger {
-  gap: 10px;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
   position: relative;
+  max-height: 80vh;
+  overflow: auto;
 }
 .lable.danger {
   min-width: fit-content;
@@ -56,7 +60,7 @@
 }
 .input-wrapper {
   display: flex;
-  align-items: flex-end;
+  /*align-items: flex-end;*/
   align-items: center;
   gap: 5px;
 }
@@ -64,10 +68,18 @@
   width: 350px;
 }
 .form__input.id-new {
-  width: 50px;
+  width: 44px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 38px;
+  border: none;
 }
 .form__input.group-new {
-  width: 250px;
+  width: 350px;
+  overflow: auto;
+  height: 44px;
+  font-size: 14px;
+  border: none;
 }
 .lable.new {
   width: fit-content;
@@ -76,8 +88,8 @@
   margin: 0;
 }
 .button-delete {
-  width: 38px;
-  height: 38px;
+  width: 44px;
+  height: 44px;
   border-radius: 4px;
   border: none;
   background-color: rgba(254, 63, 87, 1);
