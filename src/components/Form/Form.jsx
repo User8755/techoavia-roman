@@ -6,7 +6,7 @@ import Select from 'react-select';
 import * as Excel from 'exceljs/dist/exceljs.min.js';
 import { useEffect, useState } from 'react';
 import typeSiz from '../../untils/typeSIZ';
-
+import './Form.css';
 function Form() {
   const [isDangerGroup, setDangerGroup] = useState({});
   const [isDanger, setisDanger] = useState({});
@@ -24,8 +24,10 @@ function Form() {
   const [heaviness, setHeaviness] = useState(0); // вероятность
   const [obj, setObj] = useState(''); //объект
   const [source, setSource] = useState(''); // источник
-  const [isTypeSIZ, setTypeSIZ]= useState([])
-  console.log(formValue);
+  const [isTypeSIZ, setTypeSIZ] = useState([]);
+  const [selectedTipeSIZ, setSelectedTipeSIZ] = useState({});
+  const [isProff, setProff] = useState({});
+
   useEffect(() => {
     setIpr(probability * heaviness);
     if (ipr === 0) {
@@ -56,14 +58,17 @@ function Form() {
       setRiskAttitude('Немедленное прекращение деятельности');
     }
   }, [ipr, heaviness, probability]);
-
+  console.log(isProff);
   useEffect(() => {
     setValue({
+      proff: isProff.label,
+      proffId: isProff.profId,
       danger: isDangerGroup.label,
       dangerID: isDangerGroup.dangerID,
       dangerGroup: isDanger.label,
       dangerGroupId: isDanger.groupId,
       dangerEvent: isDangerEvent.label,
+      dangerEventID: isDangerEvent.groupId,
       probability: probability,
       heaviness: heaviness,
       ipr: ipr,
@@ -72,6 +77,7 @@ function Form() {
       acceptability: acceptability,
       obj: obj,
       source: source,
+      typeSIZ: selectedTipeSIZ.label,
     });
   }, [
     acceptability,
@@ -80,13 +86,17 @@ function Form() {
     isDanger,
     isDangerEvent,
     isDangerGroup,
+    isProff.dangerID,
+    isProff.label,
+    isProff.profId,
     obj,
     probability,
     risk,
     riskAttitude,
+    selectedTipeSIZ,
     source,
   ]);
-
+  console.log(heaviness);
   useEffect(() => {
     if (isDangerGroup) {
       const res = danger.filter(
@@ -106,7 +116,6 @@ function Form() {
       );
       setDangerEventArr(res);
       setDisabled(false);
-      
     }
   }, [isDanger]);
 
@@ -117,10 +126,10 @@ function Form() {
       );
       setTypeSIZ(res);
       setDisabled(false);
-      console.log(typeSiz)
+      console.log(isDangerEvent);
     }
   }, [isDangerEvent]);
-  
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setFormValue([...formValue, value]);
@@ -135,12 +144,15 @@ function Form() {
 
     sheet.columns = [
       { header: '№ п/п', key: 'number', width: 9 },
+      { header: 'Код профессии (при наличии)', key: 'proffId', width: 20 },
+      { header: 'Профессия', key: 'proff', width: 20 },
       { header: 'ОБЪЕКТ', key: 'obj', width: 20 },
       { header: 'Источник', key: 'source', width: 20 },
       { header: 'ID группы опасностей', key: 'dangerID', width: 20 },
       { header: 'Группа опасности', key: 'danger', width: 25 },
       { header: 'Опасность, ID 767', key: 'dangerGroupId', width: 17 },
       { header: 'Опасности', key: 'dangerGroup', width: 25 },
+      { header: 'Опасное событие, текст 767', key: 'dangerEventID', width: 25 },
       { header: 'Опасное событие', key: 'dangerEvent', width: 25 },
       { header: 'Тяжесть', key: 'probability', width: 8 },
       { header: 'Вероятность', key: 'heaviness', width: 12 },
@@ -148,9 +160,9 @@ function Form() {
       { header: 'Уровень риска', key: 'risk', width: 20 },
       { header: 'Приемлемость', key: 'acceptability', width: 20 },
       { header: 'Отношение к риску', key: 'riskAttitude', width: 20 },
+      { header: 'Тип СИЗ', key: 'typeSIZ', width: 20 },
     ];
     let i = 0;
-    console.log(i);
     formValue.forEach((item) => {
       item['number'] = i += 1;
       sheet.addRow(item);
@@ -167,8 +179,6 @@ function Form() {
   const [selectedOption, setSelectedOption] = useState(null);
   const [selectedOptionDanger, setSelectedOptionDanger] = useState(null);
   const [selectedOptionDangerEvt, setSelectedOptionDangerEvt] = useState(null);
-  const [selectedTipeSIZ, setSelectedTipeSIZ] = useState(null);
-
 
   const clearDangerGroup = (item) => {
     setSelectedOption(item);
@@ -191,6 +201,7 @@ function Form() {
     setRisk('Ошибка');
     setAcceptability('Ошибка');
     setRiskAttitude('Ошибка');
+    setSelectedTipeSIZ('');
   };
 
   return (
@@ -204,7 +215,7 @@ function Form() {
                 className='react-select-container'
                 classNamePrefix='react-select'
                 options={prof}
-                onChange={(evt) => console.log(evt)}
+                onChange={(evt) => setProff(evt)}
                 placeholder={'Профессии'}
               />
             </label>
@@ -257,22 +268,24 @@ function Form() {
                 value={selectedTipeSIZ}
               />
             </label>
-            <label className='lable box'>
-              Тяжесть
-              <input
-                className='form__input input'
-                onChange={(evt) => setProbability(evt.target.value)}
-                required
-              ></input>
-            </label>
-            <label className='lable box'>
-              Вероятность
-              <input
-                className='form__input input'
-                onChange={(evt) => setHeaviness(evt.target.value)}
-                required
-              ></input>
-            </label>
+            <div className='lavel__box'>
+              <label className='lable box'>
+                Тяжесть
+                <input
+                  className='form__input input'
+                  onChange={(evt) => setProbability(evt.target.value)}
+                  required
+                ></input>
+              </label>
+              <label className='lable box'>
+                Вероятность
+                <input
+                  className='form__input input'
+                  onChange={(evt) => setHeaviness(evt.target.value)}
+                  required
+                ></input>
+              </label>
+            </div>
           </div>
           <div className='form__container'>
             <div className='wrapper'>

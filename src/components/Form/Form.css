@@ -1,0 +1,4 @@
+.lavel__box {
+  display: flex;
+  column-gap: 10px;
+}
