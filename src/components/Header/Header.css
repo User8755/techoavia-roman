@@ -1,7 +1,19 @@
 .header {
-  padding-top: 10px;
+  padding: 10px 10px 20px;
   height: 20px;
   display: flex;
   justify-content: center;
   column-gap: 10px;
+  border-bottom: 1px solid rgba(66, 83, 97, 0.6);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.header__text {
+  color: rgba(66, 83, 97, 1);
+  text-decoration: none;
+}
+.header__text.active {
+  font-weight: 700;
 }
