@@ -4,6 +4,7 @@ import api from '../../untils/api';
 import { useState } from 'react';
 import dangerGroup from '../../untils/dangerGroup';
 import danger from '../../untils/danger';
+import NewModal from '../NewModal/NewModal';
 
 function ModalUpdata({ active, setModal, modalChild }) {
   const [isValue, setValue] = useState({});
@@ -50,6 +51,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
       <label className='lable'>
         Группа опасности
         {/* тут должнеы быть обычные инпуты
+        ДОБАВИЛА СТИЛИ
         <Select
           options={dangerGroup}
           className='react-select-container'
@@ -71,7 +73,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
           onChange={handleChange}
         ></input>
       </label>
-      <button className='btn send'>Отправить</button>
+      <button className='button send'>Отправить</button>
     </form>
   );
 
@@ -89,6 +91,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
       <label className='lable'>
         Опасности
         {/* тут тоже про инпут
+        ТУТ ТОЖЕ ДОБАВИЛА СТИЛИ
         <Select
           className='react-select-container'
           classNamePrefix='react-select'
@@ -109,7 +112,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
           name='groupId'
         ></input>
       </label>
-      <button className='btn send'>Отправить</button>
+      <button className='button send'>Отправить</button>
     </form>
   );
 
@@ -146,26 +149,8 @@ function ModalUpdata({ active, setModal, modalChild }) {
           name='groupId'
         ></input>
       </label>
-      <button className='btn send'>Отправить</button>
+      <button className='button send'>Отправить</button>
     </form>
-  );
-
-  /* пример модального окна*/
-  /* вынести в отдельный компонент */
-  const newModal = (
-    <div className='danger'>
-      <h2 className='lable'>Группа опасности</h2>
-      {
-      dangerGroup.map((item) => (
-        <div className='input-wrapper'>
-          <h2 className='lable new'>ID</h2>
-          <span className='form__input id-new'>{item.dangerID}</span>
-          <h2 className='lable new'>Группа</h2>
-          <span className='form__input group-new'>{item.label}</span>
-          <button className='button button-delete'></button>
-        </div>
-      ))}
-    </div>
   );
 
   const handleChild = () => {
@@ -176,7 +161,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
     } else if (modalChild === 'Опасное событие') {
       return dangerEvt;
     } else {
-      return newModal;
+      return <NewModal />;
     }
   };
 
@@ -186,7 +171,10 @@ function ModalUpdata({ active, setModal, modalChild }) {
       onClick={() => setModal(false)}
     >
       <div className='modal__window' onClick={(evt) => evt.stopPropagation()}>
-        <button className='btn_close' onClick={() => setModal(false)}></button>
+        <button
+          className='button_close'
+          onClick={() => setModal(false)}
+        ></button>
         {handleChild()}
       </div>
     </div>

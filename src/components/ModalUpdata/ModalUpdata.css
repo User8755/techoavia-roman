@@ -1,9 +1,7 @@
 .modal__overlay {
   width: 100vw;
   height: 100vh;
-  /*синий в цвет текста*/
   background-color: rgba(51, 64, 75, 0.774);
-  /*background-color: rgba(0, 0, 0, 0.3);*/
   color: rgba(66, 83, 97, 1);
   position: fixed;
   z-index: 1;
@@ -21,29 +19,12 @@
   width: fit-content;
   height: fit-content;
   background-color: #fff;
-  /*border: 1px solid rgba(66, 83, 97, 1);*/
   border-radius: 4px;
   position: relative;
   max-height: 80vh;
 }
 
-.danger {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  position: relative;
-  max-height: 80vh;
-  overflow: auto;
-}
-.lable.danger {
-  min-width: fit-content;
-  /*min-width: 400px;*/
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 0;
-}
-.btn_close {
+.button_close {
   position: absolute;
   top: -23px;
   right: -30px;
@@ -55,47 +36,10 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.form__input.input {
+  width: 350px;
+}
 .form__input.id {
   width: 150px;
-}
-.input-wrapper {
-  display: flex;
-  /*align-items: flex-end;*/
-  align-items: center;
-  gap: 5px;
-}
-.input.new-modal {
-  width: 350px;
-}
-.form__input.id-new {
-  width: 44px;
-  font-size: 14px;
-  text-align: center;
-  line-height: 38px;
-  border: none;
-}
-.form__input.group-new {
-  width: 350px;
-  overflow: auto;
-  height: 44px;
-  font-size: 14px;
-  border: none;
-}
-.lable.new {
-  width: fit-content;
-}
-.new {
-  margin: 0;
-}
-.button-delete {
-  width: 44px;
-  height: 44px;
-  border-radius: 4px;
-  border: none;
-  background-color: rgba(254, 63, 87, 1);
-  background-image: url(../../../img/trash-bin-icon.svg);
-  /* крестик
-  background-image: url(../../../img/white_icon-close.svg);*/
-  background-repeat: no-repeat;
-  background-position: center;
 }

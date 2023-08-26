@@ -318,11 +318,15 @@ function Form() {
             </label>
           </div>
           <div className='buttons_wrapper'>
-            <input type='submit' className='btn send'></input>
-            <input type='reset' className='btn reset' onClick={clear}></input>
+            <input type='submit' className='button send'></input>
+            <input
+              type='reset'
+              className='button reset'
+              onClick={clear}
+            ></input>
           </div>
         </form>
-        <button onClick={table} className='btn button__table'>
+        <button onClick={table} className='button button__table'>
           Выгрузить в таблицу
         </button>
       </main>

@@ -162,7 +162,7 @@
   justify-content: space-between;
   margin-top: 10px;
 }
-.btn {
+.button {
   width: 350px;
   height: 38px;
   border-radius: 4px;
@@ -172,14 +172,14 @@
   font-size: 18px;
   font-weight: 500;
 }
-.btn:hover {
+.button:hover {
   text-decoration: underline 1px;
 }
-.btn.send {
+.button.send {
   background-color: rgba(23, 203, 108, 1);
 }
 
-.btn.reset {
+.button.reset {
   background-color: rgba(254, 63, 87, 1);
 }
 
@@ -219,8 +219,8 @@
     align-items: center;
     column-gap: 5px;
   }
-  .btn.send,
-  .btn.reset {
+  .button.send,
+  .button.reset {
     width: 100%;
   }
 }
@@ -230,11 +230,11 @@
     max-width: fit-content;
     column-gap: 5px;
   }
-  .btn.send,
-  .btn.reset {
+  .button.send,
+  .button.reset {
     width: 170px;
   }
-  .btn.button__table {
+  .button.button__table {
     align-self: center;
   }
 }
@@ -247,15 +247,15 @@
     flex-direction: column;
     gap: 10px;
   }
-  .btn.send,
-  .btn.reset {
+  .button.send,
+  .button.reset {
     width: 300px;
   }
-  .btn.button__table {
+  .button.button__table {
     width: 300px;
     margin-top: 10px;
   }
-  .btn.button__table:before {
+  .button.button__table:before {
     top: 8px;
     left: 15px;
     size: 20px;
