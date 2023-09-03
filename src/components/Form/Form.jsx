@@ -96,7 +96,7 @@ function Form() {
     selectedTipeSIZ,
     source,
   ]);
-  console.log(heaviness);
+
   useEffect(() => {
     if (isDangerGroup) {
       const res = danger.filter(
@@ -266,6 +266,15 @@ function Form() {
                 required
                 placeholder={'Опасное событие'}
                 value={selectedTipeSIZ}
+              />
+            </label>
+            <label className='lable'>
+              Вид СИЗ:
+              <Select
+                className='react-select-container'
+                classNamePrefix='react-select'
+                required
+                placeholder={'Опасное событие'}
               />
             </label>
             <div className='lavel__box'>

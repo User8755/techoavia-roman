@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './Header.css';
 
 function Header() {
-  const [active, setActive] = useState(false);
+  const [active] = useState(false);
   return (
     <header className='header'>
       <NavLink
