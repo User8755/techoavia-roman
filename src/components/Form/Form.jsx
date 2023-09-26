@@ -7,6 +7,7 @@ import * as Excel from 'exceljs/dist/exceljs.min.js';
 import { useEffect, useState } from 'react';
 import typeSiz from '../../untils/typeSIZ';
 import './Form.css';
+
 function Form() {
   const [isDangerGroup, setDangerGroup] = useState({});
   const [isDanger, setisDanger] = useState({});
@@ -58,7 +59,7 @@ function Form() {
       setRiskAttitude('Немедленное прекращение деятельности');
     }
   }, [ipr, heaviness, probability]);
-  console.log(isProff);
+
   useEffect(() => {
     setValue({
       proff: isProff.label,
@@ -203,7 +204,7 @@ function Form() {
     setRiskAttitude('Ошибка');
     setSelectedTipeSIZ('');
   };
-
+console.log(prof)
   return (
     <>
       <main className='main'>
@@ -273,7 +274,6 @@ function Form() {
               <Select
                 className='react-select-container'
                 classNamePrefix='react-select'
-                required
                 placeholder={'Опасное событие'}
               />
             </label>
