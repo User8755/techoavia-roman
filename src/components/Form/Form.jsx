@@ -4,10 +4,12 @@ import prof from '../../untils/prof';
 import dangerEvent from '../../untils/dangerousEvent';
 import Select from 'react-select';
 import * as Excel from 'exceljs/dist/exceljs.min.js';
+import { components } from 'react-select';
 import { useEffect, useState } from 'react';
 import typeSiz from '../../untils/typeSIZ';
 import './Form.css';
-function Form() {
+
+function Form({ setModal, setModalChild }) {
   const [isDangerGroup, setDangerGroup] = useState({});
   const [isDanger, setisDanger] = useState({});
   const [isDangerEvent, setDangerEvent] = useState([]);
@@ -58,7 +60,7 @@ function Form() {
       setRiskAttitude('Немедленное прекращение деятельности');
     }
   }, [ipr, heaviness, probability]);
-  console.log(isProff);
+
   useEffect(() => {
     setValue({
       proff: isProff.label,
@@ -126,7 +128,7 @@ function Form() {
       );
       setTypeSIZ(res);
       setDisabled(false);
-      console.log(isDangerEvent);
+      /*  console.log(isDangerEvent);*/
     }
   }, [isDangerEvent]);
 
@@ -203,7 +205,15 @@ function Form() {
     setRiskAttitude('Ошибка');
     setSelectedTipeSIZ('');
   };
+  /* console.log(prof);*/
 
+  ///////////////
+
+  function hendleOpenModal() {
+    console.log('gg');
+    setModal(true);
+    setModalChild('Профессия');
+  }
   return (
     <>
       <main className='main'>
@@ -217,7 +227,20 @@ function Form() {
                 options={prof}
                 onChange={(evt) => setProff(evt)}
                 placeholder={'Профессии'}
+                noOptionsMessage={() => 'Значение не найдено'}
               />
+              <label className='profession__label'>
+                <input
+                  type='checkbox'
+                  name='profession'
+                  className='profession__checkbox visually-hidden'
+                  onClick={hendleOpenModal}
+                />
+                <span className='profession__pseudo-checkbox'></span>
+                <span className='profession__label-text'>
+                  Должность отсутствует
+                </span>
+              </label>
             </label>
             <label className='lable'>
               Группа опасности:
@@ -273,7 +296,6 @@ function Form() {
               <Select
                 className='react-select-container'
                 classNamePrefix='react-select'
-                required
                 placeholder={'Опасное событие'}
               />
             </label>
@@ -344,3 +366,4 @@ function Form() {
 }
 
 export default Form;
+
