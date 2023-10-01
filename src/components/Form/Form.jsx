@@ -165,7 +165,12 @@ function Form({ setModal, setModalChild }) {
       { header: 'Отношение к риску', key: 'riskAttitude', width: 20 },
       { header: 'Тип СИЗ', key: 'typeSIZ', width: 20 },
       { header: 'Вид СИЗ', key: 'speciesSIZ', width: 20 },
-      { header: 'Нормы выдачи средств индивидуальной защиты на год (штуки, пары, комплекты, мл)', key: 'issuanceRate', width: 20 },
+      {
+        header:
+          'Нормы выдачи средств индивидуальной защиты на год (штуки, пары, комплекты, мл)',
+        key: 'issuanceRate',
+        width: 20,
+      },
     ];
     let i = 0;
     formValue.forEach((item) => {
@@ -294,7 +299,6 @@ function Form({ setModal, setModalChild }) {
                 value={selectedTipeSIZ}
               />
             </label>
-            
             <div className='lavel__box'>
               <label className='lable box'>
                 Тяжесть
