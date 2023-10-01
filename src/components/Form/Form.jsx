@@ -298,7 +298,17 @@ function Form({ setModal, setModalChild }) {
                 placeholder={'Опасное событие'}
                 value={selectedTipeSIZ}
               />
+              <label className='SIZ__lable'>
+                <input
+                  type='checkbox'
+                  name='profession'
+                  className='profession__checkbox visually-hidden'
+                />
+                <span className='profession__pseudo-checkbox'></span>
+                <span className='profession__label-text'>ДОП средства</span>
+              </label>
             </label>
+
             <div className='lavel__box'>
               <label className='lable box'>
                 Тяжесть
