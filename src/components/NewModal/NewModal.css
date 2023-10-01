@@ -15,7 +15,6 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  
 }
 .danger__text {
   font-size: 18px;

@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import typeSiz from '../../untils/typeSIZ';
 import './Form.css';
 
-function Form() {
+function Form({ setModal, setModalChild }) {
   const [isDangerGroup, setDangerGroup] = useState({});
   const [isDanger, setisDanger] = useState({});
   const [isDangerEvent, setDangerEvent] = useState([]);
@@ -79,6 +79,8 @@ function Form() {
       obj: obj,
       source: source,
       typeSIZ: selectedTipeSIZ.label,
+      speciesSIZ: selectedTipeSIZ.speciesSIZ,
+      issuanceRate: selectedTipeSIZ.issuanceRate,
     });
   }, [
     acceptability,
@@ -127,7 +129,7 @@ function Form() {
       );
       setTypeSIZ(res);
       setDisabled(false);
-      console.log(isDangerEvent);
+      /*  console.log(isDangerEvent);*/
     }
   }, [isDangerEvent]);
 
@@ -162,6 +164,8 @@ function Form() {
       { header: 'Приемлемость', key: 'acceptability', width: 20 },
       { header: 'Отношение к риску', key: 'riskAttitude', width: 20 },
       { header: 'Тип СИЗ', key: 'typeSIZ', width: 20 },
+      { header: 'Вид СИЗ', key: 'speciesSIZ', width: 20 },
+      { header: 'Нормы выдачи средств индивидуальной защиты на год (штуки, пары, комплекты, мл)', key: 'issuanceRate', width: 20 },
     ];
     let i = 0;
     formValue.forEach((item) => {
@@ -204,7 +208,15 @@ function Form() {
     setRiskAttitude('Ошибка');
     setSelectedTipeSIZ('');
   };
-console.log(prof)
+  /* console.log(prof);*/
+
+  ///////////////
+
+  function hendleOpenModal() {
+    console.log('gg');
+    setModal(true);
+    setModalChild('Профессия');
+  }
   return (
     <>
       <main className='main'>
@@ -218,7 +230,20 @@ console.log(prof)
                 options={prof}
                 onChange={(evt) => setProff(evt)}
                 placeholder={'Профессии'}
+                noOptionsMessage={() => 'Значение не найдено'}
               />
+              <label className='profession__label'>
+                <input
+                  type='checkbox'
+                  name='profession'
+                  className='profession__checkbox visually-hidden'
+                  onClick={hendleOpenModal}
+                />
+                <span className='profession__pseudo-checkbox'></span>
+                <span className='profession__label-text'>
+                  Должность отсутствует
+                </span>
+              </label>
             </label>
             <label className='lable'>
               Группа опасности:

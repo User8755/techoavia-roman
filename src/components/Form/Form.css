@@ -2,3 +2,52 @@
   display: flex;
   column-gap: 10px;
 }
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+}
+/*чек-бокс*/
+.profession__pseudo-checkbox {
+  background-color: rgba(243, 244, 246, 1);
+  border: 1px solid rgba(66, 83, 97, 1);
+  border-radius: 4px;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 5px;
+  vertical-align: sub;
+  position: relative;
+}
+.profession__pseudo-checkbox::before {
+  content: '';
+  /*рисунок*/
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background-image: url('../../../img/icon__yes.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  /*выравнивание рисунка*/
+  position: absolute;
+  background-position: center;
+  left: 1px;
+  top: 1px;
+  opacity: 0;
+}
+/*checked*/
+.profession__checkbox:checked + span {
+  background-color: rgba(66, 83, 97, 1);
+}
+.profession__checkbox:checked + .profession__pseudo-checkbox::before {
+  opacity: 1;
+}
+.profession__label-text {
+  font-size: 15px;
+  font-weight: 400;
+}

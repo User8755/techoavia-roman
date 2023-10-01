@@ -51,6 +51,12 @@
   font-weight: 400;
 }
 /*выпадающее меню*/
+/*.custom-error-message{
+  padding: 10px 5px !important;
+  color: rgba(66, 83, 97, 1) !important;
+  font-weight: 500 !important;
+}*/
+
 .react-select__menu {
   border: 1px solid rgba(66, 83, 97, 1) !important;
   background-color: rgba(243, 244, 246, 1) !important;
@@ -128,10 +134,11 @@
   font-size: 18px;
   font-weight: 700;
 }
-
+.lable.profession {
+  align-items: center;
+}
 .lable.box {
   flex-direction: row;
-  
   gap: 10px;
   align-items: flex-end;
   justify-content: space-between;
@@ -182,7 +189,12 @@
 .button.reset {
   background-color: rgba(254, 63, 87, 1);
 }
-
+.button.button-cancel {
+  background: transparent;
+  color: rgba(254, 63, 87, 1);
+  font-size: 16px;
+  height: 20px;
+}
 .button__table {
   width: 350px;
   margin-top: 16px;

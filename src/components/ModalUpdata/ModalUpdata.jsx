@@ -152,7 +152,22 @@ function ModalUpdata({ active, setModal, modalChild }) {
       <button className='button send'>Отправить</button>
     </form>
   );
-
+  const newProfession = (
+    <form className='profession' onSubmit={handleSubmit}>
+      <label className='lable profession'>
+        Добавить новую должность?
+        <input
+          className='form__input input'
+          onChange={handleChange}
+          name='#'
+        ></input>
+      </label>
+      <button className='button send'>Добавить</button>
+      <button className='button button-cancel' onClick={() => setModal(false)}>
+        Отмена
+      </button>
+    </form>
+  );
   const handleChild = () => {
     if (modalChild === 'Группа опасности') {
       return dengerGroup;
@@ -160,6 +175,8 @@ function ModalUpdata({ active, setModal, modalChild }) {
       return dangers;
     } else if (modalChild === 'Опасное событие') {
       return dangerEvt;
+    } else if (modalChild === 'Профессия') {
+      return newProfession;
     } else {
       return <NewModal />;
     }

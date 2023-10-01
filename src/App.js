@@ -6,16 +6,10 @@ import Header from './components/Header/Header';
 import ModalUpdata from './components/ModalUpdata/ModalUpdata';
 import { useState } from 'react';
 import Footer from './components/Footer/Footer';
-import api from './untils/api';
-import { useEffect } from 'react';
 
 function App() {
   const [isModal, setModal] = useState(false);
   const [modalChild, setModalChild] = useState('');
-
-  // useEffect(() => {
-  //   api.getDangerGroups().then((res) => console.log(res));
-  // }, []);
 
   return (
     <div className='App'>
@@ -26,7 +20,12 @@ function App() {
       ></ModalUpdata>
       <Header></Header>
       <Routes>
-        <Route path='/techoavia-roman' element={<Form></Form>}></Route>
+        <Route
+          path='/techoavia-roman'
+          element={
+            <Form setModalChild={setModalChild} setModal={setModal}></Form>
+          }
+        ></Route>
         <Route
           path='/update'
           element={
