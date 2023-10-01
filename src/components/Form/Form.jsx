@@ -294,14 +294,7 @@ function Form({ setModal, setModalChild }) {
                 value={selectedTipeSIZ}
               />
             </label>
-            <label className='lable'>
-              Вид СИЗ:
-              <Select
-                className='react-select-container'
-                classNamePrefix='react-select'
-                placeholder={'Опасное событие'}
-              />
-            </label>
+            
             <div className='lavel__box'>
               <label className='lable box'>
                 Тяжесть
