@@ -6,13 +6,12 @@ import dangerGroup from '../../untils/dangerGroup';
 import danger from '../../untils/danger';
 import NewModal from '../NewModal/NewModal';
 
-function ModalUpdata({ active, setModal, modalChild }) {
+function ModalUpdata({ active, setModal, modalChild, setJob }) {
   const [isValue, setValue] = useState({});
   const [isDependence, setDependence] = useState(null);
   console.log(isDependence);
   const handleChange = (evt) => {
     const { name, value } = evt.target;
-
     if (modalChild === 'Группа опасности') {
       setValue({
         ...isValue,
@@ -26,7 +25,18 @@ function ModalUpdata({ active, setModal, modalChild }) {
       });
     }
   };
-  console.log(isValue);
+
+  const handleChangeJob = (evt) => {
+    const { value } = evt.target;
+    setJob({job: value})
+  };
+
+  const handleSubmitJob = (evt) => {
+    evt.preventDefault();
+    document.querySelector('.profession').reset();
+    setModal(false)
+  }
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (modalChild === 'Группа опасности') {
@@ -158,11 +168,11 @@ function ModalUpdata({ active, setModal, modalChild }) {
         Добавить новую должность?
         <input
           className='form__input input'
-          onChange={handleChange}
-          name='#'
+          onChange={handleChangeJob}
+          name='job-title'
         ></input>
       </label>
-      <button className='button send'>Добавить</button>
+      <button className='button send' onClick={handleSubmitJob}>Добавить</button>
       <button className='button button-cancel' onClick={() => setModal(false)}>
         Отмена
       </button>

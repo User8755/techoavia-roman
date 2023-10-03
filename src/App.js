@@ -10,20 +10,26 @@ import Footer from './components/Footer/Footer';
 function App() {
   const [isModal, setModal] = useState(false);
   const [modalChild, setModalChild] = useState('');
-
+  const [job, setJob] = useState({});
   return (
     <div className='App'>
       <ModalUpdata
         active={isModal}
         setModal={setModal}
         modalChild={modalChild}
+        setJob={setJob}
       ></ModalUpdata>
       <Header></Header>
       <Routes>
         <Route
           path='/techoavia-roman'
           element={
-            <Form setModalChild={setModalChild} setModal={setModal}></Form>
+            <Form
+              setModalChild={setModalChild}
+              setModal={setModal}
+              job={job}
+              setJob={setJob}
+            ></Form>
           }
         ></Route>
         <Route

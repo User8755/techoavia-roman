@@ -8,7 +8,7 @@ import { useEffect, useState } from 'react';
 import typeSiz from '../../untils/typeSIZ';
 import './Form.css';
 
-function Form({ setModal, setModalChild }) {
+function Form({ setModal, setModalChild, job, setJob }) {
   const [isDangerGroup, setDangerGroup] = useState({});
   const [isDanger, setisDanger] = useState({});
   const [isDangerEvent, setDangerEvent] = useState([]);
@@ -28,6 +28,8 @@ function Form({ setModal, setModalChild }) {
   const [isTypeSIZ, setTypeSIZ] = useState([]);
   const [selectedTipeSIZ, setSelectedTipeSIZ] = useState({});
   const [isProff, setProff] = useState({});
+  const [checkboxSiz, setCheckboxSIZ] = useState(false); // чекбокс доп средства
+  const [commit, setCommit] = useState('');
 
   useEffect(() => {
     setIpr(probability * heaviness);
@@ -58,32 +60,64 @@ function Form({ setModal, setModalChild }) {
       setRisk('Критический');
       setRiskAttitude('Немедленное прекращение деятельности');
     }
+    console.log(heaviness);
   }, [ipr, heaviness, probability]);
 
   useEffect(() => {
-    setValue({
-      proff: isProff.label,
-      proffId: isProff.profId,
-      danger: isDangerGroup.label,
-      dangerID: isDangerGroup.dangerID,
-      dangerGroup: isDanger.label,
-      dangerGroupId: isDanger.groupId,
-      dangerEvent: isDangerEvent.label,
-      dangerEventID: isDangerEvent.groupId,
-      probability: probability,
-      heaviness: heaviness,
-      ipr: ipr,
-      riskAttitude: riskAttitude,
-      risk: risk,
-      acceptability: acceptability,
-      obj: obj,
-      source: source,
-      typeSIZ: selectedTipeSIZ.label,
-      speciesSIZ: selectedTipeSIZ.speciesSIZ,
-      issuanceRate: selectedTipeSIZ.issuanceRate,
-    });
+    if (checkboxSiz) {
+      setValue({
+        proff: isProff.label,
+        proffId: isProff.profId,
+        danger: isDangerGroup.label,
+        dangerID: isDangerGroup.dangerID,
+        dangerGroup: isDanger.label,
+        dangerGroupId: isDanger.groupId,
+        dangerEvent: isDangerEvent.label,
+        dangerEventID: isDangerEvent.groupId,
+        probability: probability,
+        heaviness: heaviness,
+        ipr: ipr,
+        riskAttitude: riskAttitude,
+        risk: risk,
+        acceptability: acceptability,
+        obj: obj,
+        source: source,
+        typeSIZ: selectedTipeSIZ.label,
+        speciesSIZ: selectedTipeSIZ.speciesSIZ,
+        issuanceRate: selectedTipeSIZ.issuanceRate,
+        additionalMeans: selectedTipeSIZ.additionalMeans,
+        job: job.job,
+        commit: commit,
+      });
+    } else {
+      setValue({
+        proff: isProff.label,
+        proffId: isProff.profId,
+        danger: isDangerGroup.label,
+        dangerID: isDangerGroup.dangerID,
+        dangerGroup: isDanger.label,
+        dangerGroupId: isDanger.groupId,
+        dangerEvent: isDangerEvent.label,
+        dangerEventID: isDangerEvent.groupId,
+        probability: probability,
+        heaviness: heaviness,
+        ipr: ipr,
+        riskAttitude: riskAttitude,
+        risk: risk,
+        acceptability: acceptability,
+        obj: obj,
+        source: source,
+        typeSIZ: selectedTipeSIZ.label,
+        speciesSIZ: selectedTipeSIZ.speciesSIZ,
+        issuanceRate: selectedTipeSIZ.issuanceRate,
+        job: job.job,
+        commit: commit,
+      });
+    }
   }, [
+    commit,
     acceptability,
+    checkboxSiz,
     heaviness,
     ipr,
     isDanger,
@@ -92,6 +126,7 @@ function Form({ setModal, setModalChild }) {
     isProff.dangerID,
     isProff.label,
     isProff.profId,
+    job,
     obj,
     probability,
     risk,
@@ -129,7 +164,6 @@ function Form({ setModal, setModalChild }) {
       );
       setTypeSIZ(res);
       setDisabled(false);
-      /*  console.log(isDangerEvent);*/
     }
   }, [isDangerEvent]);
 
@@ -139,7 +173,15 @@ function Form({ setModal, setModalChild }) {
 
     clear();
   };
-
+  const [additionalMeans, setAdditionalMeans] = useState(false);
+  useEffect(() => {
+    if (typeof selectedTipeSIZ.additionalMeans === 'string') {
+      setAdditionalMeans(true);
+    } else {
+      setAdditionalMeans(false);
+    }
+  }, [selectedTipeSIZ]);
+  console.log(additionalMeans);
   var FileSaver = require('file-saver');
   const table = () => {
     const workbook = new Excel.Workbook();
@@ -149,6 +191,7 @@ function Form({ setModal, setModalChild }) {
       { header: '№ п/п', key: 'number', width: 9 },
       { header: 'Код профессии (при наличии)', key: 'proffId', width: 20 },
       { header: 'Профессия', key: 'proff', width: 20 },
+      { header: 'Должность', key: 'job', width: 20 },
       { header: 'ОБЪЕКТ', key: 'obj', width: 20 },
       { header: 'Источник', key: 'source', width: 20 },
       { header: 'ID группы опасностей', key: 'dangerID', width: 20 },
@@ -171,6 +214,8 @@ function Form({ setModal, setModalChild }) {
         key: 'issuanceRate',
         width: 20,
       },
+      { header: 'ДОП средства', key: 'additionalMeans', width: 20 },
+      { header: 'Комментарий', key: 'commit', width: 20 },
     ];
     let i = 0;
     formValue.forEach((item) => {
@@ -189,7 +234,7 @@ function Form({ setModal, setModalChild }) {
   const [selectedOption, setSelectedOption] = useState(null);
   const [selectedOptionDanger, setSelectedOptionDanger] = useState(null);
   const [selectedOptionDangerEvt, setSelectedOptionDangerEvt] = useState(null);
-
+  console.log(value);
   const clearDangerGroup = (item) => {
     setSelectedOption(item);
     setDangerGroup(item);
@@ -204,7 +249,7 @@ function Form({ setModal, setModalChild }) {
   };
 
   const clear = () => {
-    setSelectedOption('');
+    setSelectedOption(null);
     setSelectedOptionDanger('');
     setSelectedOptionDangerEvt('');
     document.querySelector('.form').reset();
@@ -212,6 +257,12 @@ function Form({ setModal, setModalChild }) {
     setAcceptability('Ошибка');
     setRiskAttitude('Ошибка');
     setSelectedTipeSIZ('');
+    setObj('');
+    setSource('');
+    setHeaviness(0);
+    setProbability(0);
+    setJob('');
+    setCommit('')
   };
   /* console.log(prof);*/
 
@@ -298,17 +349,26 @@ function Form({ setModal, setModalChild }) {
                 placeholder={'Опасное событие'}
                 value={selectedTipeSIZ}
               />
-              <label className='SIZ__lable'>
+              <label
+                className={additionalMeans ? 'SIZ__lable' : 'SIZ__lable-hiden'}
+              >
+                ДОП средства
                 <input
                   type='checkbox'
-                  name='profession'
-                  className='profession__checkbox visually-hidden'
+                  name='additional-means'
+                  className='additional-means'
+                  onClick={(evt) => setCheckboxSIZ(evt.target.checked)}
+                  disabled={!additionalMeans}
                 />
-                <span className='profession__pseudo-checkbox'></span>
-                <span className='profession__label-text'>ДОП средства</span>
               </label>
             </label>
-
+            <label className='lable'>
+              Комментарий
+              <input
+                className='form__input input'
+                onChange={(evt) => setCommit(evt.target.value)}
+              ></input>
+            </label>
             <div className='lavel__box'>
               <label className='lable box'>
                 Тяжесть
