@@ -13,6 +13,11 @@
   white-space: nowrap;
 }
 /*чек-бокс*/
+.profession__label {
+  width: max-content;
+  cursor: pointer;
+}
+
 .profession__pseudo-checkbox {
   background-color: rgba(243, 244, 246, 1);
   border: 1px solid rgba(66, 83, 97, 1);

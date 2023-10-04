@@ -9,34 +9,38 @@ import typeSiz from '../../untils/typeSIZ';
 import './Form.css';
 
 function Form({ setModal, setModalChild, job, setJob }) {
-  const [isDangerGroup, setDangerGroup] = useState({});
-  const [isDanger, setisDanger] = useState({});
+  const [isDangerGroup, setDangerGroup] = useState([]);
+  const [isDanger, setisDanger] = useState([]);
   const [isDangerEvent, setDangerEvent] = useState([]);
-  const [isDangerEventArr, setDangerEventArr] = useState([]);
-  const [isArr, setArr] = useState([]);
-  const [disabled, setDisabled] = useState(true);
   const [value, setValue] = useState({});
   const [formValue, setFormValue] = useState([]); // массив для записи в таблицу
   const [ipr, setIpr] = useState(0); // ИПР
-  const [probability, setProbability] = useState(0); // Тяжесть
   const [risk, setRisk] = useState(''); // уровень риска
   const [acceptability, setAcceptability] = useState(''); // приемлемость
   const [riskAttitude, setRiskAttitude] = useState(''); // отношение к риску
-  const [heaviness, setHeaviness] = useState(0); // вероятность
   const [obj, setObj] = useState(''); //объект
   const [source, setSource] = useState(''); // источник
-  const [isTypeSIZ, setTypeSIZ] = useState([]);
-  const [selectedTipeSIZ, setSelectedTipeSIZ] = useState({});
-  const [isProff, setProff] = useState({});
+  const [selectedTipeSIZ, setSelectedTipeSIZ] = useState([]);
+  const [isProff, setProff] = useState([]);
   const [checkboxSiz, setCheckboxSIZ] = useState(false); // чекбокс доп средства
   const [commit, setCommit] = useState('');
+  const [inputValue, setInputValue] = useState({});
+  const ERROR = 'Ошибка';
 
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
+    setInputValue({
+      ...inputValue,
+      [name]: value,
+    });
+  };
+  console.log(inputValue)
   useEffect(() => {
-    setIpr(probability * heaviness);
+    setIpr(inputValue.probability * inputValue.heaviness);
     if (ipr === 0) {
-      setRisk('Ошибка');
-      setAcceptability('Ошибка');
-      setRiskAttitude('Ошибка');
+      setRisk(ERROR);
+      setAcceptability(ERROR);
+      setRiskAttitude(ERROR);
     } else if (ipr <= 2) {
       setRisk('Незначительный');
       setAcceptability('Приемлемый');
@@ -60,8 +64,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
       setRisk('Критический');
       setRiskAttitude('Немедленное прекращение деятельности');
     }
-    console.log(heaviness);
-  }, [ipr, heaviness, probability]);
+  }, [ipr, inputValue]);
 
   useEffect(() => {
     if (checkboxSiz) {
@@ -74,8 +77,8 @@ function Form({ setModal, setModalChild, job, setJob }) {
         dangerGroupId: isDanger.groupId,
         dangerEvent: isDangerEvent.label,
         dangerEventID: isDangerEvent.groupId,
-        probability: probability,
-        heaviness: heaviness,
+        probability: inputValue.probability,
+        heaviness: inputValue.heaviness,
         ipr: ipr,
         riskAttitude: riskAttitude,
         risk: risk,
@@ -99,8 +102,8 @@ function Form({ setModal, setModalChild, job, setJob }) {
         dangerGroupId: isDanger.groupId,
         dangerEvent: isDangerEvent.label,
         dangerEventID: isDangerEvent.groupId,
-        probability: probability,
-        heaviness: heaviness,
+        probability: inputValue.probability,
+        heaviness: inputValue.heaviness,
         ipr: ipr,
         riskAttitude: riskAttitude,
         risk: risk,
@@ -118,55 +121,31 @@ function Form({ setModal, setModalChild, job, setJob }) {
     commit,
     acceptability,
     checkboxSiz,
-    heaviness,
     ipr,
     isDanger,
     isDangerEvent,
     isDangerGroup,
-    isProff.dangerID,
-    isProff.label,
-    isProff.profId,
+    isProff,
     job,
     obj,
-    probability,
     risk,
     riskAttitude,
     selectedTipeSIZ,
     source,
+    inputValue,
   ]);
 
-  useEffect(() => {
-    if (isDangerGroup) {
-      const res = danger.filter(
-        (item) => isDangerGroup.label === item.dependence
-      );
-      setArr(res);
-      setDisabled(false);
-    } else {
-      return setDisabled(true);
-    }
-  }, [isDangerGroup]);
+  const resDangerGroup = danger.filter(
+    (item) => isDangerGroup.label === item.dependence
+  );
 
-  useEffect(() => {
-    if (isDanger) {
-      const res = dangerEvent.filter(
-        (item) => isDanger.label === item.dependence
-      );
-      setDangerEventArr(res);
-      setDisabled(false);
-    }
-  }, [isDanger]);
+  const resDangerEvent = dangerEvent.filter(
+    (item) => isDanger.label === item.dependence
+  );
 
-  useEffect(() => {
-    if (isDangerEvent) {
-      const res = typeSiz.filter(
-        (item) => isDangerEvent.label === item.dependence
-      );
-      setTypeSIZ(res);
-      setDisabled(false);
-    }
-  }, [isDangerEvent]);
-
+  const resTypeSiz = typeSiz.filter(
+    (item) => isDangerEvent.label === item.dependence
+  );
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setFormValue([...formValue, value]);
@@ -181,7 +160,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
       setAdditionalMeans(false);
     }
   }, [selectedTipeSIZ]);
-  console.log(additionalMeans);
+
   var FileSaver = require('file-saver');
   const table = () => {
     const workbook = new Excel.Workbook();
@@ -200,8 +179,8 @@ function Form({ setModal, setModalChild, job, setJob }) {
       { header: 'Опасности', key: 'dangerGroup', width: 25 },
       { header: 'Опасное событие, текст 767', key: 'dangerEventID', width: 25 },
       { header: 'Опасное событие', key: 'dangerEvent', width: 25 },
-      { header: 'Тяжесть', key: 'probability', width: 8 },
-      { header: 'Вероятность', key: 'heaviness', width: 12 },
+      { header: 'Тяжесть', key: 'heaviness', width: 8 },
+      { header: 'Вероятность', key: 'probability', width: 12 },
       { header: 'ИПР', key: 'ipr', width: 5 },
       { header: 'Уровень риска', key: 'risk', width: 20 },
       { header: 'Приемлемость', key: 'acceptability', width: 20 },
@@ -221,7 +200,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
     formValue.forEach((item) => {
       item['number'] = i += 1;
       sheet.addRow(item);
-      console.log(item);
     });
 
     return workbook.xlsx
@@ -231,42 +209,24 @@ function Form({ setModal, setModalChild, job, setJob }) {
       )
       .catch((err) => console.log('Error writing excel export', err));
   };
-  const [selectedOption, setSelectedOption] = useState(null);
-  const [selectedOptionDanger, setSelectedOptionDanger] = useState(null);
-  const [selectedOptionDangerEvt, setSelectedOptionDangerEvt] = useState(null);
-  console.log(value);
-  const clearDangerGroup = (item) => {
-    setSelectedOption(item);
-    setDangerGroup(item);
-  };
-  const clearDanger = (item) => {
-    setSelectedOptionDanger(item);
-    setisDanger(item);
-  };
-  const clearDangerEvent = (item) => {
-    setSelectedOptionDangerEvt(item);
-    setDangerEvent(item);
-  };
 
   const clear = () => {
-    setSelectedOption(null);
-    setSelectedOptionDanger('');
-    setSelectedOptionDangerEvt('');
+    setDangerEvent('');
+    setDangerGroup('');
+    setisDanger('');
+    setProff('');
     document.querySelector('.form').reset();
-    setRisk('Ошибка');
-    setAcceptability('Ошибка');
-    setRiskAttitude('Ошибка');
+    setRisk(ERROR);
+    setAcceptability(ERROR);
+    setRiskAttitude(ERROR);
     setSelectedTipeSIZ('');
     setObj('');
     setSource('');
-    setHeaviness(0);
-    setProbability(0);
     setJob('');
-    setCommit('')
+    setCommit('');
+    setIpr(0);
+    setInputValue({ probability: '', heaviness: '' });
   };
-  /* console.log(prof);*/
-
-  ///////////////
 
   function hendleOpenModal() {
     console.log('gg');
@@ -287,6 +247,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 onChange={(evt) => setProff(evt)}
                 placeholder={'Профессии'}
                 noOptionsMessage={() => 'Значение не найдено'}
+                value={isProff}
               />
               <label className='profession__label'>
                 <input
@@ -307,10 +268,10 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 className='react-select-container'
                 classNamePrefix='react-select'
                 options={dangerGroup}
-                onChange={(name) => clearDangerGroup(name)}
+                onChange={(name) => setDangerGroup(name)}
                 required
                 placeholder={'Группа опасности'}
-                value={selectedOption}
+                value={isDangerGroup}
               />
             </label>
             <label className='lable'>
@@ -318,12 +279,11 @@ function Form({ setModal, setModalChild, job, setJob }) {
               <Select
                 className='react-select-container'
                 classNamePrefix='react-select'
-                options={isArr}
-                onChange={(evt) => clearDanger(evt)}
-                isDisabled={disabled}
+                options={resDangerGroup}
+                onChange={(evt) => setisDanger(evt)}
                 required
                 placeholder={'Опасности'}
-                value={selectedOptionDanger}
+                value={isDanger}
               />
             </label>
             <label className='lable'>
@@ -331,11 +291,11 @@ function Form({ setModal, setModalChild, job, setJob }) {
               <Select
                 className='react-select-container'
                 classNamePrefix='react-select'
-                options={isDangerEventArr}
-                onChange={(evt) => clearDangerEvent(evt)}
+                options={resDangerEvent}
+                onChange={(evt) => setDangerEvent(evt)}
                 required
                 placeholder={'Опасное событие'}
-                value={selectedOptionDangerEvt}
+                value={isDangerEvent}
               />
             </label>
             <label className='lable'>
@@ -343,10 +303,10 @@ function Form({ setModal, setModalChild, job, setJob }) {
               <Select
                 className='react-select-container'
                 classNamePrefix='react-select'
-                options={isTypeSIZ}
+                options={resTypeSiz}
                 onChange={(evt) => setSelectedTipeSIZ(evt)}
                 required
-                placeholder={'Опасное событие'}
+                placeholder={'Тип СИЗ'}
                 value={selectedTipeSIZ}
               />
               <label
@@ -373,17 +333,23 @@ function Form({ setModal, setModalChild, job, setJob }) {
               <label className='lable box'>
                 Тяжесть
                 <input
+                  name='heaviness'
+                  type='number'
                   className='form__input input'
-                  onChange={(evt) => setProbability(evt.target.value)}
-                  required
+                  onChange={handleChange}
+
+                  //required
                 ></input>
               </label>
               <label className='lable box'>
                 Вероятность
                 <input
+                  name='probability'
+                  type='number'
                   className='form__input input'
-                  onChange={(evt) => setHeaviness(evt.target.value)}
-                  required
+                  onChange={handleChange}
+
+                  //required
                 ></input>
               </label>
             </div>
