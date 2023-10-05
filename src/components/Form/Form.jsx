@@ -144,8 +144,9 @@ function Form({ setModal, setModalChild, job, setJob }) {
   );
 
   const resTypeSiz = typeSiz.filter(
-    (item) => isDangerEvent.label === item.dependence
+    (item) => isDangerEvent.groupId === item.dependence
   );
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setFormValue([...formValue, value]);
@@ -153,6 +154,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
     clear();
   };
   const [additionalMeans, setAdditionalMeans] = useState(false);
+
   useEffect(() => {
     if (typeof selectedTipeSIZ.additionalMeans === 'string') {
       setAdditionalMeans(true);
@@ -215,7 +217,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
     setDangerGroup('');
     setisDanger('');
     setProff('');
-    document.querySelector('.form').reset();
     setRisk(ERROR);
     setAcceptability(ERROR);
     setRiskAttitude(ERROR);
@@ -226,8 +227,9 @@ function Form({ setModal, setModalChild, job, setJob }) {
     setCommit('');
     setIpr(0);
     setInputValue({ probability: '', heaviness: '' });
+    document.querySelector('.form').reset();
   };
-
+console.log()
   function hendleOpenModal() {
     console.log('gg');
     setModal(true);
