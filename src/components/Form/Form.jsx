@@ -34,7 +34,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
       [name]: value,
     });
   };
-  console.log(inputValue)
+  console.log(typeof isProff.SIZ);
   useEffect(() => {
     setIpr(inputValue.probability * inputValue.heaviness);
     if (ipr === 0) {
@@ -229,7 +229,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
     setInputValue({ probability: '', heaviness: '' });
     document.querySelector('.form').reset();
   };
-console.log()
+  
   function hendleOpenModal() {
     console.log('gg');
     setModal(true);
