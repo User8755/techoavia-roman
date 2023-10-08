@@ -173,6 +173,18 @@ function Form({ setModal, setModalChild, job, setJob }) {
       { header: 'Код профессии (при наличии)', key: 'proffId', width: 20 },
       { header: 'Профессия', key: 'proff', width: 20 },
       { header: 'Должность', key: 'job', width: 20 },
+      { header: 'Тип средства защиты', key: '', width: 20 },
+      {
+        header:
+          'Наименование специальной одежды, специальной обуви и других средств индивидуальной защиты',
+        key: '',
+        width: 20,
+      },
+      {
+        header: 'Нормы выдачи на год (период) (штуки, пары, комплекты, мл)',
+        key: '',
+        width: 20,
+      },
       { header: 'ОБЪЕКТ', key: 'obj', width: 20 },
       { header: 'Источник', key: 'source', width: 20 },
       { header: 'ID группы опасностей', key: 'dangerID', width: 20 },
@@ -229,7 +241,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
     setInputValue({ probability: '', heaviness: '' });
     document.querySelector('.form').reset();
   };
-  
+
   function hendleOpenModal() {
     console.log('gg');
     setModal(true);
