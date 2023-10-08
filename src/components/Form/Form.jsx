@@ -24,17 +24,12 @@ function Form({ setModal, setModalChild, job, setJob }) {
   const [isProff, setProff] = useState([]);
   const [checkboxSiz, setCheckboxSIZ] = useState(false); // чекбокс доп средства
   const [commit, setCommit] = useState('');
-  const [inputValue, setInputValue] = useState({});
+  const [inputValue, setInputValue] = useState({ probability: "", heaviness: "" });
+  const [requiredSIZ, setRequiredSIZ] = useState(false);
   const ERROR = 'Ошибка';
 
-  const handleChange = (evt) => {
-    const { name, value } = evt.target;
-    setInputValue({
-      ...inputValue,
-      [name]: value,
-    });
-  };
-  console.log(typeof isProff.SIZ);
+
+  console.log(inputValue);
   useEffect(() => {
     setIpr(inputValue.probability * inputValue.heaviness);
     if (ipr === 0) {
@@ -66,6 +61,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
     }
   }, [ipr, inputValue]);
 
+  //console.log(formValue);
   useEffect(() => {
     if (checkboxSiz) {
       setValue({
@@ -91,6 +87,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
         additionalMeans: selectedTipeSIZ.additionalMeans,
         job: job.job,
         commit: commit,
+        proffSIZ: isProff.SIZ,
       });
     } else {
       setValue({
@@ -115,6 +112,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
         issuanceRate: selectedTipeSIZ.issuanceRate,
         job: job.job,
         commit: commit,
+        proffSIZ: isProff.SIZ,
       });
     }
   }, [
@@ -134,6 +132,12 @@ function Form({ setModal, setModalChild, job, setJob }) {
     source,
     inputValue,
   ]);
+
+  // useEffect(()=>{
+  //   if(requiredSIZ) {
+  //     value['proffSIZ'] = isProff.SIZ
+  //   }
+  // },[requiredSIZ, isProff, value])
 
   const resDangerGroup = danger.filter(
     (item) => isDangerGroup.label === item.dependence
@@ -164,7 +168,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
   }, [selectedTipeSIZ]);
 
   var FileSaver = require('file-saver');
-  const table = () => {
+  const table = async () => {
     const workbook = new Excel.Workbook();
     const sheet = workbook.addWorksheet('sheet');
 
@@ -173,16 +177,16 @@ function Form({ setModal, setModalChild, job, setJob }) {
       { header: 'Код профессии (при наличии)', key: 'proffId', width: 20 },
       { header: 'Профессия', key: 'proff', width: 20 },
       { header: 'Должность', key: 'job', width: 20 },
-      { header: 'Тип средства защиты', key: '', width: 20 },
+      { header: 'Тип средства защиты', key: 'type', width: 20 },
       {
         header:
           'Наименование специальной одежды, специальной обуви и других средств индивидуальной защиты',
-        key: '',
+        key: 'vid',
         width: 20,
       },
       {
         header: 'Нормы выдачи на год (период) (штуки, пары, комплекты, мл)',
-        key: '',
+        key: 'norm',
         width: 20,
       },
       { header: 'ОБЪЕКТ', key: 'obj', width: 20 },
@@ -210,10 +214,15 @@ function Form({ setModal, setModalChild, job, setJob }) {
       { header: 'ДОП средства', key: 'additionalMeans', width: 20 },
       { header: 'Комментарий', key: 'commit', width: 20 },
     ];
+
     let i = 0;
     formValue.forEach((item) => {
       item['number'] = i += 1;
       sheet.addRow(item);
+
+      if (item.proffSIZ) {
+        item.proffSIZ.forEach((SIZ) => sheet.addRow(SIZ));
+      }
     });
 
     return workbook.xlsx
@@ -247,6 +256,15 @@ function Form({ setModal, setModalChild, job, setJob }) {
     setModal(true);
     setModalChild('Профессия');
   }
+
+  const handleChange = (evt) => {
+    const { name, value } = evt.target;
+    setInputValue({
+      ...inputValue,
+      [name]: value,
+    });
+  };
+
   return (
     <>
       <main className='main'>
@@ -274,6 +292,16 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 <span className='profession__label-text'>
                   Должность отсутствует
                 </span>
+              </label>
+              <label className='profession__label'>
+                <input
+                  type='checkbox'
+                  name='profession'
+                  className='profession__checkbox visually-hidden'
+                  onClick={(evt) => setRequiredSIZ(evt.target.checked)}
+                />
+                <span className='profession__pseudo-checkbox'></span>
+                <span className='profession__label-text'>СИЗ</span>
               </label>
             </label>
             <label className='lable'>
@@ -351,7 +379,9 @@ function Form({ setModal, setModalChild, job, setJob }) {
                   type='number'
                   className='form__input input'
                   onChange={handleChange}
-
+                  //onChange={evt => console.log(evt.target.value)}
+                  pattern='/^([1-5]+)$/'
+                  value={inputValue.heaviness}
                   //required
                 ></input>
               </label>
@@ -361,8 +391,10 @@ function Form({ setModal, setModalChild, job, setJob }) {
                   name='probability'
                   type='number'
                   className='form__input input'
+                  //onChange={evt => console.log(evt.target.value)}
                   onChange={handleChange}
-
+                  pattern='/^([1-5]+)$/'
+                  value={inputValue.probability}
                   //required
                 ></input>
               </label>
@@ -405,6 +437,13 @@ function Form({ setModal, setModalChild, job, setJob }) {
               className='button reset'
               onClick={clear}
             ></input>
+            <datalist id='number'>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </datalist>
           </div>
         </form>
         <button onClick={table} className='button button__table'>
