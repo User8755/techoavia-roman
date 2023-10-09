@@ -30,7 +30,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
   });
   const [requiredSIZ, setRequiredSIZ] = useState(false);
   const ERROR = 'Ошибка';
-  console.log(requiredSIZ);
+
   useEffect(() => {
     setIpr(inputValue.probability * inputValue.heaviness);
     if (ipr === 0) {
@@ -249,6 +249,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
     setRequiredSIZ(false);
     setIpr(0);
     setInputValue({ probability: '', heaviness: '' });
+    setCheckboxSIZ(false);
     document.querySelector('.form').reset();
   };
 
@@ -383,7 +384,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
                   type='number'
                   className='form__input input'
                   onChange={handleChange}
-                  pattern='/^([1-5]+)$/'
                   value={inputValue.heaviness}
                 ></input>
               </label>
@@ -394,7 +394,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
                   type='number'
                   className='form__input input'
                   onChange={handleChange}
-                  pattern='/^([1-5]+)$/'
                   value={inputValue.probability}
                 ></input>
               </label>
