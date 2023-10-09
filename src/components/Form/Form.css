@@ -13,12 +13,12 @@
   white-space: nowrap;
 }
 /*чек-бокс*/
-.profession__label {
+.checkbox__label {
   width: max-content;
   cursor: pointer;
 }
 
-.profession__pseudo-checkbox {
+.form__pseudo-checkbox {
   background-color: rgba(243, 244, 246, 1);
   border: 1px solid rgba(66, 83, 97, 1);
   border-radius: 4px;
@@ -29,7 +29,7 @@
   vertical-align: sub;
   position: relative;
 }
-.profession__pseudo-checkbox::before {
+.form__pseudo-checkbox::before {
   content: '';
   /*рисунок*/
   display: inline-block;
@@ -46,24 +46,24 @@
   opacity: 0;
 }
 /*checked*/
-.profession__checkbox:checked + span {
+.form__checkbox:checked + span {
   background-color: rgba(66, 83, 97, 1);
 }
-.profession__checkbox:checked + .profession__pseudo-checkbox::before {
+.form__checkbox:checked + .form__pseudo-checkbox::before {
   opacity: 1;
 }
-.profession__label-text {
+.checkbox__label-text {
   font-size: 15px;
   font-weight: 400;
 }
 
-.additional-means:disabled {
+/*.additional-means:disabled {
   background-color: rgba(192, 23, 17, 0.5);
 }
 
 .SIZ__lable {
   display: flex;
-  flex-direction: row-reverse;
+  /*flex-direction: row-reverse;
   justify-content: flex-end;
   font-size: 15px;
   font-weight: 400;
@@ -73,4 +73,12 @@
 
 .SIZ__lable-hiden {
   opacity: 0;
+}*/
+
+.checkbox__label.disabled > span{
+  color: rgba(66, 83, 97, 0.6);
+  border-color: rgba(66, 83, 97, 0.6);
+
 }
+
+

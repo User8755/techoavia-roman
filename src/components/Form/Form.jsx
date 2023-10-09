@@ -24,10 +24,12 @@ function Form({ setModal, setModalChild, job, setJob }) {
   const [isProff, setProff] = useState([]);
   const [checkboxSiz, setCheckboxSIZ] = useState(false); // чекбокс доп средства
   const [commit, setCommit] = useState('');
-  const [inputValue, setInputValue] = useState({ probability: "", heaviness: "" });
+  const [inputValue, setInputValue] = useState({
+    probability: '',
+    heaviness: '',
+  });
   const [requiredSIZ, setRequiredSIZ] = useState(false);
   const ERROR = 'Ошибка';
-
 
   console.log(inputValue);
   useEffect(() => {
@@ -264,7 +266,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
       [name]: value,
     });
   };
-
+  console.log(additionalMeans);
   return (
     <>
       <main className='main'>
@@ -281,27 +283,27 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 noOptionsMessage={() => 'Значение не найдено'}
                 value={isProff}
               />
-              <label className='profession__label'>
+              <label className='checkbox__label'>
                 <input
                   type='checkbox'
                   name='profession'
-                  className='profession__checkbox visually-hidden'
+                  className='form__checkbox visually-hidden'
                   onClick={hendleOpenModal}
                 />
-                <span className='profession__pseudo-checkbox'></span>
-                <span className='profession__label-text'>
+                <span className='form__pseudo-checkbox'></span>
+                <span className='checkbox__label-text'>
                   Должность отсутствует
                 </span>
               </label>
-              <label className='profession__label'>
+              <label className='checkbox__label'>
                 <input
                   type='checkbox'
-                  name='profession'
-                  className='profession__checkbox visually-hidden'
+                  name='siz'
+                  className='form__checkbox visually-hidden'
                   onClick={(evt) => setRequiredSIZ(evt.target.checked)}
                 />
-                <span className='profession__pseudo-checkbox'></span>
-                <span className='profession__label-text'>СИЗ</span>
+                <span className='form__pseudo-checkbox'></span>
+                <span className='checkbox__label-text'>СИЗ</span>
               </label>
             </label>
             <label className='lable'>
@@ -311,7 +313,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 classNamePrefix='react-select'
                 options={dangerGroup}
                 onChange={(name) => setDangerGroup(name)}
-                required
                 placeholder={'Группа опасности'}
                 value={isDangerGroup}
               />
@@ -323,7 +324,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 classNamePrefix='react-select'
                 options={resDangerGroup}
                 onChange={(evt) => setisDanger(evt)}
-                required
                 placeholder={'Опасности'}
                 value={isDanger}
               />
@@ -335,7 +335,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 classNamePrefix='react-select'
                 options={resDangerEvent}
                 onChange={(evt) => setDangerEvent(evt)}
-                required
                 placeholder={'Опасное событие'}
                 value={isDangerEvent}
               />
@@ -347,21 +346,30 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 classNamePrefix='react-select'
                 options={resTypeSiz}
                 onChange={(evt) => setSelectedTipeSIZ(evt)}
-                required
                 placeholder={'Тип СИЗ'}
                 value={selectedTipeSIZ}
               />
-              <label
+              {/*} <label
                 className={additionalMeans ? 'SIZ__lable' : 'SIZ__lable-hiden'}
+              >*/}
+              <label
+                for='additional-means'
+                className={
+                  additionalMeans
+                    ? 'checkbox__label'
+                    : 'checkbox__label disabled '
+                }
               >
-                ДОП средства
                 <input
+                  id='additional-means'
                   type='checkbox'
                   name='additional-means'
-                  className='additional-means'
+                  className='additional-means form__checkbox visually-hidden'
                   onClick={(evt) => setCheckboxSIZ(evt.target.checked)}
                   disabled={!additionalMeans}
                 />
+                <span className='form__pseudo-checkbox'></span>
+                <span className='checkbox__label-text'>ДОП средства</span>
               </label>
             </label>
             <label className='lable'>
@@ -382,7 +390,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
                   //onChange={evt => console.log(evt.target.value)}
                   pattern='/^([1-5]+)$/'
                   value={inputValue.heaviness}
-                  //required
                 ></input>
               </label>
               <label className='lable box'>
@@ -395,7 +402,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
                   onChange={handleChange}
                   pattern='/^([1-5]+)$/'
                   value={inputValue.probability}
-                  //required
                 ></input>
               </label>
             </div>
