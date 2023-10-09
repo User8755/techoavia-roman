@@ -30,8 +30,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
   });
   const [requiredSIZ, setRequiredSIZ] = useState(false);
   const ERROR = 'Ошибка';
-
-  console.log(inputValue);
+  console.log(requiredSIZ);
   useEffect(() => {
     setIpr(inputValue.probability * inputValue.heaviness);
     if (ipr === 0) {
@@ -135,12 +134,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
     inputValue,
   ]);
 
-  // useEffect(()=>{
-  //   if(requiredSIZ) {
-  //     value['proffSIZ'] = isProff.SIZ
-  //   }
-  // },[requiredSIZ, isProff, value])
-
   const resDangerGroup = danger.filter(
     (item) => isDangerGroup.label === item.dependence
   );
@@ -155,8 +148,13 @@ function Form({ setModal, setModalChild, job, setJob }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    setFormValue([...formValue, value]);
-
+    //setFormValue([...formValue, value]);
+    if (!requiredSIZ) {
+      delete value.proffSIZ;
+      setFormValue([...formValue, value]);
+    } else {
+      setFormValue([...formValue, value]);
+    }
     clear();
   };
   const [additionalMeans, setAdditionalMeans] = useState(false);
@@ -248,6 +246,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
     setSource('');
     setJob('');
     setCommit('');
+    setRequiredSIZ(false);
     setIpr(0);
     setInputValue({ probability: '', heaviness: '' });
     document.querySelector('.form').reset();
@@ -266,7 +265,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
       [name]: value,
     });
   };
-  console.log(additionalMeans);
+
   return (
     <>
       <main className='main'>
@@ -349,11 +348,8 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 placeholder={'Тип СИЗ'}
                 value={selectedTipeSIZ}
               />
-              {/*} <label
-                className={additionalMeans ? 'SIZ__label' : 'SIZ__label-hiden'}
-              >*/}
               <label
-                for='additional-means'
+                htmlFor='additional-means'
                 className={
                   additionalMeans
                     ? 'checkbox__label'
@@ -387,7 +383,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
                   type='number'
                   className='form__input input'
                   onChange={handleChange}
-                  //onChange={evt => console.log(evt.target.value)}
                   pattern='/^([1-5]+)$/'
                   value={inputValue.heaviness}
                 ></input>
@@ -398,7 +393,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
                   name='probability'
                   type='number'
                   className='form__input input'
-                  //onChange={evt => console.log(evt.target.value)}
                   onChange={handleChange}
                   pattern='/^([1-5]+)$/'
                   value={inputValue.probability}
