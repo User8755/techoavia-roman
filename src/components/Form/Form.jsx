@@ -271,8 +271,8 @@ function Form({ setModal, setModalChild, job, setJob }) {
     <>
       <main className='main'>
         <form className='form' onSubmit={handleSubmit} required>
-          <div className='lable-wrapper'>
-            <label className='lable'>
+          <div className='label-wrapper'>
+            <label className='label'>
               Профессии:
               <Select
                 className='react-select-container'
@@ -306,7 +306,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 <span className='checkbox__label-text'>СИЗ</span>
               </label>
             </label>
-            <label className='lable'>
+            <label className='label'>
               Группа опасности:
               <Select
                 className='react-select-container'
@@ -317,7 +317,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 value={isDangerGroup}
               />
             </label>
-            <label className='lable'>
+            <label className='label'>
               Опасности:
               <Select
                 className='react-select-container'
@@ -328,7 +328,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 value={isDanger}
               />
             </label>
-            <label className='lable'>
+            <label className='label'>
               Опасное событие:
               <Select
                 className='react-select-container'
@@ -339,7 +339,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 value={isDangerEvent}
               />
             </label>
-            <label className='lable'>
+            <label className='label'>
               Тип СИЗ:
               <Select
                 className='react-select-container'
@@ -350,7 +350,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 value={selectedTipeSIZ}
               />
               {/*} <label
-                className={additionalMeans ? 'SIZ__lable' : 'SIZ__lable-hiden'}
+                className={additionalMeans ? 'SIZ__label' : 'SIZ__label-hiden'}
               >*/}
               <label
                 for='additional-means'
@@ -372,15 +372,15 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 <span className='checkbox__label-text'>ДОП средства</span>
               </label>
             </label>
-            <label className='lable'>
+            <label className='label'>
               Комментарий
               <input
-                className='form__input input'
+                className='form__input standart'
                 onChange={(evt) => setCommit(evt.target.value)}
               ></input>
             </label>
-            <div className='lavel__box'>
-              <label className='lable box'>
+            <div className='label box'>
+              <label className='label box'>
                 Тяжесть
                 <input
                   name='heaviness'
@@ -392,7 +392,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                   value={inputValue.heaviness}
                 ></input>
               </label>
-              <label className='lable box'>
+              <label className='label box'>
                 Вероятность
                 <input
                   name='probability'
@@ -418,8 +418,8 @@ function Form({ setModal, setModalChild, job, setJob }) {
               </span>
             </div>
           </div>
-          <div className='lable-wrapper'>
-            <label className='lable'>
+          <div className='label-wrapper'>
+            <label className='label'>
               Объект
               <input
                 className='form__input standart'
@@ -427,7 +427,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 onChange={(evt) => setObj(evt.target.value)}
               ></input>
             </label>
-            <label className='lable'>
+            <label className='label'>
               Источник
               <input
                 className='form__input standart'

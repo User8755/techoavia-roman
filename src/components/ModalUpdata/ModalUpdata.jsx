@@ -58,7 +58,7 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
 
   const dengerGroup = (
     <form className='danger' onSubmit={handleSubmit}>
-      <label className='lable'>
+      <label className='label'>
         Группа опасности
         {/* тут должнеы быть обычные инпуты
         ДОБАВИЛА СТИЛИ
@@ -75,7 +75,7 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
           onChange={handleChange}
         ></input>
       </label>
-      <label className='lable box'>
+      <label className='label box'>
         id группы опасности
         <input
           className='form__input id'
@@ -89,7 +89,7 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
 
   const dangers = (
     <form className='danger' onSubmit={handleSubmit}>
-      <label className='lable'>
+      <label className='label'>
         Зависимость от группы опасностей
         <Select
           options={dangerGroup}
@@ -98,7 +98,7 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
           onChange={(v) => setDependence(v.label)}
         ></Select>
       </label>
-      <label className='lable'>
+      <label className='label'>
         Опасности
         {/* тут тоже про инпут
         ТУТ ТОЖЕ ДОБАВИЛА СТИЛИ
@@ -114,7 +114,7 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
           name='label'
         ></input>
       </label>
-      <label className='lable box'>
+      <label className='label box'>
         id опасности
         <input
           className='form__input input'
@@ -128,7 +128,7 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
 
   const dangerEvt = (
     <form className='danger' onSubmit={handleSubmit}>
-      <label className='lable'>
+      <label className='label'>
         Зависимость от опасностей
         <Select
           options={danger}
@@ -137,7 +137,7 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
           onChange={(v) => setDependence(v.label)}
         ></Select>
       </label>
-      <label className='lable'>
+      <label className='label'>
         Опасное событие
         <Select
           className='react-select-container'
@@ -151,7 +151,7 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
           name='label'
   ></input>*/}
       </label>
-      <label className='lable box'>
+      <label className='label box'>
         id опасного события
         <input
           className='form__input id'
@@ -164,7 +164,7 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
   );
   const newProfession = (
     <form className='profession' onSubmit={handleSubmit}>
-      <label className='lable profession'>
+      <label className='label profession'>
         Добавить новую должность?
         <input
           className='form__input input'
@@ -172,7 +172,9 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
           name='job-title'
         ></input>
       </label>
-      <button className='button send' onClick={handleSubmitJob}>Добавить</button>
+      <button className='button send' onClick={handleSubmitJob}>
+        Добавить
+      </button>
       <button className='button button-cancel' onClick={() => setModal(false)}>
         Отмена
       </button>
