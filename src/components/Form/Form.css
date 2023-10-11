@@ -22,13 +22,14 @@
   border: 1px solid rgba(66, 83, 97, 1) !important;
   background-color: rgba(243, 244, 246, 1) !important;
   box-shadow: none !important;
-  outline: none !important;
 }
 .react-select__control:hover {
   background-color: rgb(222, 228, 239) !important;
 }
 .react-select__control--is-focused {
-  border: 2px solid rgba(66, 83, 97, 1) !important;
+  box-shadow: 0px 0px 0px 1px rgba(66, 83, 97, 1) !important;
+  /*  border: 2px solid rgba(66, 83, 97, 1) !important;*/
+  /*border:none !important;*/
 }
 
 /*плейсхолдер*/
@@ -104,7 +105,9 @@
   background-color: rgb(222, 228, 239);
 }
 .form__input:focus {
-  border: 2px solid rgba(66, 83, 97, 1);
+  box-shadow: 0px 0px 0px 1px rgba(66, 83, 97, 1);
+ 
+  /*  border: 2px solid rgba(66, 83, 97, 1);*/
 }
 
 .form__input.standart {
