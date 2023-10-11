@@ -7,7 +7,7 @@ import * as Excel from 'exceljs/dist/exceljs.min.js';
 import { useEffect, useState } from 'react';
 import typeSiz from '../../untils/typeSIZ';
 import danget776 from '../../untils/danger775';
-import dangerEvent776 from '../../untils/dangerEvent776'
+import dangerEvent776 from '../../untils/dangerEvent776';
 import './Form.css';
 
 function Form({ setModal, setModalChild, job, setJob }) {
@@ -66,7 +66,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
     }
   }, [ipr, inputValue]);
 
-  //console.log(formValue);
+  console.log(value);
   useEffect(() => {
     if (checkboxSiz) {
       setValue({
@@ -121,7 +121,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
         danger776: isDanger776.dangere776,
         danger776Id: isDanger776.ID776,
         dangerEvent776: isDangerEvent776.dangerEvent776,
-        dangerEvent776Id: isDangerEvent776.ID776
+        dangerEvent776Id: isDangerEvent776.ID776,
       });
     }
   }, [
@@ -155,7 +155,6 @@ function Form({ setModal, setModalChild, job, setJob }) {
   const resTypeSiz = typeSiz.filter(
     (item) => isDangerEvent.groupId === item.dependence
   );
-  
 
   useEffect(() => {
     if (isDanger) {
@@ -176,7 +175,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
       });
     }
   }, [isDangerEvent]);
-console.log(isDangerEvent776)
+  console.log(isDangerEvent776);
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (!requiredSIZ) {
@@ -246,7 +245,11 @@ console.log(isDangerEvent776)
       { header: 'Комментарий', key: 'commit', width: 20 },
       { header: 'ID опасности 776н', key: 'danger776Id', width: 20 },
       { header: 'Опасности 776н', key: 'danger776', width: 20 },
-      { header: 'ID опасного события 776н', key: 'dangerEvent776Id', width: 20 },
+      {
+        header: 'ID опасного события 776н',
+        key: 'dangerEvent776Id',
+        width: 20,
+      },
       { header: 'Опасное событие 776н', key: 'dangerEvent776', width: 20 },
     ];
 
@@ -269,6 +272,8 @@ console.log(isDangerEvent776)
   };
 
   const clear = () => {
+    setDanger776({});
+    setDangerEvent776({});
     setDangerEvent('');
     setDangerGroup('');
     setisDanger('');
