@@ -1,9 +1,11 @@
 import './Update.css';
 
+
 function Update({ setModal, setModalChild }) {
   const hendleOpenModal = (evt) => {
     setModal(true);
     setModalChild(evt.target.textContent);
+    console.log(evt.target.textContent)
   };
 
   return (
@@ -19,7 +21,6 @@ function Update({ setModal, setModalChild }) {
             onClick={hendleOpenModal}
           ></button>
         </div>
-
         <div className='button-wrapper'>
           <button className='button button_danger' onClick={hendleOpenModal}>
             Опасность

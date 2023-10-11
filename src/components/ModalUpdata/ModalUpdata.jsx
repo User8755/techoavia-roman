@@ -5,15 +5,13 @@ import { useState } from 'react';
 import dangerGroup from '../../untils/dangerGroup';
 import danger from '../../untils/danger';
 import NewModal from '../NewModal/NewModal';
-import { Link } from 'react-router-dom';
 
-function ModalUpdata({ active, setModal, modalChild }) {
+function ModalUpdata({ active, setModal, modalChild, setJob }) {
   const [isValue, setValue] = useState({});
   const [isDependence, setDependence] = useState(null);
   console.log(isDependence);
   const handleChange = (evt) => {
     const { name, value } = evt.target;
-
     if (modalChild === 'Группа опасности') {
       setValue({
         ...isValue,
@@ -27,7 +25,18 @@ function ModalUpdata({ active, setModal, modalChild }) {
       });
     }
   };
-  console.log(isValue);
+
+  const handleChangeJob = (evt) => {
+    const { value } = evt.target;
+    setJob({job: value})
+  };
+
+  const handleSubmitJob = (evt) => {
+    evt.preventDefault();
+    document.querySelector('.profession').reset();
+    setModal(false)
+  }
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (modalChild === 'Группа опасности') {
@@ -49,7 +58,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
 
   const dengerGroup = (
     <form className='danger' onSubmit={handleSubmit}>
-      <label className='lable'>
+      <label className='label'>
         Группа опасности
         {/* тут должнеы быть обычные инпуты
         ДОБАВИЛА СТИЛИ
@@ -66,7 +75,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
           onChange={handleChange}
         ></input>
       </label>
-      <label className='lable box'>
+      <label className='label box'>
         id группы опасности
         <input
           className='form__input id'
@@ -80,7 +89,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
 
   const dangers = (
     <form className='danger' onSubmit={handleSubmit}>
-      <label className='lable'>
+      <label className='label'>
         Зависимость от группы опасностей
         <Select
           options={dangerGroup}
@@ -89,7 +98,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
           onChange={(v) => setDependence(v.label)}
         ></Select>
       </label>
-      <label className='lable'>
+      <label className='label'>
         Опасности
         {/* тут тоже про инпут
         ТУТ ТОЖЕ ДОБАВИЛА СТИЛИ
@@ -105,7 +114,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
           name='label'
         ></input>
       </label>
-      <label className='lable box'>
+      <label className='label box'>
         id опасности
         <input
           className='form__input input'
@@ -119,7 +128,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
 
   const dangerEvt = (
     <form className='danger' onSubmit={handleSubmit}>
-      <label className='lable'>
+      <label className='label'>
         Зависимость от опасностей
         <Select
           options={danger}
@@ -128,7 +137,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
           onChange={(v) => setDependence(v.label)}
         ></Select>
       </label>
-      <label className='lable'>
+      <label className='label'>
         Опасное событие
         <Select
           className='react-select-container'
@@ -142,7 +151,7 @@ function ModalUpdata({ active, setModal, modalChild }) {
           name='label'
   ></input>*/}
       </label>
-      <label className='lable box'>
+      <label className='label box'>
         id опасного события
         <input
           className='form__input id'
@@ -155,15 +164,17 @@ function ModalUpdata({ active, setModal, modalChild }) {
   );
   const newProfession = (
     <form className='profession' onSubmit={handleSubmit}>
-      <label className='lable profession'>
+      <label className='label profession'>
         Добавить новую должность?
         <input
           className='form__input input'
-          onChange={handleChange}
-          name='#'
+          onChange={handleChangeJob}
+          name='job-title'
         ></input>
       </label>
-      <button className='button send'>Добавить</button>
+      <button className='button send' onClick={handleSubmitJob}>
+        Добавить
+      </button>
       <button className='button button-cancel' onClick={() => setModal(false)}>
         Отмена
       </button>

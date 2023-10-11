@@ -6,30 +6,30 @@ import Header from './components/Header/Header';
 import ModalUpdata from './components/ModalUpdata/ModalUpdata';
 import { useState } from 'react';
 import Footer from './components/Footer/Footer';
-import api from './untils/api';
-import { useEffect } from 'react';
 
 function App() {
   const [isModal, setModal] = useState(false);
   const [modalChild, setModalChild] = useState('');
-
-  // useEffect(() => {
-  //   api.getDangerGroups().then((res) => console.log(res));
-  // }, []);
-  console.log(isModal);
+  const [job, setJob] = useState({});
   return (
     <div className='App'>
       <ModalUpdata
         active={isModal}
         setModal={setModal}
         modalChild={modalChild}
+        setJob={setJob}
       ></ModalUpdata>
       <Header></Header>
       <Routes>
         <Route
           path='/techoavia-roman'
           element={
-            <Form setModalChild={setModalChild} setModal={setModal}></Form>
+            <Form
+              setModalChild={setModalChild}
+              setModal={setModal}
+              job={job}
+              setJob={setJob}
+            ></Form>
           }
         ></Route>
         <Route
@@ -45,4 +45,3 @@ function App() {
 }
 
 export default App;
-
