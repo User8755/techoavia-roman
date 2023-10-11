@@ -6,6 +6,8 @@ import Select from 'react-select';
 import * as Excel from 'exceljs/dist/exceljs.min.js';
 import { useEffect, useState } from 'react';
 import typeSiz from '../../untils/typeSIZ';
+import danget776 from '../../untils/danger775';
+import dangerEvent776 from '../../untils/dangerEvent776'
 import './Form.css';
 
 function Form({ setModal, setModalChild, job, setJob }) {
@@ -30,6 +32,8 @@ function Form({ setModal, setModalChild, job, setJob }) {
   });
   const [requiredSIZ, setRequiredSIZ] = useState(false);
   const ERROR = 'Ошибка';
+  const [isDanger776, setDanger776] = useState({});
+  const [isDangerEvent776, setDangerEvent776] = useState({});
 
   useEffect(() => {
     setIpr(inputValue.probability * inputValue.heaviness);
@@ -114,9 +118,15 @@ function Form({ setModal, setModalChild, job, setJob }) {
         job: job.job,
         commit: commit,
         proffSIZ: isProff.SIZ,
+        danger776: isDanger776.dangere776,
+        danger776Id: isDanger776.ID776,
+        dangerEvent776: isDangerEvent776.dangerEvent776,
+        dangerEvent776Id: isDangerEvent776.ID776
       });
     }
   }, [
+    isDangerEvent776,
+    isDanger776,
     commit,
     acceptability,
     checkboxSiz,
@@ -145,10 +155,30 @@ function Form({ setModal, setModalChild, job, setJob }) {
   const resTypeSiz = typeSiz.filter(
     (item) => isDangerEvent.groupId === item.dependence
   );
+  
 
+  useEffect(() => {
+    if (isDanger) {
+      danget776.map((item) => {
+        if (isDanger.groupId === item.dependence) {
+          setDanger776(item);
+        }
+      });
+    }
+  }, [isDanger]);
+
+  useEffect(() => {
+    if (isDangerEvent) {
+      dangerEvent776.map((item) => {
+        if (isDangerEvent.groupId === item.dependence) {
+          setDangerEvent776(item);
+        }
+      });
+    }
+  }, [isDangerEvent]);
+console.log(isDangerEvent776)
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    //setFormValue([...formValue, value]);
     if (!requiredSIZ) {
       delete value.proffSIZ;
       setFormValue([...formValue, value]);
@@ -171,7 +201,8 @@ function Form({ setModal, setModalChild, job, setJob }) {
   const table = async () => {
     const workbook = new Excel.Workbook();
     const sheet = workbook.addWorksheet('sheet');
-
+    const row = sheet.getColumn(23);
+    row.alignment = { wrapText: true, vertical: 'top' };
     sheet.columns = [
       { header: '№ п/п', key: 'number', width: 9 },
       { header: 'Код профессии (при наличии)', key: 'proffId', width: 20 },
@@ -204,7 +235,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
       { header: 'Приемлемость', key: 'acceptability', width: 20 },
       { header: 'Отношение к риску', key: 'riskAttitude', width: 20 },
       { header: 'Тип СИЗ', key: 'typeSIZ', width: 20 },
-      { header: 'Вид СИЗ', key: 'speciesSIZ', width: 20 },
+      { header: 'Вид СИЗ', key: 'speciesSIZ', width: 40 },
       {
         header:
           'Нормы выдачи средств индивидуальной защиты на год (штуки, пары, комплекты, мл)',
@@ -213,6 +244,10 @@ function Form({ setModal, setModalChild, job, setJob }) {
       },
       { header: 'ДОП средства', key: 'additionalMeans', width: 20 },
       { header: 'Комментарий', key: 'commit', width: 20 },
+      { header: 'ID опасности 776н', key: 'danger776Id', width: 20 },
+      { header: 'Опасности 776н', key: 'danger776', width: 20 },
+      { header: 'ID опасного события 776н', key: 'dangerEvent776Id', width: 20 },
+      { header: 'Опасное событие 776н', key: 'dangerEvent776', width: 20 },
     ];
 
     let i = 0;
@@ -303,7 +338,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                   onClick={(evt) => setRequiredSIZ(evt.target.checked)}
                 />
                 <span className='form__pseudo-checkbox'></span>
-                <span className='checkbox__label-text'>СИЗ</span>
+                <span className='checkbox__label-text'>Обязательные СИЗ</span>
               </label>
             </label>
             <label className='label'>
