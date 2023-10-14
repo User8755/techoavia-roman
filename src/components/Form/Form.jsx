@@ -357,28 +357,68 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 value={isDangerGroup}
               />
             </label>
-            <label className='label'>
-              Опасности:
-              <Select
-                className='react-select-container'
-                classNamePrefix='react-select'
-                options={resDangerGroup}
-                onChange={(evt) => setisDanger(evt)}
-                placeholder={'Опасности'}
-                value={isDanger}
-              />
-            </label>
-            <label className='label'>
-              Опасное событие:
-              <Select
-                className='react-select-container'
-                classNamePrefix='react-select'
-                options={resDangerEvent}
-                onChange={(evt) => setDangerEvent(evt)}
-                placeholder={'Опасное событие'}
-                value={isDangerEvent}
-              />
-            </label>
+            <div className='input-order__wrapper'>
+              <h2 className='input-order__title'>Приказ №776</h2>
+              <label className='label'>
+                Опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={resDangerGroup}
+                  onChange={(evt) => setisDanger(evt)}
+                  placeholder={'Опасности'}
+                  value={isDanger}
+                />
+              </label>
+              <label className='label'>
+                Опасное событие:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={resDangerEvent}
+                  onChange={(evt) => setDangerEvent(evt)}
+                  placeholder={'Опасное событие'}
+                  value={isDangerEvent}
+                />
+              </label>
+              {/*не забыть настроить инпутб сейчас он работает как "Опасные события"*/}
+              <label className='label'>
+                Меры управления/контроля:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={resDangerEvent}
+                  onChange={(evt) => setDangerEvent(evt)}
+                  placeholder={'Меры управления/контроля'}
+                  value={isDangerEvent}
+                />
+              </label>
+            </div>
+            <div className='input-order__wrapper'>
+              <h2 className='input-order__title'>Приказ №767</h2>
+              <label className='label'>
+                Опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={resDangerGroup}
+                  onChange={(evt) => setisDanger(evt)}
+                  placeholder={'Опасности'}
+                  value={isDanger}
+                />
+              </label>
+              <label className='label'>
+                Опасное событие:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={resDangerEvent}
+                  onChange={(evt) => setDangerEvent(evt)}
+                  placeholder={'Опасное событие'}
+                  value={isDangerEvent}
+                />
+              </label>
+            </div>
             <label className='label'>
               Тип СИЗ:
               <Select
@@ -410,7 +450,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
               </label>
             </label>
             <label className='label'>
-              Комментарий
+              Комментарий:
               <input
                 className='form__input standart'
                 onChange={(evt) => setCommit(evt.target.value)}
@@ -418,7 +458,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
             </label>
             <div className='label box'>
               <label className='label box'>
-                Тяжесть
+                Тяжесть:
                 <input
                   name='heaviness'
                   type='number'
@@ -428,7 +468,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 ></input>
               </label>
               <label className='label box'>
-                Вероятность
+                Вероятность:
                 <input
                   name='probability'
                   type='number'

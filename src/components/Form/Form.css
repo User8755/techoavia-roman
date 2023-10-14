@@ -205,6 +205,26 @@
   background-size: cover;
 }
 
+/*******контейнер с приказом********/
+
+.input-order__wrapper {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(66, 83, 97, 0.24);
+  border-radius: 4px;
+  max-width: calc(350px - 20px - 2px);
+  /*можно сделать одинаковые по высоте карточки, если убрать height*/
+  height: max-content;
+  gap: 10px;
+}
+.input-order__title {
+  font-size: 20px;
+}
+.react-select-container.order {
+  width: calc(350px - 20px - 2px);
+}
+
 /********чекбокс*********/
 .visually-hidden {
   clip: rect(0 0 0 0);
