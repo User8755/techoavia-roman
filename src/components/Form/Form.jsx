@@ -8,11 +8,15 @@ import { useEffect, useState } from 'react';
 import typeSiz from '../../untils/typeSIZ';
 import danget776 from '../../untils/danger775';
 import dangerEvent776 from '../../untils/dangerEvent776';
+import riskManagement from '../../untils/riskManagement';
+import conversion from '../../untils/converct';
 import './Form.css';
 
 function Form({ setModal, setModalChild, job, setJob }) {
   const [isDangerGroup, setDangerGroup] = useState([]);
   const [isDanger, setisDanger] = useState([]);
+  const [isDanger776, setDanger776] = useState([]);
+  const [isDangerEvent776, setDangerEvent776] = useState({});
   const [isDangerEvent, setDangerEvent] = useState([]);
   const [value, setValue] = useState({});
   const [formValue, setFormValue] = useState([]); // массив для записи в таблицу
@@ -32,8 +36,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
   });
   const [requiredSIZ, setRequiredSIZ] = useState(false);
   const ERROR = 'Ошибка';
-  const [isDanger776, setDanger776] = useState({});
-  const [isDangerEvent776, setDangerEvent776] = useState({});
+  const [isRiskManagement, setRiskManagement] = useState([]);
 
   useEffect(() => {
     setIpr(inputValue.probability * inputValue.heaviness);
@@ -93,6 +96,12 @@ function Form({ setModal, setModalChild, job, setJob }) {
         job: job.job,
         commit: commit,
         proffSIZ: isProff.SIZ,
+        danger776: isDanger776.label,
+        danger776Id: isDanger776.ID,
+        dangerEvent776: isDangerEvent776.label,
+        dangerEvent776Id: isDangerEvent776.ID,
+        riskManagement: isRiskManagement.label,
+        riskManagementID: isRiskManagement.ID,
       });
     } else {
       setValue({
@@ -118,10 +127,12 @@ function Form({ setModal, setModalChild, job, setJob }) {
         job: job.job,
         commit: commit,
         proffSIZ: isProff.SIZ,
-        danger776: isDanger776.dangere776,
-        danger776Id: isDanger776.ID776,
-        dangerEvent776: isDangerEvent776.dangerEvent776,
-        dangerEvent776Id: isDangerEvent776.ID776,
+        danger776: isDanger776.label,
+        danger776Id: isDanger776.ID,
+        dangerEvent776: isDangerEvent776.label,
+        dangerEvent776Id: isDangerEvent776.ID,
+        riskManagement: isRiskManagement.label,
+        riskManagementID: isRiskManagement.ID,
       });
     }
   }, [
@@ -142,6 +153,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
     selectedTipeSIZ,
     source,
     inputValue,
+    isRiskManagement,
   ]);
 
   const resDangerGroup = danger.filter(
@@ -156,26 +168,14 @@ function Form({ setModal, setModalChild, job, setJob }) {
     (item) => isDangerEvent.groupId === item.dependence
   );
 
-  useEffect(() => {
-    if (isDanger) {
-      danget776.map((item) => {
-        if (isDanger.groupId === item.dependence) {
-          setDanger776(item);
-        }
-      });
-    }
-  }, [isDanger]);
+  const resDangerEvent776 = dangerEvent776.filter(
+    (item) => isDanger776.label === item.dependence
+  );
 
-  useEffect(() => {
-    if (isDangerEvent) {
-      dangerEvent776.map((item) => {
-        if (isDangerEvent.groupId === item.dependence) {
-          setDangerEvent776(item);
-        }
-      });
-    }
-  }, [isDangerEvent]);
-  console.log(isDangerEvent776);
+  const resRiskManagemet = riskManagement.filter(
+    (item) => isDangerEvent776.label === item.dependence
+  );
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (!requiredSIZ) {
@@ -197,7 +197,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
   }, [selectedTipeSIZ]);
 
   var FileSaver = require('file-saver');
-  const table = async () => {
+  const table = () => {
     const workbook = new Excel.Workbook();
     const sheet = workbook.addWorksheet('sheet');
     const row = sheet.getColumn(23);
@@ -251,6 +251,12 @@ function Form({ setModal, setModalChild, job, setJob }) {
         width: 20,
       },
       { header: 'Опасное событие 776н', key: 'dangerEvent776', width: 20 },
+      { header: 'ID мер управления', key: 'riskManagementID', width: 20 },
+      {
+        header: 'Меры управления/контроля профессиональных рисков',
+        key: 'riskManagement',
+        width: 20,
+      },
     ];
 
     let i = 0;
@@ -290,6 +296,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
     setIpr(0);
     setInputValue({ probability: '', heaviness: '' });
     setCheckboxSIZ(false);
+    setRiskManagement('');
     document.querySelector('.form').reset();
   };
 
@@ -307,6 +314,26 @@ function Form({ setModal, setModalChild, job, setJob }) {
     });
   };
 
+  useEffect(() => {
+    conversion.forEach((item) => {
+      if (
+        value.danger776 === item.Danger776 &&
+        value.dangerEvent776 === item.dangerEvent776
+      ) {
+        console.log(1);
+        setisDanger({ groupId: item.IdDanger767, label: item.danger767 });
+        setDangerEvent({
+          groupId: item.IdDangerEvent767,
+          label: item.dangerEvent767,
+        });
+      }
+    });
+
+    // const table = {};
+    // const res = dangerEvent776.filter(({ label }) => !table[label] && (table[label] = 1));
+    // console.log(res);
+  }, [value.danger776, value.dangerEvent776]);
+
   return (
     <>
       <main className='main'>
@@ -323,6 +350,8 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 noOptionsMessage={() => 'Значение не найдено'}
                 value={isProff}
               />
+            </label>
+            <div className='label__checkbox'>
               <label className='checkbox__label'>
                 <input
                   type='checkbox'
@@ -345,18 +374,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 <span className='form__pseudo-checkbox'></span>
                 <span className='checkbox__label-text'>Обязательные СИЗ</span>
               </label>
-            </label>
-            <label className='label'>
-              Группа опасности:
-              <Select
-                className='react-select-container'
-                classNamePrefix='react-select'
-                options={dangerGroup}
-                onChange={(name) => setDangerGroup(name)}
-                placeholder={'Группа опасности'}
-                value={isDangerGroup}
-              />
-            </label>
+            </div>
             <div className='input-order__wrapper'>
               <h2 className='input-order__title'>Приказ №776</h2>
               <label className='label'>
@@ -364,10 +382,10 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 <Select
                   className='react-select-container order'
                   classNamePrefix='react-select'
-                  options={resDangerGroup}
-                  onChange={(evt) => setisDanger(evt)}
+                  options={danget776}
+                  onChange={(evt) => setDanger776(evt)}
                   placeholder={'Опасности'}
-                  value={isDanger}
+                  value={isDanger776}
                 />
               </label>
               <label className='label'>
@@ -375,27 +393,38 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 <Select
                   className='react-select-container order'
                   classNamePrefix='react-select'
-                  options={resDangerEvent}
-                  onChange={(evt) => setDangerEvent(evt)}
+                  options={resDangerEvent776}
+                  onChange={(evt) => setDangerEvent776(evt)}
                   placeholder={'Опасное событие'}
-                  value={isDangerEvent}
+                  value={isDangerEvent776}
                 />
               </label>
               {/*не забыть настроить инпутб сейчас он работает как "Опасные события"*/}
               <label className='label'>
-                Меры управления/контроля:
+                Меры управления/контроля профессиональных рисков
                 <Select
                   className='react-select-container order'
                   classNamePrefix='react-select'
-                  options={resDangerEvent}
-                  onChange={(evt) => setDangerEvent(evt)}
+                  options={resRiskManagemet}
+                  onChange={(evt) => setRiskManagement(evt)}
                   placeholder={'Меры управления/контроля'}
-                  value={isDangerEvent}
+                  value={isRiskManagement}
                 />
               </label>
             </div>
             <div className='input-order__wrapper'>
               <h2 className='input-order__title'>Приказ №767</h2>
+              <label className='label'>
+                Группа опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={dangerGroup}
+                  onChange={(name) => setDangerGroup(name)}
+                  placeholder={'Группа опасности'}
+                  value={isDangerGroup}
+                />
+              </label>
               <label className='label'>
                 Опасности:
                 <Select

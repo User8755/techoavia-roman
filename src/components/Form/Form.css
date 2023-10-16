@@ -287,6 +287,13 @@
   border-color: rgba(66, 83, 97, 0.6);
 }
 
+.label__checkbox{
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  row-gap: 5px;
+}
+
 /*.additional-means:disabled {
   background-color: rgba(192, 23, 17, 0.5);
 }
