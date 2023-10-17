@@ -248,8 +248,8 @@
   border: 1px solid rgba(66, 83, 97, 1);
   border-radius: 4px;
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 16px;
+  height: 16px;
   margin-right: 5px;
   vertical-align: sub;
   position: relative;
@@ -287,11 +287,12 @@
   border-color: rgba(66, 83, 97, 0.6);
 }
 
-.label__checkbox{
+.label__checkbox {
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  row-gap: 5px;
+  
+ 
 }
 
 /*.additional-means:disabled {
@@ -310,6 +311,10 @@
   opacity: 0;
 }*/
 
+.label.profs {
+  width: 90%;
+padding: 0 5%;
+}
 @media screen and (max-width: 767px) {
   .label,
   .input-order__wrapper {
@@ -324,8 +329,8 @@
     align-items: center;
     width: 100%;
   }
-  .react-select-container.order{
-    width:100%;
+  .react-select-container.order {
+    width: 100%;
   }
   .buttons_wrapper {
     align-items: center;

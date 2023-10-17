@@ -401,7 +401,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
               </label>
               {/*не забыть настроить инпутб сейчас он работает как "Опасные события"*/}
               <label className='label'>
-                Меры управления/контроля профессиональных рисков
+                Меры упр-я/контроля проф. рисков
                 <Select
                   className='react-select-container order'
                   classNamePrefix='react-select'
@@ -485,7 +485,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 onChange={(evt) => setCommit(evt.target.value)}
               ></input>
             </label>
-            <div className='label box'>
+            <div className='label-wrapper'>
               <label className='label box'>
                 Тяжесть:
                 <input
