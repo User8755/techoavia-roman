@@ -12,7 +12,7 @@ import riskManagement from '../../untils/riskManagement';
 import conversion from '../../untils/converct';
 import './Form.css';
 
-function Form({ setModal, setModalChild, job, setJob }) {
+function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [isDangerGroup, setDangerGroup] = useState([]);
   const [isDanger, setisDanger] = useState([]);
   const [isDanger776, setDanger776] = useState([]);
@@ -37,6 +37,8 @@ function Form({ setModal, setModalChild, job, setJob }) {
   const [requiredSIZ, setRequiredSIZ] = useState(false);
   const ERROR = 'Ошибка';
   const [isRiskManagement, setRiskManagement] = useState([]);
+  const [count, setCount] = useState(0);
+  const [subdivision, setSubdivision] = useState(false);
 
   useEffect(() => {
     setIpr(inputValue.probability * inputValue.heaviness);
@@ -69,7 +71,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
     }
   }, [ipr, inputValue]);
 
-  console.log(value);
+  //console.log(value);
   useEffect(() => {
     if (checkboxSiz) {
       setValue({
@@ -102,6 +104,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
         dangerEvent776Id: isDangerEvent776.ID,
         riskManagement: isRiskManagement.label,
         riskManagementID: isRiskManagement.ID,
+        subdivision: job.subdivision,
       });
     } else {
       setValue({
@@ -133,6 +136,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
         dangerEvent776Id: isDangerEvent776.ID,
         riskManagement: isRiskManagement.label,
         riskManagementID: isRiskManagement.ID,
+        subdivision: job.subdivision,
       });
     }
   }, [
@@ -178,6 +182,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
+    setCount(count + 1);
     if (!requiredSIZ) {
       delete value.proffSIZ;
       setFormValue([...formValue, value]);
@@ -207,6 +212,7 @@ function Form({ setModal, setModalChild, job, setJob }) {
       { header: 'Код профессии (при наличии)', key: 'proffId', width: 20 },
       { header: 'Профессия', key: 'proff', width: 20 },
       { header: 'Должность', key: 'job', width: 20 },
+      { header: 'Подразделение', key: 'subdivision', width: 20 },
       { header: 'Тип средства защиты', key: 'type', width: 20 },
       {
         header:
@@ -298,10 +304,10 @@ function Form({ setModal, setModalChild, job, setJob }) {
     setCheckboxSIZ(false);
     setRiskManagement('');
     document.querySelector('.form').reset();
+    setSubdivision(false);
   };
 
   function hendleOpenModal() {
-    console.log('gg');
     setModal(true);
     setModalChild('Профессия');
   }
@@ -334,10 +340,23 @@ function Form({ setModal, setModalChild, job, setJob }) {
     // console.log(res);
   }, [value.danger776, value.dangerEvent776]);
 
+  useEffect(() => {
+    // danger.forEach(item=>item.label = item.label + ` id: ${item.groupId}`)
+    // console.log(danger)
+  }, []);
+
+  useEffect(() => {
+    if (subdivision) {
+      setModal(true);
+      setModalChild('подразделение');
+    }
+  }, [setModal, setModalChild, subdivision]);
+
   return (
     <>
       <main className='main'>
         <form className='form' onSubmit={handleSubmit} required>
+          <span>Кол-во записей: {count}</span>
           <div className='label-wrapper'>
             <label className='label'>
               Профессии:
@@ -373,6 +392,17 @@ function Form({ setModal, setModalChild, job, setJob }) {
                 />
                 <span className='form__pseudo-checkbox'></span>
                 <span className='checkbox__label-text'>Обязательные СИЗ</span>
+              </label>
+              <label className='checkbox__label'>
+                <input
+                  type='checkbox'
+                  name='siz'
+                  className='form__checkbox visually-hidden'
+                  onChange={(evt) => setSubdivision(evt.target.checked)}
+                  checked={subdivision}
+                />
+                <span className='form__pseudo-checkbox'></span>
+                <span className='checkbox__label-text'>Подразделение</span>
               </label>
             </div>
             <div className='input-order__wrapper'>

@@ -6,18 +6,26 @@ import Header from './components/Header/Header';
 import ModalUpdata from './components/ModalUpdata/ModalUpdata';
 import { useState } from 'react';
 import Footer from './components/Footer/Footer';
-
 function App() {
   const [isModal, setModal] = useState(false);
   const [modalChild, setModalChild] = useState('');
   const [job, setJob] = useState({});
+  const [listJob, setlistJob] = useState([]);
+  const [listSubdivision, setlistSubdivision] = useState([]);
+  
   return (
     <div className='App'>
+
       <ModalUpdata
         active={isModal}
         setModal={setModal}
         modalChild={modalChild}
         setJob={setJob}
+        job={job}
+        setlistJob={setlistJob}
+        listJob={listJob}
+        setlistSubdivision={setlistSubdivision}
+        listSubdivision={listSubdivision}
       ></ModalUpdata>
       <Header></Header>
       <Routes>
@@ -29,6 +37,7 @@ function App() {
               setModal={setModal}
               job={job}
               setJob={setJob}
+              listJob={listJob}
             ></Form>
           }
         ></Route>

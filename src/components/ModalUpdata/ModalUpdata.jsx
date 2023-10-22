@@ -6,10 +6,20 @@ import dangerGroup from '../../untils/dangerGroup';
 import danger from '../../untils/danger';
 import NewModal from '../NewModal/NewModal';
 
-function ModalUpdata({ active, setModal, modalChild, setJob }) {
+function ModalUpdata({
+  active,
+  setModal,
+  modalChild,
+  setJob,
+  job,
+  listJob,
+  setlistJob,
+  setlistSubdivision,
+  listSubdivision,
+}) {
   const [isValue, setValue] = useState({});
   const [isDependence, setDependence] = useState(null);
-  console.log(isDependence);
+
   const handleChange = (evt) => {
     const { name, value } = evt.target;
     if (modalChild === 'Группа опасности') {
@@ -28,15 +38,32 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
 
   const handleChangeJob = (evt) => {
     const { value } = evt.target;
-    setJob({job: value})
+    setJob({ ...job, job: value });
   };
-
+  const handleChangeSubdivision = (evt) => {
+    const { value } = evt.target;
+    setJob({ ...job, subdivision: value });
+  };
+  console.log(job);
   const handleSubmitJob = (evt) => {
     evt.preventDefault();
     document.querySelector('.profession').reset();
-    setModal(false)
-  }
+    setModal(false);
+    if (!listJob.includes(job.job)) {
+      setlistJob([...listJob, job.job]);
+    }
+  };
 
+  const handleSubmitSubdivision = (evt) => {
+    evt.preventDefault();
+    console.log(1);
+    document.querySelector('.profession').reset();
+    setModal(false);
+    if (!listSubdivision.includes(job.subdivision)) {
+      setlistSubdivision([...listSubdivision, job.subdivision]);
+    }
+  };
+  console.log(listSubdivision);
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (modalChild === 'Группа опасности') {
@@ -60,15 +87,6 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
     <form className='danger' onSubmit={handleSubmit}>
       <label className='label'>
         Группа опасности
-        {/* тут должнеы быть обычные инпуты
-        ДОБАВИЛА СТИЛИ
-        <Select
-          options={dangerGroup}
-          className='react-select-container'
-          classNamePrefix='react-select'
-          name='label'
-          onChange={handleChange}
-        ></Select> */}
         <input
           className='form__input input'
           name='label'
@@ -100,14 +118,6 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
       </label>
       <label className='label'>
         Опасности
-        {/* тут тоже про инпут
-        ТУТ ТОЖЕ ДОБАВИЛА СТИЛИ
-        <Select
-          className='react-select-container'
-          classNamePrefix='react-select'
-          onChange={handleChange}
-          name='label'
-        ></Select> */}
         <input
           className='form__input input'
           onChange={handleChange}
@@ -145,11 +155,6 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
           onChange={handleChange}
           name='label'
         ></Select>
-        {/*  <input
-          className='form__input input'
-          onChange={handleChange}
-          name='label'
-  ></input>*/}
       </label>
       <label className='label box'>
         id опасного события
@@ -169,8 +174,16 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
         <input
           className='form__input input'
           onChange={handleChangeJob}
-          name='job-title'
+          name='job'
+          value={job.job}
+          list='job'
+          autoComplete='off'
         ></input>
+        <datalist id='job'>
+          {listJob.map((item) => (
+            <option>{item}</option>
+          ))}
+        </datalist>
       </label>
       <button className='button send' onClick={handleSubmitJob}>
         Добавить
@@ -180,6 +193,32 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
       </button>
     </form>
   );
+
+  const subdivision = (
+    <form className='profession' onSubmit={handleSubmitSubdivision}>
+      <label className='label profession'>
+        Добавить подразделение
+        <input
+          className='form__input input'
+          onChange={handleChangeSubdivision}
+          name='subdivision'
+          list='subdivision'
+          value={job.subdivision}
+          autoComplete='off'
+        ></input>
+        <datalist id='subdivision'>
+          {listSubdivision.map((item) => (
+            <option>{item}</option>
+          ))}
+        </datalist>
+      </label>
+      <button className='button send'>Добавить</button>
+      <button className='button button-cancel' onClick={() => setModal(false)}>
+        Отмена
+      </button>
+    </form>
+  );
+
   const handleChild = () => {
     if (modalChild === 'Группа опасности') {
       return dengerGroup;
@@ -189,6 +228,8 @@ function ModalUpdata({ active, setModal, modalChild, setJob }) {
       return dangerEvt;
     } else if (modalChild === 'Профессия') {
       return newProfession;
+    } else if (modalChild === 'подразделение') {
+      return subdivision;
     } else {
       return <NewModal />;
     }
