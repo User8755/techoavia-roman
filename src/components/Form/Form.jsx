@@ -180,6 +180,57 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     (item) => isDangerEvent776.label === item.dependence
   );
 
+  // сортировка значений по алфавиту
+  const sortedDanger776 = danget776.sort(function (a, b) {
+    var nameA = a.label.toLowerCase(),
+      nameB = b.label.toLowerCase();
+    if (nameA < nameB)
+      //сортируем строки по возрастанию
+      return -1;
+    if (nameA > nameB) return 1;
+    return 0; // Никакой сортировки
+  });
+
+  const sortedDangerEvent776 = resDangerEvent776.sort(function (a, b) {
+    var nameA = a.label.toLowerCase(),
+      nameB = b.label.toLowerCase();
+    if (nameA < nameB)
+      //сортируем строки по возрастанию
+      return -1;
+    if (nameA > nameB) return 1;
+    return 0; // Никакой сортировки
+  });
+
+  const sortedRiskManagemet = resRiskManagemet.sort(function (a, b) {
+    var nameA = a.label.toLowerCase(),
+      nameB = b.label.toLowerCase();
+    if (nameA < nameB)
+      //сортируем строки по возрастанию
+      return -1;
+    if (nameA > nameB) return 1;
+    return 0; // Никакой сортировки
+  });
+
+  const sortedDangerGroup = resDangerGroup.sort(function (a, b) {
+    var nameA = a.label.toLowerCase(),
+      nameB = b.label.toLowerCase();
+    if (nameA < nameB)
+      //сортируем строки по возрастанию
+      return -1;
+    if (nameA > nameB) return 1;
+    return 0; // Никакой сортировки
+  });
+
+  const sortedDangerEvent = resDangerEvent.sort(function (a, b) {
+    var nameA = a.label.toLowerCase(),
+      nameB = b.label.toLowerCase();
+    if (nameA < nameB)
+      //сортируем строки по возрастанию
+      return -1;
+    if (nameA > nameB) return 1;
+    return 0; // Никакой сортировки
+  });
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setCount(count + 1);
@@ -412,7 +463,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
                 <Select
                   className='react-select-container order'
                   classNamePrefix='react-select'
-                  options={danget776}
+                  options={sortedDanger776}
                   onChange={(evt) => setDanger776(evt)}
                   placeholder={'Опасности'}
                   value={isDanger776}
@@ -423,7 +474,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
                 <Select
                   className='react-select-container order'
                   classNamePrefix='react-select'
-                  options={resDangerEvent776}
+                  options={sortedDangerEvent776}
                   onChange={(evt) => setDangerEvent776(evt)}
                   placeholder={'Опасное событие'}
                   value={isDangerEvent776}
@@ -435,7 +486,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
                 <Select
                   className='react-select-container order'
                   classNamePrefix='react-select'
-                  options={resRiskManagemet}
+                  options={sortedRiskManagemet}
                   onChange={(evt) => setRiskManagement(evt)}
                   placeholder={'Меры управления/контроля'}
                   value={isRiskManagement}
@@ -460,7 +511,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
                 <Select
                   className='react-select-container order'
                   classNamePrefix='react-select'
-                  options={resDangerGroup}
+                  options={sortedDangerGroup}
                   onChange={(evt) => setisDanger(evt)}
                   placeholder={'Опасности'}
                   value={isDanger}
@@ -471,7 +522,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
                 <Select
                   className='react-select-container order'
                   classNamePrefix='react-select'
-                  options={resDangerEvent}
+                  options={sortedDangerEvent}
                   onChange={(evt) => setDangerEvent(evt)}
                   placeholder={'Опасное событие'}
                   value={isDangerEvent}
