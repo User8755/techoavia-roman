@@ -95,6 +95,9 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         speciesSIZ: selectedTipeSIZ.speciesSIZ,
         issuanceRate: selectedTipeSIZ.issuanceRate,
         additionalMeans: selectedTipeSIZ.additionalMeans,
+        AdditionalIssuanceRate: selectedTipeSIZ.AdditionalIssuanceRate,
+        standart: selectedTipeSIZ.standart,
+        OperatingLevel: selectedTipeSIZ.OperatingLevel,
         job: job.job,
         commit: commit,
         proffSIZ: isProff.SIZ,
@@ -137,6 +140,8 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         riskManagement: isRiskManagement.label,
         riskManagementID: isRiskManagement.ID,
         subdivision: job.subdivision,
+        standart: selectedTipeSIZ.standart,
+        OperatingLevel: selectedTipeSIZ.OperatingLevel,
       });
     }
   }, [
@@ -243,12 +248,15 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     clear();
   };
   const [additionalMeans, setAdditionalMeans] = useState(false);
-
+  console.table(selectedTipeSIZ.additionalMeans);
   useEffect(() => {
-    if (typeof selectedTipeSIZ.additionalMeans === 'string') {
-      setAdditionalMeans(true);
-    } else {
+    if (
+      typeof selectedTipeSIZ.additionalMeans === 'undefined' ||
+      selectedTipeSIZ.additionalMeans.length < 1
+    ) {
       setAdditionalMeans(false);
+    } else {
+      setAdditionalMeans(true);
     }
   }, [selectedTipeSIZ]);
 
@@ -256,8 +264,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const table = () => {
     const workbook = new Excel.Workbook();
     const sheet = workbook.addWorksheet('sheet');
-    const row = sheet.getColumn(23);
-    row.alignment = { wrapText: true, vertical: 'top' };
+
     sheet.columns = [
       { header: '№ п/п', key: 'number', width: 9 },
       { header: 'Код профессии (при наличии)', key: 'proffId', width: 20 },
@@ -299,6 +306,14 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         width: 20,
       },
       { header: 'ДОП средства', key: 'additionalMeans', width: 20 },
+      {
+        header:
+          'Нормы выдачи средств индивидуальной защиты, выдаваемых дополнительно, на год (штуки, пары, комплекты, мл)',
+        key: 'AdditionalIssuanceRate',
+        width: 20,
+      },
+      { header: 'Стандарты (ГОСТ, EN)', key: 'standart', width: 20 },
+      { header: 'Экспл.уровень', key: 'OperatingLevel', width: 20 },
       { header: 'Комментарий', key: 'commit', width: 20 },
       { header: 'ID опасности 776н', key: 'danger776Id', width: 20 },
       { header: 'Опасности 776н', key: 'danger776', width: 20 },
@@ -377,7 +392,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         value.danger776 === item.Danger776 &&
         value.dangerEvent776 === item.dangerEvent776
       ) {
-        console.log(1);
         setisDanger({ groupId: item.IdDanger767, label: item.danger767 });
         setDangerEvent({
           groupId: item.IdDangerEvent767,

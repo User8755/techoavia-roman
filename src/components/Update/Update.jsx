@@ -1,11 +1,12 @@
 import './Update.css';
-
+import VidSIZ from '../VidSIZ/VidSIZ';
 
 function Update({ setModal, setModalChild }) {
   const hendleOpenModal = (evt) => {
     setModal(true);
-    setModalChild(evt.target.textContent);
-    console.log(evt.target.textContent)
+    setModalChild(<VidSIZ/>);
+    //setModalChild(evt.target.textContent);
+    console.log(<VidSIZ/>);
   };
 
   return (
@@ -13,7 +14,16 @@ function Update({ setModal, setModalChild }) {
       <div className='update__cont'>
         <h2>Выберете что нужно добавить</h2>
         <div className='button-wrapper'>
-          <button className='button button_danger' onClick={hendleOpenModal}>
+          <div className='button-wrapper'>
+            <button className='button button_danger' onClick={hendleOpenModal}>
+              Вид СИЗ
+            </button>
+            <button
+              className='button button-maximize'
+              onClick={hendleOpenModal}
+            ></button>
+          </div>
+          {/* <button className='button button_danger' onClick={hendleOpenModal}>
             Группа опасности
           </button>
           <button
@@ -96,7 +106,7 @@ function Update({ setModal, setModalChild }) {
           <button
             className='button button-maximize'
             onClick={hendleOpenModal}
-          ></button>
+          ></button> */}
         </div>
       </div>
     </div>

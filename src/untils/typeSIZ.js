@@ -5,6 +5,10 @@ const typeSiz = [
     speciesSIZ:
       'Ботинки ИЛИ Сапоги ИЛИ Полуботинки ИЛИ Полусапоги ИЛИ Полуботинки с перфорацией',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От скольжения по поверхностям: С ИЛИ Сж ИЛИ См',
   },
   {
     dependence: '1.1.1',
@@ -12,18 +16,21 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от скольжения',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От скольжения по поверхностям: С ИЛИ Сж ИЛИ См',
   },
   {
     dependence: '1.2.1',
     label: 'Средства индивидуальной защиты от падения с высоты',
     speciesSIZ:
       'Пояс предохранительный, его составные части и комплектующие к нему; Привязи страховочные; Привязи спасательные; Привязи и стропы для удерживания и позиционирования; Привязи для положения сидя; Стропы (в том числе с амортизаторами); Соединительные элементы; Анкерные устройства; Средства защиты втягивающего типа; Устройство для спуска; Устройства для подъема; Петли спасательные; Канаты с сердечником низкого растяжения; Канаты страховочные; Средства защиты от падения с высоты ползункового типа на жесткой анкерной линии; Средства защиты от падения с высоты ползункового типа на гибкой анкерной линии',
-  },
-  {
-    dependence:
-      'Средства защиты от падения с высоты ползункового типа на гибкой анкерной линии"',
-    label: '1 шт на 10 лет',
-    speciesSIZ: '',
+    issuanceRate: '1 шт на 10 лет',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'Отдельные стандарты по каждому компоненту, указанному в нормах',
+    OperatingLevel: '',
   },
   {
     dependence: '1.3.1',
@@ -31,6 +38,11 @@ const typeSiz = [
       'Обувь специальная для защиты от механических воздействий (ударов в носочной части, проколов, порезов)',
     speciesSIZ: 'Ботинки ИЛИ Сапоги ИЛИ Полуботинки ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.3.1',
@@ -38,24 +50,41 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов (сапоги, полусапоги) для защиты от механических воздействий (ударов в носочной части, проколов, порезов)',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги Наличие ударопрочного подноска 200 Дж',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.298; ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.3.1',
     label: 'Средства индивидуальной защиты головы от механических воздействий',
     speciesSIZ: 'Каска защитная ИЛИ Каска шахтерская',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '1.3.1',
     label: 'Средства индивидуальной защиты рук от механических воздействий',
     speciesSIZ: 'Перчатки Наличие противоударных накладок',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 388:2016 ',
+    OperatingLevel: 'Защита от ударов ИЛИ наличие противоударных накладок',
   },
   {
     dependence: '1.4.1',
     label: 'Средства индивидуальной защиты головы от механических воздействий',
     speciesSIZ: 'Каска защитная ИЛИ Каска шахтерская',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '1.4.1',
@@ -64,6 +93,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные от механических воздействий, в том числе с покрытием от запотевания не менее 1F ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.4.1',
@@ -72,6 +105,10 @@ const typeSiz = [
     speciesSIZ:
       'Щиток защитный лицевой от механических воздействий (ударов твердых частиц), в том числе из металлической сетки',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.5.1',
@@ -79,6 +116,11 @@ const typeSiz = [
       'Обувь специальная для защиты от механических воздействий (ударов в носочной части, проколов, порезов)',
     speciesSIZ: 'Ботинки ИЛИ Сапоги ИЛИ Полуботинки ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.5.1',
@@ -86,6 +128,11 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от механических воздействий (ударов в носочной части, проколов, порезов)',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги Наличие ударопрочного подноска 200 Дж',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.298; ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.5.1',
@@ -94,6 +141,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные от механических воздействий, в том числе с покрытием от запотевания не менее 1F ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.5.1',
@@ -102,18 +153,30 @@ const typeSiz = [
     speciesSIZ:
       'Щиток защитный лицевой от механических воздействий (ударов твердых частиц), в том числе из металлической сетки',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.5.1',
     label: 'Средства индивидуальной защиты головы от механических воздействий',
     speciesSIZ: 'Каска защитная ИЛИ Каска шахтерская',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '1.5.1',
     label: 'Средства индивидуальной защиты рук от механических воздействий',
     speciesSIZ: 'Перчатки Наличие противоударных накладок',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 388:2016 ',
+    OperatingLevel: 'Защита от ударов ИЛИ наличие противоударных накладок',
   },
   {
     dependence: '1.6.1',
@@ -123,6 +186,9 @@ const typeSiz = [
       'Костюм, в том числе отдельными предметами: куртка, брюки, полукомбинезон',
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.6.1',
@@ -130,6 +196,11 @@ const typeSiz = [
       'Обувь специальная для защиты от механических воздействий (ударов в носочной части, проколов, порезов)',
     speciesSIZ: 'Ботинки ИЛИ Сапоги ИЛИ Полуботинки ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.6.1',
@@ -138,6 +209,11 @@ const typeSiz = [
     speciesSIZ:
       'Сапоги ИЛИ Полусапоги Наличие ударопрочного подноска 200 Дж Наличие проколозащитной стельки 1200 Н',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.298; ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.6.1',
@@ -145,12 +221,20 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от механических воздействий (порезов)',
     speciesSIZ: 'Рукавицы ИЛИ Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Сопротивление порезу уровень не ниже 3',
   },
   {
     dependence: '1.6.1',
     label: 'Средства индивидуальной защиты головы от механических воздействий',
     speciesSIZ: 'Каска защитная',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '1.6.1',
@@ -159,6 +243,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные от механических воздействий, в том числе с покрытием от запотевания Не менее 1F ИЛИ Щиток защитный лицевой от механических воздействий (ударов твердых частиц), в том числе из металлической сетки ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.7.1',
@@ -167,6 +255,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные от механических воздействий, в том числе с покрытием от запотевания Не менее 1F ИЛИ Щиток защитный лицевой от механических воздействий (ударов твердых частиц), в том числе из металлической сетки ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.7.1',
@@ -174,6 +266,11 @@ const typeSiz = [
       'Обувь специальная для защиты от механических воздействий (ударов в носочной части, проколов, порезов)',
     speciesSIZ: 'Ботинки ИЛИ Сапоги ИЛИ Полуботинки ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.7.1',
@@ -181,18 +278,31 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от механических воздействий (ударов в носочной части, проколов, порезов)',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги Наличие ударопрочного подноска 200 Дж',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.298; ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.7.1',
     label: 'Средства индивидуальной защиты рук от механических воздействий',
     speciesSIZ: 'Перчатки Наличие противоударных накладок',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 388:2016 ',
+    OperatingLevel: 'Защита от ударов ИЛИ наличие противоударных накладок',
   },
   {
     dependence: '1.7.1',
     label: 'Средства индивидуальной защиты головы от механических воздействий',
     speciesSIZ: 'Каска защитная ИЛИ Каскетка защитная (на 1 год)',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397 ИЛИ ТР ТС 019/2011',
+    OperatingLevel: '',
   },
   {
     dependence: '1.8.1',
@@ -200,6 +310,10 @@ const typeSiz = [
     speciesSIZ:
       'Каска защитная ИЛИ Каскетка защитная (на 1 год) ИЛИ Каска шахтерская',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397 ИЛИ ТР ТС 019/2011',
+    OperatingLevel: '',
   },
   {
     dependence: '1.8.1',
@@ -207,6 +321,11 @@ const typeSiz = [
       'Обувь специальная для защиты от механических воздействий (ударов в носочной части, проколов, порезов)',
     speciesSIZ: 'Ботинки ИЛИ Сапоги ИЛИ Полуботинки ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.8.1',
@@ -214,6 +333,11 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от механических воздействий (ударов в носочной части, проколов, порезов)',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги Наличие ударопрочного подноска 200 Дж',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.298; ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.8.1',
@@ -222,12 +346,20 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные от механических воздействий, в том числе с покрытием от запотевания Не менее 1F ИЛИ Щиток защитный лицевой от механических воздействий (ударов твердых частиц), в том числе из металлической сетки ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.9.1.',
     label: 'Другое 1.9.1',
     speciesSIZ: 'СИЗ для Другое 1.9.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.10.1',
@@ -237,6 +369,9 @@ const typeSiz = [
       'Костюм, в том числе отдельными предметами: куртка, брюки, полукомбинезон',
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.10.1',
@@ -244,6 +379,11 @@ const typeSiz = [
       'Обувь специальная для защиты от механических воздействий (ударов в носочной части, проколов, порезов)',
     speciesSIZ: 'Ботинки ИЛИ Сапоги ИЛИ Полуботинки ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.10.1',
@@ -251,6 +391,11 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от механических воздействий (ударов в носочной части, проколов, порезов)',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги Наличие проколозащитной стельки 1200Н',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.298; ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От ударов в носочной части энергией 200 Дж: МУН200 ИЛИ От проколов и/или порезов: Мп',
   },
   {
     dependence: '1.10.1',
@@ -258,12 +403,21 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от механических воздействий (проколов, порезов)',
     speciesSIZ: 'Рукавицы ИЛИ Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel:
+      'Сопротивление порезу уровень не ниже 3, Стойкость к проколу уровень не ниже 3',
   },
   {
     dependence: '1.10.1',
     label: 'Средства индивидуальной защиты головы от механических воздействий',
     speciesSIZ: 'Каска защитная ИЛИ Каска шахтерская',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '1.10.1',
@@ -272,12 +426,20 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные от механических воздействий, в том числе с покрытием от запотевания Не менее 1F ИЛИ Щиток защитный лицевой от механических воздействий (ударов твердых частиц), в том числе из металлической сетки ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.11.1',
     label: 'Другое 1.11.1',
     speciesSIZ: 'СИЗ для Другое 1.11.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.12.1',
@@ -288,6 +450,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Нарукавники (срок определяется документами производителя) ИЛИ Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.12.1',
@@ -296,12 +461,20 @@ const typeSiz = [
     speciesSIZ:
       'Подшлемник ИЛИ Шапочка ИЛИ Колпак ИЛИ Косынка ИЛИ Шапка ИЛИ Берет',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.13.1',
     label: 'Другое 1.13.1',
     speciesSIZ: 'СИЗ для Другое 1.13.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.14.1',
@@ -311,6 +484,9 @@ const typeSiz = [
       'Костюм, в том числе отдельными предметами: куртка, брюки, полукомбинезон',
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.14.1',
@@ -318,12 +494,20 @@ const typeSiz = [
       'Обувь специальная для защиты от механических воздействий (истирания)',
     speciesSIZ: 'Ботинки ИЛИ Сапоги ИЛИ Полуботинки ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '1.14.1',
-    label: 'Обувь специальная резиновая или',
+    label: 'Обувь специальная резиновая',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.14.1',
@@ -331,6 +515,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от механических воздействий (истирания)',
     speciesSIZ: 'Рукавицы ИЛИ Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Стойкость к истиранию уровень не менее 3',
   },
   {
     dependence: '1.14.1',
@@ -340,6 +528,9 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans:
       'Шлем пескоструйщика (абразивоструйщика); Сменные элементы (защитные стекла)',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: 'EN 397 ИЛИ ТР ТС 019/2011',
+    OperatingLevel: '',
   },
   {
     dependence: '1.14.1',
@@ -348,12 +539,20 @@ const typeSiz = [
     speciesSIZ:
       'Щиток защитный лицевой от механических воздействий (ударов твердых частиц), в том числе из металлической сетки',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.15.1',
     label: 'Другое 1.15.1',
     speciesSIZ: 'СИЗ для Другое 1.15.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.16.1',
@@ -363,6 +562,9 @@ const typeSiz = [
       'Костюм, в том числе отдельными предметами: куртка, брюки, полукомбинезон',
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.16.1',
@@ -370,6 +572,10 @@ const typeSiz = [
       'Обувь специальная для защиты от механических воздействий (проколов, порезов)',
     speciesSIZ: 'Ботинки ИЛИСапоги ИЛИ Полуботинки ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '1.16.1',
@@ -377,6 +583,11 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов (сапоги, полусапоги) для защиты от механических воздействий (проколов, порезов)',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги Наличие проколозащитной стельки 1200 Н',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.298; ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От проколов и/или порезов: Мп; Наличие проколозащитной стельки 1200 Н',
   },
   {
     dependence: '1.16.1',
@@ -384,12 +595,20 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от механических воздействий (порезов)',
     speciesSIZ: 'Рукавицы ИЛИ Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Сопротивление порезу уровень не ниже 3',
   },
   {
     dependence: '1.16.1',
     label: 'Средства индивидуальной защиты головы от механических воздействий',
     speciesSIZ: 'Каска защитная',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '1.16.1',
@@ -398,6 +617,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные от механических воздействий, в том числе с покрытием от запотевания Не менее 1F ИЛИ Щиток защитный лицевой от механических воздействий (ударов твердых частиц), в том числе из металлической сетки ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.17.1',
@@ -407,6 +630,9 @@ const typeSiz = [
       'Костюм, в том числе отдельными предметами: куртка, брюки, полукомбинезон',
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.17.1',
@@ -414,6 +640,10 @@ const typeSiz = [
       'Обувь специальная для защиты от механических воздействий (проколов, порезов)',
     speciesSIZ: 'Ботинки ИЛИ Сапоги ИЛИ Полуботинки ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '1.17.1',
@@ -421,6 +651,11 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от механических воздействий (проколов, порезов)',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги Наличие проколозащитной стельки 1200 Н',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.298; ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От проколов и/или порезов: Мп; Наличие проколозащитной стельки 1200 Н',
   },
   {
     dependence: '1.17.1',
@@ -428,6 +663,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от механических воздействий (порезов)',
     speciesSIZ: 'Рукавицы ИЛИ Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Сопротивление порезу уровень не ниже 3',
   },
   {
     dependence: '1.18.1',
@@ -437,6 +676,9 @@ const typeSiz = [
       'Костюм, в том числе отдельными предметами: куртка, брюки, полукомбинезон',
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.18.1',
@@ -444,6 +686,10 @@ const typeSiz = [
       'Обувь специальная для защиты от механических воздействий (проколов, порезов)',
     speciesSIZ: 'Ботинки ИЛИ Сапоги ИЛИ Полуботинки ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '1.18.1',
@@ -451,6 +697,11 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов (сапоги, полусапоги) для защиты от механических воздействий (проколов, порезов)',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги Наличие проколозащитной стельки 1200 Н',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.298; ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От проколов и/или порезов: Мп; Наличие проколозащитной стельки 1200 Н',
   },
   {
     dependence: '1.18.1',
@@ -458,12 +709,20 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от механических воздействии (порезов)',
     speciesSIZ: 'Рукавицы ИЛИ Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Сопротивление порезу уровень не ниже 3',
   },
   {
     dependence: '1.18.1',
     label: 'Средства индивидуальной защиты головы от механических воздействий',
     speciesSIZ: 'Каска защитная',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '1.18.1',
@@ -472,6 +731,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные от механических воздействий, в том числе с покрытием от запотевания Не менее 1F ИЛИ Щиток защитный лицевой от механических воздействий (ударов твердых частиц), в том числе из металлической сетки ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.19.1',
@@ -481,6 +744,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Перчатка; Фартук ИЛИ Разделенный фартук; Защитные брюки; Защитная куртка; Защитная поверхность',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: 'сертификации не подлежит',
+    OperatingLevel: '',
   },
   {
     dependence: '1.20.1',
@@ -489,6 +755,10 @@ const typeSiz = [
     speciesSIZ:
       'Защитные приспособления (накидка, пелерина, съемный рукав, части брюк, щитки для голени и бедра, гетры) ИЛИ Костюм, в том числе отдельными предметами: куртка, брюки, полукомбинезон ИЛИ Комбинезон',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.20.1',
@@ -496,6 +766,10 @@ const typeSiz = [
       'Обувь специальная для защиты от режущего воздействия ручной цепной пилой',
     speciesSIZ: 'Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '1.20.1',
@@ -503,6 +777,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от режущего воздействия ручной цепной пилой',
     speciesSIZ: 'Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ EN 381-1-2014',
+    OperatingLevel: 'не имеет',
   },
   {
     dependence: '1.21.1',
@@ -510,6 +788,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от механических воздействий (порезов)',
     speciesSIZ: 'Рукавицы ИЛИ Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Сопротивление порезу уровень не ниже 3',
   },
   {
     dependence: '1.21.1',
@@ -518,6 +800,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные от механических воздействий, в том числе с покрытием от запотевания не менее F1 ИЛИ Щиток защитный лицевой от механических воздействий (ударов твердых частиц), в том числе из металлической сетки',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.22.1',
@@ -525,12 +811,20 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от механических воздействий (порезов)',
     speciesSIZ: 'Рукавицы ИЛИ Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Сопротивление порезу уровень не ниже 3',
   },
   {
     dependence: '1.23.1',
     label: 'Другое 1.23.1',
     speciesSIZ: 'СИЗ для Другое 1.23.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.24.1',
@@ -539,12 +833,20 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные, в том числе с покрытием от запотевания ИЛИ Очки защитные от грубодисперсных аэрозолей (пыли) ИЛИ Щиток защитный лицевой, в том числе из металлической сетки ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.25.1',
     label: 'Другое 1.25.1',
     speciesSIZ: 'СИЗ для Другое 1.25.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.26.1',
@@ -554,6 +856,9 @@ const typeSiz = [
       'Костюм шахтерский: куртка, брюки, полукомбинезон, жилет утепленный, в том числе профилактический пояс',
     issuanceRate: '1 шт.',
     additionalMeans: 'Пояс для аккумуляторных ламп',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.26.1',
@@ -562,6 +867,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные, в том числе с покрытием от запотевания ИЛИ Очки защитные от грубодисперсных аэрозолей (пыли) ИЛИ Щиток защитный лицевой, в том числе из металлической сетки ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.26.1',
@@ -569,6 +878,10 @@ const typeSiz = [
       'Обувь специальная для защиты от механических воздействий (проколов, порезов)',
     speciesSIZ: 'Ботинки ИЛИ Сапоги ИЛИ Полуботинки ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '1.26.1',
@@ -576,6 +889,11 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от механических воздействий (проколов, порезов)',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги Наличие проколозащитной стельки 1200 Н',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.298; ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'От проколов и/или порезов: Мп; Наличие проколозащитной стельки 1200 Н',
   },
   {
     dependence: '1.26.1',
@@ -584,6 +902,9 @@ const typeSiz = [
       'Головные уборы для защиты от общих производственных загрязнений и механических воздействий (истирания)',
     issuanceRate: '1 шт.',
     additionalMeans: 'Подшлемник',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.26.1',
@@ -591,6 +912,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук от общих производственных загрязнений и механических воздействий',
     speciesSIZ: 'Рукавицы ИЛИ Перчатки',
     issuanceRate: '24 пары',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Стойкость к истиранию уровень не менее 3',
   },
   {
     dependence: '1.26.1',
@@ -598,6 +923,10 @@ const typeSiz = [
       'Средства индивидуальной защиты головы для защиты от механических воздействий',
     speciesSIZ: 'Каска защитная ИЛИ Каска шахтерская',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '1.26.1',
@@ -606,6 +935,9 @@ const typeSiz = [
     speciesSIZ: 'Дыхательные аппараты Самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.26.1',
@@ -613,6 +945,10 @@ const typeSiz = [
       'Средства индивидуальной защиты органов дыхания изолирующие со сжатым воздухом',
     speciesSIZ: 'Дыхательные аппараты Самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.26.1',
@@ -620,6 +956,10 @@ const typeSiz = [
       'Средства индивидуальной защиты органов дыхания изолирующие со сжатым кислородом',
     speciesSIZ: 'Дыхательные аппараты Самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.26.1',
@@ -628,18 +968,30 @@ const typeSiz = [
     speciesSIZ:
       'Противоаэрозольные и противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски ИЛИ Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противоаэрозольные, противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты ИЛИ Средства индивидуальной защиты органов дыхания с принудительной подачей воздуха',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.27.1',
     label: 'Другое 1.27.1',
     speciesSIZ: 'СИЗ для Другое 1.27.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '1.28.1',
     label: 'Другое 1.28.1',
     speciesSIZ: 'СИЗ для Другое 1.28.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '2.1.1',
@@ -650,6 +1002,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Комбинезон ИЛИ Фартук (1 шт.); Белье специальное (футболки, фуфайки, кальсоны, панталоны) (2 пары); Изделия носочно-чулочные (12 пар); Нарукавники (6 пар); Изделия бельевые: полотенца (определяется документами изготовителя)',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '2.1.1',
@@ -657,6 +1012,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук от общих производственных загрязнений',
     speciesSIZ: 'Рукавицы ИЛИ Перчатки',
     issuanceRate: '24 пары',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Стойкость к истиранию уровень 1 и более',
   },
   {
     dependence: '2.1.1',
@@ -665,6 +1024,10 @@ const typeSiz = [
     speciesSIZ:
       'Подшлемник ИЛИ Шапочка ИЛИ Кепка ИЛИ Бейсболка ИЛИ Колпак ИЛИ Козырек ИЛИ Косынка ИЛИ Пилотка ИЛИ Шляпа ИЛИ Шапка ИЛИ Берет',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '2.1.1',
@@ -672,7 +1035,10 @@ const typeSiz = [
     speciesSIZ: 'Полуботинки ИЛИ Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
     additionalMeans:
-      '"Туфли ИЛИ Туфли ""сабо"" ИЛИ Туфли ""тапочки"" ИЛИ Сандалеты (полуботинки с перфорацией)"',
+      'Туфли ИЛИ Туфли "сабо" ИЛИ Туфли "тапочки" ИЛИ Сандалеты (полуботинки с перфорацией)',
+    AdditionalIssuanceRate: '1 пара',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '2.1.1',
@@ -682,6 +1048,9 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans:
       'Обувь пляжная из полимерных материалов (тапочки для душа)',
+    AdditionalIssuanceRate: '1 пара на 3 года',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '2.1.1',
@@ -689,6 +1058,10 @@ const typeSiz = [
       'Дерматологические средства индивидуальной защиты защитного типа: средства гидрофобного действия',
     speciesSIZ: 'Крем ИЛИ Лосьон ИЛ Гель ИЛИ Спрей',
     issuanceRate: '1200 мл',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ Р 12.4.301-2018 ',
+    OperatingLevel: '',
   },
   {
     dependence: '2.1.1',
@@ -696,6 +1069,10 @@ const typeSiz = [
       'Дерматологические средства индивидуальной защиты защитного типа: средства гидрофильного действия',
     speciesSIZ: 'Крем ИЛИ Лосьон ИЛ Гель ИЛИ Спрей',
     issuanceRate: '1200 мл',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ Р 12.4.301-2018 ',
+    OperatingLevel: '',
   },
   {
     dependence: '2.1.1',
@@ -703,6 +1080,10 @@ const typeSiz = [
       'Дерматологические средства индивидуальной защиты защитного типа: средства комбинированного (универсального) действия',
     speciesSIZ: 'Крем ИЛИ Лосьон ИЛ Гель ИЛИ Спрей',
     issuanceRate: '1200 мл',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ Р 12.4.301-2018 ',
+    OperatingLevel: '',
   },
   {
     dependence: '2.1.1',
@@ -712,24 +1093,39 @@ const typeSiz = [
     issuanceRate: '2400 мл',
     additionalMeans:
       'ДСИЗ очищающего типа: средства для очищения от устойчивых загрязнений',
+    AdditionalIssuanceRate: '2400 мл',
+    standart: 'ГОСТ Р 12.4.301-2018 ',
+    OperatingLevel: '',
   },
   {
     dependence: '2.1.1',
     label: 'ДСИЗ регенерирующего (восстанавливающего) типа',
     speciesSIZ: 'Крем ИЛИ Лосьон ИЛИ Гель ИЛИ Спрей',
     issuanceRate: '1200 мл.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ Р 12.4.301-2018 ',
+    OperatingLevel: '',
   },
   {
     dependence: '2.1.2',
     label: 'Другое 2.1.2',
     speciesSIZ: 'СИЗ для Другое 2.1.2',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '3.1.1',
     label: 'Средства индивидуальной защиты рук диэлектрические',
     speciesSIZ: 'Перчатки до 1000 В',
     issuanceRate: '2 пары на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '3.1.1',
@@ -737,6 +1133,10 @@ const typeSiz = [
       'Средства индивидуальной защиты головы от поражения электрическим током',
     speciesSIZ: 'Каска защитная Электроизоляция 440 В или 1000 В',
     issuanceRate: '1 на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '3.1.1',
@@ -745,12 +1145,19 @@ const typeSiz = [
     speciesSIZ: 'Галоши ИЛИ Боты',
     issuanceRate: 'дежурные',
     additionalMeans: 'Коврик диэлектрический',
+    AdditionalIssuanceRate: 'дежурный',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '3.1.2',
     label: 'Средства индивидуальной защиты рук диэлектрические',
     speciesSIZ: 'Перчатки свыше 1000 В',
     issuanceRate: '2 пары на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '3.1.2',
@@ -758,6 +1165,10 @@ const typeSiz = [
       'Средства индивидуальной защиты головы от поражения электрическим током',
     speciesSIZ: 'Каска защитная Электроизоляция 1000 В',
     issuanceRate: '1 на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '3.1.2',
@@ -766,6 +1177,9 @@ const typeSiz = [
     speciesSIZ: 'Галоши ИЛИ Боты',
     issuanceRate: 'дежурные',
     additionalMeans: 'Коврик диэлектрический',
+    AdditionalIssuanceRate: 'дежурный',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '3.2.1',
@@ -773,6 +1187,10 @@ const typeSiz = [
       'Обувь специальная диэлектрическая резиновая или из полимерных материалов',
     speciesSIZ: 'Галоши ИЛИ Боты',
     issuanceRate: 'дежурные',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '3.3.1',
@@ -781,6 +1199,9 @@ const typeSiz = [
     speciesSIZ: 'Костюм',
     issuanceRate: '1 шт.',
     additionalMeans: 'Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '3.3.1',
@@ -788,6 +1209,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от воздействия статического электричества',
     speciesSIZ: 'Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От воздействия статического Электричества (ЭС)',
   },
   {
     dependence: '3.3.1',
@@ -796,6 +1221,9 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans:
       'Браслет антиэлектростатический ИЛИ Кольцо антиэлектростатическое',
+    AdditionalIssuanceRate: '2 шт.',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '3.4.1',
@@ -803,6 +1231,10 @@ const typeSiz = [
     speciesSIZ:
       'Комплект для защиты от воздействия электрических полей промышленной частоты и поражения электрическим током наведенного напряжения (1 комп. На 2 года) ИЛИ Перчатки экранирующие электропроводящие',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '3.5.1',
@@ -811,18 +1243,31 @@ const typeSiz = [
     speciesSIZ:
       'Костюм (по уровням защиты) 1 шт. на 2 года; Куртка-накидка 1 шт. на 2 года; Куртка-рубашка 1 шт.; Комбинезон 1 шт. на 2 года; Плащ 1 шт. на 3 года; Жилет повышенной видимости 2 класса защиты из огнестойких материалов 1 шт.',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ Р 12.4.234',
+    OperatingLevel:
+      'Уровень защиты в зависимости от значения падающей энергии, выделяемой электрической дугой',
   },
   {
     dependence: '3.5.1',
     label: 'Белье специальное хлопчатобумажное',
     speciesSIZ: 'Футболка; Кальсоны/панталоны',
     issuanceRate: '2 компл.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 31408 ИЛИ ГОСТ 31405',
+    OperatingLevel: '',
   },
   {
     dependence: '3.5.1',
     label: 'Белье специальное термостойкое',
     speciesSIZ: 'Футболка; Кальсоны/панталоны; Фуфайка-свитер',
     issuanceRate: '2 компл.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ Р 12.4.234 ИЛИ ГОСТ ISO 14116 ИЛИ ГОСТ ISO 11612',
+    OperatingLevel: '',
   },
   {
     dependence: '3.5.1',
@@ -831,6 +1276,10 @@ const typeSiz = [
     speciesSIZ:
       'Ботинки ИЛИ Полусапоги ИЛИ Сапоги ИЛИ Сапоги резиновые термостойкие',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.032',
+    OperatingLevel: '',
   },
   {
     dependence: '3.5.1',
@@ -838,6 +1287,10 @@ const typeSiz = [
       'Средства индивидуальной защиты головы для защиты от повышенных температур',
     speciesSIZ: 'Подшлемник термостойкий',
     issuanceRate: '2 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ Р 12.4.234 ИЛИ ГОСТ ISO 14116 ИЛИ ГОСТ ISO 11612',
+    OperatingLevel: '',
   },
   {
     dependence: '3.5.1',
@@ -845,6 +1298,10 @@ const typeSiz = [
       'Средства индивидуальной защиты головы для защиты от повышенных температур и поражения электрическим током',
     speciesSIZ: 'Каска термостойкая защитная',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ EN 397',
+    OperatingLevel: 'Температурный режим:до +150 °С',
   },
   {
     dependence: '3.5.1',
@@ -852,18 +1309,30 @@ const typeSiz = [
       'Средства индивидуальной защиты лица от термических рисков электрической дуги',
     speciesSIZ: 'Щиток защитный лицевой с термостойкой окантовкой',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.023',
+    OperatingLevel: '',
   },
   {
     dependence: '3.5.1',
     label: 'Средства индивидуальной защиты рук термостойкие',
     speciesSIZ: 'Перчатки термостойкие',
     issuanceRate: '6 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ Р 12.4.234 ИЛИ ГОСТ ISO 14116',
+    OperatingLevel: '',
   },
   {
     dependence: '3.6.1',
     label: 'Другое 3.6.1',
     speciesSIZ: 'СИЗ для Другое 3.6.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.1.1',
@@ -871,12 +1340,21 @@ const typeSiz = [
     speciesSIZ: 'Костюм',
     issuanceRate: '1 шт.',
     additionalMeans: 'Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: 'ГОСТ Р 12.4.297 ИЛИ ГОСТ ISO 11612 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'F — контактная теплопередача. Не ниже F1 ИЛИ Защита от контакта с нагретыми поверхностями - Тп',
   },
   {
     dependence: '4.1.1',
     label: 'Обувь специальная для защиты от контакта с нагретыми поверхностями',
     speciesSIZ: 'Полуботинки ИЛИ Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.032 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'для защиты от контакта с нагретыми поверхностями до (300 ± 5) °С в течение (60 ± 1) с — с термостойкой подошвой ИЛИ Защита от контакта с нагретыми поверхностями (Тп)',
   },
   {
     dependence: '4.1.1',
@@ -885,6 +1363,10 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники для защиты от конвективной теплоты',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ EN 407 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'Контактное тепло не ниже 1 ИЛИ Защита от контакта с нагретыми поверхностями (Тп100, Тп400, Тв)',
   },
   {
     dependence: '4.1.1',
@@ -893,12 +1375,19 @@ const typeSiz = [
     speciesSIZ: 'Подшлемник',
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: 'Шлем ИЛИ Шапка',
+    AdditionalIssuanceRate: '1 шт. на 2 года',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.1.1',
     label: 'Средства индивидуальной защиты глаз и лица от конвективной теплоты',
     speciesSIZ: 'Щиток защитный лицевой',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.023',
+    OperatingLevel: '',
   },
   {
     dependence: '4.2.1',
@@ -906,12 +1395,21 @@ const typeSiz = [
     speciesSIZ: 'Костюм',
     issuanceRate: '1 шт.',
     additionalMeans: 'Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: 'ГОСТ Р 12.4.297 ИЛИ ГОСТ ISO 11612 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'B — конвективное тепло. Не ниже B1 ИЛИ Защита от конвективной теплоты - Тт',
   },
   {
     dependence: '4.2.1',
     label: 'Обувь специальная для защиты от контакта с нагретыми поверхностями',
     speciesSIZ: 'Полуботинки ИЛИ Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.032 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'для защиты от контакта с нагретыми поверхностями до (300 ± 5) °С в течение (60 ± 1) с — с термостойкой подошвой ИЛИ Защита от контакта с нагретыми поверхностями (Тп)',
   },
   {
     dependence: '4.2.1',
@@ -920,6 +1418,9 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники для защиты от конвективной теплоты',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ EN 407',
+    OperatingLevel: 'Конвективное тепло не ниже 1',
   },
   {
     dependence: '4.2.1',
@@ -929,12 +1430,19 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans:
       'Головной убор для защиты от конвективной теплоты: подшлемник, шлем',
+    AdditionalIssuanceRate: '1 шт. на два года',
+    standart: 'ГОСТ EN 397',
+    OperatingLevel: 'Температурный режим:до +150 °С',
   },
   {
     dependence: '4.2.1',
     label: 'Средства индивидуальной защиты лица от брызг жидкостей',
     speciesSIZ: 'Щиток защитный',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.023',
+    OperatingLevel: '',
   },
   {
     dependence: '4.2.1',
@@ -944,12 +1452,21 @@ const typeSiz = [
       'Противоаэрозольные и противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски ИЛИ Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противоаэрозольные, противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты ИЛИ Средства индивидуальной защиты органов дыхания с принудительной подачей воздуха ИЛИ Фильтрующие самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart:
+      'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235 ИЛИ ГОСТ 12.4.234 (EN 12941:1998) ИЛИ ГОСТ 12.4.285',
+    OperatingLevel:
+      'не ниже FFP1 или изолирующая лицевая часть и фильтры не ниже 1-го класса',
   },
   {
     dependence: '4.3.1',
     label: 'Другое 4.3.1',
     speciesSIZ: 'СИЗ для Другое 4.3.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.4.1',
@@ -958,6 +1475,10 @@ const typeSiz = [
     speciesSIZ: 'Костюм',
     issuanceRate: '1 шт.',
     additionalMeans: 'Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: 'ГОСТ Р 12.4.297 ИЛИ ГОСТ ISO 11612 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'A — огнестойкость (ограниченное распространение пламени) A1 или A2 ИЛИ Защита от кратковременного воздействия открытого пламени (То)',
   },
   {
     dependence: '4.4.1',
@@ -966,6 +1487,10 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ EN 407 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'Огнестойкость не ниже 1 ИЛИ Защита от кратковременного воздействия открытого пламени (То)',
   },
   {
     dependence: '4.4.1',
@@ -973,6 +1498,11 @@ const typeSiz = [
       'Обувь специальная для защиты от кратковременного воздействия открытого пламени и от контакта с нагретыми поверхностями',
     speciesSIZ: 'Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.032 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'для защиты от контакта с нагретыми поверхностями до (300 ± 5) °С в течение (60 ± 1) с — с термостойкой подошвой ИЛИ Защита от контакта с нагретыми поверхностями (Тп)',
   },
   {
     dependence: '4.4.1',
@@ -981,6 +1511,9 @@ const typeSiz = [
     speciesSIZ: 'Подшлемник',
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: 'Шлем ИЛИ Шапка',
+    AdditionalIssuanceRate: '1 шт. на 2 года',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.4.1',
@@ -988,18 +1521,30 @@ const typeSiz = [
       'Средства индивидуальной защиты головы для защиты от повышенных температур',
     speciesSIZ: 'Каска защитная +150 °C',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ EN 397',
+    OperatingLevel: 'Температурный режим:до +150 °С',
   },
   {
     dependence: '4.4.1',
     label: 'Средства индивидуальной защиты лица от теплового излучения',
     speciesSIZ: 'Щиток защитный лицевой',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.023',
+    OperatingLevel: '',
   },
   {
     dependence: '4.4.2',
     label: 'Средства индивидуальной защиты лица от теплового излучения',
     speciesSIZ: 'Очки защитные ИЛИ Щиток защитный',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023',
+    OperatingLevel: '',
   },
   {
     dependence: '4.4.3',
@@ -1009,6 +1554,10 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Комбинезон по классам защиты ИЛИ Фартук для защиты от искр и брызг расплавленного металла, окалины',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: 'ГОСТ 12.4.250 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'Не ниже 1-го класса или Защита от искр, брызг расплавленного металла, окалины (Тр)',
   },
   {
     dependence: '4.4.3',
@@ -1016,6 +1565,11 @@ const typeSiz = [
       'Обувь специальная для защиты искр и брызг расплавленного металла, окалины',
     speciesSIZ: 'Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.032 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'для защиты от искр, брызг расплавленного металла — с защитными съемными или несъемными приспособлениями, подошвой из термостойкой резины ИЛИ Защита от искр, брызг расплавленного металла, окалины (Тр)',
   },
   {
     dependence: '4.4.3',
@@ -1024,6 +1578,10 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ EN 407 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'Искры и брызги расплавленного металла не ниже 1 ИЛИ Защита от искр, брызг расплавленного металла, окалины (Тр)',
   },
   {
     dependence: '4.4.3',
@@ -1032,6 +1590,9 @@ const typeSiz = [
     speciesSIZ: 'Подшлемник',
     issuanceRate: '1 шт.',
     additionalMeans: 'Пелерина ИЛИ Шлем',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.4.3',
@@ -1040,6 +1601,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные ИЛИ Щиток защитный в том числе с автоматическим светофильтром',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023 ИЛИ ГОСТ 12.4.254',
+    OperatingLevel: '',
   },
   {
     dependence: '4.4.4',
@@ -1048,6 +1613,10 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Комбинезон ИЛИ Плащ ИЛИ Пелерина для защиты от выплесков расплавленного металла',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: 'ГОСТ Р 12.4.297 ИЛИ ГОСТ ISO 11612 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'D — выплеск расплавленного алюминия, не ниже D1 и/или E — выплеск расплавленного железа, не ниже E1 ИЛИ Защита от выплесков расплавленного металла (Тм)',
   },
   {
     dependence: '4.4.4',
@@ -1057,12 +1626,20 @@ const typeSiz = [
     issuanceRate: '12 пар',
     additionalMeans:
       'Нарукавники для защиты от выплесков расплавленного металла',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ EN 407',
+    OperatingLevel: 'Защита от выплесков расплавленного металла не ниже 1',
   },
   {
     dependence: '4.4.4',
     label: 'Обувь специальная для защиты от контакта с нагретыми поверхностями',
     speciesSIZ: 'Полуботинки ИЛИ Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.032 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'для защиты от контакта с нагретыми поверхностями до (300 ± 5) °С в течение (60 ± 1) с — с термостойкой подошвой ИЛИ Защита от контакта с нагретыми поверхностями (Тп)',
   },
   {
     dependence: '4.4.4',
@@ -1070,6 +1647,10 @@ const typeSiz = [
       'Средства индивидуальной защиты головы для защиты от повышенных температур',
     speciesSIZ: 'Каска защитная +150 °C',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ EN 397',
+    OperatingLevel: 'Температурный режим:до +150 °С',
   },
   {
     dependence: '4.4.4',
@@ -1078,6 +1659,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные ИЛИ Щиток защитный в том числе с автоматическим светофильтром',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023 ИЛИ ГОСТ 12.4.254',
+    OperatingLevel: '',
   },
   {
     dependence: '4.4.5',
@@ -1085,6 +1670,10 @@ const typeSiz = [
       'В случае идентификации иных опасностей на рабочем месте работник обеспечивается средствами индивидуальной защиты, необходимыми для защиты от идентифицированных опасностей. Номенклатуру, количество и сроки носки определяет работодатель в соответствии с Правилами и на основании нормативно-технической документации изготовителя',
     speciesSIZ: 'СИЗ для Другое 4.4.5',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.5.1',
@@ -1092,6 +1681,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от контакта с охлажденными поверхностями',
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020 ИЛИ ГОСТ EN 511-2012',
+    OperatingLevel: 'От пониженных температур (ТН)',
   },
   {
     dependence: '4.5.1',
@@ -1100,6 +1693,9 @@ const typeSiz = [
     speciesSIZ: 'СИЗ',
     issuanceRate: '',
     additionalMeans: 'Наколенники',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.5.1',
@@ -1107,6 +1703,10 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов) для защиты от воды',
     speciesSIZ: 'Галоши ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.5.1',
@@ -1114,12 +1714,20 @@ const typeSiz = [
       'Обувь специальная для защиты от воды и растворов нетоксичных веществ',
     speciesSIZ: 'Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '4.6.1',
     label: 'Другое 4.6.1',
     speciesSIZ: 'СИЗ для Другое 4.6.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.7.1',
@@ -1130,6 +1738,9 @@ const typeSiz = [
     issuanceRate: 'По климатическим поясам и классам защиты',
     additionalMeans:
       'Комбинезон ИЛИ Белье специальное утепленное (кальсоны/панталоны утепленные, фуфайка, утепленная) 2 шт. ИЛИ Термобелье специальное (кальсоны/панталоны, фуфайка) 2 шт.; Изделия носочно-чулочные 12 пар',
+    AdditionalIssuanceRate: 'По климатическим поясам и классам защиты',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.7.1',
@@ -1137,6 +1748,9 @@ const typeSiz = [
     speciesSIZ: 'Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: 'по климатическим поясам',
     additionalMeans: 'Обувь валяная ИЛИ Унты (сапоги) меховые',
+    AdditionalIssuanceRate: 'по климатическим поясам по климатическим поясам',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '4.7.1',
@@ -1145,6 +1759,9 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы по климатическим поясам',
     issuanceRate: '4 пары',
     additionalMeans: 'Рукавицы меховые',
+    AdditionalIssuanceRate: '1 пара на 2 года',
+    standart: 'ГОСТ 12.4.103-2020 ИЛИ ГОСТ EN 511-2012',
+    OperatingLevel: 'От пониженных температур (ТН)',
   },
   {
     dependence: '4.7.1',
@@ -1153,6 +1770,9 @@ const typeSiz = [
     speciesSIZ: 'Подшлемник По климатическим поясам',
     issuanceRate: '1 шт.',
     additionalMeans: 'Подшлемник меховой ИЛИ Шапка ИЛИ Шлем',
+    AdditionalIssuanceRate: '1 шт. на 3 года',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.8.1',
@@ -1162,10 +1782,10 @@ const typeSiz = [
       'Костюм (в том числе отдельными предметами: куртка, брюки, полукомбинезон) облегченные',
     issuanceRate: '1 шт.',
     additionalMeans:
-      '"Костюм (в том числе отдельными предметами: рубашка, сорочка, юбка) ИЛИ Комбинезон ИЛИ Халат облегченные',
-  },
-  {
-    dependence: '1 шт."',
+      'Костюм (в том числе отдельными предметами: рубашка, сорочка, юбка) ИЛИ Комбинезон ИЛИ Халат облегченные\n1 шт.',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: 'ГОСТ 12.4.280',
+    OperatingLevel: '',
   },
   {
     dependence: '4.8.1',
@@ -1174,6 +1794,9 @@ const typeSiz = [
       'Полуботинки (в том числе с перфорационными отверстиями) ИЛИ Полуботинки',
     issuanceRate: '1 пара',
     additionalMeans: 'Туфли (сабо)',
+    AdditionalIssuanceRate: '1 пара',
+    standart: 'ГОСТ Р 12.4.187',
+    OperatingLevel: '',
   },
   {
     dependence: '4.8.1',
@@ -1182,6 +1805,10 @@ const typeSiz = [
     speciesSIZ:
       'Кепка ИЛИ Бейсболка ИЛИ Колпак ИЛИ Козырек ИЛИ Косынка ИЛИ Пилотка',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.8.2',
@@ -1189,6 +1816,10 @@ const typeSiz = [
     speciesSIZ: 'Костюм ИЛИ Плащ',
     issuanceRate: '1 шт.',
     additionalMeans: 'Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: 'ГОСТ Р 12.4.297 ИЛИ ГОСТ ISO 11612 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'C — тепловое излучение, не ниже C1 ИЛИ Защита от теплового излучения (Ти)',
   },
   {
     dependence: '4.8.2',
@@ -1197,12 +1828,21 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники для защиты от теплового излучения',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ EN 407 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'Тепловое излучение не ниже 1 ИЛИ Защита от теплового излучения (Ти)',
   },
   {
     dependence: '4.8.2',
     label: 'Обувь специальная для защиты от контакта с нагретыми поверхностями',
     speciesSIZ: 'Полуботинки ИЛИ Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.032 ИЛИ ГОСТ 12.4.103',
+    OperatingLevel:
+      'для защиты от контакта с нагретыми поверхностями до (300 ± 5) °С в течение (60 ± 1) с — с термостойкой подошвой ИЛИ Защита от контакта с нагретыми поверхностями (Тп)',
   },
   {
     dependence: '4.8.2',
@@ -1210,12 +1850,19 @@ const typeSiz = [
     speciesSIZ: 'Шлем',
     issuanceRate: '1 шт.',
     additionalMeans: 'Подшлемник ИЛИ Шапка',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.8.2',
     label: 'Средства индивидуальной защиты лица от теплового излучения',
     speciesSIZ: 'Щиток',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.023',
+    OperatingLevel: '',
   },
   {
     dependence: '4.9.1',
@@ -1225,6 +1872,9 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans:
       'Ветровка штормовка ИЛИ куртка-накидка ИЛИ Ветровка штормовка или куртка-накидка ИЛИ Комбинезон по классам защиты',
+    AdditionalIssuanceRate: '1 шт. на 2 года',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.9.1',
@@ -1233,6 +1883,9 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы водонепроницаемые',
     issuanceRate: '6 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: 'ГОСТ ISO 374-1-2019',
+    OperatingLevel: '',
   },
   {
     dependence: '4.9.1',
@@ -1240,6 +1893,10 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от воды',
     speciesSIZ: 'Галоши ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.9.1',
@@ -1247,6 +1904,10 @@ const typeSiz = [
       'Обувь специальная для защиты от воды и растворов нетоксичных веществ',
     speciesSIZ: 'Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '4.10.1',
@@ -1256,6 +1917,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Комбинезон ИЛИ Одежда специальная для защиты от прохладной окружающей среды и ветра ИЛИ Костюм (в том числе отдельными предметами: куртка, брюки, полукомбинезон, жилет)',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.10.1',
@@ -1264,6 +1928,9 @@ const typeSiz = [
     speciesSIZ: 'Подшлемник по климатическим поясам',
     issuanceRate: '1 шт.',
     additionalMeans: 'Шапка ИЛИ Шлем по климатическим поясам 1 шт.',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '4.10.1',
@@ -1271,6 +1938,10 @@ const typeSiz = [
       'Дерматологические средства индивидуальной защиты защитного типа средства при негативном влиянии окружающей среды от воздействия низких температур, ветра',
     speciesSIZ: 'Крем ИЛИ Лосьон ИЛИ Гель ИЛИ Спрей',
     issuanceRate: '600 мл.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ Р 12.4.301-2018 ',
+    OperatingLevel: '',
   },
   {
     dependence: '4.10.1',
@@ -1278,6 +1949,10 @@ const typeSiz = [
       'Дерматологические средства индивидуальной защиты регенерирующего (восстанавливающего) типа',
     speciesSIZ: 'Крем ИЛИ Лосьон ИЛИ Гель ИЛИ Спрей',
     issuanceRate: '600 мл.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ Р 12.4.301-2018 ',
+    OperatingLevel: '',
   },
   {
     dependence: '4.10.2',
@@ -1285,6 +1960,10 @@ const typeSiz = [
       'В случае идентификации иных опасностей на рабочем месте работник обеспечивается средствами индивидуальной защиты, необходимыми для защиты от идентифицированных опасностей. Номенклатуру, количество и сроки носки определяет работодатель в соответствии с Правилами и на основании нормативно-технической документации изготовителя',
     speciesSIZ: 'СИЗ для Другое 4.10.2',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '5.1.1',
@@ -1292,19 +1971,31 @@ const typeSiz = [
       'Средства индивидуальной защиты органов дыхания изолирующие на химически связанном кислороде ИЛИ Средства индивидуальной защиты органов дыхания изолирующие со сжатым воздухом ИЛИ Средства индивидуальной защиты органов дыхания со сжатым кислородом ИЛИ Средства индивидуальной защиты органов дыхания изолирующие неавтономные с подачей чистого воздуха по шлангу/магистрали',
     speciesSIZ: 'Дыхательные аппараты ИЛИ Самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
-    dependence: '5.2.1',
+    dependence: '5.2.2',
     label:
       'Средства индивидуальной защиты органов изолирующие дыхания на химически связанном кислороде ИЛИ Средства индивидуальной защиты органов дыхания изолирующие со сжатым воздухом ИЛИ Средства индивидуальной защиты органов дыхания изолирующие со сжатым кислородом ИЛИ Средства индивидуальной защиты органов дыхания неавтономные с подачей чистого воздуха по шлангу/магистрали',
     speciesSIZ: 'Дыхательные аппараты ИЛИ Самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '5.3.1',
     label: 'Другое 5.3.1',
     speciesSIZ: 'СИЗ для Другое 5.3.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.1.1',
@@ -1313,6 +2004,9 @@ const typeSiz = [
     speciesSIZ: 'Фартук ИЛИ Костюм',
     issuanceRate: '1 шт.',
     additionalMeans: 'Гидрокостюмы для работников морских платформ',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.1.1',
@@ -1320,6 +2014,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от воды и растворов нетоксичных веществ',
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ Р 12.4.301-2018 ИЛИ ГОСТ ISO 374-1-2019',
+    OperatingLevel: 'Водонепроницаемость (ВН) ИЛИ  Тип С и выше',
   },
   {
     dependence: '6.1.1',
@@ -1327,6 +2025,10 @@ const typeSiz = [
       'Обувь специальная для защиты от воды и растворов нетоксичных веществ',
     speciesSIZ: 'Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '6.1.1',
@@ -1334,6 +2036,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные, в том числе с покрытием от запотевания ИЛИ Очки защитные от грубодисперсных аэрозолей (пыли) ИЛИ Щиток защитный лицевой ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.1.2',
@@ -1341,6 +2047,10 @@ const typeSiz = [
       'В случае идентификации иных опасностей на рабочем месте работник обеспечивается средствами индивидуальной защиты, необходимыми для защиты от идентифицированных опасностей. Номенклатуру, количество и сроки носки определяет работодатель в соответствии с Правилами и на основании нормативно-технической документации изготовителя',
     speciesSIZ: 'СИЗ для Другое 6.1.2',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1348,6 +2058,10 @@ const typeSiz = [
       'Одежда специальная изолирующая для защиты от химических факторов (в том числе применяемая для защиты от биологических факторов (микроорганизмов)',
     speciesSIZ: 'Костюм изолирующий ИЛИ Комбинезон',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ ISO 16602-2019',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1355,12 +2069,20 @@ const typeSiz = [
       'Одежда специальная изолирующая для защиты от химических факторов (в том числе применяемый для защиты от биологических факторов (микроорганизмов) с принудительной подачей воздуха',
     speciesSIZ: 'Комбинезон изолирующий с принудительной подачей воздуха',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ ISO 16602-2019',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
     label: 'Одежда специальная для ограниченной защиты от токсичных веществ',
     speciesSIZ: 'Комбинезон',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ ISO 16602-2019',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1368,6 +2090,10 @@ const typeSiz = [
       'Одежда специальная ограниченного срока использования для защиты от токсичных веществ',
     speciesSIZ: 'Комбинезон',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ ISO 16602-2019',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1376,6 +2102,9 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ ISO 374-5-2020',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1383,6 +2112,10 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от кислот',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1390,6 +2123,10 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от щелочей',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1399,6 +2136,9 @@ const typeSiz = [
       'Противоаэрозольные и противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1407,6 +2147,10 @@ const typeSiz = [
     speciesSIZ:
       'Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противоаэрозольные, противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1414,6 +2158,10 @@ const typeSiz = [
       'Средства индивидуальной защиты органов дыхания изолирующие с принудительной подачей воздуха',
     speciesSIZ: 'Дыхательные аппараты ИЛИ Самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1421,6 +2169,10 @@ const typeSiz = [
       'Средства индивидуальной защиты органов изолирующие дыхания на химически связанном кислороде',
     speciesSIZ: 'Дыхательные аппараты ИЛИ Самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1428,6 +2180,10 @@ const typeSiz = [
       'Средства индивидуальной защиты органов дыхания изолирующие со сжатым воздухом',
     speciesSIZ: 'Дыхательные аппараты ИЛИ Самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1435,6 +2191,10 @@ const typeSiz = [
       'Средства индивидуальной защиты органов дыхания изолирующие со сжатым кислородом',
     speciesSIZ: 'Дыхательные аппараты ИЛИ Самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.2.1',
@@ -1442,6 +2202,10 @@ const typeSiz = [
       'Средства индивидуальной защиты органов дыхания изолирующие неавтономные с подачей чистого воздуха по шлангу/магистрали',
     speciesSIZ: 'Дыхательные аппараты',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.3.1',
@@ -1452,6 +2216,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Фартук для защиты от растворов кислот ИЛИ Фартук для защиты от щелочей ИЛИ Халат для защиты от растворов кислот ИЛИ Халат для защиты от щелочей',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: 'ГОСТ ISO 16602-2019 ИЛИ ГОСТ 12.4.279-2014',
+    OperatingLevel: 'Тип 5',
   },
   {
     dependence: '6.3.1',
@@ -1459,6 +2226,10 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от кислот',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.3.1',
@@ -1466,6 +2237,10 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от щелочей',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.3.1',
@@ -1474,6 +2249,9 @@ const typeSiz = [
     speciesSIZ: 'Перчатки, в том числе перчатки камерные ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ ISO 374-5-2020',
+    OperatingLevel: 'Тип С и выше',
   },
   {
     dependence: '6.3.1',
@@ -1481,6 +2259,9 @@ const typeSiz = [
     speciesSIZ: 'Очки закрытого или открытого типа',
     issuanceRate: '1 шт.',
     additionalMeans: 'Щиток',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.4.1',
@@ -1489,6 +2270,9 @@ const typeSiz = [
       'Противоаэрозольные и противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски ИЛИ Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противоаэрозольные, противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты ИЛИ Средства индивидуальной защиты органов дыхания с принудительной подачей воздуха ИЛИ Фильтрующие самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.5.1',
@@ -1496,6 +2280,9 @@ const typeSiz = [
     speciesSIZ: 'Очки закрытого типа',
     issuanceRate: '1 шт.',
     additionalMeans: 'Жидкость для промывания глаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.6.1',
@@ -1505,6 +2292,9 @@ const typeSiz = [
       'Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты ИЛИ Фильтрующие самоспасатели ИЛИ Противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.6.1',
@@ -1514,6 +2304,9 @@ const typeSiz = [
       'Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты ИЛИ Фильтрующие самоспасатели ИЛИ Противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.7.1',
@@ -1522,6 +2315,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Комбинезон ИЛИ Плащ (1 на 2 года) ИЛИ Одежда специальная ограниченного срока использования для защиты от токсичных веществ (определяется документами изготовителя)',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.7.1',
@@ -1529,12 +2325,19 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ 12.4.103-2020 ',
+    OperatingLevel: 'От нефти и нефте продуктов ( Нс,Нл,Нм,Нж)',
   },
   {
     dependence: '6.7.1',
     label: 'Обувь специальная для защиты от нефти и/или нефтепродуктов',
     speciesSIZ: 'Ботинки ИЛИ Полуботинки ИЛИ Сапоги ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '6.7.1',
@@ -1542,6 +2345,10 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от нефти и/или нефтепродуктов и жиров',
     speciesSIZ: 'Сапоги ИЛИ Полусапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.8.1',
@@ -1552,6 +2359,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Одежда специальная ограниченного срока использования для защиты от токсичных веществ',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.8.1',
@@ -1559,12 +2369,20 @@ const typeSiz = [
       'Средства индивидуальной защиты органов рук для защиты от воды и растворов нетоксичных веществ',
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '6.9.1',
     label: 'Другое 6.9.1',
     speciesSIZ: 'СИЗ для Другое 6.9.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '7.1.1',
@@ -1572,6 +2390,10 @@ const typeSiz = [
       'Средства индивидуальной защиты глаз от механических воздействий, газов и мелкодисперсных аэрозолей',
     speciesSIZ: 'Очки защитные закрытые',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '7.1.1',
@@ -1579,6 +2401,10 @@ const typeSiz = [
       'Средства индивидуальной защиты глаз от механических воздействий, от грубодисперсных аэрозолей (пыли)',
     speciesSIZ: 'Очки защитные закрытые',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '7.1.2',
@@ -1588,6 +2414,9 @@ const typeSiz = [
       'Противоаэрозольные и противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски ИЛИ Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противоаэрозольные, противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты ИЛИ Средства индивидуальной защиты органов дыхания с принудительной подачей воздуха',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '7.1.3',
@@ -1596,12 +2425,19 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Одежда специальная ограниченного срока использования комбинезон, в том числе с головным убором',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '7.1.3',
     label: 'Средства индивидуальной защиты рук для защиты от нетоксичной пыли',
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От не токсичной пыли (Пм ИЛИ Пк)',
   },
   {
     dependence: '7.2.1',
@@ -1611,6 +2447,9 @@ const typeSiz = [
       'Противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски ИЛИ Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противоаэрозольные, противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты ИЛИ Средства индивидуальной защиты органов дыхания с принудительной подачей воздуха',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Фильтрующие самоспасатели ИЛИ Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '7.2.1',
@@ -1619,6 +2458,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Одежда специальная ограниченного срока использования Комбинезон, в том числе с головным убором',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '7.2.1',
@@ -1626,6 +2468,10 @@ const typeSiz = [
       'Средства индивидуальной защиты глаз от механических воздействий, газов и мелкодисперсных аэрозолей',
     speciesSIZ: 'Очки защитные закрытые',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '7.2.1',
@@ -1633,6 +2479,10 @@ const typeSiz = [
       'Средства индивидуальной защиты глаз от механических воздействий, от грубодисперсных аэрозолей (пыли)',
     speciesSIZ: 'Очки защитные закрытые',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '7.3.1',
@@ -1642,12 +2492,19 @@ const typeSiz = [
       'Противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски ИЛИ Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противоаэрозольные, противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты ИЛИ Средства индивидуальной защиты органов дыхания с принудительной подачей воздуха',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '7.4.1',
     label: 'Другое 7.4.1',
     speciesSIZ: 'СИЗ для Другое 7.4.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '8.1.1',
@@ -1656,6 +2513,9 @@ const typeSiz = [
     speciesSIZ: 'Комбинезон',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Одежда специальная ограниченного срока использования',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '8.1.1',
@@ -1663,6 +2523,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от биологических факторов (микроорганизмов)',
     speciesSIZ: 'Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ ISO 374-5-2020',
+    OperatingLevel: '',
   },
   {
     dependence: '8.1.1',
@@ -1672,6 +2536,9 @@ const typeSiz = [
       'Противоаэрозольные и противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски ИЛИ Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противоаэрозольные, противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты ИЛИ Фильтрующие самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '8.1.1',
@@ -1681,6 +2548,9 @@ const typeSiz = [
       'Противоаэрозольные и противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски ИЛИ Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противоаэрозольные, противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты ИЛИ Фильтрующие самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '8.2.1',
@@ -1689,6 +2559,9 @@ const typeSiz = [
     speciesSIZ: 'Комбинезон',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Одежда специальная ограниченного срока использования',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '8.2.1',
@@ -1696,6 +2569,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от биологических факторов (микроорганизмов)',
     speciesSIZ: 'Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ ISO 374-5-2020',
+    OperatingLevel: '',
   },
   {
     dependence: '8.2.1',
@@ -1705,6 +2582,9 @@ const typeSiz = [
       'Противоаэрозольные и противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски ИЛИ Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противоаэрозольные, противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '8.2.1',
@@ -1714,6 +2594,9 @@ const typeSiz = [
       'Противоаэрозольные и противоаэрозольные с дополнительной защитой от газов и паров средства индивидуальной защиты органов дыхания с фильтрующей лицевой частью - фильтрующие полумаски ИЛИ Изолирующие лицевые части (маски, полумаски, четвертьмаски) для средств индивидуальной защиты (используемые совместно со сменными фильтрами); Сменные фильтры (фильтрующие элементы: противоаэрозольные, противогазовые, противогазоаэрозольные (комбинированные) для средств индивидуальной защиты',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '8.3.1',
@@ -1722,6 +2605,9 @@ const typeSiz = [
     speciesSIZ: 'Костюм, в том числе в комплекте с головным убором',
     issuanceRate: '1 комп.',
     additionalMeans: 'Комбинезон, в том числе в комплекте с головным убором',
+    AdditionalIssuanceRate: '1 комп.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '8.3.1',
@@ -1729,6 +2615,10 @@ const typeSiz = [
       'Обувь специальная для защиты от вредных биологических факторов (клещей и кровососущих насекомых)',
     speciesSIZ: 'Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '8.3.1',
@@ -1738,12 +2628,19 @@ const typeSiz = [
       'Головной убор для защиты от биологических факторов (кровососущих насекомых)',
     issuanceRate: '1 шт.',
     additionalMeans: 'Накомарник ИЛИ Сетка наголовная',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '8.4.1',
     label: 'Другое 8.4.1',
     speciesSIZ: 'СИЗ для Другое 8.7.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '9.1.1',
@@ -1753,6 +2650,9 @@ const typeSiz = [
     issuanceRate: '',
     additionalMeans:
       'Поддерживающий ремень для живота и поясницы ИЛИ Промышленные экзоскелеты ИЛИ Наколенники',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '9.2.1',
@@ -1762,6 +2662,9 @@ const typeSiz = [
     issuanceRate: '',
     additionalMeans:
       'Поддерживающий ремень для живота и поясницы ИЛИ Промышленные экзоскелеты',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '9.3.1',
@@ -1771,12 +2674,19 @@ const typeSiz = [
     issuanceRate: '',
     additionalMeans:
       'Поддерживающий ремень для живота и поясницы ИЛИ Промышленные экзоскелеты',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '9.4.1',
     label: 'Другое 9.4.1',
     speciesSIZ: 'СИЗ для Другое 9.4.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '10.1.1',
@@ -1784,12 +2694,20 @@ const typeSiz = [
     speciesSIZ:
       'Противошумные наушники и их комплектующие ИЛИ Противошумные вкладыши (беруши); Выбираются в зависимости от уровня шума на рабочем месте с учетом необходимости коммуникации и возможности слышать звук специальных и аварийных сигналов и шум потенциально опасных машин и механизмов',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '10.2.1',
     label: 'Средства индивидуальной защиты рук от механических воздействий',
     speciesSIZ: 'Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ ISO 374-1-2019',
+    OperatingLevel: '',
   },
   {
     dependence: '10.2.1',
@@ -1798,12 +2716,19 @@ const typeSiz = [
       'Противошумные наушники и их комплектующие ИЛИ Противошумные вкладыши (беруши); Выбираются в зависимости от уровня шума на рабочем месте с учетом необходимости коммуникации и возможности слышать звук специальных и аварийных сигналов и шум потенциально опасных машин и механизмов',
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Шлемофон летный',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '10.3.1',
     label: 'Другое 10.3.1',
     speciesSIZ: 'СИЗ для Другое 10.3.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '11.1.1',
@@ -1813,6 +2738,9 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя, но не менее 6 пар',
     additionalMeans:
       'Митенки; Выбираются по уровням защиты при контактных колебаниях',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: 'ГОСТ 12.4.002-97',
+    OperatingLevel: 'Тип 2А ИЛИ 2Б',
   },
   {
     dependence: '11.2.1',
@@ -1821,18 +2749,30 @@ const typeSiz = [
       'Полуботинки с перфорацией ИЛИ Полуботинки ИЛИ Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
     additionalMeans: 'Антивибрационные коврики',
+    AdditionalIssuanceRate:
+      'определяется документами изготовителя, но не менее 1 шт.',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '11.3.1',
     label: 'Другое 11.3.1',
     speciesSIZ: 'СИЗ для Другое 11.3.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '12.1.1',
     label: 'Одежда специальная сигнальная повышенной видимости',
     speciesSIZ: 'Костюм ИЛИ Комбинезон ИЛИ Плащ ИЛИ Жилет',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '12.2.1',
@@ -1841,6 +2781,10 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные открытые с затемненной линзой ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '12.2.1',
@@ -1848,6 +2792,10 @@ const typeSiz = [
       'Средства индивидуальной защиты головы: головные уборы для защиты от общих производственных загрязнений',
     speciesSIZ: 'Кепка ИЛИ Бейсболка ИЛИ Козырек ИЛИ Шляпа',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '12.3.1',
@@ -1856,18 +2804,30 @@ const typeSiz = [
     speciesSIZ:
       'Очки защитные открытые (с желтыми линзами) ИЛИ Очки защитные от механических воздействий с корригирующим эффектом',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '12.3.1',
     label: 'Одежда специальная сигнальная повышенной видимости',
     speciesSIZ: 'Костюм ИЛИ Комбинезон ИЛИ Плащ ИЛИ Жилет',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '12.4.1',
     label: 'Другое 12.4.1',
     speciesSIZ: 'СИЗ для Другое 12.4.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '13.1.1',
@@ -1875,6 +2835,10 @@ const typeSiz = [
       'Одежда специальная для защиты от воздействия статического электричества',
     speciesSIZ: 'Костюм ИЛИ Комбинезон',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '13.1.1',
@@ -1882,6 +2846,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от воздействия статического электричества',
     speciesSIZ: 'Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От воздействия статического Электричества (ЭС)',
   },
   {
     dependence: '13.1.1',
@@ -1890,6 +2858,9 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans:
       'Браслет антиэлектростатический ИЛИ Кольцо антиэлектростатическое 2 шт.',
+    AdditionalIssuanceRate: '2 шт.',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '13.2.1',
@@ -1898,6 +2869,10 @@ const typeSiz = [
     speciesSIZ:
       'Комплектность: Экранирующий комбинезон с капюшоном и защитным экраном - 1 шт.; Экранирующие перчатки - 2 пары; Экранирующие носки - 4 пары',
     issuanceRate: '1 на 1,5 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '13.3.1',
@@ -1906,6 +2881,10 @@ const typeSiz = [
     speciesSIZ:
       'Комплектность: Накасник экранирующий; Куртка экранирующая; Полукомбинезон/брюки экранирующие; Перчатки экранирующие; Ботинки экранирующие',
     issuanceRate: '1 на 1,5 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '13.4.1',
@@ -1913,6 +2892,9 @@ const typeSiz = [
     speciesSIZ: 'Костюм',
     issuanceRate: '1 шт.',
     additionalMeans: 'Комбинезон ИЛИ Плащ',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '13.4.1',
@@ -1921,12 +2903,19 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники для защиты от теплового излучения',
+    AdditionalIssuanceRate: '12 пар',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '13.4.1',
     label: 'Обувь специальная для защиты от контакта с нагретыми поверхностями',
     speciesSIZ: 'Полуботинки ИЛИ Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '13.4.1',
@@ -1934,30 +2923,49 @@ const typeSiz = [
     speciesSIZ: 'Подшлемник',
     issuanceRate: '1 шт.',
     additionalMeans: 'Шапка ИЛИ Шлем',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '13.4.1',
     label: 'Средства индивидуальной защиты лица от теплового излучения',
     speciesSIZ: 'Щиток',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '13.5.1',
     label: 'Средства индивидуальной защиты глаз от лазерных излучений',
     speciesSIZ: 'Очки защитные открытые',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '13.6.1',
     label: 'Средства индивидуальной защиты глаз от ультрафиолета',
     speciesSIZ: 'Очки защитные открытые',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '13.7.1',
     label: 'Другое 13.7.1',
     speciesSIZ: 'СИЗ для Другое 13.7.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.1.1',
@@ -1965,6 +2973,10 @@ const typeSiz = [
     speciesSIZ:
       'Комбинезон изолирующий для защиты кожи и органов дыхания от радиоактивных веществ ИЛИ Одежда специальная для защиты от радиоактивных веществ и ионизирующих излучений',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.1.1',
@@ -1973,6 +2985,10 @@ const typeSiz = [
     speciesSIZ:
       'Комбинезон изолирующий для защиты кожи и органов дыхания от радиоактивных веществ',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.1.1',
@@ -1980,6 +2996,10 @@ const typeSiz = [
       'Обувь специальная для защиты от радиоактивных веществ и ионизирующих излучений',
     speciesSIZ: 'Ботинки',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '14.1.1',
@@ -1987,6 +3007,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от радиоактивных веществ и ионизирующих излучений',
     speciesSIZ: 'Перчатки, в том числе перчатки камерные',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.1.1',
@@ -1994,6 +3018,10 @@ const typeSiz = [
       'Средства индивидуальной защиты глаз и лица от ионизирующих излучений',
     speciesSIZ: 'Очки защитные ИЛИ Щиток защитный лицевой',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.1.1',
@@ -2004,6 +3032,9 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans:
       'Средства индивидуальной защиты органов дыхания изолирующие на химически связанном кислороде (дыхательные аппараты, самоспасатели) ИЛИ Средства индивидуальной защиты органов дыхания изолирующие со сжатым воздухом (дыхательные аппараты, самоспасатели) ИЛИ Средства индивидуальной защиты органов дыхания изолирующие со сжатым кислородом (дыхательные аппараты, самоспасатели) ИЛИ Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.2.1',
@@ -2011,6 +3042,10 @@ const typeSiz = [
       'Одежда специальная защитная от радиоактивных веществ и ионизирующих излучений',
     speciesSIZ: 'Фартук',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.2.1',
@@ -2018,6 +3053,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук от радиоактивных веществ и ионизирующих излучений',
     speciesSIZ: 'Перчатки, в том числе перчатки камерные',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.2.1',
@@ -2025,6 +3064,10 @@ const typeSiz = [
       'Средства индивидуальной защиты глаз и лица защитные от ионизирующих излучений',
     speciesSIZ: 'Очки защитные ИЛИ Щиток защитный лицевой',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.3.1',
@@ -2033,6 +3076,10 @@ const typeSiz = [
     speciesSIZ:
       'Комбинезоны изолирующие для защиты кожи и органов дыхания от радиоактивных веществ',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.3.1',
@@ -2040,6 +3087,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук от радиоактивных веществ и ионизирующих излучений',
     speciesSIZ: 'Перчатки, в том числе перчатки камерные',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.3.1',
@@ -2050,12 +3101,19 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans:
       'Средства индивидуальной защиты органов дыхания изолирующие на химически связанном кислороде (дыхательные аппараты, самоспасатели) ИЛИ Средства индивидуальной защиты органов дыхания изолирующие со сжатым воздухом (дыхательные аппараты, самоспасатели) ИЛИ Средства индивидуальной защиты органов дыхания изолирующие со сжатым кислородом (дыхательные аппараты, самоспасатели) ИЛИ Респиратор ИЛИ Противогаз',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '14.4.1',
     label: 'Другое 14.4.1',
     speciesSIZ: 'СИЗ для Другое 14.4.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '15.1.1',
@@ -2063,6 +3121,11 @@ const typeSiz = [
       'Средства индивидуальной защиты рук для защиты от механических воздействий (проколов, порезов)',
     speciesSIZ: 'Рукавицы ИЛИ Перчатки',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel:
+      'Сопротивление порезу уровень не ниже 3, Стойкость к проколу уровень не ниже 3',
   },
   {
     dependence: '15.1.2',
@@ -2070,6 +3133,10 @@ const typeSiz = [
       'Дерматологические средства индивидуальной защиты защитного типа: средства для защиты от воздействия биологических факторов (микроорганизмов): с антибактериальным (антимикробным) действием',
     speciesSIZ: 'Спрей ИЛИ Гель',
     issuanceRate: '1200 мл',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.1.007-76, Свидетельство Гос. Регистрации',
+    OperatingLevel: '',
   },
   {
     dependence: '15.1.2',
@@ -2077,6 +3144,10 @@ const typeSiz = [
       'Дерматологические средства индивидуальной защиты защитного типа: средства для защиты от воздействия биологических факторов (микроорганизмов): с противогрибковым (фунгицидным) действием)',
     speciesSIZ: 'Спрей ИЛИ Гель',
     issuanceRate: '1200 мл',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.1.007-76, Свидетельство Гос. Регистрации',
+    OperatingLevel: '',
   },
   {
     dependence: '15.1.2',
@@ -2085,12 +3156,19 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники для защиты от',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ ISO 374-1-2019',
+    OperatingLevel: '',
   },
   {
     dependence: '15.2.1',
     label: 'Другое 15.2.1',
     speciesSIZ: 'СИЗ для Другое 15.2.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '16.1.1',
@@ -2101,6 +3179,9 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans:
       'Респиратор ИЛИ Противогаз ИЛИ Одежда специальная ограниченного срока использования',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '16.1.1',
@@ -2109,6 +3190,9 @@ const typeSiz = [
     speciesSIZ: 'Перчатки',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ ISO 374-5-2020',
+    OperatingLevel: '',
   },
   {
     dependence: '16.1.1',
@@ -2117,6 +3201,9 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Стойкость к истиранию уровень не менее 3',
   },
   {
     dependence: '16.2.1',
@@ -2127,6 +3214,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Одежда специальная ограниченного срока использования (определяется документами изготовителя) ИЛИ Комбинезон (1 шт.)',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '16.2.1',
@@ -2134,6 +3224,10 @@ const typeSiz = [
     speciesSIZ:
       'Полуботинки с перфорацией ИЛИ Полуботинки ИЛИ Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '16.2.1',
@@ -2141,6 +3235,10 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от общих производственных загрязнений',
     speciesSIZ: 'Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '16.2.1',
@@ -2149,6 +3247,9 @@ const typeSiz = [
     speciesSIZ: 'Перчатки',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ ISO 374-5-2020',
+    OperatingLevel: '',
   },
   {
     dependence: '16.2.1',
@@ -2156,6 +3257,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук от общих производственных загрязнений',
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Стойкость к истиранию уровень не менее 3',
   },
   {
     dependence: '16.2.1',
@@ -2164,6 +3269,9 @@ const typeSiz = [
     speciesSIZ: 'Очки',
     issuanceRate: '1 шт.',
     additionalMeans: 'Щиток',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '16.3.1',
@@ -2174,6 +3282,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans:
       'Одежда специальная ограниченного срока использования (определяется документами изготовителя) ИЛИ Комбинезон (1 шт.)',
+    AdditionalIssuanceRate: 'определяется документами изготовителя',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '16.3.1',
@@ -2181,6 +3292,10 @@ const typeSiz = [
     speciesSIZ:
       'Полуботинки с перфорацией ИЛИ Полуботинки ИЛИ Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '16.3.1',
@@ -2188,6 +3303,10 @@ const typeSiz = [
       'Обувь специальная резиновая или из полимерных материалов для защиты от общих производственных загрязнений',
     speciesSIZ: 'Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '16.3.1',
@@ -2196,6 +3315,9 @@ const typeSiz = [
     speciesSIZ: 'Перчатки',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: '12 пар',
+    standart: 'ГОСТ ISO 374-5-2020',
+    OperatingLevel: '',
   },
   {
     dependence: '16.3.1',
@@ -2203,6 +3325,10 @@ const typeSiz = [
       'Средства индивидуальной защиты рук от общих производственных загрязнений',
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.010-75 ИЛИ EN 388:2016 ',
+    OperatingLevel: 'Стойкость к истиранию уровень не менее 3',
   },
   {
     dependence: '16.3.1',
@@ -2210,12 +3336,20 @@ const typeSiz = [
       'Средства индивидуальной защиты головы: головные уборы для защиты от общих производственных загрязнений',
     speciesSIZ: 'Кепка ИЛИ Бейсболка ИЛИ Косынка ИЛИ Шляпа',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '16.4.1',
     label: 'Другое 16.4.1',
     speciesSIZ: 'СИЗ для Другое 16.4.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '17.1.1',
@@ -2223,30 +3357,50 @@ const typeSiz = [
       'Средства индивидуальной защиты органов дыхания фильтрующего типа противоаэрозольные, противогазоаэрозольные (комбинированные)',
     speciesSIZ: 'Фильтрующие самоспасатели',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '17.2.1',
     label: 'Другое 17.2.1',
     speciesSIZ: 'СИЗ для Другое 17.2.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '18.1.1',
     label: 'Одежда сигнальная повышенной видимости',
     speciesSIZ: 'Костюм ИЛИ Комбинезон ИЛИ Плащ ИЛИ Жилет',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '18.1.2',
     label: 'Одежда сигнальная повышенной видимости',
     speciesSIZ: 'Костюм ИЛИ Комбинезон ИЛИ Плащ ИЛИ Жилет',
     issuanceRate: '1 шт.',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '18.2.1',
     label: 'Другое 18.2.1',
     speciesSIZ: 'СИЗ для Другое 18.2.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '19.1.1',
@@ -2255,6 +3409,9 @@ const typeSiz = [
     speciesSIZ: 'Костюм',
     issuanceRate: '1 шт.',
     additionalMeans: 'Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '19.1.1',
@@ -2262,6 +3419,10 @@ const typeSiz = [
       'Обувь специальная для защиты от кратковременного воздействия открытого пламени, статического электричества и от контакта с нагретыми поверхностями',
     speciesSIZ: 'Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 пара',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '19.1.1',
@@ -2270,6 +3431,9 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: '12 пар',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '19.1.1',
@@ -2277,6 +3441,10 @@ const typeSiz = [
       'Средства индивидуальной защиты головы для защиты от повышенных температур',
     speciesSIZ: 'Каска защитная до +150 °C',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '19.1.1',
@@ -2285,6 +3453,9 @@ const typeSiz = [
     speciesSIZ: 'Подшлемник',
     issuanceRate: '1 шт.',
     additionalMeans: 'Шлем ИЛИ Шапка',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '19.2.1',
@@ -2293,6 +3464,9 @@ const typeSiz = [
     speciesSIZ: 'Костюм',
     issuanceRate: '1 пара',
     additionalMeans: 'Комбинезон',
+    AdditionalIssuanceRate: '1 шт.',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '19.2.1',
@@ -2300,6 +3474,10 @@ const typeSiz = [
       'Обувь специальная для защиты от кратковременного воздействия открытого пламени и от контакта с нагретыми поверхностями',
     speciesSIZ: 'Ботинки ИЛИ Полусапоги ИЛИ Сапоги',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '19.2.1',
@@ -2308,6 +3486,9 @@ const typeSiz = [
     speciesSIZ: 'Перчатки ИЛИ Рукавицы',
     issuanceRate: '12 пар',
     additionalMeans: 'Нарукавники',
+    AdditionalIssuanceRate: '12 пар',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '19.2.1',
@@ -2315,6 +3496,10 @@ const typeSiz = [
       'Средства индивидуальной защиты головы для защиты от повышенных температур',
     speciesSIZ: 'Каска защитная до +150 °C',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '19.2.1',
@@ -2323,6 +3508,9 @@ const typeSiz = [
     speciesSIZ: 'Подшлемник',
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: 'Шлем ИЛИ Шапка',
+    AdditionalIssuanceRate: '1 шт. на 2 года',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '19.3.1',
@@ -2330,6 +3518,10 @@ const typeSiz = [
       'Средства индивидуальной защиты головы для защиты от повышенных температур',
     speciesSIZ: 'Каска защитная',
     issuanceRate: '1 шт. на 2 года',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'EN 397',
+    OperatingLevel: '',
   },
   {
     dependence: '19.3.1',
@@ -2337,24 +3529,40 @@ const typeSiz = [
     speciesSIZ:
       'Противошумные наушники и их комплектующие ИЛИ Противошумные вкладыши (беруши); Выбираются в зависимости от уровня шума на рабочем месте с учетом необходимости коммуникации и возможности слышать звук специальных и аварийных сигналов и шум потенциально опасных машин и механизмов',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '19.4.1',
     label: 'Другое 19.4.1',
     speciesSIZ: 'СИЗ для Дргуое 19.4.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
   {
     dependence: '20.1.1',
     label: 'Одежда специальная ограниченного срока использования',
     speciesSIZ: 'Комбинезон',
     issuanceRate: 'определяется документами изготовителя',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: 'ГОСТ ISO 16602-2019 ИЛИ ГОСТ 12.4.279-2014',
+    OperatingLevel: 'Тип 5 ИЛИ тип 6',
   },
   {
     dependence: '20.2.1',
     label: 'Другое 20.2.1',
     speciesSIZ: 'СИЗ для Другое 20.2.1',
     issuanceRate: '',
+    additionalMeans: '',
+    AdditionalIssuanceRate: '',
+    standart: '',
+    OperatingLevel: '',
   },
 ];
 export default typeSiz;
