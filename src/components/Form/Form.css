@@ -222,6 +222,14 @@
 
 .input-order__title {
   font-size: 20px;
+  /*новые стили*/
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  text-align: start;
+  padding: 0;
+
+  background-color: transparent;
 }
 .react-select-container.order {
   width: calc(100% - 20px);
@@ -291,8 +299,6 @@
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
-  
- 
 }
 
 /*.additional-means:disabled {
@@ -313,7 +319,7 @@
 
 .label.profs {
   width: 90%;
-padding: 0 5%;
+  padding: 0 5%;
 }
 @media screen and (max-width: 767px) {
   .label,
@@ -342,6 +348,24 @@ padding: 0 5%;
   }
 }
 @media screen and (max-width: 400px) {
+  /*новые стили для выпадающего меню*/
+  .input-order__title {
+    background-image: url(../../../img/gal.svg);
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+  }
+
+  .dropdown-child_close {
+    display: none;
+  }
+  .dropdown-child_open {
+    display: block;
+  }
+  /******/
+  .label.box {
+   align-items: flex-start;
+  }
   .buttons_wrapper {
     max-width: fit-content;
     column-gap: 5px;
