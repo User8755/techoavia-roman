@@ -1,4 +1,5 @@
 import './Login.css';
+import { EMAIL } from '../../untils/constants';
 
 function Login() {
   return (
@@ -14,13 +15,21 @@ function Login() {
             id='email'
             type='email'
             placeholder='example@mail.ru'
+            pattern={EMAIL}
           ></input>
-          <span className='input-error'></span>
+          <span className='input-error'>
+            Введен некорректный адрес электронной почты
+          </span>
           <lable for='password' className='entry__form_lable'>
             Пароль
           </lable>
-          <input id='password' type='password' className='entry__form_input' />
-          <span className='input-error'></span>
+          <input
+            id='password'
+            type='password'
+            className='entry__form_input'
+            minlength='8'
+          />
+          <span className='input-error'>Ошибка ввода пароля</span>
           <button className='button entry__button' type='submit'>
             Войти
           </button>
