@@ -28,8 +28,6 @@
 }
 .react-select__control--is-focused {
   box-shadow: 0px 0px 0px 1px rgba(66, 83, 97, 1) !important;
-  /*  border: 2px solid rgba(66, 83, 97, 1) !important;*/
-  /*border:none !important;*/
 }
 
 /*плейсхолдер*/
@@ -350,7 +348,7 @@
 @media screen and (max-width: 400px) {
   /*новые стили для выпадающего меню*/
   .input-order__title {
-    background-image: url(../../../img/gal.svg);
+    background-image: url(../../../img/check-mark.svg);
     background-repeat: no-repeat;
     background-position: right 10px center;
     background-size: 12px;

@@ -417,6 +417,8 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     }
   }, [setModal, setModalChild, subdivision]);
 
+  const [isOpenOrder776, setIsOpenOrder776] = useState(false);
+  const [isOpenOrder767, setIsOpenOrder767] = useState(false);
   return (
     <>
       <main className='main'>
@@ -471,77 +473,103 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               </label>
             </div>
             <div className='input-order__wrapper'>
-              <h2 className='input-order__title'>Приказ №776</h2>
-              <label className='label'>
-                Опасности:
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={sortedDanger776}
-                  onChange={(evt) => setDanger776(evt)}
-                  placeholder={'Опасности'}
-                  value={isDanger776}
-                />
-              </label>
-              <label className='label'>
-                Опасное событие:
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={sortedDangerEvent776}
-                  onChange={(evt) => setDangerEvent776(evt)}
-                  placeholder={'Опасное событие'}
-                  value={isDangerEvent776}
-                />
-              </label>
-              {/*не забыть настроить инпутб сейчас он работает как "Опасные события"*/}
-              <label className='label'>
-                Меры упр-я/контроля проф. рисков
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={sortedRiskManagemet}
-                  onChange={(evt) => setRiskManagement(evt)}
-                  placeholder={'Меры управления/контроля'}
-                  value={isRiskManagement}
-                />
-              </label>
+              <button
+                className='input-order__title'
+                onClick={() => setIsOpenOrder776(!isOpenOrder776)}
+              >
+                Приказ №776
+              </button>
+              <div
+                className={
+                  isOpenOrder776
+                    ? 'dropdown-child_open'
+                    : 'dropdown-child_close'
+                }
+              >
+                <label className='label'>
+                  Опасности:
+                  <Select
+                    className='react-select-container order'
+                    classNamePrefix='react-select'
+                    options={sortedDanger776}
+                    onChange={(evt) => setDanger776(evt)}
+                    placeholder={'Опасности'}
+                    value={isDanger776}
+                  />
+                </label>
+                <label className='label'>
+                  Опасное событие:
+                  <Select
+                    className='react-select-container order'
+                    classNamePrefix='react-select'
+                    options={sortedDangerEvent776}
+                    onChange={(evt) => setDangerEvent776(evt)}
+                    placeholder={'Опасное событие'}
+                    value={isDangerEvent776}
+                  />
+                </label>
+                {/*не забыть настроить инпутб сейчас он работает как "Опасные события"*/}
+                <label className='label'>
+                  Меры упр-я/контроля проф. рисков
+                  <Select
+                    className='react-select-container order'
+                    classNamePrefix='react-select'
+                    options={sortedRiskManagemet}
+                    onChange={(evt) => setRiskManagement(evt)}
+                    placeholder={'Меры управления/контроля'}
+                    value={isRiskManagement}
+                  />
+                </label>
+              </div>
             </div>
             <div className='input-order__wrapper'>
-              <h2 className='input-order__title'>Приказ №767</h2>
-              <label className='label'>
-                Группа опасности:
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={dangerGroup}
-                  onChange={(name) => setDangerGroup(name)}
-                  placeholder={'Группа опасности'}
-                  value={isDangerGroup}
-                />
-              </label>
-              <label className='label'>
-                Опасности:
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={sortedDangerGroup}
-                  onChange={(evt) => setisDanger(evt)}
-                  placeholder={'Опасности'}
-                  value={isDanger}
-                />
-              </label>
-              <label className='label'>
-                Опасное событие:
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={sortedDangerEvent}
-                  onChange={(evt) => setDangerEvent(evt)}
-                  placeholder={'Опасное событие'}
-                  value={isDangerEvent}
-                />
-              </label>
+              <button
+                className='input-order__title'
+                onClick={() => setIsOpenOrder767(!isOpenOrder767)}
+              >
+                Приказ №767
+              </button>
+              <div
+                className={
+                  isOpenOrder767
+                    ? 'dropdown-child_open'
+                    : 'dropdown-child_close'
+                }
+              >
+                <label className='label'>
+                  Группа опасности:
+                  <Select
+                    className='react-select-container order'
+                    classNamePrefix='react-select'
+                    options={dangerGroup}
+                    onChange={(name) => setDangerGroup(name)}
+                    placeholder={'Группа опасности'}
+                    value={isDangerGroup}
+                  />
+                </label>
+                <label className='label'>
+                  Опасности:
+                  <Select
+                    className='react-select-container order'
+                    classNamePrefix='react-select'
+                    options={sortedDangerGroup}
+                    onChange={(evt) => setisDanger(evt)}
+                    placeholder={'Опасности'}
+                    value={isDanger}
+                  />
+                </label>
+                <label className='label'>
+                  Опасное событие:
+                  <Select
+                    className='react-select-container order'
+                    classNamePrefix='react-select'
+                    options={sortedDangerEvent}
+                    onChange={(evt) => setDangerEvent(evt)}
+                    placeholder={'Опасное событие'}
+                    value={isDangerEvent}
+                  />
+                </label>
+              </div>
             </div>
             <label className='label'>
               Тип СИЗ:
