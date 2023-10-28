@@ -1,8 +1,9 @@
 .header {
-  padding: 10px 10px 20px;
-  height: 20px;
+  padding: 20px 30px;
+  height: 60px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   column-gap: 10px;
   border-bottom: 1px solid rgba(66, 83, 97, 0.6);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,4 +17,10 @@
 }
 .header__text.active {
   font-weight: 700;
+}
+
+.profile__wrapper {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
 }

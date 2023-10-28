@@ -1,3 +1,24 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+button {
+  border: none;
+}
+a {
+  text-decoration: none;
+}
+
+:root {
+  --main-color: rgba(66, 83, 97, 1);
+  --accent-green: #17cb6c;
+  --accent-red: #fe3f57;
+  --accent-dark-blue: #425361;
+}
 .App {
   display: flex;
   flex-direction: column;
@@ -10,9 +31,6 @@
   align-items: center;
   flex-direction: column;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: rgba(66, 83, 97, 1);
+  color: var(--main-color);
   flex: 1 0 auto;
 }
-
-
-

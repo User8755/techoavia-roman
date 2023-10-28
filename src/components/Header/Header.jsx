@@ -18,6 +18,26 @@ function Header() {
       >
         Обновление информации
       </NavLink>
+      <div className='profile__wrapper'>
+        <NavLink
+          to='/login'
+          className={active ? 'header__text active' : 'header__text'}
+        >
+          Логин
+        </NavLink>
+        <NavLink
+          to='/registration'
+          className={active ? 'header__text active' : 'header__text'}
+        >
+          Регистрация
+        </NavLink>
+        <NavLink
+          to='/profile'
+          className={active ? 'header__text active' : 'header__text'}
+        >
+          Профиль
+        </NavLink>
+      </div>
     </header>
   );
 }

@@ -19,7 +19,7 @@
 
 /*инпут*/
 .react-select__control {
-  border: 1px solid rgba(66, 83, 97, 1) !important;
+  border: 1px solid var(--main-color) !important;
   background-color: rgba(243, 244, 246, 1) !important;
   box-shadow: none !important;
 }
@@ -27,7 +27,7 @@
   background-color: rgb(222, 228, 239) !important;
 }
 .react-select__control--is-focused {
-  box-shadow: 0px 0px 0px 1px rgba(66, 83, 97, 1) !important;
+  box-shadow: 0px 0px 0px 1px var(--main-color) !important;
 }
 
 /*плейсхолдер*/
@@ -43,7 +43,7 @@
   font-weight: 500 !important;
 }*/
 .react-select__menu {
-  border: 1px solid rgba(66, 83, 97, 1) !important;
+  border: 1px solid var(--main-color) !important;
   background-color: rgba(243, 244, 246, 1) !important;
 }
 .react-select__menu-list {
@@ -51,17 +51,16 @@
 }
 .react-select__option {
   background-color: rgba(243, 244, 246, 1) !important;
-  color: rgba(66, 83, 97, 1) !important;
+  color: var(--main-color) !important;
   font-weight: 400;
   transition: background-color 0.3s ease-in-out;
 }
 .react-select__option--is-focused {
   background-color: rgb(222, 228, 239) !important;
   color: rgb(55, 70, 82) !important;
-  /*font-weight: 500;*/
 }
 .react-select__single-value {
-  color: rgba(66, 83, 97, 1) !important;
+  color: var(--main-color) !important;
   font-family: inherit;
   font-size: 16px;
   font-weight: 500;
@@ -69,7 +68,7 @@
 
 /*индикатор*/
 .react-select__indicator {
-  color: rgba(66, 83, 97, 1) !important;
+  color: var(--main-color) !important;
 }
 .react-select__indicator:hover {
   color: rgba(66, 83, 97, 0.6) !important;
@@ -90,7 +89,7 @@
   width: 100px;
   height: 38px;
   padding: 2px 8px;
-  border: 1px solid rgba(66, 83, 97, 1);
+  border: 1px solid var(--main-color);
   border-radius: 4px;
   outline: none;
   width: 170px;
@@ -102,8 +101,7 @@
   background-color: rgb(222, 228, 239);
 }
 .form__input:focus {
-  box-shadow: 0px 0px 0px 1px rgba(66, 83, 97, 1);
-  /*  border: 2px solid rgba(66, 83, 97, 1);*/
+  box-shadow: 0px 0px 0px 1px var(--main-color);
 }
 
 .form__input.standart {
@@ -171,15 +169,15 @@
   text-decoration: underline 1px;
 }
 .button.send {
-  background-color: rgba(23, 203, 108, 1);
+  background-color: var(--accent-green);
 }
 
 .button.reset {
-  background-color: rgba(254, 63, 87, 1);
+  background-color: var(--accent-red);
 }
 .button.button-cancel {
   background: transparent;
-  color: rgba(254, 63, 87, 1);
+  color: var(--accent-red);
   font-size: 16px;
   height: 20px;
 }
@@ -187,7 +185,7 @@
   width: 350px;
   margin-top: 16px;
   padding: 7px 35px;
-  background-color: rgba(66, 83, 97, 1);
+  background-color: var(--accent-dark-blue);
   position: relative;
 }
 .button__table:before {
@@ -362,7 +360,7 @@
   }
   /******/
   .label.box {
-   align-items: flex-start;
+    align-items: flex-start;
   }
   .buttons_wrapper {
     max-width: fit-content;

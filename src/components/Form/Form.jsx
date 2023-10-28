@@ -421,266 +421,254 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [isOpenOrder767, setIsOpenOrder767] = useState(false);
   return (
     <>
-      <main className='main'>
-        <form className='form' onSubmit={handleSubmit} required>
-          <span>Кол-во записей: {count}</span>
-          <div className='label-wrapper'>
-            <label className='label'>
-              Профессии:
-              <Select
-                className='react-select-container'
-                classNamePrefix='react-select'
-                options={prof}
-                onChange={(evt) => setProff(evt)}
-                placeholder={'Профессии'}
-                noOptionsMessage={() => 'Значение не найдено'}
-                value={isProff}
+      <form className='form' onSubmit={handleSubmit} required>
+        <span>Кол-во записей: {count}</span>
+        <div className='label-wrapper'>
+          <label className='label'>
+            Профессии:
+            <Select
+              className='react-select-container'
+              classNamePrefix='react-select'
+              options={prof}
+              onChange={(evt) => setProff(evt)}
+              placeholder={'Профессии'}
+              noOptionsMessage={() => 'Значение не найдено'}
+              value={isProff}
+            />
+          </label>
+          <div className='label__checkbox'>
+            <label className='checkbox__label'>
+              <input
+                type='checkbox'
+                name='profession'
+                className='form__checkbox visually-hidden'
+                onClick={hendleOpenModal}
               />
+              <span className='form__pseudo-checkbox'></span>
+              <span className='checkbox__label-text'>
+                Должность отсутствует
+              </span>
             </label>
-            <div className='label__checkbox'>
-              <label className='checkbox__label'>
-                <input
-                  type='checkbox'
-                  name='profession'
-                  className='form__checkbox visually-hidden'
-                  onClick={hendleOpenModal}
-                />
-                <span className='form__pseudo-checkbox'></span>
-                <span className='checkbox__label-text'>
-                  Должность отсутствует
-                </span>
-              </label>
-              <label className='checkbox__label'>
-                <input
-                  type='checkbox'
-                  name='siz'
-                  className='form__checkbox visually-hidden'
-                  onClick={(evt) => setRequiredSIZ(evt.target.checked)}
-                />
-                <span className='form__pseudo-checkbox'></span>
-                <span className='checkbox__label-text'>Обязательные СИЗ</span>
-              </label>
-              <label className='checkbox__label'>
-                <input
-                  type='checkbox'
-                  name='siz'
-                  className='form__checkbox visually-hidden'
-                  onChange={(evt) => setSubdivision(evt.target.checked)}
-                  checked={subdivision}
-                />
-                <span className='form__pseudo-checkbox'></span>
-                <span className='checkbox__label-text'>Подразделение</span>
-              </label>
-            </div>
-            <div className='input-order__wrapper'>
-              <button
-                className='input-order__title'
-                onClick={() => setIsOpenOrder776(!isOpenOrder776)}
-              >
-                Приказ №776
-              </button>
-              <div
-                className={
-                  isOpenOrder776
-                    ? 'dropdown-child_open'
-                    : 'dropdown-child_close'
-                }
-              >
-                <label className='label'>
-                  Опасности:
-                  <Select
-                    className='react-select-container order'
-                    classNamePrefix='react-select'
-                    options={sortedDanger776}
-                    onChange={(evt) => setDanger776(evt)}
-                    placeholder={'Опасности'}
-                    value={isDanger776}
-                  />
-                </label>
-                <label className='label'>
-                  Опасное событие:
-                  <Select
-                    className='react-select-container order'
-                    classNamePrefix='react-select'
-                    options={sortedDangerEvent776}
-                    onChange={(evt) => setDangerEvent776(evt)}
-                    placeholder={'Опасное событие'}
-                    value={isDangerEvent776}
-                  />
-                </label>
-                {/*не забыть настроить инпутб сейчас он работает как "Опасные события"*/}
-                <label className='label'>
-                  Меры упр-я/контроля проф. рисков
-                  <Select
-                    className='react-select-container order'
-                    classNamePrefix='react-select'
-                    options={sortedRiskManagemet}
-                    onChange={(evt) => setRiskManagement(evt)}
-                    placeholder={'Меры управления/контроля'}
-                    value={isRiskManagement}
-                  />
-                </label>
-              </div>
-            </div>
-            <div className='input-order__wrapper'>
-              <button
-                className='input-order__title'
-                onClick={() => setIsOpenOrder767(!isOpenOrder767)}
-              >
-                Приказ №767
-              </button>
-              <div
-                className={
-                  isOpenOrder767
-                    ? 'dropdown-child_open'
-                    : 'dropdown-child_close'
-                }
-              >
-                <label className='label'>
-                  Группа опасности:
-                  <Select
-                    className='react-select-container order'
-                    classNamePrefix='react-select'
-                    options={dangerGroup}
-                    onChange={(name) => setDangerGroup(name)}
-                    placeholder={'Группа опасности'}
-                    value={isDangerGroup}
-                  />
-                </label>
-                <label className='label'>
-                  Опасности:
-                  <Select
-                    className='react-select-container order'
-                    classNamePrefix='react-select'
-                    options={sortedDangerGroup}
-                    onChange={(evt) => setisDanger(evt)}
-                    placeholder={'Опасности'}
-                    value={isDanger}
-                  />
-                </label>
-                <label className='label'>
-                  Опасное событие:
-                  <Select
-                    className='react-select-container order'
-                    classNamePrefix='react-select'
-                    options={sortedDangerEvent}
-                    onChange={(evt) => setDangerEvent(evt)}
-                    placeholder={'Опасное событие'}
-                    value={isDangerEvent}
-                  />
-                </label>
-              </div>
-            </div>
-            <label className='label'>
-              Тип СИЗ:
-              <Select
-                className='react-select-container'
-                classNamePrefix='react-select'
-                options={resTypeSiz}
-                onChange={(evt) => setSelectedTipeSIZ(evt)}
-                placeholder={'Тип СИЗ'}
-                value={selectedTipeSIZ}
+            <label className='checkbox__label'>
+              <input
+                type='checkbox'
+                name='siz'
+                className='form__checkbox visually-hidden'
+                onClick={(evt) => setRequiredSIZ(evt.target.checked)}
               />
-              <label
-                htmlFor='additional-means'
-                className={
-                  additionalMeans
-                    ? 'checkbox__label'
-                    : 'checkbox__label disabled '
-                }
-              >
-                <input
-                  id='additional-means'
-                  type='checkbox'
-                  name='additional-means'
-                  className='additional-means form__checkbox visually-hidden'
-                  onClick={(evt) => setCheckboxSIZ(evt.target.checked)}
-                  disabled={!additionalMeans}
+              <span className='form__pseudo-checkbox'></span>
+              <span className='checkbox__label-text'>Обязательные СИЗ</span>
+            </label>
+            <label className='checkbox__label'>
+              <input
+                type='checkbox'
+                name='siz'
+                className='form__checkbox visually-hidden'
+                onChange={(evt) => setSubdivision(evt.target.checked)}
+                checked={subdivision}
+              />
+              <span className='form__pseudo-checkbox'></span>
+              <span className='checkbox__label-text'>Подразделение</span>
+            </label>
+          </div>
+          <div className='input-order__wrapper'>
+            <button
+              className='input-order__title'
+              onClick={() => setIsOpenOrder776(!isOpenOrder776)}
+            >
+              Приказ №776
+            </button>
+            <div
+              className={
+                isOpenOrder776 ? 'dropdown-child_open' : 'dropdown-child_close'
+              }
+            >
+              <label className='label'>
+                Опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDanger776}
+                  onChange={(evt) => setDanger776(evt)}
+                  placeholder={'Опасности'}
+                  value={isDanger776}
                 />
-                <span className='form__pseudo-checkbox'></span>
-                <span className='checkbox__label-text'>ДОП средства</span>
               </label>
-            </label>
-            <label className='label'>
-              Комментарий:
-              <input
-                className='form__input standart'
-                onChange={(evt) => setCommit(evt.target.value)}
-              ></input>
-            </label>
-            <div className='label-wrapper'>
-              <label className='label box'>
-                Тяжесть:
-                <input
-                  name='heaviness'
-                  type='number'
-                  className='form__input input'
-                  onChange={handleChange}
-                  value={inputValue.heaviness}
-                ></input>
+              <label className='label'>
+                Опасное событие:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDangerEvent776}
+                  onChange={(evt) => setDangerEvent776(evt)}
+                  placeholder={'Опасное событие'}
+                  value={isDangerEvent776}
+                />
               </label>
-              <label className='label box'>
-                Вероятность:
-                <input
-                  name='probability'
-                  type='number'
-                  className='form__input input'
-                  onChange={handleChange}
-                  value={inputValue.probability}
-                ></input>
+              {/*не забыть настроить инпутб сейчас он работает как "Опасные события"*/}
+              <label className='label'>
+                Меры упр-я/контроля проф. рисков
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedRiskManagemet}
+                  onChange={(evt) => setRiskManagement(evt)}
+                  placeholder={'Меры управления/контроля'}
+                  value={isRiskManagement}
+                />
               </label>
             </div>
           </div>
-          <div className='form__container'>
-            <div className='wrapper'>
-              <span className='wrapper_text'>ИПР: {ipr}</span>
-              <span className='wrapper_text'>Уровень риска: {risk}</span>
-              <span className='wrapper_text'>
-                Приемлемость: {acceptability}
-              </span>
-              <span className='wrapper_text'>
-                Отношение к риску: {riskAttitude}
-              </span>
+          <div className='input-order__wrapper'>
+            <button
+              className='input-order__title'
+              onClick={() => setIsOpenOrder767(!isOpenOrder767)}
+            >
+              Приказ №767
+            </button>
+            <div
+              className={
+                isOpenOrder767 ? 'dropdown-child_open' : 'dropdown-child_close'
+              }
+            >
+              <label className='label'>
+                Группа опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={dangerGroup}
+                  onChange={(name) => setDangerGroup(name)}
+                  placeholder={'Группа опасности'}
+                  value={isDangerGroup}
+                />
+              </label>
+              <label className='label'>
+                Опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDangerGroup}
+                  onChange={(evt) => setisDanger(evt)}
+                  placeholder={'Опасности'}
+                  value={isDanger}
+                />
+              </label>
+              <label className='label'>
+                Опасное событие:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDangerEvent}
+                  onChange={(evt) => setDangerEvent(evt)}
+                  placeholder={'Опасное событие'}
+                  value={isDangerEvent}
+                />
+              </label>
             </div>
           </div>
-          <div className='label-wrapper'>
-            <label className='label'>
-              Объект
+          <label className='label'>
+            Тип СИЗ:
+            <Select
+              className='react-select-container'
+              classNamePrefix='react-select'
+              options={resTypeSiz}
+              onChange={(evt) => setSelectedTipeSIZ(evt)}
+              placeholder={'Тип СИЗ'}
+              value={selectedTipeSIZ}
+            />
+            <label
+              htmlFor='additional-means'
+              className={
+                additionalMeans
+                  ? 'checkbox__label'
+                  : 'checkbox__label disabled '
+              }
+            >
               <input
-                className='form__input standart'
-                autoComplete='on'
-                onChange={(evt) => setObj(evt.target.value)}
-              ></input>
+                id='additional-means'
+                type='checkbox'
+                name='additional-means'
+                className='additional-means form__checkbox visually-hidden'
+                onClick={(evt) => setCheckboxSIZ(evt.target.checked)}
+                disabled={!additionalMeans}
+              />
+              <span className='form__pseudo-checkbox'></span>
+              <span className='checkbox__label-text'>ДОП средства</span>
             </label>
-            <label className='label'>
-              Источник
-              <input
-                className='form__input standart'
-                autoComplete='on'
-                onChange={(evt) => setSource(evt.target.value)}
-              ></input>
-            </label>
-          </div>
-          <div className='buttons_wrapper'>
-            <input type='submit' className='button send'></input>
+          </label>
+          <label className='label'>
+            Комментарий:
             <input
-              type='reset'
-              className='button reset'
-              onClick={clear}
+              className='form__input standart'
+              onChange={(evt) => setCommit(evt.target.value)}
             ></input>
-            <datalist id='number'>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </datalist>
+          </label>
+          <div className='label-wrapper'>
+            <label className='label box'>
+              Тяжесть:
+              <input
+                name='heaviness'
+                type='number'
+                className='form__input input'
+                onChange={handleChange}
+                value={inputValue.heaviness}
+              ></input>
+            </label>
+            <label className='label box'>
+              Вероятность:
+              <input
+                name='probability'
+                type='number'
+                className='form__input input'
+                onChange={handleChange}
+                value={inputValue.probability}
+              ></input>
+            </label>
           </div>
-        </form>
-        <button onClick={table} className='button button__table'>
-          Выгрузить в таблицу
-        </button>
-      </main>
+        </div>
+        <div className='form__container'>
+          <div className='wrapper'>
+            <span className='wrapper_text'>ИПР: {ipr}</span>
+            <span className='wrapper_text'>Уровень риска: {risk}</span>
+            <span className='wrapper_text'>Приемлемость: {acceptability}</span>
+            <span className='wrapper_text'>
+              Отношение к риску: {riskAttitude}
+            </span>
+          </div>
+        </div>
+        <div className='label-wrapper'>
+          <label className='label'>
+            Объект
+            <input
+              className='form__input standart'
+              autoComplete='on'
+              onChange={(evt) => setObj(evt.target.value)}
+            ></input>
+          </label>
+          <label className='label'>
+            Источник
+            <input
+              className='form__input standart'
+              autoComplete='on'
+              onChange={(evt) => setSource(evt.target.value)}
+            ></input>
+          </label>
+        </div>
+        <div className='buttons_wrapper'>
+          <input type='submit' className='button send'></input>
+          <input type='reset' className='button reset' onClick={clear}></input>
+          <datalist id='number'>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </datalist>
+        </div>
+      </form>
+      <button onClick={table} className='button button__table'>
+        Выгрузить в таблицу
+      </button>
     </>
   );
 }

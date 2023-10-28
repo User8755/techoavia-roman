@@ -4,6 +4,9 @@ import Form from './components/Form/Form';
 import Update from './components/Update/Update';
 import Header from './components/Header/Header';
 import ModalUpdata from './components/ModalUpdata/ModalUpdata';
+import Login from './components/Login/Login';
+import Registration from './components/Registration/Registration';
+import Profile from './components/Profile/Profile';
 import { useState } from 'react';
 import Footer from './components/Footer/Footer';
 function App() {
@@ -12,10 +15,9 @@ function App() {
   const [job, setJob] = useState({});
   const [listJob, setlistJob] = useState([]);
   const [listSubdivision, setlistSubdivision] = useState([]);
-  
+
   return (
     <div className='App'>
-
       <ModalUpdata
         active={isModal}
         setModal={setModal}
@@ -28,26 +30,37 @@ function App() {
         listSubdivision={listSubdivision}
       ></ModalUpdata>
       <Header></Header>
-      <Routes>
-        <Route
-          path='/techoavia-roman'
-          element={
-            <Form
-              setModalChild={setModalChild}
-              setModal={setModal}
-              job={job}
-              setJob={setJob}
-              listJob={listJob}
-            ></Form>
-          }
-        ></Route>
-        <Route
-          path='/update'
-          element={
-            <Update setModalChild={setModalChild} setModal={setModal}></Update>
-          }
-        ></Route>
-      </Routes>
+      <main className='main'>
+        <Routes>
+          <Route
+            path='/techoavia-roman'
+            element={
+              <Form
+                setModalChild={setModalChild}
+                setModal={setModal}
+                job={job}
+                setJob={setJob}
+                listJob={listJob}
+              ></Form>
+            }
+          ></Route>
+          <Route
+            path='/update'
+            element={
+              <Update
+                setModalChild={setModalChild}
+                setModal={setModal}
+              ></Update>
+            }
+          ></Route>
+          <Route path='/login' element={<Login></Login>}></Route>
+          <Route
+            path='/registration'
+            element={<Registration></Registration>}
+          ></Route>
+          <Route path='/profile' element={<Profile></Profile>}></Route>
+        </Routes>
+      </main>
       <Footer />
     </div>
   );
