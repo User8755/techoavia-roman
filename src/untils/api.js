@@ -59,10 +59,23 @@ class Api {
       }),
     }).then(this._checkRes);
   }
+
+  loginUser(item) {
+    return fetch(`${this._baseUrl}/signin`, {
+      method: 'POST',
+      headers: {
+        ...this._headers,
+      },
+      body: JSON.stringify({
+        email: item.email,
+        password: item.password,
+      }),
+    }).then(this._checkRes);
+  }
 }
 
 const api = new Api({
-  baseUrl: 'http://localhost:3001',
+  baseUrl: 'http://77.222.53.197',
   headers: {
     'Content-Type': 'application/json',
   },
