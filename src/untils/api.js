@@ -72,6 +72,27 @@ class Api {
       }),
     }).then(this._checkRes);
   }
+
+  createDangersEvent(item) {
+    return fetch(`${this._baseUrl}/dangerEvent`, {
+      method: 'POST',
+      headers: {
+        ...this._headers,
+      },
+      body: JSON.stringify({
+        dependence: item.dependence,
+        label: item.label,
+        groupId: item.groupId,
+      }),
+    }).then(this._checkRes);
+  }
+  getDangersEvent() {
+    return fetch(`${this._baseUrl}/dangerEvent`, {
+      headers: {
+        ...this._headers,
+      },
+    }).then(this._checkRes);
+  }
 }
 
 const api = new Api({

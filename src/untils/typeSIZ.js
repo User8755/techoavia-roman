@@ -63,7 +63,7 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -83,7 +83,7 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -95,8 +95,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.4.1',
@@ -107,8 +107,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.023 и/или ГОСТ 12.4.253',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.5.1',
@@ -143,8 +143,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.5.1',
@@ -155,8 +155,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.023 и/или ГОСТ 12.4.253',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.5.1',
@@ -165,7 +165,7 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -187,8 +187,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От проколов или порезов Мп',
   },
   {
     dependence: '1.6.1',
@@ -233,7 +233,7 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -245,8 +245,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.7.1',
@@ -257,8 +257,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.7.1',
@@ -301,7 +301,7 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397 ИЛИ ТР ТС 019/2011',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -312,7 +312,7 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397 ИЛИ ТР ТС 019/2011',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -348,8 +348,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.9.1.',
@@ -370,8 +370,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От проколов или порезов Мп',
   },
   {
     dependence: '1.10.1',
@@ -416,7 +416,7 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -428,8 +428,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.11.1',
@@ -451,8 +451,8 @@ const typeSiz = [
     additionalMeans:
       'Нарукавники (срок определяется документами производителя) ИЛИ Комбинезон',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От захвата движущимися частями механизмов Мд',
   },
   {
     dependence: '1.12.1',
@@ -485,8 +485,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '1.14.1',
@@ -506,8 +506,8 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '1.14.1',
@@ -529,7 +529,7 @@ const typeSiz = [
     additionalMeans:
       'Шлем пескоструйщика (абразивоструйщика); Сменные элементы (защитные стекла)',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: 'EN 397 ИЛИ ТР ТС 019/2011',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -541,8 +541,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.023 и/или ГОСТ 12.4.253',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.15.1',
@@ -563,8 +563,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От проколов или порезов Мп',
   },
   {
     dependence: '1.16.1',
@@ -607,7 +607,7 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -619,8 +619,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.17.1',
@@ -631,8 +631,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От проколов или порезов Мп',
   },
   {
     dependence: '1.17.1',
@@ -677,8 +677,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Фартук ИЛИ Комбинезон',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От проколов или порезов Мп',
   },
   {
     dependence: '1.18.1',
@@ -721,7 +721,7 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -733,8 +733,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.19.1',
@@ -757,8 +757,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От режущего воздействия ручной цепной пилой',
   },
   {
     dependence: '1.20.1',
@@ -802,8 +802,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.22.1',
@@ -835,8 +835,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.25.1',
@@ -857,8 +857,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Пояс для аккумуляторных ламп',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel:
+      'От производственных загрязнений З и механических воздействий Ми',
   },
   {
     dependence: '1.26.1',
@@ -869,8 +870,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023',
+    OperatingLevel: 'Механическая прочность не ниже S',
   },
   {
     dependence: '1.26.1',
@@ -925,7 +926,7 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -936,7 +937,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
+    standart: 'ГОСТ 12.4.272',
     OperatingLevel: '',
   },
   {
@@ -947,7 +948,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.272',
     OperatingLevel: '',
   },
   {
@@ -958,7 +959,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.272',
     OperatingLevel: '',
   },
   {
@@ -970,8 +971,10 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart:
+      'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235 ИЛИ ГОСТ 12.4.234 (EN 12941:1998)',
+    OperatingLevel:
+      'не ниже FFP1 ( в том числе с дополнительным угольным слоем) ИЛИ изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '1.27.1',
@@ -1003,8 +1006,8 @@ const typeSiz = [
     additionalMeans:
       'Комбинезон ИЛИ Фартук (1 шт.); Белье специальное (футболки, фуфайки, кальсоны, панталоны) (2 пары); Изделия носочно-чулочные (12 пар); Нарукавники (6 пар); Изделия бельевые: полотенца (определяется документами изготовителя)',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От производственных загрязнений З ',
   },
   {
     dependence: '2.1.1',
@@ -1049,8 +1052,8 @@ const typeSiz = [
     additionalMeans:
       'Обувь пляжная из полимерных материалов (тапочки для душа)',
     AdditionalIssuanceRate: '1 пара на 3 года',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '2.1.1',
@@ -1135,8 +1138,8 @@ const typeSiz = [
     issuanceRate: '1 на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
-    OperatingLevel: '',
+    standart: 'ГОСТ EN 397',
+    OperatingLevel: 'Электроизоляция 440 В или 1000 В',
   },
   {
     dependence: '3.1.1',
@@ -1146,8 +1149,8 @@ const typeSiz = [
     issuanceRate: 'дежурные',
     additionalMeans: 'Коврик диэлектрический',
     AdditionalIssuanceRate: 'дежурный',
-    standart: '',
-    OperatingLevel: '',
+    standart: ' ГОСТ 13385-78',
+    OperatingLevel: 'От поражения электрическим током Эв',
   },
   {
     dependence: '3.1.2',
@@ -1167,8 +1170,8 @@ const typeSiz = [
     issuanceRate: '1 на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
-    OperatingLevel: '',
+    standart: 'ГОСТ EN 397',
+    OperatingLevel: 'Электроизоляция 440 В или 1000 В',
   },
   {
     dependence: '3.1.2',
@@ -1178,8 +1181,8 @@ const typeSiz = [
     issuanceRate: 'дежурные',
     additionalMeans: 'Коврик диэлектрический',
     AdditionalIssuanceRate: 'дежурный',
-    standart: '',
-    OperatingLevel: '',
+    standart: ' ГОСТ 13385-78',
+    OperatingLevel: 'От поражения электрическим током Эв',
   },
   {
     dependence: '3.2.1',
@@ -1189,8 +1192,8 @@ const typeSiz = [
     issuanceRate: 'дежурные',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 13385-78',
+    OperatingLevel: 'От поражения электрическим током Эв',
   },
   {
     dependence: '3.3.1',
@@ -1200,8 +1203,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Комбинезон',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От воздействия статического Электричества ЭС',
   },
   {
     dependence: '3.3.1',
@@ -1311,8 +1314,9 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'ГОСТ 12.4.023',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.023 и/или ГОСТ 12.4.253',
+    OperatingLevel:
+      'Линза должна иметь маркировку: 8 - Дуга короткого замыкания\nТолщина не менее 1,4 мм\nВнешняя сторона смотрового стекла должна иметь термостойкую окантовку',
   },
   {
     dependence: '3.5.1',
@@ -1386,8 +1390,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'ГОСТ 12.4.023',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.023 и/или ГОСТ 12.4.253',
+    OperatingLevel: 'Толщина линзы не менее 1,4 мм',
   },
   {
     dependence: '4.2.1',
@@ -1441,8 +1445,9 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'ГОСТ 12.4.023',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.023 и/или ГОСТ 12.4.253',
+    OperatingLevel:
+      'Линза должна иметь маркировку: 9 - Расплавленные металлы и горячие твердые тела, 3 — Жидкости',
   },
   {
     dependence: '4.2.1',
@@ -1533,8 +1538,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'ГОСТ 12.4.023',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.023 и/или ГОСТ 12.4.253',
+    OperatingLevel: 'Толщина линзы не менее 1,4 мм',
   },
   {
     dependence: '4.4.2',
@@ -1705,8 +1710,9 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel:
+      'для защиты от контакта с поверхностью имеющую низкую температуру',
   },
   {
     dependence: '4.5.1',
@@ -1739,8 +1745,9 @@ const typeSiz = [
     additionalMeans:
       'Комбинезон ИЛИ Белье специальное утепленное (кальсоны/панталоны утепленные, фуфайка, утепленная) 2 шт. ИЛИ Термобелье специальное (кальсоны/панталоны, фуфайка) 2 шт.; Изделия носочно-чулочные 12 пар',
     AdditionalIssuanceRate: 'По климатическим поясам и классам защиты',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.303-2016 ',
+    OperatingLevel:
+      'От воздействия пониженных температур и ветра Тнв, по климатическим поясам',
   },
   {
     dependence: '4.7.1',
@@ -1861,8 +1868,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'ГОСТ 12.4.023',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.023 и/или ГОСТ 12.4.253',
+    OperatingLevel: 'Толщина линзы не менее 1,4 мм',
   },
   {
     dependence: '4.9.1',
@@ -1873,8 +1880,8 @@ const typeSiz = [
     additionalMeans:
       'Ветровка штормовка ИЛИ куртка-накидка ИЛИ Ветровка штормовка или куртка-накидка ИЛИ Комбинезон по классам защиты',
     AdditionalIssuanceRate: '1 шт. на 2 года',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ Р 12.4.288-2013 ',
+    OperatingLevel: 'не менеекласса 1 — водооталкивающая одежда  Во',
   },
   {
     dependence: '4.9.1',
@@ -1895,8 +1902,8 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'Водонепроницаемость (ВН) ',
   },
   {
     dependence: '4.9.1',
@@ -1918,8 +1925,9 @@ const typeSiz = [
     additionalMeans:
       'Комбинезон ИЛИ Одежда специальная для защиты от прохладной окружающей среды и ветра ИЛИ Костюм (в том числе отдельными предметами: куртка, брюки, полукомбинезон, жилет)',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.303-2016 ',
+    OperatingLevel:
+      'От воздействия пониженных температур и ветра Тнв, по климатическим поясам',
   },
   {
     dependence: '4.10.1',
@@ -1973,7 +1981,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.272 ИЛИ ГОСТ 12.4.249 ИЛИ ГОСТ 12.4.236',
     OperatingLevel: '',
   },
   {
@@ -1984,7 +1992,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.272 ИЛИ ГОСТ 12.4.249 ИЛИ ГОСТ 12.4.236',
     OperatingLevel: '',
   },
   {
@@ -2005,8 +2013,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Гидрокостюмы для работников морских платформ',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ Р 12.4.288-2013 ',
+    OperatingLevel: 'не менеекласса 1 — водооталкивающая одежда  Во',
   },
   {
     dependence: '6.1.1',
@@ -2038,8 +2046,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 ИЛИ ГОСТ 12.4.023',
+    OperatingLevel:
+      'Оправа (корпус) должна иметь маркировку: 3 — Жидкости ИЛИ 5 — Газ и мелкодисперсные аэрозоли',
   },
   {
     dependence: '6.1.2',
@@ -2114,8 +2123,8 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'Не менее К20',
   },
   {
     dependence: '6.2.1',
@@ -2125,8 +2134,8 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'Не менее Щ20',
   },
   {
     dependence: '6.2.1',
@@ -2137,8 +2146,9 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.294',
+    OperatingLevel:
+      'не ниже FFP1  в том числе с дополнительным угольным слоем (по результатам СОУТ)',
   },
   {
     dependence: '6.2.1',
@@ -2149,8 +2159,9 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.293 и ГОСТ 12.4.235',
+    OperatingLevel:
+      'изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '6.2.1',
@@ -2171,7 +2182,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.272',
     OperatingLevel: '',
   },
   {
@@ -2182,7 +2193,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.249',
     OperatingLevel: '',
   },
   {
@@ -2193,7 +2204,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.249',
     OperatingLevel: '',
   },
   {
@@ -2204,7 +2215,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.236',
     OperatingLevel: '',
   },
   {
@@ -2228,8 +2239,8 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'Не менее К20',
   },
   {
     dependence: '6.3.1',
@@ -2239,8 +2250,8 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'Не менее Щ20',
   },
   {
     dependence: '6.3.1',
@@ -2260,8 +2271,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Щиток',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 (Щиток - ГОСТ 12.4.023)',
+    OperatingLevel:
+      'Оправа (корпус) должна иметь маркировку: 3 — Жидкости ИЛИ 5 — Газ и мелкодисперсные аэрозоли',
   },
   {
     dependence: '6.4.1',
@@ -2271,8 +2283,10 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart:
+      'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235 ИЛИ ГОСТ 12.4.234 (EN 12941:1998) ИЛИ ГОСТ 12.4.285',
+    OperatingLevel:
+      'не ниже FFP1 ( в том числе с дополнительным угольным слоем) ИЛИ изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '6.5.1',
@@ -2281,8 +2295,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Жидкость для промывания глаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253',
+    OperatingLevel:
+      'Оправа (корпус) должна иметь маркировку: 3 — Жидкости ИЛИ 5 — Газ и мелкодисперсные аэрозоли',
   },
   {
     dependence: '6.6.1',
@@ -2293,8 +2308,10 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart:
+      'ГОСТ 12.4.293 и ГОСТ 12.4.235 ИЛИ ГОСТ 12.4.285 ИЛИ ГОСТ 12.4.294',
+    OperatingLevel:
+      'изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '6.6.1',
@@ -2305,8 +2322,10 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart:
+      'ГОСТ 12.4.293 и ГОСТ 12.4.235 ИЛИ ГОСТ 12.4.285 ИЛИ ГОСТ 12.4.294',
+    OperatingLevel:
+      'изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '6.7.1',
@@ -2316,8 +2335,8 @@ const typeSiz = [
     additionalMeans:
       'Комбинезон ИЛИ Плащ (1 на 2 года) ИЛИ Одежда специальная ограниченного срока использования для защиты от токсичных веществ (определяется документами изготовителя)',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.310-2020 ',
+    OperatingLevel: 'От воздействия нефти и ее фракций Нс, Нм, Нл ',
   },
   {
     dependence: '6.7.1',
@@ -2347,8 +2366,8 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: ' От нефтепродуктов Нм',
   },
   {
     dependence: '6.8.1',
@@ -2360,8 +2379,8 @@ const typeSiz = [
     additionalMeans:
       'Одежда специальная ограниченного срока использования для защиты от токсичных веществ',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ Р 12.4.288-2013 ',
+    OperatingLevel: 'не менеекласса 1 — водооталкивающая одежда  Во',
   },
   {
     dependence: '6.8.1',
@@ -2392,8 +2411,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253',
+    OperatingLevel:
+      'Оправа (корпус) должна иметь маркировку: 4 — Грубодисперсные аэрозоли\nОчковые стекла (линзы) должны иметь маркировку символом К - Устойчивость к поверхностному разрушению мелкодисперсными аэрозолями (пыли)',
   },
   {
     dependence: '7.1.1',
@@ -2403,8 +2423,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253',
+    OperatingLevel:
+      'Оправа (корпус) должна иметь маркировку: 4 — Грубодисперсные аэрозоли\nОчковые стекла (линзы) должны иметь маркировку символом К - Устойчивость к поверхностному разрушению мелкодисперсными аэрозолями (пыли)',
   },
   {
     dependence: '7.1.2',
@@ -2415,8 +2436,10 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart:
+      'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235 ИЛИ ГОСТ 12.4.234 (EN 12941:1998)',
+    OperatingLevel:
+      'не ниже FFP1 ( в том числе с дополнительным угольным слоем) ИЛИ изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '7.1.3',
@@ -2448,8 +2471,10 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Фильтрующие самоспасатели ИЛИ Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart:
+      'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235 ИЛИ ГОСТ 12.4.234 (EN 12941:1998)',
+    OperatingLevel:
+      'не ниже FFP1 ( в том числе с дополнительным угольным слоем) ИЛИ изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '7.2.1',
@@ -2470,8 +2495,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253',
+    OperatingLevel:
+      'Оправа (корпус) должна иметь маркировку: 5 — Газ и мелкодисперсные аэрозоли',
   },
   {
     dependence: '7.2.1',
@@ -2481,8 +2507,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253',
+    OperatingLevel:
+      'Оправа (корпус) должна иметь маркировку: 5 — Газ и мелкодисперсные аэрозоли',
   },
   {
     dependence: '7.3.1',
@@ -2493,8 +2520,10 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart:
+      'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235 ИЛИ ГОСТ 12.4.234 (EN 12941:1998)',
+    OperatingLevel:
+      'не ниже FFP1 ( в том числе с дополнительным угольным слоем) ИЛИ изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '7.4.1',
@@ -2537,8 +2566,10 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart:
+      'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235 ИЛИ ГОСТ 12.4.285',
+    OperatingLevel:
+      'не ниже FFP1 ( в том числе с дополнительным угольным слоем) ИЛИ изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '8.1.1',
@@ -2549,8 +2580,10 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart:
+      'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235 ИЛИ ГОСТ 12.4.285',
+    OperatingLevel:
+      'не ниже FFP1 ( в том числе с дополнительным угольным слоем) ИЛИ изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '8.2.1',
@@ -2583,8 +2616,9 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235',
+    OperatingLevel:
+      'не ниже FFP1 ( в том числе с дополнительным угольным слоем) ИЛИ изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '8.2.1',
@@ -2595,8 +2629,9 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235',
+    OperatingLevel:
+      'не ниже FFP1 ( в том числе с дополнительным угольным слоем) ИЛИ изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '8.3.1',
@@ -2606,8 +2641,9 @@ const typeSiz = [
     issuanceRate: '1 комп.',
     additionalMeans: 'Комбинезон, в том числе в комплекте с головным убором',
     AdditionalIssuanceRate: '1 комп.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ Р 12.4.296-2013',
+    OperatingLevel:
+      'Бнг – защита от вредных биологических факторов: от насекомых (гнуса)\nБнк – защита от вредных биологических факторов: от паукообразных (клещей)',
   },
   {
     dependence: '8.3.1',
@@ -2696,8 +2732,8 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ EN 13819 и/или ГОСТ EN 352',
+    OperatingLevel: 'SNR в зависимости от уровня шума',
   },
   {
     dependence: '10.2.1',
@@ -2717,8 +2753,8 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: 'Шлемофон летный',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ EN 13819 и/или ГОСТ EN 352',
+    OperatingLevel: 'SNR в зависимости от уровня шума',
   },
   {
     dependence: '10.3.1',
@@ -2771,8 +2807,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.281-2021',
+    OperatingLevel:
+      'Со – спецодежда сигнальная повышенной видимости, класс не ниже 1 ',
   },
   {
     dependence: '12.2.1',
@@ -2783,8 +2820,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253',
+    OperatingLevel:
+      'Шкальный номер градационного шифра 5 (солнцезащитный светофильтр без нормирования требований к ИК-излучению) или 6 (солнцезащитный светофильтр с нормированием требований по ИК-излучению)',
   },
   {
     dependence: '12.2.1',
@@ -2806,7 +2844,7 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.253',
     OperatingLevel: '',
   },
   {
@@ -2816,8 +2854,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.281-2021',
+    OperatingLevel:
+      'Со – спецодежда сигнальная повышенной видимости, класс не ниже 1 ',
   },
   {
     dependence: '12.4.1',
@@ -2837,8 +2876,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От воздействия статического Электричества ЭС',
   },
   {
     dependence: '13.1.1',
@@ -2934,8 +2973,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.023 и/или ГОСТ 12.4.253',
+    OperatingLevel: 'Толщина линзы не менее 1,4 мм',
   },
   {
     dependence: '13.5.1',
@@ -2944,8 +2983,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ EN 207',
+    OperatingLevel:
+      'Оптическая плотность и длина волны определяются по результатам измерений (расчетов) лазерного излучения',
   },
   {
     dependence: '13.6.1',
@@ -2954,8 +2994,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253',
+    OperatingLevel:
+      'Шкальный номер градационного шифра 2 (УФ-светофильтр, передача цвета может быть искажена) или 3 (УФ-светофильтр, хорошая передача цвета)',
   },
   {
     dependence: '13.7.1',
@@ -3020,7 +3061,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.217',
     OperatingLevel: '',
   },
   {
@@ -3033,7 +3074,7 @@ const typeSiz = [
     additionalMeans:
       'Средства индивидуальной защиты органов дыхания изолирующие на химически связанном кислороде (дыхательные аппараты, самоспасатели) ИЛИ Средства индивидуальной защиты органов дыхания изолирующие со сжатым воздухом (дыхательные аппараты, самоспасатели) ИЛИ Средства индивидуальной защиты органов дыхания изолирующие со сжатым кислородом (дыхательные аппараты, самоспасатели) ИЛИ Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
+    standart: 'ГОСТ 12.4.217???',
     OperatingLevel: '',
   },
   {
@@ -3066,7 +3107,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.217',
     OperatingLevel: '',
   },
   {
@@ -3089,7 +3130,7 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
+    standart: 'ГОСТ 12.4.217???',
     OperatingLevel: '',
   },
   {
@@ -3102,8 +3143,10 @@ const typeSiz = [
     additionalMeans:
       'Средства индивидуальной защиты органов дыхания изолирующие на химически связанном кислороде (дыхательные аппараты, самоспасатели) ИЛИ Средства индивидуальной защиты органов дыхания изолирующие со сжатым воздухом (дыхательные аппараты, самоспасатели) ИЛИ Средства индивидуальной защиты органов дыхания изолирующие со сжатым кислородом (дыхательные аппараты, самоспасатели) ИЛИ Респиратор ИЛИ Противогаз',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart:
+      'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235 ИЛИ ГОСТ 12.4.285',
+    OperatingLevel:
+      'не ниже FFP1 ( в том числе с дополнительным угольным слоем) ИЛИ изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '14.4.1',
@@ -3180,8 +3223,9 @@ const typeSiz = [
     additionalMeans:
       'Респиратор ИЛИ Противогаз ИЛИ Одежда специальная ограниченного срока использования',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.294 ИЛИ ГОСТ 12.4.293 и ГОСТ 12.4.235',
+    OperatingLevel:
+      'не ниже FFP1 ( в том числе с дополнительным угольным слоем) ИЛИ изолирующая лицевая часть и фильтры не ниже 1-го класса (по результатам СОУТ)',
   },
   {
     dependence: '16.1.1',
@@ -3215,8 +3259,8 @@ const typeSiz = [
     additionalMeans:
       'Одежда специальная ограниченного срока использования (определяется документами изготовителя) ИЛИ Комбинезон (1 шт.)',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От производственных загрязнений З ',
   },
   {
     dependence: '16.2.1',
@@ -3237,8 +3281,8 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: ' От ОПЗ З ИЛИ облегченная  Зо',
   },
   {
     dependence: '16.2.1',
@@ -3270,8 +3314,8 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: 'Щиток',
     AdditionalIssuanceRate: '1 шт.',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.253 (Щиток - ГОСТ 12.4.023)',
+    OperatingLevel: 'Оправа (корпус) должна иметь маркировку: 3 — Жидкости',
   },
   {
     dependence: '16.3.1',
@@ -3283,8 +3327,8 @@ const typeSiz = [
     additionalMeans:
       'Одежда специальная ограниченного срока использования (определяется документами изготовителя) ИЛИ Комбинезон (1 шт.)',
     AdditionalIssuanceRate: 'определяется документами изготовителя',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.280-2014 ',
+    OperatingLevel: 'От производственных загрязнений З ',
   },
   {
     dependence: '16.3.1',
@@ -3305,8 +3349,8 @@ const typeSiz = [
     issuanceRate: '1 пара',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.103-2020',
+    OperatingLevel: 'От истирания Ми',
   },
   {
     dependence: '16.3.1',
@@ -3359,8 +3403,8 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.285',
+    OperatingLevel: 'Время защитного действия: не менее 30 минут',
   },
   {
     dependence: '17.2.1',
@@ -3379,8 +3423,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.281-2021',
+    OperatingLevel:
+      'Со – спецодежда сигнальная повышенной видимости, класс не ниже 1 ',
   },
   {
     dependence: '18.1.2',
@@ -3389,8 +3434,9 @@ const typeSiz = [
     issuanceRate: '1 шт.',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ 12.4.281-2021',
+    OperatingLevel:
+      'Со – спецодежда сигнальная повышенной видимости, класс не ниже 1 ',
   },
   {
     dependence: '18.2.1',
@@ -3443,8 +3489,8 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
-    OperatingLevel: '',
+    standart: 'ГОСТ EN 397',
+    OperatingLevel: 'Температурный режим:до +150 °С',
   },
   {
     dependence: '19.1.1',
@@ -3498,8 +3544,8 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
-    OperatingLevel: '',
+    standart: 'ГОСТ EN 397',
+    OperatingLevel: 'Температурный режим:до +150 °С',
   },
   {
     dependence: '19.2.1',
@@ -3520,7 +3566,7 @@ const typeSiz = [
     issuanceRate: '1 шт. на 2 года',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: 'EN 397',
+    standart: 'ГОСТ EN 397',
     OperatingLevel: '',
   },
   {
@@ -3531,8 +3577,8 @@ const typeSiz = [
     issuanceRate: 'определяется документами изготовителя',
     additionalMeans: '',
     AdditionalIssuanceRate: '',
-    standart: '',
-    OperatingLevel: '',
+    standart: 'ГОСТ EN 13819 и/или ГОСТ EN 352',
+    OperatingLevel: 'SNR в зависимости от уровня шума',
   },
   {
     dependence: '19.4.1',
