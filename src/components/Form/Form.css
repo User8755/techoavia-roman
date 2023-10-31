@@ -338,6 +338,9 @@
   .button.reset {
     width: calc((100vw - 40px - 10px) / 2);
   }
+  .modal__window .button.send {
+    width: 350px;
+  }
 
   /*новые стили для выпадающего меню*/
   .input-order__title {
