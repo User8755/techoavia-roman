@@ -11,7 +11,7 @@ import dangerEvent776 from '../../untils/dangerEvent776';
 import riskManagement from '../../untils/riskManagement';
 import conversion from '../../untils/converct';
 import './Form.css';
-
+import api from '../../untils/api';
 function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [isDangerGroup, setDangerGroup] = useState([]);
   const [isDanger, setisDanger] = useState([]);
@@ -378,6 +378,12 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     setModalChild('Профессия');
   }
 
+  // useEffect(() => {
+  //   api.getDangers().then(t=>console.log(t))
+  //   console.log(danger)
+  //   //danger.map(item=>api.createDangers(item).then(i=>console.log(i)).catch(err=>console.log(err)))
+  // }, []);
+
   const handleChange = (evt) => {
     const { name, value } = evt.target;
     setInputValue({
@@ -472,12 +478,12 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             </label>
           </div>
           <div className='input-order__wrapper'>
-            <button
+            <span
               className='input-order__title'
               onClick={() => setIsOpenOrder776(!isOpenOrder776)}
             >
               Приказ №776
-            </button>
+            </span>
             <div
               className={
                 isOpenOrder776 ? 'dropdown-child_open' : 'dropdown-child_close'
@@ -520,12 +526,12 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             </div>
           </div>
           <div className='input-order__wrapper'>
-            <button
+            <span
               className='input-order__title'
               onClick={() => setIsOpenOrder767(!isOpenOrder767)}
             >
               Приказ №767
-            </button>
+            </span>
             <div
               className={
                 isOpenOrder767 ? 'dropdown-child_open' : 'dropdown-child_close'
