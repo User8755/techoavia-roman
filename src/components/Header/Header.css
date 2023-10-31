@@ -1,9 +1,9 @@
 .header {
-  padding: 20px 30px;
+  padding: 20px 10%;
   height: min-content;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+
   align-items: center;
   column-gap: 10px;
   border-bottom: 1px solid rgba(66, 83, 97, 0.6);
@@ -25,7 +25,8 @@
   gap: 10px;
   margin-left: auto;
 }
-@media (width <= 650px) {
+
+@media (width <= 685px) {
   .header {
     font-size: 16px;
     justify-content: center;
