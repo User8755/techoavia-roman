@@ -366,14 +366,20 @@
 }
 .label,
 .input-order__title {
-  font-size: 16px;
+  font-size: 18px;
 }
 @media (width <=400px) {
   .button.send,
   .button.reset {
     min-width: 170px;
   }
+
+  .label,
+  .input-order__title {
+    font-size: 16px;
+  }
 }
+
 @media screen and (max-width: 320px) {
   .main {
     margin: 20px 10px;
