@@ -520,12 +520,12 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             </div>
           </div>
           <div className='input-order__wrapper'>
-            <button
+            <span
               className='input-order__title'
               onClick={() => setIsOpenOrder767(!isOpenOrder767)}
             >
               Приказ №767
-            </button>
+            </span>
             <div
               className={
                 isOpenOrder767 ? 'dropdown-child_open' : 'dropdown-child_close'

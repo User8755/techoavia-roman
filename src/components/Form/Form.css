@@ -313,7 +313,7 @@
   width: 90%;
   padding: 0 5%;
 }
-@media screen and (max-width: 767px) {
+@media screen and (width<= 767px) {
   .label,
   .input-order__wrapper {
     width: 100%;
@@ -337,7 +337,7 @@
   .button.reset {
     width: calc((100vw - 40px - 10px) / 2);
   }
-}
+
 
 /*новые стили для выпадающего меню*/
 .input-order__title {
@@ -367,6 +367,7 @@
 .label,
 .input-order__title {
   font-size: 18px;
+}
 }
 @media (width <=400px) {
   .button.send,
