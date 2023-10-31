@@ -270,9 +270,9 @@
   background-repeat: no-repeat;
   /*выравнивание рисунка*/
   position: absolute;
-  background-position: center;
+ /* background-position:center;
   left: 1px;
-  top: 1px;
+  top: 1px;*/
   opacity: 0;
 }
 /*checked*/
