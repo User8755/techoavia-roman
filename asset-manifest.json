@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/techoavia-roman/static/css/main.c439a0bd.css",
+    "main.css": "/techoavia-roman/static/css/main.4ae06713.css",
     "main.js": "/techoavia-roman/static/js/main.1a54266d.js",
     "static/js/787.95ac1555.chunk.js": "/techoavia-roman/static/js/787.95ac1555.chunk.js",
     "static/media/trash-bin-icon.svg": "/techoavia-roman/static/media/trash-bin-icon.3aa660dea58884161ef2.svg",
@@ -10,12 +10,12 @@
     "static/media/check-mark.svg": "/techoavia-roman/static/media/check-mark.3a5686408eb5937be58f.svg",
     "static/media/icon__yes.svg": "/techoavia-roman/static/media/icon__yes.e7c582c8d8f5259f7668.svg",
     "static/media/polygon-icon.svg": "/techoavia-roman/static/media/polygon-icon.0c2ad09df28f0a7528d8.svg",
-    "main.c439a0bd.css.map": "/techoavia-roman/static/css/main.c439a0bd.css.map",
+    "main.4ae06713.css.map": "/techoavia-roman/static/css/main.4ae06713.css.map",
     "main.1a54266d.js.map": "/techoavia-roman/static/js/main.1a54266d.js.map",
     "787.95ac1555.chunk.js.map": "/techoavia-roman/static/js/787.95ac1555.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c439a0bd.css",
+    "static/css/main.4ae06713.css",
     "static/js/main.1a54266d.js"
   ]
 }
