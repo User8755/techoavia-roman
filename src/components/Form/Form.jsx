@@ -11,7 +11,7 @@ import dangerEvent776 from '../../untils/dangerEvent776';
 import riskManagement from '../../untils/riskManagement';
 import conversion from '../../untils/converct';
 import './Form.css';
-import OrderBox from '../OrderBox/OrderBox';
+import SpoilerBox from '../SpoilerBox/SpoilerBox';
 
 function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [isDangerGroup, setDangerGroup] = useState([]);
@@ -40,6 +40,9 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [isRiskManagement, setRiskManagement] = useState([]);
   const [count, setCount] = useState(0);
   const [subdivision, setSubdivision] = useState(false);
+
+  const number767 = 767;
+  const number776 = 776;
 
   useEffect(() => {
     setIpr(inputValue.probability * inputValue.heaviness);
@@ -656,26 +659,77 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             </label>
           </div>
 
-          <OrderBox
-            dangerGroup={dangerGroup}
-            isDanger={isDanger}
-            isDangerGroup={isDangerGroup}
-            setisDanger={setisDanger}
-            setDangerGroup={setDangerGroup}
-            sortedDangerGroup={sortedDangerGroup}
-            sortedDangerEvent={sortedDangerEvent}
-            setDangerEvent={setDangerEvent}
-            isDangerEvent={isDangerEvent}
-            sortedDanger776={sortedDanger776}
-            setDanger776={setDanger776}
-            isDanger776={isDanger776}
-            sortedDangerEvent776={sortedDangerEvent776}
-            setDangerEvent776={setDangerEvent776}
-            isDangerEvent776={isDangerEvent776}
-            sortedRiskManagemet={sortedRiskManagemet}
-            setRiskManagement={setRiskManagement}
-            isRiskManagement={isRiskManagement}
-          />
+          <SpoilerBox number={number767}>
+            <label className='label'>
+              Группа опасности:
+              <Select
+                className='react-select-container order'
+                classNamePrefix='react-select'
+                options={dangerGroup}
+                onChange={(name) => setDangerGroup(name)}
+                placeholder={'Группа опасности'}
+                value={isDangerGroup}
+              />
+            </label>
+            <label className='label'>
+              Опасности:
+              <Select
+                className='react-select-container order'
+                classNamePrefix='react-select'
+                options={sortedDangerGroup}
+                onChange={(evt) => setisDanger(evt)}
+                placeholder={'Опасности'}
+                value={isDanger}
+              />
+            </label>
+            <label className='label'>
+              Опасное событие:
+              <Select
+                className='react-select-container order'
+                classNamePrefix='react-select'
+                options={sortedDangerEvent}
+                onChange={(evt) => setDangerEvent(evt)}
+                placeholder={'Опасное событие'}
+                value={isDangerEvent}
+              />
+            </label>
+          </SpoilerBox>
+
+          <SpoilerBox number={number776}>
+            <label className='label'>
+              Опасности:
+              <Select
+                className='react-select-container order'
+                classNamePrefix='react-select'
+                options={sortedDanger776}
+                onChange={(evt) => setDanger776(evt)}
+                placeholder={'Опасности'}
+                value={isDanger776}
+              />
+            </label>
+            <label className='label'>
+              Опасное событие:
+              <Select
+                className='react-select-container order'
+                classNamePrefix='react-select'
+                options={sortedDangerEvent776}
+                onChange={(evt) => setDangerEvent776(evt)}
+                placeholder={'Опасное событие'}
+                value={isDangerEvent776}
+              />
+            </label>
+            <label className='label'>
+              Меры упр-я/контроля проф. рисков
+              <Select
+                className='react-select-container order'
+                classNamePrefix='react-select'
+                options={sortedRiskManagemet}
+                onChange={(evt) => setRiskManagement(evt)}
+                placeholder={'Меры управления/контроля'}
+                value={isRiskManagement}
+              />
+            </label>
+          </SpoilerBox>
 
           <label className='label'>
             Тип СИЗ:
