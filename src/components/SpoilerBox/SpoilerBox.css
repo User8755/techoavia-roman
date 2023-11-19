@@ -1,0 +1,31 @@
+.input-order__wrapper {
+  box-sizing: border-box;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(66, 83, 97, 0.24);
+  border-radius: 4px;
+  width: 350px;
+  /*можно сделать одинаковые по высоте карточки, если убрать height*/
+  height: max-content;
+  gap: 10px;
+}
+
+.input-order__title {
+  font-size: 18px;
+  /*новые стили*/
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  text-align: start;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.dropdown-child_close {
+  display: none;
+}
+.dropdown-child_open {
+  display: block;
+}
