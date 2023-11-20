@@ -123,11 +123,10 @@
   font-size: 18px;
   font-weight: 700;
 }
-/*-----------------------------*/
+
 .label.order-input {
   width: 100%;
 }
-/*-----------------------------*/
 
 .label.profession {
   align-items: center;
@@ -296,6 +295,12 @@
   gap: 10px;
   width: 100%;
 }
+.input-order__title {
+  background-image: url(../../../img/check-mark.svg);
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
 
 @media screen and (width <= 767px) {
   .label,
@@ -330,12 +335,7 @@
   }
 
   /*новые стили для выпадающего меню*/
-  .input-order__title {
-    background-image: url(../../../img/check-mark.svg);
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 12px;
-  }
+
   .dropdown-child_close {
     display: none;
   }
