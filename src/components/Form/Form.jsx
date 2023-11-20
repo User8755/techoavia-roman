@@ -747,84 +747,86 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               <span className='checkbox__label-text'>Подразделение</span>
             </label>
           </div>
-          <SpoilerBox
-            title={'Приказ 767'}
-            stateSpoileBox={isOrder767}
-            toggleSpoileBox={setOrder767}
-          >
-            <label className='label'>
-              Опасности:
-              <Select
-                className='react-select-container order'
-                classNamePrefix='react-select'
-                options={sortedDanger776}
-                onChange={(evt) => setDanger776(evt)}
-                placeholder={'Опасности'}
-                value={isDanger776}
-              />
-            </label>
-            <label className='label'>
-              Опасное событие:
-              <Select
-                className='react-select-container order'
-                classNamePrefix='react-select'
-                options={sortedDangerEvent776}
-                onChange={(evt) => setDangerEvent776(evt)}
-                placeholder={'Опасное событие'}
-                value={isDangerEvent776}
-              />
-            </label>
-            <label className='label'>
-              Меры упр-я/контроля проф. рисков
-              <Select
-                className='react-select-container order'
-                classNamePrefix='react-select'
-                options={sortedRiskManagemet}
-                onChange={(evt) => setRiskManagement(evt)}
-                placeholder={'Меры управления/контроля'}
-                value={isRiskManagement}
-              />
-            </label>
-          </SpoilerBox>
-          <SpoilerBox
-            title={'Приказ 776'}
-            stateSpoileBox={isOrder776}
-            toggleSpoileBox={setOrder776}
-          >
-            <label className='label'>
-              Группа опасности:
-              <Select
-                className='react-select-container order'
-                classNamePrefix='react-select'
-                options={dangerGroup}
-                onChange={(name) => setDangerGroup(name)}
-                placeholder={'Группа опасности'}
-                value={isDangerGroup}
-              />
-            </label>
-            <label className='label'>
-              Опасности:
-              <Select
-                className='react-select-container order'
-                classNamePrefix='react-select'
-                options={sortedDangerGroup}
-                onChange={(evt) => setisDanger(evt)}
-                placeholder={'Опасности'}
-                value={isDanger}
-              />
-            </label>
-            <label className='label'>
-              Опасное событие:
-              <Select
-                className='react-select-container order'
-                classNamePrefix='react-select'
-                options={sortedDangerEvent}
-                onChange={(evt) => setDangerEvent(evt)}
-                placeholder={'Опасное событие'}
-                value={isDangerEvent}
-              />
-            </label>
-          </SpoilerBox>
+          <div className='spoiler_wrapper'>
+            <SpoilerBox
+              title={'Приказ 767'}
+              stateSpoileBox={isOrder767}
+              toggleSpoileBox={setOrder767}
+            >
+              <label className='label order-input'>
+                Опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDanger776}
+                  onChange={(evt) => setDanger776(evt)}
+                  placeholder={'Опасности'}
+                  value={isDanger776}
+                />
+              </label>
+              <label className='label order-input'>
+                Опасное событие:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDangerEvent776}
+                  onChange={(evt) => setDangerEvent776(evt)}
+                  placeholder={'Опасное событие'}
+                  value={isDangerEvent776}
+                />
+              </label>
+              <label className='label order-input'>
+                Меры упр-я/контроля проф. рисков
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedRiskManagemet}
+                  onChange={(evt) => setRiskManagement(evt)}
+                  placeholder={'Меры управления/контроля'}
+                  value={isRiskManagement}
+                />
+              </label>
+            </SpoilerBox>
+            <SpoilerBox
+              title={'Приказ 776'}
+              stateSpoileBox={isOrder776}
+              toggleSpoileBox={setOrder776}
+            >
+              <label className='label order-input'>
+                Группа опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={dangerGroup}
+                  onChange={(name) => setDangerGroup(name)}
+                  placeholder={'Группа опасности'}
+                  value={isDangerGroup}
+                />
+              </label>
+              <label className='label order-input'>
+                Опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDangerGroup}
+                  onChange={(evt) => setisDanger(evt)}
+                  placeholder={'Опасности'}
+                  value={isDanger}
+                />
+              </label>
+              <label className='label order-input'>
+                Опасное событие:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDangerEvent}
+                  onChange={(evt) => setDangerEvent(evt)}
+                  placeholder={'Опасное событие'}
+                  value={isDangerEvent}
+                />
+              </label>
+            </SpoilerBox>
+          </div>
           <label className='label'>
             Тип СИЗ:
             <Select
@@ -895,12 +897,13 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             </span>
           </div>
         </div>
+
         <SpoilerBox
           title={'ИПР1'}
           stateSpoileBox={isIPR}
           toggleSpoileBox={setIPR}
         >
-          <div className='label-wrapper'>
+          <div className='label-wrapper nowrap'>
             <label className='label box'>
               Тяжесть1:
               <input

@@ -1,3 +1,9 @@
+/*******контейнер с приказом********/
+
+/*.react-select-container.order {
+  width: calc(100% - 20px);
+}*/
+
 .input-order__wrapper {
   box-sizing: border-box;
   padding: 10px;
@@ -5,15 +11,14 @@
   flex-direction: column;
   border: 1px solid rgba(66, 83, 97, 0.24);
   border-radius: 4px;
-  width: 350px;
-  /*можно сделать одинаковые по высоте карточки, если убрать height*/
+  width: 100%;
+
   height: max-content;
   gap: 10px;
 }
 
 .input-order__title {
   font-size: 18px;
-  /*новые стили*/
   font-family: inherit;
   font-weight: 700;
   border: none;
@@ -28,4 +33,9 @@
 }
 .dropdown-child_open {
   display: block;
+}
+@media (width<=768px) {
+  .input-order__wrapper {
+    width: 100%;
+  }
 }

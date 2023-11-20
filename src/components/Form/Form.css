@@ -13,6 +13,10 @@
   margin-bottom: 10px;
 }
 
+.label-wrapper.nowrap {
+  flex-wrap: nowrap;
+}
+
 .react-select-container {
   background-color: rgba(243, 244, 246, 1) !important;
 }
@@ -119,6 +123,12 @@
   font-size: 18px;
   font-weight: 700;
 }
+/*-----------------------------*/
+.label.order-input {
+  width: 100%;
+}
+/*-----------------------------*/
+
 .label.profession {
   align-items: center;
 }
@@ -200,36 +210,6 @@
   background-size: cover;
 }
 
-/*******контейнер с приказом********/
-
-.input-order__wrapper {
-  box-sizing: border-box;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid rgba(66, 83, 97, 0.24);
-  border-radius: 4px;
-  width: 350px;
-  /*можно сделать одинаковые по высоте карточки, если убрать height*/
-  height: max-content;
-  gap: 10px;
-}
-
-.input-order__title {
-  font-size: 18px;
-  /*новые стили*/
-  font-family: inherit;
-  font-weight: 700;
-  border: none;
-  text-align: start;
-  padding: 0;
-  background-color: transparent;
-}
-
-.react-select-container.order {
-  width: calc(100% - 20px);
-}
-
 /********чекбокс*********/
 .visually-hidden {
   clip: rect(0 0 0 0);
@@ -305,13 +285,16 @@
   cursor: pointer;
   width: max-content;
 }
-.SIZ__lable-hiden {
-  opacity: 0;
-}*/
+*/
 
 .label.profs {
   width: 90%;
   padding: 0 5%;
+}
+.spoiler_wrapper {
+  display: flex;
+  gap: 10px;
+  width: 100%;
 }
 
 @media screen and (width <= 767px) {
@@ -320,6 +303,10 @@
     width: 100%;
   }
   .form__input.standart {
+    width: 100%;
+  }
+  .label__checkbox {
+    justify-content: flex-start;
     width: 100%;
   }
   .label.box {
@@ -369,6 +356,9 @@
   .label,
   .input-order__title {
     font-size: 18px;
+  }
+  .spoiler_wrapper {
+    flex-direction: column;
   }
 }
 
