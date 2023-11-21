@@ -12,6 +12,7 @@ import riskManagement from '../../untils/riskManagement';
 import conversion from '../../untils/converct';
 import './Form.css';
 import SpoilerBox from '../SpoilerBox/SpoilerBox';
+import mapOPR from '../../untils/tables/mapOPR';
 
 function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [isDangerGroup, setDangerGroup] = useState([]);
@@ -597,7 +598,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
 
     const row = sheet.lastRow;
     const lastRow = row._number + 3;
-    console.log(lastRow);
     const lastCell = sheet.getCell('A' + lastRow);
     lastCell.value =
       'Ответственное лицо __________________ (подпись, фамилия, инициалы)';
@@ -1012,6 +1012,9 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
       </button>
       <button onClick={tableReport} className='button button__table'>
         Выгрузить в форму
+      </button>
+      <button onClick={mapOPR} className='button button__table'>
+        Карта опасностей
       </button>
     </>
   );
