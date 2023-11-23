@@ -1,22 +1,261 @@
 /********форма*********/
 .form {
+  display: grid;
+  min-height: 100vh;
+  width: 100%;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: min-content fit-content 1fr 2fr;
+  gap: 10px 8px;
+}
+
+/*-----заголовки секций-----*/
+
+.form__header {
+  background-color: var(--accent-light-color);
+  height: 110px;
+  box-shadow: var(--heavy-shadow);
+  border-bottom-left-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+}
+.form__header-title {
+  font-size: 26px;
+  font-weight: 700;
+}
+.left {
+  grid-column: 1 / span 1;
+  grid-row: 1;
+}
+.center {
+  grid-column: 2 / span 2;
+}
+.right {
+  grid-column: 4 / span 2;
+}
+
+/*-----секция Профессия-----*/
+
+.section {
+  box-shadow: var(--light-shadow);
+  border-radius: var(--radius);
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  max-width: 710px;
-}
+  align-items: center;
 
+  height: fit-content;
+}
+.section.profess {
+  grid-column: 1 / span 1;
+  grid-row: 2/ 4;
+  margin-left: 20px;
+}
 .label-wrapper {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+  max-width: 350px;
+  min-width: 340px;
+}
+.button.copy {
+  background-color: var(--accent-green);
+  margin-top: 20px;
+  width: 100%;
+}
+.spoiler-wrapper {
+  display: flex;
+  gap: 10px;
+  width: 100%;
 }
 
-.label-wrapper.nowrap {
-  flex-wrap: nowrap;
+.line {
+  border-left: 1px solid var(--line-color);
+  height: 100%;
 }
 
+/*-----секция Приказы ОПР-----*/
+
+.section.orders {
+  grid-row: 2 / 4;
+}
+.section.orders.opr {
+  grid-column: 2 / span 2;
+  height: 485px;
+  justify-content: space-between;
+}
+
+/*-----секция Приказы Меры-----*/
+
+.section.orders.measures {
+  height: 290px;
+  grid-column: 4 / span 2;
+  grid-row: 2/3;
+  margin-right: 20px;
+}
+
+/*-----секция Кнопки-----*/
+.section.buttons {
+  grid-column: 1/2;
+  grid-row: 4/5;
+  margin-left: 20px;
+  gap: 10px;
+}
+
+.total {
+  margin-top: 10px;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+.line-horiz {
+  border-top: 1px solid var(--line-color);
+  width: 350px;
+}
+
+.buttons_wrapper {
+  display: flex;
+  align-self: center;
+}
+
+.button {
+  height: 45px;
+  border-radius: var(--radius);
+  border: none;
+  color: white;
+
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.button__table {
+  background-color: var(--accent-dark-blue);
+  width: 100%;
+  position: relative;
+}
+
+.button:hover {
+  text-decoration: underline 1px;
+}
+.button.send {
+  background-color: var(--accent-green);
+}
+.button.reset {
+  background-color: var(--accent-red);
+}
+.button.button-cancel {
+  background: transparent;
+  color: var(--accent-red);
+  font-size: 16px;
+  height: 20px;
+}
+/* ---иконка---
+.button__table:before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 45px;
+  size: 20px;
+  width: 23px;
+  height: 27px;
+  background-image: url('../../../img/excel_icon.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}*/
+
+/*-----секция Риски-----*/
+
+.risk,
+.label.box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.risk {
+  width: 600px;
+  justify-self: center;
+  box-sizing: border-box;
+  height: fit-content;
+  padding: 20px;
+}
+.risk-opr {
+  grid-column: 2 / span 2;
+}
+.risk-measures {
+  grid-column: 4/-1;
+  grid-row: 3;
+}
+
+.risk__labels {
+  display: grid;
+  grid-template-columns: repeat(3, 180px);
+  gap: 10px;
+}
+
+.label.box {
+  align-items: center;
+}
+.label.risk__attitude {
+  font-size: 16px;
+}
+
+.risk__attitude-text {
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 23.83px;
+  grid-column: 2 / span 2;
+  border: 1px solid #f3f4f6;
+  border-radius: var(--radius);
+  resize: none;
+  outline: none;
+  transition: all 0.5s ease-in-out;
+  text-align: left;
+  padding: 6px;
+}
+.risk__attitude-text:hover {
+  background-color: #f3f4f6;
+}
+.risk__attitude-text:focus-visible {
+  outline: 1px solid var(--accent-dark-blue);
+}
+
+/*----секция План-----*/
+
+.plan {
+  grid-column: 4/-1;
+  grid-row: 4;
+  background-color: var(--accent-light-color);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 50px;
+}
+.plan__container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 18px;
+}
+.form__input.plan-input {
+  width: 100%;
+  background-color: #fff;
+  border: none;
+}
+.form__input.standart {
+  width: 100%;
+}
+
+/*----REACT-SELECT----*/
 .react-select-container {
   background-color: rgba(243, 244, 246, 1) !important;
 }
@@ -81,6 +320,9 @@
 .react-select__indicator-separator {
   display: none;
 }
+
+/*------------------------------*/
+
 .form__container {
   display: flex;
   flex-direction: column;
@@ -108,14 +350,11 @@
   box-shadow: 0px 0px 0px 1px var(--main-color);
 }
 
-.form__input.standart {
-  width: 350px;
-}
 .submit {
   margin-top: 20px;
 }
 .label {
-  width: 350px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   row-gap: 6px;
@@ -130,12 +369,6 @@
 
 .label.profession {
   align-items: center;
-}
-.label.box {
-  flex-direction: row;
-  gap: 10px;
-  align-items: flex-end;
-  justify-content: space-between;
 }
 
 .input__test {
@@ -158,55 +391,6 @@
   font-size: 16px;
   font-weight: 500;
   width: 100%;
-}
-.buttons_wrapper {
-  display: flex;
-  gap: 10px;
-  align-self: center;
-}
-.button {
-  width: 350px;
-  height: 38px;
-  border-radius: 4px;
-  border: none;
-  color: white;
-  font-family: inherit;
-  font-size: 18px;
-  font-weight: 500;
-}
-.button:hover {
-  text-decoration: underline 1px;
-}
-.button.send {
-  background-color: var(--accent-green);
-}
-.button.reset {
-  background-color: var(--accent-red);
-}
-.button.button-cancel {
-  background: transparent;
-  color: var(--accent-red);
-  font-size: 16px;
-  height: 20px;
-}
-.button__table {
-  width: 350px;
-  margin-top: 16px;
-  padding: 7px 35px;
-  background-color: var(--accent-dark-blue);
-  position: relative;
-}
-.button__table:before {
-  content: '';
-  position: absolute;
-  top: 6px;
-  left: 45px;
-  size: 20px;
-  width: 23px;
-  height: 27px;
-  background-image: url('../../../img/excel_icon.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /********чекбокс*********/
@@ -272,35 +456,18 @@
   flex-direction: column;
 }
 
-/*.additional-means:disabled {
-  background-color: rgba(192, 23, 17, 0.5);
-}
-.SIZ__lable {
-  display: flex;
-  /*flex-direction: row-reverse;
-  justify-content: flex-end;
-  font-size: 15px;
-  font-weight: 400;
-  cursor: pointer;
-  width: max-content;
-}
-*/
-
 .label.profs {
   width: 90%;
   padding: 0 5%;
 }
-.spoiler_wrapper {
-  display: flex;
-  gap: 10px;
-  width: 100%;
-}
+
+/*---галочка для разворачивания приказа---
 .input-order__title {
   background-image: url(../../../img/check-mark.svg);
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 12px;
-}
+}*/
 
 @media screen and (width <= 767px) {
   .label,

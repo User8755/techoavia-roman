@@ -1,19 +1,11 @@
 /*******контейнер с приказом********/
 
-/*.react-select-container.order {
-  width: calc(100% - 20px);
-}*/
-
 .input-order__wrapper {
   box-sizing: border-box;
-  padding: 10px;
-  display: flex;
+   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(66, 83, 97, 0.24);
-  border-radius: 4px;
   width: 100%;
-  height: max-content;
-  gap: 10px;
+   gap: 10px;
 }
 
 .input-order__title {
@@ -31,8 +23,14 @@
   display: none;
 }
 .dropdown-child_open {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
+.invisible{
+  height: 68px;
+}
+
 @media (width<=768px) {
   .input-order__wrapper {
     width: 100%;

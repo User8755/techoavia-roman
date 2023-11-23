@@ -698,61 +698,77 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   return (
     <>
       <form className='form' onSubmit={handleSubmit} required>
-        <span>Кол-во записей: {count}</span>
-        <div className='label-wrapper'>
-          <label className='label'>
-            Профессии:
-            <Select
-              className='react-select-container'
-              classNamePrefix='react-select'
-              options={prof}
-              onChange={(evt) => setProff(evt)}
-              placeholder={'Профессии'}
-              noOptionsMessage={() => 'Значение не найдено'}
-              value={isProff}
-            />
-          </label>
-          <div className='label__checkbox'>
-            <label className='checkbox__label'>
-              <input
-                type='checkbox'
-                name='profession'
-                className='form__checkbox visually-hidden'
-                onClick={hendleOpenModal}
+        <div className='form__header left'>
+          <h1 className='form__header-title'>Данные о предприятии</h1>
+        </div>
+        <div className='form__header center'>
+          <h1 className='form__header-title'>ОПР</h1>
+        </div>
+        <div className='form__header right'>
+          <h1 className='form__header-title'>Меры управления</h1>
+        </div>
+        <section className='section profess'>
+          <div className='label-wrapper'>
+            <label className='label'>
+              Профессии:
+              <Select
+                className='react-select-container'
+                classNamePrefix='react-select'
+                options={prof}
+                onChange={(evt) => setProff(evt)}
+                placeholder={'Профессии'}
+                noOptionsMessage={() => 'Значение не найдено'}
+                value={isProff}
               />
-              <span className='form__pseudo-checkbox'></span>
-              <span className='checkbox__label-text'>
-                Должность отсутствует
-              </span>
             </label>
-            <label className='checkbox__label'>
+            <label className='label'>
+              Объект
               <input
-                type='checkbox'
-                name='siz'
-                className='form__checkbox visually-hidden'
-                onClick={(evt) => setRequiredSIZ(evt.target.checked)}
-              />
-              <span className='form__pseudo-checkbox'></span>
-              <span className='checkbox__label-text'>Обязательные СИЗ</span>
+                className='form__input standart'
+                autoComplete='on'
+                onChange={(evt) => setObj(evt.target.value)}
+                list='obj'
+              ></input>
+              <datalist id='obj'>
+                {listObj.map((item) => (
+                  <option>{item}</option>
+                ))}
+              </datalist>
             </label>
-            <label className='checkbox__label'>
+            <label className='label'>
+              Источник
               <input
-                type='checkbox'
-                name='siz'
-                className='form__checkbox visually-hidden'
-                onChange={(evt) => setSubdivision(evt.target.checked)}
-                checked={subdivision}
-              />
-              <span className='form__pseudo-checkbox'></span>
-              <span className='checkbox__label-text'>Подразделение</span>
+                className='form__input standart'
+                autoComplete='on'
+                onChange={(evt) => setSource(evt.target.value)}
+                list='source'
+              ></input>
+              <datalist id='source'>
+                {listSource.map((item) => (
+                  <option>{item}</option>
+                ))}
+              </datalist>
+            </label>
+            <label className='label'>
+              Должность отсутствует:
+              <input className='form__input standart' />
+            </label>
+            <label className='label'>
+              Подразделение:
+              <input className='form__input standart' />
             </label>
           </div>
-          <div className='spoiler_wrapper'>
+          <button className='button copy'>Копия</button>
+        </section>
+
+        <section className='section orders opr'>
+          <div className='spoiler-wrapper'>
             <SpoilerBox
-              title={'Приказ 767'}
-              stateSpoileBox={isOrder767}
-              toggleSpoileBox={setOrder767}
+              title={'Приказ 776'}
+              stateSpoileBox={isOrder776}
+              toggleSpoileBox={setOrder776}
             >
+              <label className='invisible'></label>
               <label className='label order-input'>
                 Опасности:
                 <Select
@@ -775,22 +791,20 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
                   value={isDangerEvent776}
                 />
               </label>
-              <label className='label order-input'>
-                Меры упр-я/контроля проф. рисков
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={sortedRiskManagemet}
-                  onChange={(evt) => setRiskManagement(evt)}
-                  placeholder={'Меры управления/контроля'}
-                  value={isRiskManagement}
-                />
+              <label className='label'>
+                Существующие меры управления:
+                <input
+                  name='existingRiskManagement'
+                  className='form__input standart'
+                  onChange={handleChange}
+                ></input>
               </label>
             </SpoilerBox>
+            <div className='line'></div>
             <SpoilerBox
-              title={'Приказ 776'}
-              stateSpoileBox={isOrder776}
-              toggleSpoileBox={setOrder776}
+              title={'Приказ 767'}
+              stateSpoileBox={isOrder767}
+              toggleSpoileBox={setOrder767}
             >
               <label className='label order-input'>
                 Группа опасности:
@@ -827,44 +841,138 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               </label>
             </SpoilerBox>
           </div>
-          <label className='label'>
-            Тип СИЗ:
-            <Select
-              className='react-select-container'
-              classNamePrefix='react-select'
-              options={resTypeSiz}
-              onChange={(evt) => setSelectedTipeSIZ(evt)}
-              placeholder={'Тип СИЗ'}
-              value={selectedTipeSIZ}
-            />
-            <label
-              htmlFor='additional-means'
-              className={
-                additionalMeans
-                  ? 'checkbox__label'
-                  : 'checkbox__label disabled '
-              }
+          <button className='button copy'>Копия</button>
+        </section>
+
+        <section className='section orders measures'>
+          <div className='spoiler-wrapper'>
+            <SpoilerBox
+              title={'Приказ 776'}
+              stateSpoileBox={isOrder776}
+              toggleSpoileBox={setOrder776}
             >
+              <label className='label order-input'>
+                Меры управления:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedRiskManagemet}
+                  onChange={(evt) => setRiskManagement(evt)}
+                  placeholder={'Меры управления'}
+                  value={isRiskManagement}
+                />
+              </label>
+            </SpoilerBox>
+            <div className='line'></div>
+            <SpoilerBox
+              title={'Приказ 767'}
+              stateSpoileBox={isOrder767}
+              toggleSpoileBox={setOrder767}
+            >
+              <label className='label'>
+                Тип СИЗ:
+                <Select
+                  className='react-select-container'
+                  classNamePrefix='react-select'
+                  options={resTypeSiz}
+                  onChange={(evt) => setSelectedTipeSIZ(evt)}
+                  placeholder={'Тип СИЗ'}
+                  value={selectedTipeSIZ}
+                />
+                {/*
+                <label
+                  htmlFor='additional-means'
+                  className={
+                    additionalMeans
+                      ? 'checkbox__label'
+                      : 'checkbox__label disabled '
+                  }
+                >
+                  <input
+                    id='additional-means'
+                    type='checkbox'
+                    name='additional-means'
+                    className='additional-means form__checkbox visually-hidden'
+                    onClick={(evt) => setCheckboxSIZ(evt.target.checked)}
+                    disabled={!additionalMeans}
+                  />
+                  <span className='form__pseudo-checkbox'></span>
+                  <span className='checkbox__label-text'>ДОП средства</span>
+                </label>
+
+                */}
+                <label className='label'>
+                  Обязательные СИЗ:
+                  <input className='form__input standart' />
+                </label>
+                <label className='label'>
+                  Доп. средства защиты:
+                  <input className='form__input standart' />
+                </label>
+              </label>
+            </SpoilerBox>
+          </div>
+        </section>
+
+        <section className='section buttons'>
+          <button className='button button__table'>Базовая таблица</button>
+          <button className='button button__table'>Реестр опасностей</button>
+          <button className='button button__table'>Карты опасностей</button>
+          <button className='button button__table'>
+            Меры управления без СИЗ
+          </button>
+          <button className='button button__table'>Нормы выдачи СИЗ</button>
+          <p className='total'>всего записей: {count}</p>
+          <div className='line-horiz'></div>
+
+          {/*<button onClick={table} className='button button__table'>
+            Выгрузить в таблицу
+          </button>
+          <button onClick={tableReport} className='button button__table'>
+            Выгрузить в форму
+          </button>
+          <button onClick={mapOPR} className='button button__table'>
+            Карта опасностей
+          </button>*/}
+        </section>
+        <section className='risk risk-opr'>
+          <div className='risk__labels'>
+            <label className='label box'>
+              Тяжесть1:
               <input
-                id='additional-means'
-                type='checkbox'
-                name='additional-means'
-                className='additional-means form__checkbox visually-hidden'
-                onClick={(evt) => setCheckboxSIZ(evt.target.checked)}
-                disabled={!additionalMeans}
-              />
-              <span className='form__pseudo-checkbox'></span>
-              <span className='checkbox__label-text'>ДОП средства</span>
+                name='heaviness1'
+                type='number'
+                className='form__input input'
+                onChange={handleChange}
+                value={inputValue.heaviness1}
+              ></input>
             </label>
-          </label>
-          <label className='label'>
-            Комментарий:
-            <input
-              className='form__input standart'
+
+            <label className='label box'>
+              Вероятность1:
+              <input
+                name='probability1'
+                type='number'
+                className='form__input input'
+                onChange={handleChange}
+                value={inputValue.probability1}
+              ></input>
+            </label>
+
+            <label className='label box'>
+              ИПР1:
+              <input className='form__input input' type='text' value={ipr1} />
+            </label>
+
+            <label className='label risk__attitude'>Отношение к риску: </label>
+            <textarea
+              className='risk__attitude-text'
               onChange={(evt) => setCommit(evt.target.value)}
-            ></input>
-          </label>
-          <div className='label-wrapper'>
+            ></textarea>
+          </div>
+        </section>
+        <section className='risk risk-measures'>
+          <div className='risk__labels'>
             <label className='label box'>
               Тяжесть:
               <input
@@ -885,46 +993,73 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
                 value={inputValue.probability}
               ></input>
             </label>
+            <label className='label box'>
+              ИПР:
+              <input className='form__input input' type='text' value={ipr} />
+            </label>
+
+            <label className='label risk__attitude'>Отношение к риску: </label>
+            <textarea
+              className='risk__attitude-text'
+              onChange={(evt) => setCommit(evt.target.value)}
+            ></textarea>
           </div>
-        </div>
-        <div className='form__container'>
-          <div className='wrapper'>
-            <span className='wrapper_text'>ИПР: {ipr}</span>
-            <span className='wrapper_text'>Уровень риска: {risk}</span>
-            <span className='wrapper_text'>Приемлемость: {acceptability}</span>
-            <span className='wrapper_text'>
-              Отношение к риску: {riskAttitude}
-            </span>
+        </section>
+        <section className='plan'>
+          <h2 className='plan__title'>План-график</h2>
+          <div className='plan__container'>
+            <label className='label'>
+              Ответственное лицо
+              <input
+                name='responsiblePerson'
+                className='form__input plan-input'
+                onChange={handleChange}
+                placeholder='Ответственное лицо'
+              ></input>
+            </label>
+            <label className='label'>
+              Периодичность
+              <input
+                name='periodicity'
+                className='form__input plan-input'
+                onChange={handleChange}
+                placeholder='Периодичность'
+              ></input>
+            </label>
+            <label className='label'>
+              Отметка о выполнении
+              <input
+                name='completionMark'
+                className='form__input plan-input'
+                onChange={handleChange}
+                placeholder='Отметка о выполнении'
+              ></input>
+            </label>
           </div>
-        </div>
+        </section>
+
+        {/*
+        
+<div className='form__container'>
+            <div className='wrapper'>
+              <span className='wrapper_text'>ИПР: {ipr}</span>
+              <span className='wrapper_text'>Уровень риска: {risk}</span>
+              <span className='wrapper_text'>
+                Приемлемость: {acceptability}
+              </span>
+              <span className='wrapper_text'>
+                Отношение к риску: {riskAttitude}
+              </span>
+            </div>
+          </div>
+
 
         <SpoilerBox
           title={'ИПР1'}
           stateSpoileBox={isIPR}
           toggleSpoileBox={setIPR}
         >
-          <div className='label-wrapper nowrap'>
-            <label className='label box'>
-              Тяжесть1:
-              <input
-                name='heaviness1'
-                type='number'
-                className='form__input input'
-                onChange={handleChange}
-                value={inputValue.heaviness1}
-              ></input>
-            </label>
-            <label className='label box'>
-              Вероятность1:
-              <input
-                name='probability1'
-                type='number'
-                className='form__input input'
-                onChange={handleChange}
-                value={inputValue.probability1}
-              ></input>
-            </label>
-          </div>
+          
           <div className='form__container'>
             <div className='wrapper'>
               <span className='wrapper_text'>ИПР1: {ipr1}</span>
@@ -938,84 +1073,50 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             </div>
           </div>
         </SpoilerBox>
-        <div className='label-wrapper'>
-          <label className='label'>
-            Объект
-            <input
-              className='form__input standart'
-              autoComplete='on'
-              onChange={(evt) => setObj(evt.target.value)}
-              list='obj'
-            ></input>
-            <datalist id='obj'>
-              {listObj.map((item) => (
-                <option>{item}</option>
-              ))}
-            </datalist>
-          </label>
-          <label className='label'>
-            Источник
-            <input
-              className='form__input standart'
-              autoComplete='on'
-              onChange={(evt) => setSource(evt.target.value)}
-              list='source'
-            ></input>
-            <datalist id='source'>
-              {listSource.map((item) => (
-                <option>{item}</option>
-              ))}
-            </datalist>
-          </label>
-        </div>
-        <div className='label-wrapper'>
-          <label className='label'>
-            Существующие меры упр-я рисками:
-            <input
-              name='existingRiskManagement'
-              className='form__input standart'
-              onChange={handleChange}
-            ></input>
-          </label>
-          <label className='label'>
-            Периодичность:
-            <input
-              name='periodicity'
-              className='form__input standart'
-              onChange={handleChange}
-            ></input>
-          </label>
-          <label className='label'>
-            Ответственное лицо:
-            <input
-              name='responsiblePerson'
-              className='form__input standart'
-              onChange={handleChange}
-            ></input>
-          </label>
-          <label className='label'>
-            Отметка о выполнении:
-            <input
-              name='completionMark'
-              className='form__input standart'
-              onChange={handleChange}
-            ></input>
-          </label>
-        </div>
+
         <div className='buttons_wrapper'>
           <input type='submit' className='button send'></input>
           <input type='reset' className='button reset' onClick={clear}></input>
-        </div>
+              </div>
+              */}
+        {/* ---старые чек-боксы---
+          
+          <div className='label__checkbox'>
+            <label className='checkbox__label'>
+              <input
+                type='checkbox'
+                name='profession'
+                className='form__checkbox visually-hidden'
+                onClick={hendleOpenModal}
+              />
+              <span className='form__pseudo-checkbox'></span>
+              <span className='checkbox__label-text'>
+                Должность отсутствует
+              </span>
+            </label>
+            <label className='checkbox__label'>
+              <input
+                type='checkbox'
+                name='siz'
+                className='form__checkbox visually-hidden'
+                onClick={(evt) => setRequiredSIZ(evt.target.checked)}
+              />
+              <span className='form__pseudo-checkbox'></span>
+              <span className='checkbox__label-text'>Обязательные СИЗ</span>
+            </label>
+            <label className='checkbox__label'>
+              <input
+                type='checkbox'
+                name='siz'
+                className='form__checkbox visually-hidden'
+                onChange={(evt) => setSubdivision(evt.target.checked)}
+                checked={subdivision}
+              />
+              <span className='form__pseudo-checkbox'></span>
+              <span className='checkbox__label-text'>Подразделение</span>
+            </label>
+  </div>*/}
       </form>
-      <button onClick={table} className='button button__table'>
-        Выгрузить в таблицу
-      </button>
-      <button onClick={tableReport} className='button button__table'>
-        Выгрузить в форму
-      </button>
-      <button onClick={mapOPR} className='button button__table'>
-        Карта опасностей
-      </button>
     </>
   );
 }
