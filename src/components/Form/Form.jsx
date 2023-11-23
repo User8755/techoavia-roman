@@ -938,42 +938,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         <section className='risk risk-opr'>
           <div className='risk__labels'>
             <label className='label box'>
-              Тяжесть1:
-              <input
-                name='heaviness1'
-                type='number'
-                className='form__input input'
-                onChange={handleChange}
-                value={inputValue.heaviness1}
-              ></input>
-            </label>
-
-            <label className='label box'>
-              Вероятность1:
-              <input
-                name='probability1'
-                type='number'
-                className='form__input input'
-                onChange={handleChange}
-                value={inputValue.probability1}
-              ></input>
-            </label>
-
-            <label className='label box'>
-              ИПР1:
-              <input className='form__input input' type='text' value={ipr1} />
-            </label>
-
-            <label className='label risk__attitude'>Отношение к риску: </label>
-            <textarea
-              className='risk__attitude-text'
-              onChange={(evt) => setCommit(evt.target.value)}
-            ></textarea>
-          </div>
-        </section>
-        <section className='risk risk-measures'>
-          <div className='risk__labels'>
-            <label className='label box'>
               Тяжесть:
               <input
                 name='heaviness'
@@ -1035,6 +999,42 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
                 placeholder='Отметка о выполнении'
               ></input>
             </label>
+          </div>
+        </section>
+        <section className='risk risk-measures'>
+          <div className='risk__labels'>
+            <label className='label box'>
+              Тяжесть1:
+              <input
+                name='heaviness1'
+                type='number'
+                className='form__input input'
+                onChange={handleChange}
+                value={inputValue.heaviness1}
+              ></input>
+            </label>
+
+            <label className='label box'>
+              Вероятность1:
+              <input
+                name='probability1'
+                type='number'
+                className='form__input input'
+                onChange={handleChange}
+                value={inputValue.probability1}
+              ></input>
+            </label>
+
+            <label className='label box'>
+              ИПР1:
+              <input className='form__input input' type='text' value={ipr1} />
+            </label>
+
+            <label className='label risk__attitude'>Отношение к риску: </label>
+            <textarea
+              className='risk__attitude-text'
+              onChange={(evt) => setCommit(evt.target.value)}
+            ></textarea>
           </div>
         </section>
 
