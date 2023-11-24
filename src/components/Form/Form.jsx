@@ -184,6 +184,14 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     (item) => isDangerEvent776.label === item.dependence
   );
 
+  const handleFilter = (arr1, arr2) => {
+    console.log(arr1.filter((item) => arr2.label === item.dependence));
+  };
+
+useEffect(()=>{
+  handleFilter(danger, isDangerGroup)
+},[isDangerGroup])
+
   // сортировка значений по алфавиту
   const sortedDanger776 = danget776.sort(function (a, b) {
     var nameA = a.label.toLowerCase(),
@@ -248,7 +256,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     clear();
   };
   const [additionalMeans, setAdditionalMeans] = useState(false);
-  console.table(selectedTipeSIZ.additionalMeans);
   useEffect(() => {
     if (
       typeof selectedTipeSIZ.additionalMeans === 'undefined' ||
@@ -363,23 +370,27 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         header: '1',
         key: 'number',
       },
-      { header: '2', key: 'risk' },
+      { header: '2', key: 'reportProff' },
       { header: '3', key: 'typeSIZ' },
-      { header: '4', key: 'risk' },
-      { header: '5', key: 'risk' },
-      { header: '6', key: 'risk' },
-      { header: '7', key: 'risk' },
-      { header: '8', key: 'risk' },
-      { header: '9', key: 'risk' },
-      { header: '10', key: 'risk' },
+      { header: '4', key: 'nameSIZ' },
+      { header: '5', key: 'issuanceRate' },
+      { header: '6', key: 'repotEvt' },
+      { header: '7', key: 'dangerGroupId' },
+      { header: '8', key: 'dangerGroup' },
+      { header: '9', key: 'dangerEventID' },
+      { header: '10', key: 'dangerEvent' },
     ];
     formValue.forEach((item) => {
+      item['reportProff'] = item.proff || item.job || item.subdivision;
+      item['nameSIZ'] =
+        item.typeSIZ + ' ' + item.standart + ' ' + item.OperatingLevel;
+      item['repotEvt'] = item.dangerEventID + ', Приложения 2 Приказа 767н';
+      console.log(item);
       sheet.addRow(item);
     });
 
     let i = 0;
     while (i < 10) {
-      console.log(i);
       sheet.insertRow(1);
       i++;
     }
@@ -506,18 +517,29 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     lastCell.value =
       'Ответственное лицо __________________ (подпись, фамилия, инициалы)';
     let l = 11;
-    while (l < lastRow-2) {
-      sheet.getCell('A' + l).border = border;
-      sheet.getCell('B' + l).border = border;
-      sheet.getCell('C' + l).border = border;
-      sheet.getCell('D' + l).border = border;
-      sheet.getCell('E' + l).border = border;
-      sheet.getCell('F' + l).border = border;
-      sheet.getCell('G' + l).border = border;
-      sheet.getCell('H' + l).border = border;
-      sheet.getCell('I' + l).border = border;
-      sheet.getCell('J' + l).border = border;
-      l++
+    const style = {
+      border: {
+        top: { style: 'thin' },
+        left: { style: 'thin' },
+        bottom: { style: 'thin' },
+        right: { style: 'thin' },
+      },
+      alignment: {
+        wrapText: true,
+      },
+    };
+    while (l < lastRow - 2) {
+      sheet.getCell('A' + l).style = style;
+      sheet.getCell('B' + l).style = style;
+      sheet.getCell('C' + l).style = style;
+      sheet.getCell('D' + l).style = style;
+      sheet.getCell('E' + l).style = style;
+      sheet.getCell('F' + l).style = style;
+      sheet.getCell('G' + l).style = style;
+      sheet.getCell('H' + l).style = style;
+      sheet.getCell('I' + l).style = style;
+      sheet.getCell('J' + l).style = style;
+      l++;
     }
     return workbook.xlsx
       .writeBuffer()
