@@ -879,13 +879,22 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
                   placeholder={'Тип СИЗ'}
                   value={selectedTipeSIZ}
                 />
-                {/*
+                <label className='checkbox__label'>
+                  <input
+                    type='checkbox'
+                    name='siz'
+                    className='form__checkbox visually-hidden'
+                    onClick={(evt) => setRequiredSIZ(evt.target.checked)}
+                  />
+                  <span className='form__pseudo-checkbox'></span>
+                  <span className='checkbox__label-text'>Обязательные СИЗ</span>
+                </label>
                 <label
                   htmlFor='additional-means'
                   className={
                     additionalMeans
                       ? 'checkbox__label'
-                      : 'checkbox__label disabled '
+                      : 'checkbox__label disabled'
                   }
                 >
                   <input
@@ -897,17 +906,9 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
                     disabled={!additionalMeans}
                   />
                   <span className='form__pseudo-checkbox'></span>
-                  <span className='checkbox__label-text'>ДОП средства</span>
-                </label>
-
-                */}
-                <label className='label'>
-                  Обязательные СИЗ:
-                  <input className='form__input standart' />
-                </label>
-                <label className='label'>
-                  Доп. средства защиты:
-                  <input className='form__input standart' />
+                  <span className='checkbox__label-text'>
+                    Доп. средства защиты
+                  </span>
                 </label>
               </label>
             </SpoilerBox>
@@ -962,11 +963,16 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               <input className='form__input input' type='text' value={ipr} />
             </label>
 
-            <label className='label risk__attitude'>Отношение к риску: </label>
-            <textarea
-              className='risk__attitude-text'
-              onChange={(evt) => setCommit(evt.target.value)}
-            ></textarea>
+            <span className=' label risk__attitude'>Отношение к риску:</span>
+            <span className='risk__attitude-text'>{riskAttitude}</span>
+          </div>
+          <div className='buttons_wrapper'>
+            <input type='submit' className='button send'></input>
+            <input
+              type='reset'
+              className='button reset'
+              onClick={clear}
+            ></input>
           </div>
         </section>
         <section className='plan'>
@@ -1029,12 +1035,8 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               ИПР1:
               <input className='form__input input' type='text' value={ipr1} />
             </label>
-
-            <label className='label risk__attitude'>Отношение к риску: </label>
-            <textarea
-              className='risk__attitude-text'
-              onChange={(evt) => setCommit(evt.target.value)}
-            ></textarea>
+            <span className=' label risk__attitude'>Отношение к риску:</span>
+            <span className='risk__attitude-text'>{riskAttitude}</span>
           </div>
         </section>
 
@@ -1047,9 +1049,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               <span className='wrapper_text'>
                 Приемлемость: {acceptability}
               </span>
-              <span className='wrapper_text'>
-                Отношение к риску: {riskAttitude}
-              </span>
+              
             </div>
           </div>
 
@@ -1074,10 +1074,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
           </div>
         </SpoilerBox>
 
-        <div className='buttons_wrapper'>
-          <input type='submit' className='button send'></input>
-          <input type='reset' className='button reset' onClick={clear}></input>
-              </div>
+       
               */}
         {/* ---старые чек-боксы---
           

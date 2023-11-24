@@ -29,7 +29,7 @@ function App() {
         setlistSubdivision={setlistSubdivision}
         listSubdivision={listSubdivision}
       ></ModalUpdata>
-      <Header></Header>
+      {/* <Header></Header>*/}
       <main className='main'>
         <Routes>
           <Route
