@@ -11,6 +11,9 @@ import dangerEvent776 from '../../untils/dangerEvent776';
 import riskManagement from '../../untils/riskManagement';
 import conversion from '../../untils/converct';
 import './Form.css';
+import SpoilerBox from '../SpoilerBox/SpoilerBox';
+import mapOPR from '../../untils/tables/mapOPR';
+
 function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [isDangerGroup, setDangerGroup] = useState([]);
   const [isDanger, setisDanger] = useState([]);
@@ -20,9 +23,13 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [value, setValue] = useState({});
   const [formValue, setFormValue] = useState([]); // массив для записи в таблицу
   const [ipr, setIpr] = useState(0); // ИПР
+  const [ipr1, setIpr1] = useState(0); // ИПР1
   const [risk, setRisk] = useState(''); // уровень риска
   const [acceptability, setAcceptability] = useState(''); // приемлемость
   const [riskAttitude, setRiskAttitude] = useState(''); // отношение к риску
+  const [risk1, setRisk1] = useState(''); // уровень риска
+  const [acceptability1, setAcceptability1] = useState(''); // приемлемость
+  const [riskAttitude1, setRiskAttitude1] = useState(''); // отношение к риску
   const [obj, setObj] = useState(''); //объект
   const [source, setSource] = useState(''); // источник
   const [selectedTipeSIZ, setSelectedTipeSIZ] = useState([]);
@@ -30,14 +37,29 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [checkboxSiz, setCheckboxSIZ] = useState(false); // чекбокс доп средства
   const [commit, setCommit] = useState('');
   const [inputValue, setInputValue] = useState({
-    probability: '',
-    heaviness: '',
+    probability: '', //Вероятность
+    heaviness: '', // Тяжесть
+    probability1: '',
+    heaviness1: '',
+    periodicity: '', // Периодичность
+    responsiblePerson: '', // Ответственное лицо
+    completionMark: '', // Отметка о выполнении
+    existingRiskManagement: '', // Существующие меры упр-я рисками
   });
   const [requiredSIZ, setRequiredSIZ] = useState(false);
   const ERROR = 'Ошибка';
   const [isRiskManagement, setRiskManagement] = useState([]);
   const [count, setCount] = useState(0);
   const [subdivision, setSubdivision] = useState(false);
+
+  // состояние спойлер бокса
+  const [isOrder767, setOrder767] = useState(true);
+  const [isOrder776, setOrder776] = useState(true);
+  const [isIPR, setIPR] = useState(true);
+
+  // обучаемые списки объект, источник
+  const [listObj, setListObj] = useState([]);
+  const [listSource, setListSource] = useState([]);
 
   useEffect(() => {
     setIpr(inputValue.probability * inputValue.heaviness);
@@ -70,7 +92,38 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     }
   }, [ipr, inputValue]);
 
-  //console.log(value);
+  // результат ИПР1
+  useEffect(() => {
+    setIpr1(inputValue.probability1 * inputValue.heaviness1);
+    if (ipr1 === 0) {
+      setRisk1(ERROR);
+      setAcceptability1(ERROR);
+      setRiskAttitude1(ERROR);
+    } else if (ipr1 <= 2) {
+      setRisk1('Незначительный');
+      setAcceptability1('Приемлемый');
+      setRiskAttitude1('Меры не требуются');
+    } else if (ipr1 <= 6) {
+      setRisk1('Низкий');
+      setAcceptability1('Приемлемый');
+      setRiskAttitude1('Необходимо уделить внимание');
+    } else if (ipr1 <= 12) {
+      setAcceptability1('Допустимый');
+      setRisk1('Средний');
+      setRiskAttitude1(
+        'Требуются меры по снижению уровня риска в установленные сроки'
+      );
+    } else if (ipr1 <= 16) {
+      setAcceptability1('Неприемлемый');
+      setRisk1('Высокий');
+      setRiskAttitude1('Требуются неотложные меры, усовершенствования');
+    } else if (ipr1 > 19) {
+      setAcceptability1('Неприемлемый');
+      setRisk1('Критический');
+      setRiskAttitude1('Немедленное прекращение деятельности');
+    }
+  }, [ipr1, inputValue]);
+
   useEffect(() => {
     if (checkboxSiz) {
       setValue({
@@ -88,6 +141,12 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         riskAttitude: riskAttitude,
         risk: risk,
         acceptability: acceptability,
+        probability1: inputValue.probability1,
+        heaviness1: inputValue.heaviness1,
+        ipr1: ipr1,
+        riskAttitude1: riskAttitude1,
+        risk1: risk1,
+        acceptability1: acceptability1,
         obj: obj,
         source: source,
         typeSIZ: selectedTipeSIZ.label,
@@ -107,6 +166,10 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         riskManagement: isRiskManagement.label,
         riskManagementID: isRiskManagement.ID,
         subdivision: job.subdivision,
+        periodicity: inputValue.periodicity,
+        responsiblePerson: inputValue.responsiblePerson,
+        completionMark: inputValue.completionMark,
+        existingRiskManagement: inputValue.existingRiskManagement,
       });
     } else {
       setValue({
@@ -124,6 +187,12 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         riskAttitude: riskAttitude,
         risk: risk,
         acceptability: acceptability,
+        probability1: inputValue.probability1,
+        heaviness1: inputValue.heaviness1,
+        ipr1: ipr1,
+        riskAttitude1: riskAttitude1,
+        risk1: risk1,
+        acceptability1: acceptability1,
         obj: obj,
         source: source,
         typeSIZ: selectedTipeSIZ.label,
@@ -141,9 +210,17 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         subdivision: job.subdivision,
         standart: selectedTipeSIZ.standart,
         OperatingLevel: selectedTipeSIZ.OperatingLevel,
+        periodicity: inputValue.periodicity,
+        responsiblePerson: inputValue.responsiblePerson,
+        completionMark: inputValue.completionMark,
+        existingRiskManagement: inputValue.existingRiskManagement,
       });
     }
   }, [
+    ipr1,
+    riskAttitude1,
+    risk1,
+    acceptability1,
     isDangerEvent776,
     isDanger776,
     commit,
@@ -188,9 +265,9 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     console.log(arr1.filter((item) => arr2.label === item.dependence));
   };
 
-useEffect(()=>{
-  handleFilter(danger, isDangerGroup)
-},[isDangerGroup])
+  useEffect(() => {
+    handleFilter(danger, isDangerGroup);
+  }, [isDangerGroup]);
 
   // сортировка значений по алфавиту
   const sortedDanger776 = danget776.sort(function (a, b) {
@@ -252,6 +329,12 @@ useEffect(()=>{
       setFormValue([...formValue, value]);
     } else {
       setFormValue([...formValue, value]);
+    }
+    if (!listObj.includes(obj)) {
+      setListObj([...listObj, obj]);
+    }
+    if (!listSource.includes(source)) {
+      setListSource([...listSource, source]);
     }
     clear();
   };
@@ -336,6 +419,20 @@ useEffect(()=>{
         key: 'riskManagement',
         width: 20,
       },
+      { header: 'Тяжесть', key: 'heaviness1', width: 8 },
+      { header: 'Вероятность', key: 'probability1', width: 12 },
+      { header: 'ИПР', key: 'ipr1', width: 5 },
+      { header: 'Уровень риска1', key: 'risk1', width: 20 },
+      { header: 'Приемлемость1', key: 'acceptability1', width: 20 },
+      { header: 'Отношение к риску1', key: 'riskAttitude1', width: 20 },
+      {
+        header: 'Существующие меры упр-я рисками',
+        key: 'existingRiskManagement',
+        width: 20,
+      },
+      { header: 'Периодичность', key: 'periodicity', width: 20 },
+      { header: 'Ответственное лицо', key: 'responsiblePerson', width: 20 },
+      { header: 'Отметка о выполнении', key: 'completionMark', width: 20 },
     ];
 
     let i = 0;
@@ -512,33 +609,21 @@ useEffect(()=>{
 
     const row = sheet.lastRow;
     const lastRow = row._number + 3;
-    console.log(lastRow);
     const lastCell = sheet.getCell('A' + lastRow);
     lastCell.value =
       'Ответственное лицо __________________ (подпись, фамилия, инициалы)';
     let l = 11;
-    const style = {
-      border: {
-        top: { style: 'thin' },
-        left: { style: 'thin' },
-        bottom: { style: 'thin' },
-        right: { style: 'thin' },
-      },
-      alignment: {
-        wrapText: true,
-      },
-    };
     while (l < lastRow - 2) {
-      sheet.getCell('A' + l).style = style;
-      sheet.getCell('B' + l).style = style;
-      sheet.getCell('C' + l).style = style;
-      sheet.getCell('D' + l).style = style;
-      sheet.getCell('E' + l).style = style;
-      sheet.getCell('F' + l).style = style;
-      sheet.getCell('G' + l).style = style;
-      sheet.getCell('H' + l).style = style;
-      sheet.getCell('I' + l).style = style;
-      sheet.getCell('J' + l).style = style;
+      sheet.getCell('A' + l).border = border;
+      sheet.getCell('B' + l).border = border;
+      sheet.getCell('C' + l).border = border;
+      sheet.getCell('D' + l).border = border;
+      sheet.getCell('E' + l).border = border;
+      sheet.getCell('F' + l).border = border;
+      sheet.getCell('G' + l).border = border;
+      sheet.getCell('H' + l).border = border;
+      sheet.getCell('I' + l).border = border;
+      sheet.getCell('J' + l).border = border;
       l++;
     }
     return workbook.xlsx
@@ -559,6 +644,9 @@ useEffect(()=>{
     setRisk(ERROR);
     setAcceptability(ERROR);
     setRiskAttitude(ERROR);
+    setRisk1(ERROR);
+    setAcceptability1(ERROR);
+    setRiskAttitude1(ERROR);
     setSelectedTipeSIZ('');
     setObj('');
     setSource('');
@@ -566,23 +654,22 @@ useEffect(()=>{
     setCommit('');
     setRequiredSIZ(false);
     setIpr(0);
-    setInputValue({ probability: '', heaviness: '' });
+    setIpr1(0);
+    setInputValue({
+      probability: '',
+      heaviness: '',
+      probability1: '',
+      heaviness1: '',
+      periodicity: '',
+      responsiblePerson: '',
+      completionMark: '',
+      existingRiskManagement: '',
+    });
     setCheckboxSIZ(false);
     setRiskManagement('');
     document.querySelector('.form').reset();
     setSubdivision(false);
   };
-
-  function hendleOpenModal() {
-    setModal(true);
-    setModalChild('Профессия');
-  }
-
-  // useEffect(() => {
-  //   api.getDangers().then(t=>console.log(t))
-  //   console.log(danger)
-  //   //danger.map(item=>api.createDangers(item).then(i=>console.log(i)).catch(err=>console.log(err)))
-  // }, []);
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
@@ -605,16 +692,7 @@ useEffect(()=>{
         });
       }
     });
-
-    // const table = {};
-    // const res = dangerEvent776.filter(({ label }) => !table[label] && (table[label] = 1));
-    // console.log(res);
   }, [value.danger776, value.dangerEvent776]);
-
-  useEffect(() => {
-    // danger.forEach(item=>item.label = item.label + ` id: ${item.groupId}`)
-    // console.log(danger)
-  }, []);
 
   useEffect(() => {
     if (subdivision) {
@@ -623,25 +701,390 @@ useEffect(()=>{
     }
   }, [setModal, setModalChild, subdivision]);
 
-  const [isOpenOrder776, setIsOpenOrder776] = useState(false);
-  const [isOpenOrder767, setIsOpenOrder767] = useState(false);
   return (
     <>
       <form className='form' onSubmit={handleSubmit} required>
-        <span>Кол-во записей: {count}</span>
-        <div className='label-wrapper'>
-          <label className='label'>
-            Профессии:
-            <Select
-              className='react-select-container'
-              classNamePrefix='react-select'
-              options={prof}
-              onChange={(evt) => setProff(evt)}
-              placeholder={'Профессии'}
-              noOptionsMessage={() => 'Значение не найдено'}
-              value={isProff}
-            />
-          </label>
+        <div className='form__header left'>
+          <h1 className='form__header-title'>Данные о предприятии</h1>
+        </div>
+        <div className='form__header center'>
+          <h1 className='form__header-title'>ОПР</h1>
+        </div>
+        <div className='form__header right'>
+          <h1 className='form__header-title'>Меры управления</h1>
+        </div>
+        <section className='section profess'>
+          <div className='label-wrapper'>
+            <label className='label'>
+              Профессии:
+              <Select
+                className='react-select-container'
+                classNamePrefix='react-select'
+                options={prof}
+                onChange={(evt) => setProff(evt)}
+                placeholder={'Профессии'}
+                noOptionsMessage={() => 'Значение не найдено'}
+                value={isProff}
+              />
+            </label>
+            <label className='label'>
+              Объект
+              <input
+                className='form__input standart'
+                autoComplete='on'
+                onChange={(evt) => setObj(evt.target.value)}
+                list='obj'
+              ></input>
+              <datalist id='obj'>
+                {listObj.map((item) => (
+                  <option>{item}</option>
+                ))}
+              </datalist>
+            </label>
+            <label className='label'>
+              Источник
+              <input
+                className='form__input standart'
+                autoComplete='on'
+                onChange={(evt) => setSource(evt.target.value)}
+                list='source'
+              ></input>
+              <datalist id='source'>
+                {listSource.map((item) => (
+                  <option>{item}</option>
+                ))}
+              </datalist>
+            </label>
+            <label className='label'>
+              Должность отсутствует:
+              <input className='form__input standart' />
+            </label>
+            <label className='label'>
+              Подразделение:
+              <input className='form__input standart' />
+            </label>
+          </div>
+          <button className='button copy' type='button'>Копия</button>
+        </section>
+        <section className='section orders opr'>
+          <div className='spoiler-wrapper'>
+            <SpoilerBox
+              title={'Приказ 776'}
+              stateSpoileBox={isOrder776}
+              toggleSpoileBox={setOrder776}
+            >
+              <label className='invisible'></label>
+              <label className='label order-input'>
+                Опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDanger776}
+                  onChange={(evt) => setDanger776(evt)}
+                  placeholder={'Опасности'}
+                  value={isDanger776}
+                />
+              </label>
+              <label className='label order-input'>
+                Опасное событие:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDangerEvent776}
+                  onChange={(evt) => setDangerEvent776(evt)}
+                  placeholder={'Опасное событие'}
+                  value={isDangerEvent776}
+                />
+              </label>
+              <label className='label'>
+                Существующие меры управления:
+                <input
+                  name='existingRiskManagement'
+                  className='form__input standart'
+                  onChange={handleChange}
+                ></input>
+              </label>
+            </SpoilerBox>
+            <div className='line'></div>
+            <SpoilerBox
+              title={'Приказ 767'}
+              stateSpoileBox={isOrder767}
+              toggleSpoileBox={setOrder767}
+            >
+              <label className='label order-input'>
+                Группа опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={dangerGroup}
+                  onChange={(name) => setDangerGroup(name)}
+                  placeholder={'Группа опасности'}
+                  value={isDangerGroup}
+                />
+              </label>
+              <label className='label order-input'>
+                Опасности:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDangerGroup}
+                  onChange={(evt) => setisDanger(evt)}
+                  placeholder={'Опасности'}
+                  value={isDanger}
+                />
+              </label>
+              <label className='label order-input'>
+                Опасное событие:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedDangerEvent}
+                  onChange={(evt) => setDangerEvent(evt)}
+                  placeholder={'Опасное событие'}
+                  value={isDangerEvent}
+                />
+              </label>
+            </SpoilerBox>
+          </div>
+          <button className='button copy' type='button'>Копия</button>
+        </section>
+        <section className='section orders measures'>
+          <div className='spoiler-wrapper'>
+            <SpoilerBox
+              title={'Приказ 776'}
+              stateSpoileBox={isOrder776}
+              toggleSpoileBox={setOrder776}
+            >
+              <label className='label order-input'>
+                Меры управления:
+                <Select
+                  className='react-select-container order'
+                  classNamePrefix='react-select'
+                  options={sortedRiskManagemet}
+                  onChange={(evt) => setRiskManagement(evt)}
+                  placeholder={'Меры управления'}
+                  value={isRiskManagement}
+                />
+              </label>
+            </SpoilerBox>
+            <div className='line'></div>
+            <SpoilerBox
+              title={'Приказ 767'}
+              stateSpoileBox={isOrder767}
+              toggleSpoileBox={setOrder767}
+            >
+              <label className='label'>
+                Тип СИЗ:
+                <Select
+                  className='react-select-container'
+                  classNamePrefix='react-select'
+                  options={resTypeSiz}
+                  onChange={(evt) => setSelectedTipeSIZ(evt)}
+                  placeholder={'Тип СИЗ'}
+                  value={selectedTipeSIZ}
+                />
+                <label className='checkbox__label'>
+                  <input
+                    type='checkbox'
+                    name='siz'
+                    className='form__checkbox visually-hidden'
+                    onClick={(evt) => setRequiredSIZ(evt.target.checked)}
+                  />
+                  <span className='form__pseudo-checkbox'></span>
+                  <span className='checkbox__label-text'>Обязательные СИЗ</span>
+                </label>
+                <label
+                  htmlFor='additional-means'
+                  className={
+                    additionalMeans
+                      ? 'checkbox__label'
+                      : 'checkbox__label disabled'
+                  }
+                >
+                  <input
+                    id='additional-means'
+                    type='checkbox'
+                    name='additional-means'
+                    className='additional-means form__checkbox visually-hidden'
+                    onClick={(evt) => setCheckboxSIZ(evt.target.checked)}
+                    disabled={!additionalMeans}
+                  />
+                  <span className='form__pseudo-checkbox'></span>
+                  <span className='checkbox__label-text'>
+                    Доп. средства защиты
+                  </span>
+                </label>
+              </label>
+            </SpoilerBox>
+          </div>
+        </section>
+        <section className='section buttons'>
+          <button className='button button__table' type='button'>
+            Базовая таблица
+          </button>
+          <button className='button button__table' type='button'>
+            Реестр опасностей
+          </button>
+          <button className='button button__table' type='button'>
+            Карты опасностей
+          </button>
+          <button className='button button__table' type='button'>
+            Меры управления без СИЗ
+          </button>
+          <button className='button button__table' type='button'>
+            Нормы выдачи СИЗ
+          </button>
+          <p className='total'>всего записей: {count}</p>
+          <div className='line-horiz'></div>
+          {/*<button onClick={table} className='button button__table'>
+            Выгрузить в таблицу
+          </button>
+          <button onClick={tableReport} className='button button__table'>
+            Выгрузить в форму
+          </button>
+          <button onClick={mapOPR} className='button button__table'>
+            Карта опасностей
+          </button>*/}
+        </section>
+        <section className='risk risk-opr'>
+          <div className='risk__labels'>
+            <label className='label box'>
+              Тяжесть:
+              <input
+                name='heaviness'
+                type='number'
+                className='form__input input'
+                onChange={handleChange}
+                value={inputValue.heaviness}
+              ></input>
+            </label>
+            <label className='label box'>
+              Вероятность:
+              <input
+                name='probability'
+                type='number'
+                className='form__input input'
+                onChange={handleChange}
+                value={inputValue.probability}
+              ></input>
+            </label>
+            <label className='label box'>
+              ИПР:
+              <input className='form__input input' type='text' value={ipr} />
+            </label>
+            <span className=' label risk__attitude'>Отношение к риску:</span>
+            <span className='risk__attitude-text'>{riskAttitude}</span>
+          </div>
+          <div className='buttons_wrapper'>
+            <input type='submit' className='button send'></input>
+            <input
+              type='reset'
+              className='button reset'
+              onClick={clear}
+            ></input>
+          </div>
+        </section>
+        <section className='plan'>
+          <h2 className='plan__title'>План-график</h2>
+          <div className='plan__container'>
+            <label className='label'>
+              Ответственное лицо
+              <input
+                name='responsiblePerson'
+                className='form__input plan-input'
+                onChange={handleChange}
+                placeholder='Ответственное лицо'
+              ></input>
+            </label>
+            <label className='label'>
+              Периодичность
+              <input
+                name='periodicity'
+                className='form__input plan-input'
+                onChange={handleChange}
+                placeholder='Периодичность'
+              ></input>
+            </label>
+            <label className='label'>
+              Отметка о выполнении
+              <input
+                name='completionMark'
+                className='form__input plan-input'
+                onChange={handleChange}
+                placeholder='Отметка о выполнении'
+              ></input>
+            </label>
+          </div>
+        </section>
+        <section className='risk risk-measures'>
+          <div className='risk__labels'>
+            <label className='label box'>
+              Тяжесть1:
+              <input
+                name='heaviness1'
+                type='number'
+                className='form__input input'
+                onChange={handleChange}
+                value={inputValue.heaviness1}
+              ></input>
+            </label>
+            <label className='label box'>
+              Вероятность1:
+              <input
+                name='probability1'
+                type='number'
+                className='form__input input'
+                onChange={handleChange}
+                value={inputValue.probability1}
+              ></input>
+            </label>
+            <label className='label box'>
+              ИПР1:
+              <input className='form__input input' type='text' value={ipr1} />
+            </label>
+            <span className=' label risk__attitude'>Отношение к риску:</span>
+            <span className='risk__attitude-text'>{riskAttitude}</span>
+          </div>
+        </section>
+
+        {/*
+        
+<div className='form__container'>
+            <div className='wrapper'>
+              <span className='wrapper_text'>ИПР: {ipr}</span>
+              <span className='wrapper_text'>Уровень риска: {risk}</span>
+              <span className='wrapper_text'>
+                Приемлемость: {acceptability}
+              </span>
+              
+            </div>
+          </div>
+
+
+        <SpoilerBox
+          title={'ИПР1'}
+          stateSpoileBox={isIPR}
+          toggleSpoileBox={setIPR}
+        >
+          
+          <div className='form__container'>
+            <div className='wrapper'>
+              <span className='wrapper_text'>ИПР1: {ipr1}</span>
+              <span className='wrapper_text'>Уровень риска1: {risk1}</span>
+              <span className='wrapper_text'>
+                Приемлемость1: {acceptability1}
+              </span>
+              <span className='wrapper_text'>
+                Отношение к риску1: {riskAttitude1}
+              </span>
+            </div>
+          </div>
+        </SpoilerBox>
+
+       
+              */}
+        {/* ---старые чек-боксы---
+          
           <div className='label__checkbox'>
             <label className='checkbox__label'>
               <input
@@ -676,208 +1119,8 @@ useEffect(()=>{
               <span className='form__pseudo-checkbox'></span>
               <span className='checkbox__label-text'>Подразделение</span>
             </label>
-          </div>
-          <div className='input-order__wrapper'>
-            <span
-              className='input-order__title'
-              onClick={() => setIsOpenOrder776(!isOpenOrder776)}
-            >
-              Приказ №776
-            </span>
-            <div
-              className={
-                isOpenOrder776 ? 'dropdown-child_open' : 'dropdown-child_close'
-              }
-            >
-              <label className='label'>
-                Опасности:
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={sortedDanger776}
-                  onChange={(evt) => setDanger776(evt)}
-                  placeholder={'Опасности'}
-                  value={isDanger776}
-                />
-              </label>
-              <label className='label'>
-                Опасное событие:
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={sortedDangerEvent776}
-                  onChange={(evt) => setDangerEvent776(evt)}
-                  placeholder={'Опасное событие'}
-                  value={isDangerEvent776}
-                />
-              </label>
-              {/*не забыть настроить инпутб сейчас он работает как "Опасные события"*/}
-              <label className='label'>
-                Меры упр-я/контроля проф. рисков
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={sortedRiskManagemet}
-                  onChange={(evt) => setRiskManagement(evt)}
-                  placeholder={'Меры управления/контроля'}
-                  value={isRiskManagement}
-                />
-              </label>
-            </div>
-          </div>
-          <div className='input-order__wrapper'>
-            <span
-              className='input-order__title'
-              onClick={() => setIsOpenOrder767(!isOpenOrder767)}
-            >
-              Приказ №767
-            </span>
-            <div
-              className={
-                isOpenOrder767 ? 'dropdown-child_open' : 'dropdown-child_close'
-              }
-            >
-              <label className='label'>
-                Группа опасности:
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={dangerGroup}
-                  onChange={(name) => setDangerGroup(name)}
-                  placeholder={'Группа опасности'}
-                  value={isDangerGroup}
-                />
-              </label>
-              <label className='label'>
-                Опасности:
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={sortedDangerGroup}
-                  onChange={(evt) => setisDanger(evt)}
-                  placeholder={'Опасности'}
-                  value={isDanger}
-                />
-              </label>
-              <label className='label'>
-                Опасное событие:
-                <Select
-                  className='react-select-container order'
-                  classNamePrefix='react-select'
-                  options={sortedDangerEvent}
-                  onChange={(evt) => setDangerEvent(evt)}
-                  placeholder={'Опасное событие'}
-                  value={isDangerEvent}
-                />
-              </label>
-            </div>
-          </div>
-          <label className='label'>
-            Тип СИЗ:
-            <Select
-              className='react-select-container'
-              classNamePrefix='react-select'
-              options={resTypeSiz}
-              onChange={(evt) => setSelectedTipeSIZ(evt)}
-              placeholder={'Тип СИЗ'}
-              value={selectedTipeSIZ}
-            />
-            <label
-              htmlFor='additional-means'
-              className={
-                additionalMeans
-                  ? 'checkbox__label'
-                  : 'checkbox__label disabled '
-              }
-            >
-              <input
-                id='additional-means'
-                type='checkbox'
-                name='additional-means'
-                className='additional-means form__checkbox visually-hidden'
-                onClick={(evt) => setCheckboxSIZ(evt.target.checked)}
-                disabled={!additionalMeans}
-              />
-              <span className='form__pseudo-checkbox'></span>
-              <span className='checkbox__label-text'>ДОП средства</span>
-            </label>
-          </label>
-          <label className='label'>
-            Комментарий:
-            <input
-              className='form__input standart'
-              onChange={(evt) => setCommit(evt.target.value)}
-            ></input>
-          </label>
-          <div className='label-wrapper'>
-            <label className='label box'>
-              Тяжесть:
-              <input
-                name='heaviness'
-                type='number'
-                className='form__input input'
-                onChange={handleChange}
-                value={inputValue.heaviness}
-              ></input>
-            </label>
-            <label className='label box'>
-              Вероятность:
-              <input
-                name='probability'
-                type='number'
-                className='form__input input'
-                onChange={handleChange}
-                value={inputValue.probability}
-              ></input>
-            </label>
-          </div>
-        </div>
-        <div className='form__container'>
-          <div className='wrapper'>
-            <span className='wrapper_text'>ИПР: {ipr}</span>
-            <span className='wrapper_text'>Уровень риска: {risk}</span>
-            <span className='wrapper_text'>Приемлемость: {acceptability}</span>
-            <span className='wrapper_text'>
-              Отношение к риску: {riskAttitude}
-            </span>
-          </div>
-        </div>
-        <div className='label-wrapper'>
-          <label className='label'>
-            Объект
-            <input
-              className='form__input standart'
-              autoComplete='on'
-              onChange={(evt) => setObj(evt.target.value)}
-            ></input>
-          </label>
-          <label className='label'>
-            Источник
-            <input
-              className='form__input standart'
-              autoComplete='on'
-              onChange={(evt) => setSource(evt.target.value)}
-            ></input>
-          </label>
-        </div>
-        <div className='buttons_wrapper'>
-          <input type='submit' className='button send'></input>
-          <input type='reset' className='button reset' onClick={clear}></input>
-          <datalist id='number'>
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </datalist>
-        </div>
+  </div>*/}
       </form>
-      <button onClick={table} className='button button__table'>
-        Выгрузить в таблицу
-      </button>
-      <button onClick={tableReport} className='button button__table'>
-        Выгрузить в форму
-      </button>
     </>
   );
 }

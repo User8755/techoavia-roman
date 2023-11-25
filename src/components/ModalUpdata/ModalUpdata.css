@@ -38,7 +38,7 @@
 }
 
 .form__input.input {
-  width: 350px;
+  width: 100%;
 }
 .form__input.id {
   width: 150px;
