@@ -39,12 +39,16 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [inputValue, setInputValue] = useState({
     probability: '', //Вероятность
     heaviness: '', // Тяжесть
-    probability1: '',
-    heaviness1: '',
+    probability1: '', // Тяжесть1
+    heaviness1: '', //Вероятность1
     periodicity: '', // Периодичность
     responsiblePerson: '', // Ответственное лицо
     completionMark: '', // Отметка о выполнении
     existingRiskManagement: '', // Существующие меры упр-я рисками
+    obj: '', // объект
+    source: '', // источник
+    job: '', // Должность
+    subdivision: '', // Подразделение
   });
   const [requiredSIZ, setRequiredSIZ] = useState(false);
   const ERROR = 'Ошибка';
@@ -55,7 +59,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   // состояние спойлер бокса
   const [isOrder767, setOrder767] = useState(true);
   const [isOrder776, setOrder776] = useState(true);
-  const [isIPR, setIPR] = useState(true);
 
   // обучаемые списки объект, источник
   const [listObj, setListObj] = useState([]);
@@ -127,6 +130,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   useEffect(() => {
     if (checkboxSiz) {
       setValue({
+        ...inputValue,
         proff: isProff.label,
         proffId: isProff.profId,
         danger: isDangerGroup.label,
@@ -135,8 +139,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         dangerGroupId: isDanger.groupId,
         dangerEvent: isDangerEvent.label,
         dangerEventID: isDangerEvent.groupId,
-        probability: inputValue.probability,
-        heaviness: inputValue.heaviness,
         ipr: ipr,
         riskAttitude: riskAttitude,
         risk: risk,
@@ -147,16 +149,9 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         riskAttitude1: riskAttitude1,
         risk1: risk1,
         acceptability1: acceptability1,
-        obj: obj,
-        source: source,
         typeSIZ: selectedTipeSIZ.label,
         speciesSIZ: selectedTipeSIZ.speciesSIZ,
         issuanceRate: selectedTipeSIZ.issuanceRate,
-        additionalMeans: selectedTipeSIZ.additionalMeans,
-        AdditionalIssuanceRate: selectedTipeSIZ.AdditionalIssuanceRate,
-        standart: selectedTipeSIZ.standart,
-        OperatingLevel: selectedTipeSIZ.OperatingLevel,
-        job: job.job,
         commit: commit,
         proffSIZ: isProff.SIZ,
         danger776: isDanger776.label,
@@ -165,14 +160,15 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         dangerEvent776Id: isDangerEvent776.ID,
         riskManagement: isRiskManagement.label,
         riskManagementID: isRiskManagement.ID,
-        subdivision: job.subdivision,
+        standart: selectedTipeSIZ.standart,
+        OperatingLevel: selectedTipeSIZ.OperatingLevel,
         periodicity: inputValue.periodicity,
-        responsiblePerson: inputValue.responsiblePerson,
-        completionMark: inputValue.completionMark,
-        existingRiskManagement: inputValue.existingRiskManagement,
+        additionalMeans: selectedTipeSIZ.additionalMeans,
+        AdditionalIssuanceRate: selectedTipeSIZ.AdditionalIssuanceRate,
       });
     } else {
       setValue({
+        ...inputValue,
         proff: isProff.label,
         proffId: isProff.profId,
         danger: isDangerGroup.label,
@@ -181,8 +177,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         dangerGroupId: isDanger.groupId,
         dangerEvent: isDangerEvent.label,
         dangerEventID: isDangerEvent.groupId,
-        probability: inputValue.probability,
-        heaviness: inputValue.heaviness,
         ipr: ipr,
         riskAttitude: riskAttitude,
         risk: risk,
@@ -193,12 +187,9 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         riskAttitude1: riskAttitude1,
         risk1: risk1,
         acceptability1: acceptability1,
-        obj: obj,
-        source: source,
         typeSIZ: selectedTipeSIZ.label,
         speciesSIZ: selectedTipeSIZ.speciesSIZ,
         issuanceRate: selectedTipeSIZ.issuanceRate,
-        job: job.job,
         commit: commit,
         proffSIZ: isProff.SIZ,
         danger776: isDanger776.label,
@@ -207,38 +198,31 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         dangerEvent776Id: isDangerEvent776.ID,
         riskManagement: isRiskManagement.label,
         riskManagementID: isRiskManagement.ID,
-        subdivision: job.subdivision,
         standart: selectedTipeSIZ.standart,
         OperatingLevel: selectedTipeSIZ.OperatingLevel,
         periodicity: inputValue.periodicity,
-        responsiblePerson: inputValue.responsiblePerson,
-        completionMark: inputValue.completionMark,
-        existingRiskManagement: inputValue.existingRiskManagement,
       });
     }
   }, [
-    ipr1,
-    riskAttitude1,
-    risk1,
-    acceptability1,
-    isDangerEvent776,
-    isDanger776,
-    commit,
     acceptability,
+    acceptability1,
     checkboxSiz,
+    commit,
+    inputValue,
     ipr,
+    ipr1,
     isDanger,
+    isDanger776,
     isDangerEvent,
+    isDangerEvent776,
     isDangerGroup,
     isProff,
-    job,
-    obj,
-    risk,
-    riskAttitude,
-    selectedTipeSIZ,
-    source,
-    inputValue,
     isRiskManagement,
+    risk,
+    risk1,
+    riskAttitude,
+    riskAttitude1,
+    selectedTipeSIZ,
   ]);
 
   const resDangerGroup = danger.filter(
@@ -262,7 +246,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   );
 
   const handleFilter = (arr1, arr2) => {
-    console.log(arr1.filter((item) => arr2.label === item.dependence));
+    //console.log(arr1.filter((item) => arr2.label === item.dependence));
   };
 
   useEffect(() => {
@@ -732,8 +716,9 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               <input
                 className='form__input standart'
                 autoComplete='on'
-                onChange={(evt) => setObj(evt.target.value)}
+                onChange={handleChange}
                 list='obj'
+                name='obj'
               ></input>
               <datalist id='obj'>
                 {listObj.map((item) => (
@@ -746,8 +731,9 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               <input
                 className='form__input standart'
                 autoComplete='on'
-                onChange={(evt) => setSource(evt.target.value)}
+                onChange={handleChange}
                 list='source'
+                name='source'
               ></input>
               <datalist id='source'>
                 {listSource.map((item) => (
@@ -757,14 +743,24 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             </label>
             <label className='label'>
               Должность отсутствует:
-              <input className='form__input standart' />
+              <input
+                className='form__input standart'
+                name='job'
+                onChange={handleChange}
+              />
             </label>
             <label className='label'>
               Подразделение:
-              <input className='form__input standart' />
+              <input
+                className='form__input standart'
+                name='subdivision'
+                onChange={handleChange}
+              />
             </label>
           </div>
-          <button className='button copy' type='button'>Копия</button>
+          <button className='button copy' type='button'>
+            Копия
+          </button>
         </section>
         <section className='section orders opr'>
           <div className='spoiler-wrapper'>
@@ -846,7 +842,9 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               </label>
             </SpoilerBox>
           </div>
-          <button className='button copy' type='button'>Копия</button>
+          <button className='button copy' type='button'>
+            Копия
+          </button>
         </section>
         <section className='section orders measures'>
           <div className='spoiler-wrapper'>
@@ -919,7 +917,11 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
           </div>
         </section>
         <section className='section buttons'>
-          <button className='button button__table' type='button'>
+          <button
+            className='button button__table'
+            type='button'
+            onClick={table}
+          >
             Базовая таблица
           </button>
           <button className='button button__table' type='button'>
@@ -931,7 +933,11 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
           <button className='button button__table' type='button'>
             Меры управления без СИЗ
           </button>
-          <button className='button button__table' type='button'>
+          <button
+            className='button button__table'
+            type='button'
+            onClick={tableReport}
+          >
             Нормы выдачи СИЗ
           </button>
           <p className='total'>всего записей: {count}</p>
@@ -1043,7 +1049,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               <input className='form__input input' type='text' value={ipr1} />
             </label>
             <span className=' label risk__attitude'>Отношение к риску:</span>
-            <span className='risk__attitude-text'>{riskAttitude}</span>
+            <span className='risk__attitude-text'>{riskAttitude1}</span>
           </div>
         </section>
 
