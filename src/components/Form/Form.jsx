@@ -926,7 +926,11 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
           <button className='button button__table' type='button'>
             Реестр опасностей
           </button>
-          <button className='button button__table' type='button'>
+          <button
+            className='button button__table'
+            type='button'
+            onClick={()=>mapOPR(formValue)}
+          >
             Карты опасностей
           </button>
           <button className='button button__table' type='button'>
