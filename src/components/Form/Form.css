@@ -12,7 +12,7 @@
 
 .form__header {
   background-color: var(--accent-light-color);
-  height: 90px;
+  height: 70px;
   box-shadow: var(--heavy-shadow);
   border-bottom-left-radius: var(--radius);
   border-bottom-right-radius: var(--radius);
@@ -45,25 +45,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   height: fit-content;
 }
 .section.profess {
   grid-column: 1 / span 1;
   grid-row: 2/ 4;
   margin-left: 20px;
+  max-width: 410px;
+  gap: 10px;
 }
+
 .label-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  max-width: 350px;
-  min-width: 340px;
 }
+
 .button.copy {
   background-color: var(--accent-green);
-  margin-top: 20px;
+  margin-top: 10px;
   width: 100%;
 }
 .spoiler-wrapper {
@@ -78,13 +78,12 @@
 }
 
 /*-----секция Приказы ОПР-----*/
-
 .section.orders {
   grid-row: 2 / 4;
 }
 .section.orders.opr {
   grid-column: 2 / span 2;
-  height: 485px;
+  height: 470px;
   justify-content: space-between;
 }
 
@@ -121,7 +120,7 @@
 }
 
 .button {
-  height: 45px;
+  height: var(--button-height);
   border-radius: var(--radius);
   border: none;
   color: white;
@@ -173,7 +172,7 @@
 .label.box {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+
 }
 .risk {
   width: 600px;
@@ -237,6 +236,7 @@
   align-items: center;
   gap: 15px;
   padding: 20px 50px;
+  margin-right: 20px;
 }
 .plan__container {
   width: 100%;
@@ -262,6 +262,7 @@
   background-color: rgba(243, 244, 246, 1) !important;
   box-shadow: none !important;
   transition: background-color 0.3s ease-in-out !important;
+  height: var(--input-height);
 }
 .react-select__control:hover {
   background-color: rgb(222, 228, 239) !important;
@@ -330,7 +331,7 @@
 .form__input {
   box-sizing: border-box;
   width: 100px;
-  height: 38px;
+  height: var(--input-height);
   padding: 2px 8px;
   border: 1px solid var(--main-color);
   border-radius: 4px;
@@ -370,11 +371,11 @@
   align-items: center;
 }
 
-.input__test {
+/*.input__test {
   margin-top: 10px;
   width: 200px;
   min-height: 25px;
-}
+}*/
 
 .wrapper {
   display: flex;
@@ -417,8 +418,8 @@
   border: 1px solid rgba(66, 83, 97, 1);
   border-radius: 4px;
   display: inline-block;
-  width: 45px;
-  height: 45px;
+  width: var(--input-height);
+  height: var(--input-height);
   margin-right: 5px;
   vertical-align: sub;
   position: relative;
@@ -428,8 +429,8 @@
   content: '';
   /*рисунок*/
   display: inline-block;
-  width: 45px;
-  height: 45px;
+  width: var(--input-height);
+  height: var(--input-height);
   background-image: url('../../../img/icon__yes.svg');
   background-repeat: no-repeat;
   /*выравнивание рисунка

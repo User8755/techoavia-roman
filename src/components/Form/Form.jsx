@@ -698,66 +698,65 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
           <h1 className='form__header-title'>Меры управления</h1>
         </div>
         <section className='section profess'>
-          <div className='label-wrapper'>
-            <label className='label'>
-              Профессии:
-              <Select
-                className='react-select-container'
-                classNamePrefix='react-select'
-                options={prof}
-                onChange={(evt) => setProff(evt)}
-                placeholder={'Профессии'}
-                noOptionsMessage={() => 'Значение не найдено'}
-                value={isProff}
-              />
-            </label>
-            <label className='label'>
-              Объект
-              <input
-                className='form__input standart'
-                autoComplete='on'
-                onChange={handleChange}
-                list='obj'
-                name='obj'
-              ></input>
-              <datalist id='obj'>
-                {listObj.map((item) => (
-                  <option>{item}</option>
-                ))}
-              </datalist>
-            </label>
-            <label className='label'>
-              Источник
-              <input
-                className='form__input standart'
-                autoComplete='on'
-                onChange={handleChange}
-                list='source'
-                name='source'
-              ></input>
-              <datalist id='source'>
-                {listSource.map((item) => (
-                  <option>{item}</option>
-                ))}
-              </datalist>
-            </label>
-            <label className='label'>
-              Должность отсутствует:
-              <input
-                className='form__input standart'
-                name='job'
-                onChange={handleChange}
-              />
-            </label>
-            <label className='label'>
-              Подразделение:
-              <input
-                className='form__input standart'
-                name='subdivision'
-                onChange={handleChange}
-              />
-            </label>
-          </div>
+          <label className='label'>
+            Профессии:
+            <Select
+              className='react-select-container'
+              classNamePrefix='react-select'
+              options={prof}
+              onChange={(evt) => setProff(evt)}
+              placeholder={'Профессии'}
+              noOptionsMessage={() => 'Значение не найдено'}
+              value={isProff}
+            />
+          </label>
+          <label className='label'>
+            Объект:
+            <input
+              className='form__input standart'
+              autoComplete='on'
+              onChange={handleChange}
+              list='obj'
+              name='obj'
+            ></input>
+            <datalist id='obj'>
+              {listObj.map((item) => (
+                <option>{item}</option>
+              ))}
+            </datalist>
+          </label>
+          <label className='label'>
+            Источник:
+            <input
+              className='form__input standart'
+              autoComplete='on'
+              onChange={handleChange}
+              list='source'
+              name='source'
+            ></input>
+            <datalist id='source'>
+              {listSource.map((item) => (
+                <option>{item}</option>
+              ))}
+            </datalist>
+          </label>
+          <label className='label'>
+            Должность отсутствует:
+            <input
+              className='form__input standart'
+              name='job'
+              onChange={handleChange}
+            />
+          </label>
+          <label className='label'>
+            Подразделение:
+            <input
+              className='form__input standart'
+              name='subdivision'
+              onChange={handleChange}
+            />
+          </label>
+
           <button className='button copy' type='button'>
             Копия
           </button>
