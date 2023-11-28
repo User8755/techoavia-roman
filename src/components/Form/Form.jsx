@@ -3,7 +3,6 @@ import danger from '../../untils/danger';
 import prof from '../../untils/prof';
 import dangerEvent from '../../untils/dangerousEvent';
 import Select from 'react-select';
-import * as Excel from 'exceljs/dist/exceljs.min.js';
 import { useEffect, useState } from 'react';
 import typeSiz from '../../untils/typeSIZ';
 import danget776 from '../../untils/danger775';
@@ -13,6 +12,8 @@ import conversion from '../../untils/converct';
 import './Form.css';
 import SpoilerBox from '../SpoilerBox/SpoilerBox';
 import mapOPR from '../../untils/tables/mapOPR';
+import baseTable from '../../untils/tables/baseTable';
+import normSiz from '../../untils/tables/normSIZ';
 
 function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [isDangerGroup, setDangerGroup] = useState([]);
@@ -249,10 +250,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     //console.log(arr1.filter((item) => arr2.label === item.dependence));
   };
 
-  useEffect(() => {
-    handleFilter(danger, isDangerGroup);
-  }, [isDangerGroup]);
-
   // сортировка значений по алфавиту
   const sortedDanger776 = danget776.sort(function (a, b) {
     var nameA = a.label.toLowerCase(),
@@ -303,6 +300,31 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     if (nameA > nameB) return 1;
     return 0; // Никакой сортировки
   });
+
+  const input = JSON.parse(localStorage.getItem('input'));
+
+  const handleCopyData = () => {
+    if (localStorage.getItem('input') || localStorage.getItem('proff')) {
+      setProff(JSON.parse(localStorage.getItem('proff')));
+      setInputValue({
+        job: input.job,
+        obj: input.obj,
+        source: input.source,
+        subdivision: input.subdivision,
+      });
+    }
+  };
+
+  const handleCopyOPR = () => {
+    if (localStorage.getItem('Danger') || localStorage.getItem('Danger776')) {
+      setDangerGroup(JSON.parse(localStorage.getItem('DangerGroup')));
+      setisDanger(JSON.parse(localStorage.getItem('Danger')));
+      setDangerEvent(JSON.parse(localStorage.getItem('DangerEvent')));
+      setDangerEvent776(JSON.parse(localStorage.getItem('DangerEvent776')));
+      setDanger776(JSON.parse(localStorage.getItem('Danger776')));
+    }
+  };
+
   console.log(value);
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -320,6 +342,13 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     if (!listSource.includes(source)) {
       setListSource([...listSource, source]);
     }
+    localStorage.setItem('proff', JSON.stringify(isProff));
+    localStorage.setItem('input', JSON.stringify(inputValue));
+    localStorage.setItem('Danger776', JSON.stringify(isDanger776));
+    localStorage.setItem('DangerEvent776', JSON.stringify(isDangerEvent776));
+    localStorage.setItem('Danger', JSON.stringify(isDanger));
+    localStorage.setItem('DangerEvent', JSON.stringify(isDangerEvent));
+    localStorage.setItem('DangerGroup', JSON.stringify(isDangerGroup));
     clear();
   };
   const [additionalMeans, setAdditionalMeans] = useState(false);
@@ -334,289 +363,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     }
   }, [selectedTipeSIZ]);
 
-  var FileSaver = require('file-saver');
-  const table = () => {
-    const workbook = new Excel.Workbook();
-    const sheet = workbook.addWorksheet('sheet');
 
-    sheet.columns = [
-      { header: '№ п/п', key: 'number', width: 9 },
-      { header: 'Код профессии (при наличии)', key: 'proffId', width: 20 },
-      { header: 'Профессия', key: 'proff', width: 20 },
-      { header: 'Должность', key: 'job', width: 20 },
-      { header: 'Подразделение', key: 'subdivision', width: 20 },
-      { header: 'Тип средства защиты', key: 'type', width: 20 },
-      {
-        header:
-          'Наименование специальной одежды, специальной обуви и других средств индивидуальной защиты',
-        key: 'vid',
-        width: 20,
-      },
-      {
-        header: 'Нормы выдачи на год (период) (штуки, пары, комплекты, мл)',
-        key: 'norm',
-        width: 20,
-      },
-      { header: 'ОБЪЕКТ', key: 'obj', width: 20 },
-      { header: 'Источник', key: 'source', width: 20 },
-      { header: 'ID группы опасностей', key: 'dangerID', width: 20 },
-      { header: 'Группа опасности', key: 'danger', width: 25 },
-      { header: 'Опасность, ID 767', key: 'dangerGroupId', width: 17 },
-      { header: 'Опасности', key: 'dangerGroup', width: 25 },
-      { header: 'Опасное событие, текст 767', key: 'dangerEventID', width: 25 },
-      { header: 'Опасное событие', key: 'dangerEvent', width: 25 },
-      { header: 'Тяжесть', key: 'heaviness', width: 8 },
-      { header: 'Вероятность', key: 'probability', width: 12 },
-      { header: 'ИПР', key: 'ipr', width: 5 },
-      { header: 'Уровень риска', key: 'risk', width: 20 },
-      { header: 'Приемлемость', key: 'acceptability', width: 20 },
-      { header: 'Отношение к риску', key: 'riskAttitude', width: 20 },
-      { header: 'Тип СИЗ', key: 'typeSIZ', width: 20 },
-      { header: 'Вид СИЗ', key: 'speciesSIZ', width: 40 },
-      {
-        header:
-          'Нормы выдачи средств индивидуальной защиты на год (штуки, пары, комплекты, мл)',
-        key: 'issuanceRate',
-        width: 20,
-      },
-      { header: 'ДОП средства', key: 'additionalMeans', width: 20 },
-      {
-        header:
-          'Нормы выдачи средств индивидуальной защиты, выдаваемых дополнительно, на год (штуки, пары, комплекты, мл)',
-        key: 'AdditionalIssuanceRate',
-        width: 20,
-      },
-      { header: 'Стандарты (ГОСТ, EN)', key: 'standart', width: 20 },
-      { header: 'Экспл.уровень', key: 'OperatingLevel', width: 20 },
-      { header: 'Комментарий', key: 'commit', width: 20 },
-      { header: 'ID опасности 776н', key: 'danger776Id', width: 20 },
-      { header: 'Опасности 776н', key: 'danger776', width: 20 },
-      {
-        header: 'ID опасного события 776н',
-        key: 'dangerEvent776Id',
-        width: 20,
-      },
-      { header: 'Опасное событие 776н', key: 'dangerEvent776', width: 20 },
-      { header: 'ID мер управления', key: 'riskManagementID', width: 20 },
-      {
-        header: 'Меры управления/контроля профессиональных рисков',
-        key: 'riskManagement',
-        width: 20,
-      },
-      { header: 'Тяжесть', key: 'heaviness1', width: 8 },
-      { header: 'Вероятность', key: 'probability1', width: 12 },
-      { header: 'ИПР', key: 'ipr1', width: 5 },
-      { header: 'Уровень риска1', key: 'risk1', width: 20 },
-      { header: 'Приемлемость1', key: 'acceptability1', width: 20 },
-      { header: 'Отношение к риску1', key: 'riskAttitude1', width: 20 },
-      {
-        header: 'Существующие меры упр-я рисками',
-        key: 'existingRiskManagement',
-        width: 20,
-      },
-      { header: 'Периодичность', key: 'periodicity', width: 20 },
-      { header: 'Ответственное лицо', key: 'responsiblePerson', width: 20 },
-      { header: 'Отметка о выполнении', key: 'completionMark', width: 20 },
-    ];
-
-    let i = 0;
-    formValue.forEach((item) => {
-      item['number'] = i += 1;
-      sheet.addRow(item);
-
-      if (item.proffSIZ) {
-        item.proffSIZ.forEach((SIZ) => sheet.addRow(SIZ));
-      }
-    });
-
-    return workbook.xlsx
-      .writeBuffer()
-      .then((buffer) =>
-        FileSaver.saveAs(new Blob([buffer]), `${Date.now()}_feedback.xlsx`)
-      )
-      .catch((err) => console.log('Error writing excel export', err));
-  };
-
-  const tableReport = () => {
-    const workbook = new Excel.Workbook();
-    const sheet = workbook.addWorksheet('sheet');
-    const border = {
-      top: { style: 'thin' },
-      left: { style: 'thin' },
-      bottom: { style: 'thin' },
-      right: { style: 'thin' },
-    };
-    sheet.columns = [
-      {
-        header: '1',
-        key: 'number',
-      },
-      { header: '2', key: 'reportProff' },
-      { header: '3', key: 'typeSIZ' },
-      { header: '4', key: 'nameSIZ' },
-      { header: '5', key: 'issuanceRate' },
-      { header: '6', key: 'repotEvt' },
-      { header: '7', key: 'dangerGroupId' },
-      { header: '8', key: 'dangerGroup' },
-      { header: '9', key: 'dangerEventID' },
-      { header: '10', key: 'dangerEvent' },
-    ];
-    formValue.forEach((item) => {
-      item['reportProff'] = item.proff || item.job || item.subdivision;
-      item['nameSIZ'] =
-        item.typeSIZ + ' ' + item.standart + ' ' + item.OperatingLevel;
-      item['repotEvt'] = item.dangerEventID + ', Приложения 2 Приказа 767н';
-      console.log(item);
-      sheet.addRow(item);
-    });
-
-    let i = 0;
-    while (i < 10) {
-      sheet.insertRow(1);
-      i++;
-    }
-
-    const font = { bold: true, name: 'Times New Roman', size: 11 };
-    const alignment = { horizontal: 'right' };
-    const color = {
-      type: 'pattern',
-      pattern: 'solid',
-      fgColor: { argb: 'FFF2CD' },
-    };
-
-    const cell1 = sheet.getCell('J1');
-    const cell2 = sheet.getCell('J2');
-    const cell3 = sheet.getCell('J3');
-    const cell5 = sheet.getCell('A5');
-    const cell7 = sheet.getCell('A7');
-    const cellA10 = sheet.getCell('A10');
-    const cellB10 = sheet.getCell('B10');
-    const cellC10 = sheet.getCell('C10');
-    const cellD10 = sheet.getCell('D10');
-    const cellE10 = sheet.getCell('E10');
-    const cellF10 = sheet.getCell('F10');
-    const cellG10 = sheet.getCell('G10');
-    const cellH10 = sheet.getCell('H10');
-    const cellI10 = sheet.getCell('I10');
-    const cellJ10 = sheet.getCell('J10');
-
-    sheet.mergeCells('F2', 'J2');
-    sheet.mergeCells('H1', 'J1');
-    sheet.mergeCells('H3', 'J3');
-    sheet.mergeCells('A5', 'J5');
-
-    cell1.font = font;
-    cell2.font = font;
-    cell3.font = font;
-    cell5.font = font;
-    cell7.font = {
-      bold: true,
-      name: 'Times New Roman',
-      size: 12,
-      underline: true,
-    };
-    sheet.getRow(10).font = { name: 'Times New Roman', size: 9, bold: true };
-
-    cell1.alignment = alignment;
-    cell2.alignment = alignment;
-    cell3.alignment = alignment;
-    cell5.alignment = {
-      vertical: 'middle',
-      horizontal: 'center',
-      wrapText: 'true',
-    };
-    sheet.getRow(10).alignment = {
-      vertical: 'middle',
-      horizontal: 'center',
-      wrapText: 'true',
-    };
-    // заливка фона ячеек
-    cellA10.fill = color;
-    cellB10.fill = color;
-    cellC10.fill = color;
-    cellD10.fill = color;
-    cellE10.fill = color;
-    cellF10.fill = color;
-    cellG10.fill = color;
-    cellH10.fill = color;
-    cellI10.fill = color;
-    cellJ10.fill = color;
-    // рамка таблици
-    cellA10.border = border;
-    cellB10.border = border;
-    cellC10.border = border;
-    cellD10.border = border;
-    cellE10.border = border;
-    cellF10.border = border;
-    cellG10.border = border;
-    cellH10.border = border;
-    cellI10.border = border;
-    cellJ10.border = border;
-
-    sheet.getRow(11).alignment = {
-      horizontal: 'center',
-    };
-
-    sheet.getRow(5).height = 84;
-    sheet.getRow(10).height = 208;
-    sheet.getColumn(1).width = 4.85;
-    sheet.getColumn(2).width = 13;
-    sheet.getColumn(3).width = 11.57;
-    sheet.getColumn(4).width = 31.14;
-    sheet.getColumn(5).width = 11.57;
-    sheet.getColumn(6).width = 13.49;
-    sheet.getColumn(7).width = 7;
-    sheet.getColumn(8).width = 17.14;
-    sheet.getColumn(9).width = 7;
-    sheet.getColumn(10).width = 19.14;
-
-    cell1.value = 'УТВЕРЖДАЮ:';
-    cell2.value = 'Руководитель ___________ (подпись, инициалы, фамилия)';
-    cell3.value = '«____» _____________ 20___г';
-    cell5.value =
-      '"Нормы выдачи средств индивидуальной защиты (далее — СИЗ) в __________________ (наименование подразделения, организации) в соответствии с требованиями приказов Минтруда от 29 октября 2021 г. №767н «Об утверждении единых типовых норм (далее – ЕТН) выдачи СИЗ и смывающих средств», №766н «Об утверждении правил обеспечения работников средствами индивидуальной защиты и смывающими средствами» (далее - приказ №766н)"';
-    cell7.value = 'Раздел 1. НОРМЫ ВЫДАЧИ СРЕДСТВ ИНДИВИДУАЛЬНОЙ ЗАЩИТЫ';
-    cellA10.value = '№ пп';
-    cellB10.value = 'Наименование профессии/ должности, подразделения';
-    cellC10.value = 'Тип СИЗ';
-    cellD10.value =
-      'Наименование СИЗ (с указанием конкретных данных о конструкции, о классе защиты, категориях эффективности и/или  эксплуатационных уровнях)';
-    cellE10.value =
-      'Нормы выдачи СИЗ с указанием периодичности выдачи, количества выдачи на период (штуки, пары, комплекты, мл)';
-    cellF10.value = 'Основание выдачи СИЗ (пункты ЕТН, ПОТ и иных документов)';
-    cellG10.value = '№ опасности из Приложения №2 к ЕТН';
-    cellH10.value =
-      'Опасности, представляющие угрозу жизни и здоровью работников, а также факторы окружающей среды или трудового процесса, способные привести к травме или профессиональному заболеванию';
-    cellI10.value = '№ опасного события из Приложения №2 к ЕТН';
-    cellJ10.value =
-      'Опасные события, представляющие угрозу жизни и здоровью работников';
-
-    const row = sheet.lastRow;
-    const lastRow = row._number + 3;
-    const lastCell = sheet.getCell('A' + lastRow);
-    lastCell.value =
-      'Ответственное лицо __________________ (подпись, фамилия, инициалы)';
-    let l = 11;
-    while (l < lastRow - 2) {
-      sheet.getCell('A' + l).border = border;
-      sheet.getCell('B' + l).border = border;
-      sheet.getCell('C' + l).border = border;
-      sheet.getCell('D' + l).border = border;
-      sheet.getCell('E' + l).border = border;
-      sheet.getCell('F' + l).border = border;
-      sheet.getCell('G' + l).border = border;
-      sheet.getCell('H' + l).border = border;
-      sheet.getCell('I' + l).border = border;
-      sheet.getCell('J' + l).border = border;
-      l++;
-    }
-    return workbook.xlsx
-      .writeBuffer()
-      .then((buffer) =>
-        FileSaver.saveAs(new Blob([buffer]), `${Date.now()}_feedback.xlsx`)
-      )
-      .catch((err) => console.log('Error writing excel export', err));
-  };
 
   const clear = () => {
     setDanger776({});
@@ -718,6 +465,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               onChange={handleChange}
               list='obj'
               name='obj'
+              value={inputValue.obj}
             ></input>
             <datalist id='obj'>
               {listObj.map((item) => (
@@ -733,6 +481,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               onChange={handleChange}
               list='source'
               name='source'
+              value={inputValue.source}
             ></input>
             <datalist id='source'>
               {listSource.map((item) => (
@@ -746,6 +495,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               className='form__input standart'
               name='job'
               onChange={handleChange}
+              value={inputValue.job}
             />
           </label>
           <label className='label'>
@@ -754,10 +504,15 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               className='form__input standart'
               name='subdivision'
               onChange={handleChange}
+              value={inputValue.subdivision}
             />
           </label>
 
-          <button className='button copy' type='button'>
+          <button
+            className='button copy'
+            type='button'
+            onClick={handleCopyData}
+          >
             Копия
           </button>
         </section>
@@ -841,7 +596,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
               </label>
             </SpoilerBox>
           </div>
-          <button className='button copy' type='button'>
+          <button className='button copy' type='button' onClick={handleCopyOPR}>
             Копия
           </button>
         </section>
@@ -919,7 +674,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
           <button
             className='button button__table'
             type='button'
-            onClick={table}
+            onClick={()=>baseTable(formValue)}
           >
             Базовая таблица
           </button>
@@ -929,7 +684,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
           <button
             className='button button__table'
             type='button'
-            onClick={()=>mapOPR(formValue)}
+            onClick={() => mapOPR(formValue)}
           >
             Карты опасностей
           </button>
@@ -939,7 +694,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
           <button
             className='button button__table'
             type='button'
-            onClick={tableReport}
+            onClick={()=>normSiz(formValue)}
           >
             Нормы выдачи СИЗ
           </button>
