@@ -250,7 +250,9 @@
   background-color: #fff;
   border: none;
 }
-
+.input {
+  text-align: center;
+}
 /*----REACT-SELECT----*/
 .react-select-container {
   background-color: rgba(243, 244, 246, 1) !important;

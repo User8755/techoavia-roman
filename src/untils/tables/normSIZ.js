@@ -226,7 +226,7 @@ const normSiz = (el) => {
   return workbook.xlsx
     .writeBuffer()
     .then((buffer) =>
-      FileSaver.saveAs(new Blob([buffer]), `${Date.now()}_feedback.xlsx`)
+      FileSaver.saveAs(new Blob([buffer]), `${Date.now()}_Нормы выдачи СИЗ.xlsx`)
     )
     .catch((err) => console.log('Error writing excel export', err));
 };

@@ -3,47 +3,28 @@ var FileSaver = require('file-saver');
 const mapOPR = async (arr) => {
   const workbook = new Excel.Workbook();
   const sheet = workbook.addWorksheet('sheet');
-  //   sheet.columns = [
-  //     { header: '1', key: 'number', width: 9 },
-  //     { header: '2', key: 'number', width: 9 },
-  //     { header: '3', key: 'number', width: 9 },
-  //     { header: '4', key: 'number', width: 9 },
-  //     { header: '5', key: 'number', width: 9 },
-  //     { header: '6', key: 'number', width: 9 },
-  //     { header: '7', key: 'number', width: 9 },
-  //     { header: '8', key: 'number', width: 9 },
-  //     { header: '9', key: 'number', width: 9 },
-  //     { header: '10', key: 'number', width: 9 },
-  //     { header: '11', key: 'number', width: 9 },
-  //     { header: '12', key: 'number', width: 9 },
-  //     { header: '13', key: 'number', width: 9 }
-  //   ]
-  // let i = 0
-  //     while (i < 28) {
-  //       sheet.insertRow(1);
-  //       i++;
-  //     }
-  sheet.getColumn(1).width = 2
-  sheet.getColumn(2).width = 4.5
-  sheet.getColumn(3).width = 4.5
-  sheet.getColumn(4).width = 9
-  sheet.getColumn(5).width = 17.5
-  sheet.getColumn(6).width = 8.2
-  sheet.getColumn(7).width = 21.7
-  sheet.getColumn(8).width = 12.8
-  sheet.getColumn(9).width = 6.58
-  sheet.getColumn(10).width = 11
-  sheet.getColumn(11).width = 8.7
-  sheet.getColumn(12).width = 8.7
-  sheet.getColumn(13).width = 8.7
-  sheet.getColumn(14).width = 12.7
-  sheet.getColumn(15).width = 13
-  sheet.getColumn(16).width = 11.7
-  sheet.getColumn(17).width = 12.2
-  sheet.getColumn(18).width = 7.7
-  sheet.getColumn(19).width = 8.4
-  sheet.getColumn(20).width = 9.8
-  sheet.getColumn(21).width = 8.5
+
+  sheet.getColumn(1).width = 2;
+  sheet.getColumn(2).width = 4.5;
+  sheet.getColumn(3).width = 4.5;
+  sheet.getColumn(4).width = 9;
+  sheet.getColumn(5).width = 17.5;
+  sheet.getColumn(6).width = 8.2;
+  sheet.getColumn(7).width = 21.7;
+  sheet.getColumn(8).width = 12.8;
+  sheet.getColumn(9).width = 6.58;
+  sheet.getColumn(10).width = 11;
+  sheet.getColumn(11).width = 8.7;
+  sheet.getColumn(12).width = 8.7;
+  sheet.getColumn(13).width = 8.7;
+  sheet.getColumn(14).width = 12.7;
+  sheet.getColumn(15).width = 13;
+  sheet.getColumn(16).width = 11.7;
+  sheet.getColumn(17).width = 12.2;
+  sheet.getColumn(18).width = 7.7;
+  sheet.getColumn(19).width = 8.4;
+  sheet.getColumn(20).width = 9.8;
+  sheet.getColumn(21).width = 8.5;
 
   // мердж ячеек
   sheet.mergeCells('D2', 'S2');
@@ -180,17 +161,23 @@ const mapOPR = async (arr) => {
   R29.style = border;
   T29.style = border;
 
-const cell = (c) => {
-  return sheet.getCell(c + i)
-}
+  const cell = (c) => {
+    return sheet.getCell(c + i);
+  };
 
+  let x = 1
+  while (x !== 5) {
+    const currentCell = sheet.getColumn(x).letter
+    console.log(currentCell)
+    x++
+  }
   let i = 30;
   arr.forEach((e) => {
     sheet.getCell('B' + i).value = e.number;
-    sheet.getCell('D' + i).value = e.dangerGroupId;
-    sheet.getCell('E' + i).value = e.dangerGroup;
-    sheet.getCell('F' + i).value = e.dangerEventID;
-    sheet.getCell('G' + i).value = e.dangerEvent;
+    sheet.getCell('D' + i).value = e.danger776Id;
+    sheet.getCell('E' + i).value = e.danger776;
+    sheet.getCell('F' + i).value = e.dangerEvent776Id;
+    sheet.getCell('G' + i).value = e.dangerEvent776;
     sheet.getCell('H' + i).value = e.obj;
     sheet.getCell('J' + i).value = e.source;
     sheet.getCell('L' + i).value = e.existingRiskManagement;
@@ -218,13 +205,13 @@ const cell = (c) => {
     sheet.getCell('Q' + i).style = border;
     sheet.getCell('R' + i).style = border;
     sheet.getCell('T' + i).style = border;
-    cell('C').style = border
-    cell('I').style = border
-    cell('K').style = border
-    cell('M').style = border
-    cell('N').style = border
-    cell('S').style = border
-    cell('U').style = border
+    cell('C').style = border;
+    cell('I').style = border;
+    cell('K').style = border;
+    cell('M').style = border;
+    cell('N').style = border;
+    cell('S').style = border;
+    cell('U').style = border;
     i++;
   });
 
@@ -2569,10 +2556,55 @@ const cell = (c) => {
     alignment: { horizontal: 'center', vertical: 'middle', wrapText: true },
   };
 
+  const stayleFooterTable = {
+    alignment: {
+      vertical: 'middle',
+      horizontal: 'center',
+      wrapText: 'true',
+    },
+    border: {
+      left: { style: 'thin' },
+      right: { style: 'thin' },
+      top: { style: 'thin' },
+      bottom: { style: 'thin' },
+    },
+  };
+
+  const lastRow = sheet.lastRow;
+  const lastCellMerge = lastRow._number + 1;
+  const lastB = sheet.getCell('B' + lastCellMerge);
+  lastB.style = {
+    border: {
+      left: { style: 'thin' },
+      right: { style: 'thin' },
+      top: { style: 'thin' },
+      bottom: { style: 'thin' },
+    },
+  };
+  const lastO = sheet.getCell('O' + lastCellMerge);
+  const lastP = sheet.getCell('P' + lastCellMerge);
+  const lastQ = sheet.getCell('Q' + lastCellMerge);
+  const lastR = sheet.getCell('R' + lastCellMerge);
+  const lastT = sheet.getCell('T' + lastCellMerge);
+
+  lastO.style = stayleFooterTable;
+  lastP.style = stayleFooterTable;
+  lastQ.style = stayleFooterTable;
+  lastR.style = stayleFooterTable;
+  lastT.style = stayleFooterTable;
+
+  sheet.mergeCells('B' + lastCellMerge, 'N' + lastCellMerge);
+  sheet.mergeCells('R' + lastCellMerge, 'S' + lastCellMerge);
+  sheet.mergeCells('T' + lastCellMerge, 'U' + lastCellMerge);
+  lastB.value =
+    'Итоговая оценка уровня профессионального риска на рабочем месте';
   return workbook.xlsx
     .writeBuffer()
     .then((buffer) =>
-      FileSaver.saveAs(new Blob([buffer]), `${Date.now()}_feedback.xlsx`)
+      FileSaver.saveAs(
+        new Blob([buffer]),
+        `${Date.now()}_Карты опасностей.xlsx`
+      )
     )
     .catch((err) => console.log('Error writing excel export', err));
 };

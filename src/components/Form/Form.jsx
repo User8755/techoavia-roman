@@ -14,6 +14,7 @@ import SpoilerBox from '../SpoilerBox/SpoilerBox';
 import mapOPR from '../../untils/tables/mapOPR';
 import baseTable from '../../untils/tables/baseTable';
 import normSiz from '../../untils/tables/normSIZ';
+import ListHazards from '../../untils/tables/ListHazards';
 
 function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [isDangerGroup, setDangerGroup] = useState([]);
@@ -55,7 +56,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const ERROR = 'Ошибка';
   const [isRiskManagement, setRiskManagement] = useState([]);
   const [count, setCount] = useState(0);
-  const [subdivision, setSubdivision] = useState(false);
 
   // состояние спойлер бокса
   const [isOrder767, setOrder767] = useState(true);
@@ -246,9 +246,23 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     (item) => isDangerEvent776.label === item.dependence
   );
 
-  const handleFilter = (arr1, arr2) => {
-    //console.log(arr1.filter((item) => arr2.label === item.dependence));
-  };
+  // const handleFilter = (arr1, arr2) => {
+  //   return arr1.filter((item) => arr2.label === item.dependence);
+  // };
+
+  // const handlerSorted = (arr1, arr2) => {
+  //   const filter = arr1.filter((item) => arr2.label === item.dependence);
+  //   filter.sort(function (a, b) {
+  //     var nameA = a.label.toLowerCase(),
+  //       nameB = b.label.toLowerCase();
+  //     if (nameA < nameB)
+  //       //сортируем строки по возрастанию
+  //       return -1;
+  //     if (nameA > nameB) return 1;
+
+  //     return 0; // Никакой сортировки
+  //   });
+  // };
 
   // сортировка значений по алфавиту
   const sortedDanger776 = danget776.sort(function (a, b) {
@@ -325,7 +339,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     }
   };
 
-  console.log(value);
+  //console.log(value);
   const handleSubmit = (evt) => {
     evt.preventDefault();
     setCount(count + 1);
@@ -363,8 +377,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     }
   }, [selectedTipeSIZ]);
 
-
-
   const clear = () => {
     setDanger776({});
     setDangerEvent776({});
@@ -399,7 +411,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     setCheckboxSIZ(false);
     setRiskManagement('');
     document.querySelector('.form').reset();
-    setSubdivision(false);
   };
 
   const handleChange = (evt) => {
@@ -424,13 +435,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
       }
     });
   }, [value.danger776, value.dangerEvent776]);
-
-  useEffect(() => {
-    if (subdivision) {
-      setModal(true);
-      setModalChild('подразделение');
-    }
-  }, [setModal, setModalChild, subdivision]);
 
   return (
     <>
@@ -674,11 +678,15 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
           <button
             className='button button__table'
             type='button'
-            onClick={()=>baseTable(formValue)}
+            onClick={() => baseTable(formValue)}
           >
             Базовая таблица
           </button>
-          <button className='button button__table' type='button'>
+          <button
+            className='button button__table'
+            type='button'
+            onClick={() => ListHazards(formValue)}
+          >
             Реестр опасностей
           </button>
           <button
@@ -694,21 +702,12 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
           <button
             className='button button__table'
             type='button'
-            onClick={()=>normSiz(formValue)}
+            onClick={() => normSiz(formValue)}
           >
             Нормы выдачи СИЗ
           </button>
           <p className='total'>всего записей: {count}</p>
           <div className='line-horiz'></div>
-          {/*<button onClick={table} className='button button__table'>
-            Выгрузить в таблицу
-          </button>
-          <button onClick={tableReport} className='button button__table'>
-            Выгрузить в форму
-          </button>
-          <button onClick={mapOPR} className='button button__table'>
-            Карта опасностей
-          </button>*/}
         </section>
         <section className='risk risk-opr'>
           <div className='risk__labels'>
@@ -734,7 +733,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             </label>
             <label className='label box'>
               ИПР:
-              <input className='form__input input' type='text' value={ipr} />
+              <span className='form__input input'>{ipr}</span>
             </label>
             <span className=' label risk__attitude'>Отношение к риску:</span>
             <span className='risk__attitude-text'>{riskAttitude}</span>
@@ -804,86 +803,12 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             </label>
             <label className='label box'>
               ИПР1:
-              <input className='form__input input' type='text' value={ipr1} />
+              <span className='form__input input'>{ipr1}</span>
             </label>
             <span className=' label risk__attitude'>Отношение к риску:</span>
             <span className='risk__attitude-text'>{riskAttitude1}</span>
           </div>
         </section>
-
-        {/*
-        
-<div className='form__container'>
-            <div className='wrapper'>
-              <span className='wrapper_text'>ИПР: {ipr}</span>
-              <span className='wrapper_text'>Уровень риска: {risk}</span>
-              <span className='wrapper_text'>
-                Приемлемость: {acceptability}
-              </span>
-              
-            </div>
-          </div>
-
-
-        <SpoilerBox
-          title={'ИПР1'}
-          stateSpoileBox={isIPR}
-          toggleSpoileBox={setIPR}
-        >
-          
-          <div className='form__container'>
-            <div className='wrapper'>
-              <span className='wrapper_text'>ИПР1: {ipr1}</span>
-              <span className='wrapper_text'>Уровень риска1: {risk1}</span>
-              <span className='wrapper_text'>
-                Приемлемость1: {acceptability1}
-              </span>
-              <span className='wrapper_text'>
-                Отношение к риску1: {riskAttitude1}
-              </span>
-            </div>
-          </div>
-        </SpoilerBox>
-
-       
-              */}
-        {/* ---старые чек-боксы---
-          
-          <div className='label__checkbox'>
-            <label className='checkbox__label'>
-              <input
-                type='checkbox'
-                name='profession'
-                className='form__checkbox visually-hidden'
-                onClick={hendleOpenModal}
-              />
-              <span className='form__pseudo-checkbox'></span>
-              <span className='checkbox__label-text'>
-                Должность отсутствует
-              </span>
-            </label>
-            <label className='checkbox__label'>
-              <input
-                type='checkbox'
-                name='siz'
-                className='form__checkbox visually-hidden'
-                onClick={(evt) => setRequiredSIZ(evt.target.checked)}
-              />
-              <span className='form__pseudo-checkbox'></span>
-              <span className='checkbox__label-text'>Обязательные СИЗ</span>
-            </label>
-            <label className='checkbox__label'>
-              <input
-                type='checkbox'
-                name='siz'
-                className='form__checkbox visually-hidden'
-                onChange={(evt) => setSubdivision(evt.target.checked)}
-                checked={subdivision}
-              />
-              <span className='form__pseudo-checkbox'></span>
-              <span className='checkbox__label-text'>Подразделение</span>
-            </label>
-  </div>*/}
       </form>
     </>
   );
