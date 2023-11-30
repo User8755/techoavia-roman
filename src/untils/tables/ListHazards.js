@@ -67,11 +67,33 @@ const ListHazards = (arr) => {
   sheet.getColumn(3).width = 20;
   sheet.getColumn(4).width = 8;
   sheet.getColumn(5).width = 20;
-
+  const row = sheet.lastRow;
   let i = 17;
   let col = 6;
-
-  arr.forEach((e) => {
+  let val = 17;
+  let t = 6;
+  const cellValue = [];
+  const table = {};
+  const table2 = {};
+  const res = arr.filter(
+    ({ dangerEvent776Id }) =>
+      !table[dangerEvent776Id] && (table[dangerEvent776Id] = 1)
+  );
+  const resProff = arr.filter(
+    ({ proff }) =>
+      !table2[proff] && (table2[proff] = 1)
+  );
+  // const arr = [
+  //   { proff: 1, dangerEvent776Id: 1 },
+  //   { proff: 'sada', dangerEvent776Id: 1 },
+  //   { proff: 'asdasda', dangerEvent776Id: 1 },
+  //   { proff: 2, dangerEvent776Id: 2 },
+  //   { proff: 1, dangerEvent776Id: 1 },
+  //   { proff: 2, dangerEvent776Id: 2 },
+  //   { proff: 1, dangerEvent776Id: 1 },
+  // ];
+  console.log(resProff)
+  res.forEach((e) => {
     sheet.getCell('A' + i).value = e.number;
     sheet.getCell('B' + i).value = e.danger776Id;
     sheet.getCell('C' + i).value = e.danger776;
@@ -83,19 +105,44 @@ const ListHazards = (arr) => {
     sheet.getCell('C' + i).style = border;
     sheet.getCell('D' + i).style = border;
     sheet.getCell('E' + i).style = border;
-    
-    sheet.getRow(16).eachCell(function (cell) {
-      if (cell.value !== e.proff) {
-        
-        const currentCell = sheet.getColumn(col).letter;
-        sheet.getCell(currentCell+16).value = e.proff
-        sheet.getCell(currentCell+16).style = textRotation
-        sheet.getCell(currentCell+16).width = 20
-      }
-    });
-    col++;
+    // const currentCell = sheet.getColumn(col).letter;
+    // sheet.getCell(currentCell + 16).value = resProff.proff;
+    //   sheet.getCell(currentCell + 16).style = border;
+    //   sheet.getCell(currentCell + 16).width = 20;
+    //   col++;
+
+    // sheet.getRow(16).eachCell(function (cell) {
+    //   cellValue.push(cell.value);
+    // });
+
+    // if (!cellValue.includes(e.proff)) {
+    //   const currentCell = sheet.getColumn(col).letter;
+    //   sheet.getCell(currentCell + 16).value = e.proff;
+    //   sheet.getCell(currentCell + 16).style = border;
+    //   sheet.getCell(currentCell + 16).width = 20;
+    //   col++;
+    // }
+
+    // const currentCell1 = sheet.getColumn(t).letter;
+
+    //   console.log(sheet.getCell(currentCell1 + i))
+    //   if (sheet.getCell('D' + val).value === e.dangerEvent776Id) {
+    //     sheet.getCell(currentCell1 + i).value = '+';
+    //     //console.log(row._cells.length);
+    // }
+
+    // t++;
     i++;
+    //val++;
   });
+
+  resProff.forEach(e=>{
+    const currentCell = sheet.getColumn(col).letter;
+    sheet.getCell(currentCell + 16).value = e.proff;
+      sheet.getCell(currentCell + 16).style = border;
+      sheet.getCell(currentCell + 16).width = 20;
+      col++;
+  })
 
   return workbook.xlsx
     .writeBuffer()
