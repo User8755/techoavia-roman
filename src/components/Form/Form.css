@@ -172,7 +172,10 @@
 .label.box {
   display: flex;
   flex-direction: column;
-
+}
+.label.box.comments {
+  width: 100%;
+  grid-column: 1 / span 3;
 }
 .risk {
   width: 600px;
@@ -250,8 +253,15 @@
   background-color: #fff;
   border: none;
 }
+.form__input.input {
+  text-align: left;
+}
 .input {
   text-align: center;
+}
+.form__input.input.ipr {
+  padding: 0 8px;
+  line-height: var(--input-height);
 }
 /*----REACT-SELECT----*/
 .react-select-container {

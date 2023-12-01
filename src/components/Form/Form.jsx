@@ -733,11 +733,22 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             </label>
             <label className='label box'>
               ИПР:
-              <span className='form__input input'>{ipr}</span>
+              <span className='form__input input ipr'>{ipr}</span>
             </label>
             <span className=' label risk__attitude'>Отношение к риску:</span>
             <span className='risk__attitude-text'>{riskAttitude}</span>
+
+            <label className='label box comments'>
+              Комментарии:
+              <input
+                name='comments'
+                type='text'
+                className='form__input input'
+                onChange={handleChange}
+              ></input>
+            </label>
           </div>
+
           <div className='buttons_wrapper'>
             <input type='submit' className='button send'></input>
             <input
@@ -803,7 +814,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             </label>
             <label className='label box'>
               ИПР1:
-              <span className='form__input input'>{ipr1}</span>
+              <span className='form__input input ipr'>{ipr1}</span>
             </label>
             <span className=' label risk__attitude'>Отношение к риску:</span>
             <span className='risk__attitude-text'>{riskAttitude1}</span>
