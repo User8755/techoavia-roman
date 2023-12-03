@@ -73,6 +73,17 @@ const ListHazards = (arr) => {
   let val = 17;
   let t = 6;
   const cellValue = [];
+
+  // const arr = [
+  //   { proff: 1, dangerEvent776Id: 1 },
+  //   { proff: 'sada', dangerEvent776Id: 1 },
+  //   { proff: 'asdasda', dangerEvent776Id: 1 },
+  //   { proff: 2, dangerEvent776Id: 2 },
+  //   { proff: 1, dangerEvent776Id: 1 },
+  //   { proff: 2, dangerEvent776Id: 2 },
+  //   { proff: 1, dangerEvent776Id: 1 },
+  // ];
+
   const table = {};
   const table2 = {};
   const res = arr.filter(
@@ -83,16 +94,7 @@ const ListHazards = (arr) => {
     ({ proff }) =>
       !table2[proff] && (table2[proff] = 1)
   );
-  // const arr = [
-  //   { proff: 1, dangerEvent776Id: 1 },
-  //   { proff: 'sada', dangerEvent776Id: 1 },
-  //   { proff: 'asdasda', dangerEvent776Id: 1 },
-  //   { proff: 2, dangerEvent776Id: 2 },
-  //   { proff: 1, dangerEvent776Id: 1 },
-  //   { proff: 2, dangerEvent776Id: 2 },
-  //   { proff: 1, dangerEvent776Id: 1 },
-  // ];
-  console.log(resProff)
+
   res.forEach((e) => {
     sheet.getCell('A' + i).value = e.number;
     sheet.getCell('B' + i).value = e.danger776Id;
@@ -143,6 +145,40 @@ const ListHazards = (arr) => {
       sheet.getCell(currentCell + 16).width = 20;
       col++;
   })
+
+  // sheet.getRow(16).eachCell(function (cell) {
+    
+  //   const proffFilter = arr.filter((i)=> i.proff === cell.value)
+  //   console.log(proffFilter)
+  //   if(proffFilter>=0) {
+  //     console.log(cell._column.letter)
+  //     proffFilter.forEach(e=>{
+  //       console.log(e.dangerEvent776Id)
+  //       if(e.dangerEvent776Id === sheet.getCell('D' + val)) {
+  //         console.log(cell)
+  //         sheet.getCell(cell._column.letter + val).value = '+'
+  //       }
+  //       val++
+  //     })
+  //   }
+
+  // });
+  arr.forEach(e=>{
+    sheet.getRow(16).eachCell(function (cell) {
+      
+      const proffFilter = arr.filter((i)=> i.proff === cell.value)
+      console.log(proffFilter)
+      proffFilter.forEach(e=>{
+              if(e.dangerEvent776Id === sheet.getCell('D' + val).value) {
+                sheet.getCell(cell._column.letter + val).value = '+'
+                sheet.getCell(cell._column.letter + val).style = border;
+              }
+              
+            })
+    })
+    val++
+  })
+
 
   return workbook.xlsx
     .writeBuffer()

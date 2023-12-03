@@ -44,7 +44,7 @@ function ModalUpdata({
     const { value } = evt.target;
     setJob({ ...job, subdivision: value });
   };
-  console.log(job);
+
   const handleSubmitJob = (evt) => {
     evt.preventDefault();
     document.querySelector('.profession').reset();
@@ -63,7 +63,7 @@ function ModalUpdata({
       setlistSubdivision([...listSubdivision, job.subdivision]);
     }
   };
-  console.log(listSubdivision);
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     if (modalChild === 'Группа опасности') {
