@@ -67,22 +67,9 @@ const ListHazards = (arr) => {
   sheet.getColumn(3).width = 20;
   sheet.getColumn(4).width = 8;
   sheet.getColumn(5).width = 20;
-  const row = sheet.lastRow;
   let i = 17;
   let col = 6;
   let val = 17;
-  let t = 6;
-  const cellValue = [];
-
-  // const arr = [
-  //   { proff: 1, dangerEvent776Id: 1 },
-  //   { proff: 'sada', dangerEvent776Id: 1 },
-  //   { proff: 'asdasda', dangerEvent776Id: 1 },
-  //   { proff: 2, dangerEvent776Id: 2 },
-  //   { proff: 1, dangerEvent776Id: 1 },
-  //   { proff: 2, dangerEvent776Id: 2 },
-  //   { proff: 1, dangerEvent776Id: 1 },
-  // ];
 
   const table = {};
   const table2 = {};
@@ -91,8 +78,7 @@ const ListHazards = (arr) => {
       !table[dangerEvent776Id] && (table[dangerEvent776Id] = 1)
   );
   const resProff = arr.filter(
-    ({ proff }) =>
-      !table2[proff] && (table2[proff] = 1)
+    ({ proff }) => !table2[proff] && (table2[proff] = 1)
   );
 
   res.forEach((e) => {
@@ -107,78 +93,31 @@ const ListHazards = (arr) => {
     sheet.getCell('C' + i).style = border;
     sheet.getCell('D' + i).style = border;
     sheet.getCell('E' + i).style = border;
-    // const currentCell = sheet.getColumn(col).letter;
-    // sheet.getCell(currentCell + 16).value = resProff.proff;
-    //   sheet.getCell(currentCell + 16).style = border;
-    //   sheet.getCell(currentCell + 16).width = 20;
-    //   col++;
 
-    // sheet.getRow(16).eachCell(function (cell) {
-    //   cellValue.push(cell.value);
-    // });
-
-    // if (!cellValue.includes(e.proff)) {
-    //   const currentCell = sheet.getColumn(col).letter;
-    //   sheet.getCell(currentCell + 16).value = e.proff;
-    //   sheet.getCell(currentCell + 16).style = border;
-    //   sheet.getCell(currentCell + 16).width = 20;
-    //   col++;
-    // }
-
-    // const currentCell1 = sheet.getColumn(t).letter;
-
-    //   console.log(sheet.getCell(currentCell1 + i))
-    //   if (sheet.getCell('D' + val).value === e.dangerEvent776Id) {
-    //     sheet.getCell(currentCell1 + i).value = '+';
-    //     //console.log(row._cells.length);
-    // }
-
-    // t++;
     i++;
-    //val++;
   });
 
-  resProff.forEach(e=>{
+  resProff.forEach((e) => {
     const currentCell = sheet.getColumn(col).letter;
     sheet.getCell(currentCell + 16).value = e.proff;
-      sheet.getCell(currentCell + 16).style = border;
-      sheet.getCell(currentCell + 16).width = 20;
-      col++;
-  })
+    sheet.getCell(currentCell + 16).style = border;
+    sheet.getCell(currentCell + 16).width = 20;
+    col++;
+  });
 
-  // sheet.getRow(16).eachCell(function (cell) {
-    
-  //   const proffFilter = arr.filter((i)=> i.proff === cell.value)
-  //   console.log(proffFilter)
-  //   if(proffFilter>=0) {
-  //     console.log(cell._column.letter)
-  //     proffFilter.forEach(e=>{
-  //       console.log(e.dangerEvent776Id)
-  //       if(e.dangerEvent776Id === sheet.getCell('D' + val)) {
-  //         console.log(cell)
-  //         sheet.getCell(cell._column.letter + val).value = '+'
-  //       }
-  //       val++
-  //     })
-  //   }
-
-  // });
-  arr.forEach(e=>{
+  arr.forEach(() => {
     sheet.getRow(16).eachCell(function (cell) {
-      
-      const proffFilter = arr.filter((i)=> i.proff === cell.value)
-      console.log(proffFilter)
-      proffFilter.forEach(e=>{
-              if(e.dangerEvent776Id === sheet.getCell('D' + val).value) {
-                sheet.getCell(cell._column.letter + val).value = '+'
-                sheet.getCell(cell._column.letter + val).style = border;
-              }
-              
-            })
-    })
-    val++
-  })
-
+      const proffFilter = arr.filter((i) => i.proff === cell.value);
+      console.log(proffFilter);
+      proffFilter.forEach((e) => {
+        if (e.dangerEvent776Id === sheet.getCell('D' + val).value) {
+          sheet.getCell(cell._column.letter + val).value = '+';
+          sheet.getCell(cell._column.letter + val).style = border;
+        }
+      });
+    });
+    val++;
+  });
 
   return workbook.xlsx
     .writeBuffer()

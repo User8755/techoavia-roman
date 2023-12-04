@@ -16,7 +16,7 @@ import baseTable from '../../untils/tables/baseTable';
 import normSiz from '../../untils/tables/normSIZ';
 import ListHazards from '../../untils/tables/ListHazards';
 
-function Form({ setModal, setModalChild, job, setJob, listJob }) {
+function Form() {
   const [isDangerGroup, setDangerGroup] = useState([]);
   const [isDanger, setisDanger] = useState([]);
   const [isDanger776, setDanger776] = useState([]);
@@ -37,7 +37,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
   const [selectedTipeSIZ, setSelectedTipeSIZ] = useState([]);
   const [isProff, setProff] = useState([]);
   const [checkboxSiz, setCheckboxSIZ] = useState(false); // чекбокс доп средства
-  const [commit, setCommit] = useState('');
   const [inputValue, setInputValue] = useState({
     probability: '', //Вероятность
     heaviness: '', // Тяжесть
@@ -51,6 +50,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     source: '', // источник
     job: '', // Должность
     subdivision: '', // Подразделение
+    commit: '', // Комментарий
   });
   const [requiredSIZ, setRequiredSIZ] = useState(false);
   const ERROR = 'Ошибка';
@@ -153,7 +153,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         typeSIZ: selectedTipeSIZ.label,
         speciesSIZ: selectedTipeSIZ.speciesSIZ,
         issuanceRate: selectedTipeSIZ.issuanceRate,
-        commit: commit,
+        commit: inputValue.commit,
         proffSIZ: isProff.SIZ,
         danger776: isDanger776.label,
         danger776Id: isDanger776.ID,
@@ -191,7 +191,7 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
         typeSIZ: selectedTipeSIZ.label,
         speciesSIZ: selectedTipeSIZ.speciesSIZ,
         issuanceRate: selectedTipeSIZ.issuanceRate,
-        commit: commit,
+        commit: inputValue.commit,
         proffSIZ: isProff.SIZ,
         danger776: isDanger776.label,
         danger776Id: isDanger776.ID,
@@ -208,7 +208,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     acceptability,
     acceptability1,
     checkboxSiz,
-    commit,
     inputValue,
     ipr,
     ipr1,
@@ -393,8 +392,6 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
     setSelectedTipeSIZ('');
     setObj('');
     setSource('');
-    setJob('');
-    setCommit('');
     setRequiredSIZ(false);
     setIpr(0);
     setIpr1(0);
@@ -741,10 +738,11 @@ function Form({ setModal, setModalChild, job, setJob, listJob }) {
             <label className='label box comments'>
               Комментарии:
               <input
-                name='comments'
+                name='commit'
                 type='text'
                 className='form__input input'
                 onChange={handleChange}
+                value={inputValue.commit}
               ></input>
             </label>
           </div>
