@@ -4,6 +4,8 @@ const ListHazards = (arr) => {
   const workbook = new Excel.Workbook();
   const sheet = workbook.addWorksheet('sheet');
 
+  arr.forEach((i) => (i['job1'] = i.job || i.proff));
+
   const cellA16 = sheet.getCell('A16');
   const cellB16 = sheet.getCell('B16');
   const cellC16 = sheet.getCell('C16');
@@ -78,7 +80,7 @@ const ListHazards = (arr) => {
       !table[dangerEvent776Id] && (table[dangerEvent776Id] = 1)
   );
   const resProff = arr.filter(
-    ({ proff }) => !table2[proff] && (table2[proff] = 1)
+    ({ job1 }) => !table2[job1] && (table2[job1] = 1)
   );
 
   res.forEach((e) => {
@@ -99,7 +101,8 @@ const ListHazards = (arr) => {
 
   resProff.forEach((e) => {
     const currentCell = sheet.getColumn(col).letter;
-    sheet.getCell(currentCell + 16).value = e.proff;
+
+    sheet.getCell(currentCell + 16).value = e.job1;
     sheet.getCell(currentCell + 16).style = border;
     sheet.getCell(currentCell + 16).width = 20;
     col++;
@@ -107,8 +110,7 @@ const ListHazards = (arr) => {
 
   arr.forEach(() => {
     sheet.getRow(16).eachCell(function (cell) {
-      const proffFilter = arr.filter((i) => i.proff === cell.value);
-      console.log(proffFilter);
+      const proffFilter = arr.filter((i) => i.job1 === cell.value);
       proffFilter.forEach((e) => {
         if (e.dangerEvent776Id === sheet.getCell('D' + val).value) {
           sheet.getCell(cell._column.letter + val).value = '+';

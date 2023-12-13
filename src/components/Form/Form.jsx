@@ -15,6 +15,7 @@ import mapOPR from '../../untils/tables/mapOPR';
 import baseTable from '../../untils/tables/baseTable';
 import normSiz from '../../untils/tables/normSIZ';
 import ListHazards from '../../untils/tables/ListHazards';
+import listOfMeasures from '../../untils/tables/ListOfMeasures';
 
 function Form() {
   const [isDangerGroup, setDangerGroup] = useState([]);
@@ -202,6 +203,7 @@ function Form() {
         standart: selectedTipeSIZ.standart,
         OperatingLevel: selectedTipeSIZ.OperatingLevel,
         periodicity: inputValue.periodicity,
+
       });
     }
   }, [
@@ -337,7 +339,7 @@ function Form() {
       setDanger776(JSON.parse(localStorage.getItem('Danger776')));
     }
   };
-
+  console.log(formValue)
   //console.log(value);
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -363,6 +365,7 @@ function Form() {
     localStorage.setItem('DangerEvent', JSON.stringify(isDangerEvent));
     localStorage.setItem('DangerGroup', JSON.stringify(isDangerGroup));
     clear();
+    
   };
   const [additionalMeans, setAdditionalMeans] = useState(false);
   useEffect(() => {
@@ -568,7 +571,7 @@ function Form() {
                   className='react-select-container order'
                   classNamePrefix='react-select'
                   options={dangerGroup}
-                  onChange={(name) => setDangerGroup(name)}
+                  onChange={(name) => setDangerGroup(name.dangerID)}
                   placeholder={'Группа опасности'}
                   value={isDangerGroup}
                 />
@@ -693,7 +696,11 @@ function Form() {
           >
             Карты опасностей
           </button>
-          <button className='button button__table' type='button'>
+          <button
+            className='button button__table'
+            type='button'
+            onClick={() => listOfMeasures(formValue)}
+          >
             Меры управления без СИЗ
           </button>
           <button
