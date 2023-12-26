@@ -17,7 +17,7 @@ import normSiz from '../../untils/tables/normSIZ';
 import ListHazards from '../../untils/tables/ListHazards';
 import listOfMeasures from '../../untils/tables/ListOfMeasures';
 
-function Form() {
+function Form(props) {
   const [isDangerGroup, setDangerGroup] = useState([]);
   const [isDanger, setisDanger] = useState([]);
   const [isDanger776, setDanger776] = useState([]);
@@ -57,7 +57,6 @@ function Form() {
   const ERROR = 'Ошибка';
   const [isRiskManagement, setRiskManagement] = useState([]);
   const [count, setCount] = useState(0);
-
   // состояние спойлер бокса
   const [isOrder767, setOrder767] = useState(true);
   const [isOrder776, setOrder776] = useState(true);
@@ -130,45 +129,6 @@ function Form() {
   }, [ipr1, inputValue]);
 
   useEffect(() => {
-    if (checkboxSiz) {
-      setValue({
-        ...inputValue,
-        proff: isProff.label,
-        proffId: isProff.profId,
-        danger: isDangerGroup.label,
-        dangerID: isDangerGroup.dangerID,
-        dangerGroup: isDanger.label,
-        dangerGroupId: isDanger.groupId,
-        dangerEvent: isDangerEvent.label,
-        dangerEventID: isDangerEvent.groupId,
-        ipr: ipr,
-        riskAttitude: riskAttitude,
-        risk: risk,
-        acceptability: acceptability,
-        probability1: inputValue.probability1,
-        heaviness1: inputValue.heaviness1,
-        ipr1: ipr1,
-        riskAttitude1: riskAttitude1,
-        risk1: risk1,
-        acceptability1: acceptability1,
-        typeSIZ: selectedTipeSIZ.label,
-        speciesSIZ: selectedTipeSIZ.speciesSIZ,
-        issuanceRate: selectedTipeSIZ.issuanceRate,
-        commit: inputValue.commit,
-        proffSIZ: isProff.SIZ,
-        danger776: isDanger776.label,
-        danger776Id: isDanger776.ID,
-        dangerEvent776: isDangerEvent776.label,
-        dangerEvent776Id: isDangerEvent776.ID,
-        riskManagement: isRiskManagement.label,
-        riskManagementID: isRiskManagement.ID,
-        standart: selectedTipeSIZ.standart,
-        OperatingLevel: selectedTipeSIZ.OperatingLevel,
-        periodicity: inputValue.periodicity,
-        additionalMeans: selectedTipeSIZ.additionalMeans,
-        AdditionalIssuanceRate: selectedTipeSIZ.AdditionalIssuanceRate,
-      });
-    } else {
       setValue({
         ...inputValue,
         proff: isProff.label,
@@ -205,7 +165,6 @@ function Form() {
         periodicity: inputValue.periodicity,
 
       });
-    }
   }, [
     acceptability,
     acceptability1,
@@ -246,24 +205,6 @@ function Form() {
   const resRiskManagemet = riskManagement.filter(
     (item) => isDangerEvent776.label === item.dependence
   );
-
-  // const handleFilter = (arr1, arr2) => {
-  //   return arr1.filter((item) => arr2.label === item.dependence);
-  // };
-
-  // const handlerSorted = (arr1, arr2) => {
-  //   const filter = arr1.filter((item) => arr2.label === item.dependence);
-  //   filter.sort(function (a, b) {
-  //     var nameA = a.label.toLowerCase(),
-  //       nameB = b.label.toLowerCase();
-  //     if (nameA < nameB)
-  //       //сортируем строки по возрастанию
-  //       return -1;
-  //     if (nameA > nameB) return 1;
-
-  //     return 0; // Никакой сортировки
-  //   });
-  // };
 
   // сортировка значений по алфавиту
   const sortedDanger776 = danget776.sort(function (a, b) {
@@ -357,6 +298,10 @@ function Form() {
     if (!listSource.includes(source)) {
       setListSource([...listSource, source]);
     }
+    if(checkboxSiz) {
+      value['additionalMeans'] = selectedTipeSIZ.additionalMeans
+      value['AdditionalIssuanceRate'] = selectedTipeSIZ.AdditionalIssuanceRate
+    }
     localStorage.setItem('proff', JSON.stringify(isProff));
     localStorage.setItem('input', JSON.stringify(inputValue));
     localStorage.setItem('Danger776', JSON.stringify(isDanger776));
@@ -410,7 +355,7 @@ function Form() {
     });
     setCheckboxSIZ(false);
     setRiskManagement('');
-    document.querySelector('.form').reset();
+    document.querySelector('.form').reset()
   };
 
   const handleChange = (evt) => {
@@ -435,7 +380,7 @@ function Form() {
       }
     });
   }, [value.danger776, value.dangerEvent776]);
-
+console.log(dangerGroup)
   return (
     <>
       <form className='form' onSubmit={handleSubmit} required>
@@ -511,7 +456,6 @@ function Form() {
               value={inputValue.subdivision}
             />
           </label>
-
           <button
             className='button copy'
             type='button'
@@ -571,7 +515,7 @@ function Form() {
                   className='react-select-container order'
                   classNamePrefix='react-select'
                   options={dangerGroup}
-                  onChange={(name) => setDangerGroup(name.dangerID)}
+                  onChange={(name) => setDangerGroup(name)}
                   placeholder={'Группа опасности'}
                   value={isDangerGroup}
                 />
