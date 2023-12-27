@@ -9,35 +9,35 @@ const normSiz = (el) => {
     bottom: { style: 'thin' },
     right: { style: 'thin' },
   };
-  sheet.columns = [
-    {
-      header: '1',
-      key: 'number',
-    },
-    { header: '2', key: 'reportProff' },
-    { header: '3', key: 'typeSIZ' },
-    { header: '4', key: 'nameSIZ' },
-    { header: '5', key: 'issuanceRate' },
-    { header: '6', key: 'repotEvt' },
-    { header: '7', key: 'dangerGroupId' },
-    { header: '8', key: 'dangerGroup' },
-    { header: '9', key: 'dangerEventID' },
-    { header: '10', key: 'dangerEvent' },
-  ];
-  el.forEach((item) => {
-    item['reportProff'] = item.proff || item.job || item.subdivision;
-    item['nameSIZ'] =
-      item.typeSIZ + ' ' + item.standart + ' ' + item.OperatingLevel;
-    item['repotEvt'] = item.dangerEventID + ', Приложения 2 Приказа 767н';
-    console.log(item);
-    sheet.addRow(item);
-  });
+  // sheet.columns = [
+  //   {
+  //     header: '1',
+  //     key: 'number',
+  //   },
+  //   { header: '2', key: 'reportProff' },
+  //   { header: '3', key: 'typeSIZ' },
+  //   { header: '4', key: 'nameSIZ' },
+  //   { header: '5', key: 'issuanceRate' },
+  //   { header: '6', key: 'repotEvt' },
+  //   { header: '7', key: 'dangerGroupId' },
+  //   { header: '8', key: 'dangerGroup' },
+  //   { header: '9', key: 'dangerEventID' },
+  //   { header: '10', key: 'dangerEvent' },
+  // ];
+  // el.forEach((item) => {
+  //   item['reportProff'] = item.proff || item.job || item.subdivision;
+  //   item['nameSIZ'] =
+  //     item.typeSIZ + ' ' + item.standart + ' ' + item.OperatingLevel;
+  //   item['repotEvt'] = item.dangerEventID + ', Приложения 2 Приказа 767н';
+  //   console.log(item);
+  //   sheet.addRow(item);
+  // });
 
-  let i = 0;
-  while (i < 10) {
-    sheet.insertRow(1);
-    i++;
-  }
+  // let i = 0;
+  // while (i < 10) {
+  //   sheet.insertRow(1);
+  //   i++;
+  // }
 
   const font = { bold: true, name: 'Times New Roman', size: 11 };
   const alignment = { horizontal: 'right' };
@@ -133,6 +133,10 @@ const normSiz = (el) => {
   sheet.getColumn(9).width = 7;
   sheet.getColumn(10).width = 19.14;
 
+  const cell = (c, i) => {
+    return sheet.getCell(c + i);
+  };
+
   cell1.value = 'УТВЕРЖДАЮ:';
   cell2.value = 'Руководитель ___________ (подпись, инициалы, фамилия)';
   cell3.value = '«____» _____________ 20___г';
@@ -153,6 +157,48 @@ const normSiz = (el) => {
   cellI10.value = '№ опасного события из Приложения №2 к ЕТН';
   cellJ10.value =
     'Опасные события, представляющие угрозу жизни и здоровью работников';
+
+  cell('A', 11).value = 1;
+  cell('B', 11).value = 2;
+  cell('C', 11).value = 3;
+  cell('D', 11).value = 4;
+  cell('E', 11).value = 5;
+  cell('F', 11).value = 6;
+  cell('G', 11).value = 7;
+  cell('H', 11).value = 8;
+  cell('I', 11).value = 9;
+  cell('J', 11).value = 10;
+
+  let startRow = 12;
+
+  el.forEach((item) => {
+    cell('A', startRow).value = item.proffId;
+    cell('B', startRow).value = item.proff || item.job || item.subdivision;
+    cell('C', startRow).value = item.typeSIZ;
+    cell('D', startRow).value =
+      item.typeSIZ + ' ' + item.standart + ' ' + item.OperatingLevel;
+    cell('E', startRow).value = item.issuanceRate;
+    cell('F', startRow).value =
+      item.dangerEventID + ', Приложения 2 Приказа 767н';
+    cell('G', startRow).value = item.dangerGroupId;
+    cell('H', startRow).value = item.dangerGroup;
+    cell('I', startRow).value = item.dangerEventID;
+    cell('J', startRow).value = item.dangerEvent;
+    startRow++;
+    if (item.proffSIZ) {
+      item.proffSIZ.forEach((SIZ) => {
+        cell('A', startRow).value = item.proffId;
+        cell('D', startRow).value = SIZ.vid;
+        cell('E', startRow).value = SIZ.norm;
+        cell('F', startRow).value = 'Пункт 1 Приложения 1 Приказа 767н';
+        cell('G', startRow).value = item.dangerGroupId;
+        cell('H', startRow).value = item.dangerGroup;
+        cell('I', startRow).value = item.dangerEventID;
+        cell('J', startRow).value = item.dangerEvent;
+        startRow++;
+      });
+    }
+  });
 
   const row = sheet.lastRow;
   const lastRow = row._number + 3;
@@ -226,7 +272,10 @@ const normSiz = (el) => {
   return workbook.xlsx
     .writeBuffer()
     .then((buffer) =>
-      FileSaver.saveAs(new Blob([buffer]), `${Date.now()}_Нормы выдачи СИЗ.xlsx`)
+      FileSaver.saveAs(
+        new Blob([buffer]),
+        `${Date.now()}_Нормы выдачи СИЗ.xlsx`
+      )
     )
     .catch((err) => console.log('Error writing excel export', err));
 };

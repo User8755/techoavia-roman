@@ -380,7 +380,7 @@ function Form(props) {
       }
     });
   }, [value.danger776, value.dangerEvent776]);
-console.log(dangerGroup)
+
   return (
     <>
       <form className='form' onSubmit={handleSubmit} required>
